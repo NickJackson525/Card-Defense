@@ -8,34 +8,20 @@ public class Card : MonoBehaviour
     #region Variables
 
     public GameManager.CardType thisCardType; //The type of card this is
-    public int towerCost;                     //the resource cost required to play the card
-    public int towerDamage;                   //the damage that the tower does
-    public int towerRange;                    //the range of the tower
-    public string cardText;                   //the name of the card
+    public Text costText;                     //card cost text for this card object
+    public Text damageText;                   //card damage text for this card object
+    public Text rangeText;                    //card range text for this card object
+    public Text cardNameText;                 //card name text for this card object
+    public Image cardWatermark;               //watermark image for this card object
+    public Image cardBack;                    //card back image for this card object
+    public int cardLevel = 1;                 //used for upgrading cards
     public Sprite towerWatermark;             //the image on the card that represents its type
     public Sprite thisTower;                  //the sprite the tower this card represents
-    public Sprite thisCard;                          //the sprite for this card
-    public bool inHand = true;                //used to see where the card currently is
+    public Sprite thisCard;                   //the sprite for this card
     public bool isSpell = false;              //differenciation between spells and towers
-    Vector3 startPosition;                    //stores the start position of this card
-    const float outOfHandDist = 2f;           //the distance the card must be dragged in order to be played
-
-    #endregion
-
-    #region Constructor
-
-    public Card(GameManager.CardType type, int cost, int damage, int range, string text, Sprite watermark, Sprite tower, Sprite card, bool spell)
-    {
-        thisCardType = type;
-        towerCost = cost;
-        towerDamage = damage;
-        towerRange = range;
-        cardText = text;
-        towerWatermark = watermark;
-        thisTower = tower;
-        thisCard = card;
-        isSpell = spell;
-    }
+    public bool inHand = true;                //used to see where the card currently is
+    private const float outOfHandDist = 2f;   //the distance the card must be dragged in order to be played
+    private Vector3 startPosition;            //stores the start position of this card
 
     #endregion
 
@@ -61,11 +47,25 @@ public class Card : MonoBehaviour
         {
             //if it has then change the sprite to be that of the tower
             GetComponent<Image>().sprite = thisTower;
+
+            cardWatermark.gameObject.SetActive(false);
+            costText.gameObject.SetActive(false);
+            damageText.gameObject.SetActive(false);
+            rangeText.gameObject.SetActive(false);
+            cardNameText.gameObject.SetActive(false);
+            transform.localScale = new Vector3(.5f, .5f, 1f);
         }
         else
         {
             //if it hasn't then make the sprite the card
             GetComponent<Image>().sprite = thisCard;
+
+            cardWatermark.gameObject.SetActive(true);
+            costText.gameObject.SetActive(true);
+            damageText.gameObject.SetActive(true);
+            rangeText.gameObject.SetActive(true);
+            cardNameText.gameObject.SetActive(true);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
@@ -124,6 +124,13 @@ public class Card : MonoBehaviour
             {
                 //return the card to the hand
                 transform.position = startPosition;
+
+                cardWatermark.gameObject.SetActive(true);
+                costText.gameObject.SetActive(true);
+                damageText.gameObject.SetActive(true);
+                rangeText.gameObject.SetActive(true);
+                cardNameText.gameObject.SetActive(true);
+                transform.localScale = new Vector3(1f, 1f, 1f);
             }
             else
             {

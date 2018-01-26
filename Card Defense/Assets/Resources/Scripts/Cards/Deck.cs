@@ -7,9 +7,15 @@ public class Deck : MonoBehaviour
     #region Variables
 
     public GameObject cardSlot1;
+    public GameObject cardSlot2;
+    public GameObject cardSlot3;
+    public GameObject cardSlot4;
+    public GameObject card;
     public bool isFull = false;
-    private List<Card> deck = new List<Card>();
-    private Card tempCard;
+    private List<CardInfo> deck = new List<CardInfo>();
+    private CardInfo tempCard;
+    private GameObject createdCard;
+    private GameObject nextOpenCardSlot;
 
     #endregion
 
@@ -18,8 +24,9 @@ public class Deck : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
-	}
+        nextOpenCardSlot = cardSlot1;
+
+    }
 
     #endregion
 
@@ -30,15 +37,13 @@ public class Deck : MonoBehaviour
     {
 		if(Input.GetKeyUp(KeyCode.Alpha1))
         {
-            tempCard = new Card(GameManager.CardType.BasicFire, 1, 1, 1, "Basic Fire Tower", Resources.Load<Sprite>("Sprites/Cards/Fire Symbol"), Resources.Load<Sprite>("Sprites/Towers/Square"), Resources.Load<Sprite>("Sprites/Cards/Fire Card Back"), false);
+            tempCard = new CardInfo(GameManager.CardType.BasicFire, 1, 1, 1, "Basic Fire Tower", Resources.Load<Sprite>("Sprites/Cards/Fire Symbol"), Resources.Load<Sprite>("Sprites/Towers/Square"), Resources.Load<Sprite>("Sprites/Cards/Fire Card Back"), false);
             AddCardToDeck(tempCard);
         }
 
         if(Input.GetKeyUp(KeyCode.Alpha2))
         {
             Draw();
-            //tempCard = new Card(GameManager.CardType.FireResource, 0, 0, 0, "Fire Resource", Resources.Load<Sprite>("Sprites/Cards/Fire Symbol"), Resources.Load<Sprite>("Sprites/Towers/Square"), Resources.Load<Sprite>("Sprites/Cards/Fire Card Back"), false);
-            //AddCardToDeck(tempCard);
         }
 	}
 
@@ -46,7 +51,7 @@ public class Deck : MonoBehaviour
 
     #region Public Methods
 
-    public void AddCardToDeck(Card cardToAdd)
+    public void AddCardToDeck(CardInfo cardToAdd)
     {
         //check that the deck isn't full yet
         if (deck.Count < GameManager.deckSize)
@@ -73,15 +78,17 @@ public class Deck : MonoBehaviour
             tempCard = deck[0];
             deck.RemoveAt(0);
 
-            cardSlot1.GetComponent<Card>().thisCardType = tempCard.thisCardType;
-            cardSlot1.GetComponent<Card>().towerCost = tempCard.towerCost;
-            cardSlot1.GetComponent<Card>().towerDamage = tempCard.towerDamage;
-            cardSlot1.GetComponent<Card>().towerRange = tempCard.towerRange;
-            cardSlot1.GetComponent<Card>().cardText = tempCard.cardText;
-            cardSlot1.GetComponent<Card>().towerWatermark = tempCard.towerWatermark;
-            cardSlot1.GetComponent<Card>().thisTower = tempCard.thisTower;
-            cardSlot1.GetComponent<Card>().thisCard = tempCard.thisCard;
-            cardSlot1.GetComponent<Card>().isSpell = tempCard.isSpell;
+            createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
+            createdCard.GetComponent<Card>().thisCardType = tempCard.thisCardType;
+            createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
+            createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
+            createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
+            createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardText;
+            createdCard.GetComponent<Card>().cardWatermark.sprite = tempCard.towerWatermark;
+            createdCard.GetComponent<Card>().cardBack.sprite = tempCard.thisCard;
+            createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;
+            createdCard.GetComponent<Card>().thisTower = tempCard.thisTower;
+            createdCard.GetComponent<Card>().isSpell = tempCard.isSpell;
         }
     }
 
