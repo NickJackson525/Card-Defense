@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9c258ab3123db1e408b78d1c7f2a5cd1
+timeCreated: 1516938064
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pixel Dingbats-7
+  fontNames:
+  - Pixel Dingbats-7
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,6 +6,27 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
 
+    #region Enums
+
+    public enum CardType
+    {
+        //Fire card enums
+        FireResource, BasicFire, MediumFire, HeavyFire, FireballSpell,
+
+        //Ice card enums
+        IceResource, BasicIce, MediumIce, HeavyIce, IceStormSpell,
+
+        //Lightning card enums
+        LightningResource, BasicLightning, MediumLightning, HeavyLightning, LightningStrikeSpell,
+
+        //Void card enums
+        VoidResource, BasicVoid, MediumVoid, HeavyVoid, VoidPortalSpell,
+    }
+
+    #endregion
+
+    public const int deckSize = 20;
+
     #endregion
 
     #region Singleton
