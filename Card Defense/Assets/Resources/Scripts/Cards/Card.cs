@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
     #region Variables
 
     public GameManager.CardType thisCardType; //The type of card this is
+    public GameObject tower;
     public Text costText;                     //card cost text for this card object
     public Text damageText;                   //card damage text for this card object
     public Text rangeText;                    //card range text for this card object
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour
     public Sprite thisCard;                   //the sprite for this card
     public bool isSpell = false;              //differenciation between spells and towers
     public bool inHand = true;                //used to see where the card currently is
+    bool mouseHover = false;
     private const float outOfHandDist = 2f;   //the distance the card must be dragged in order to be played
     private Vector3 startPosition;            //stores the start position of this card
 
@@ -42,6 +44,23 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mouseHover)
+        {
+            //check if the left mouse button is being held
+            if (Input.GetMouseButton(0))
+            {
+                //the card is being played, so it will follow the mouse
+                inHand = false;
+                transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, 0), 1f);
+            }
+            else
+            {
+                //the card isn't being played
+                inHand = true;
+            }
+        }
+
         //check if the card has been dragged out of the hand
         if (transform.position.y >= (startPosition.y + 2f))
         {
@@ -53,7 +72,7 @@ public class Card : MonoBehaviour
             damageText.gameObject.SetActive(false);
             rangeText.gameObject.SetActive(false);
             cardNameText.gameObject.SetActive(false);
-            transform.localScale = new Vector3(.5f, .5f, 1f);
+            transform.localScale = new Vector3(.25f, .25f, 1f);
         }
         else
         {
@@ -91,9 +110,12 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        //jump back to the start position to indicate it is no longer selected
-        transform.position = startPosition;
-        GetComponent<Image>().sprite = thisCard;
+        if (!Input.GetMouseButton(0))
+        {
+            //jump back to the start position to indicate it is no longer selected
+            transform.position = startPosition;
+            GetComponent<Image>().sprite = thisCard;
+        }
     }
 
     #endregion
@@ -102,19 +124,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        //check if the left mouse button is being held
-        if (Input.GetMouseButton(0))
-        {
-            //the card is being played, so it will follow the mouse
-            inHand = false;
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        }
-        else
-        {
-            //the card isn't being played
-            inHand = true;
-        }
+        mouseHover = true;
 
         //check if the left mouse button was released, meaning the card was either played or put back in the hand
         if (Input.GetMouseButtonUp(0))
@@ -135,6 +145,8 @@ public class Card : MonoBehaviour
             else
             {
                 //play card
+                Instantiate(tower, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
         }
     }

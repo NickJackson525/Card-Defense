@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisCardType: 1
+  tower: {fileID: 1707545682993690, guid: 1a05629fb273f8d439ca27c5dca464c2, type: 2}
   costText: {fileID: 114540572180835182}
   damageText: {fileID: 114279809007981356}
   rangeText: {fileID: 114268523926724708}
