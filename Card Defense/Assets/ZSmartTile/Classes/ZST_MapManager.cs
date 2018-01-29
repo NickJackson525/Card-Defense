@@ -9,8 +9,6 @@ public class ZST_MapManager : object {
 	static ZST_MapManager() {}
 	private ZST_MapManager() {}
 
-	private bool isMidUpdate;
-
 	private HashSet<string> updateTags = new HashSet<string>();
 	private HashSet<ZST_SmartTile> tiles = new HashSet<ZST_SmartTile>();
 

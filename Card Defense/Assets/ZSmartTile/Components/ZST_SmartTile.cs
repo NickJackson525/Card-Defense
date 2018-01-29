@@ -384,8 +384,6 @@ public class ZST_SmartTile : MonoBehaviour {
 [CustomEditor(typeof(ZST_SmartTile))]
 public class ZST_SmartTileEditor : Editor {
 
-	private Vector3 positionPrev;
-
 	public override void OnInspectorGUI() {
 
 		DrawDefaultInspector();

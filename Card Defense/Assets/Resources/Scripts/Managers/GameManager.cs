@@ -8,6 +8,83 @@ public class GameManager
 
     public Dictionary<CardType, Dictionary<CardElement, string>> CardLibrary = new Dictionary<CardType, Dictionary<CardElement, string>>
     {
+        #region Basic Cards
+
+        {
+            #region Basic Resource Card
+
+            CardType.BasicResource, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "0" },
+                { CardElement.Damage, "0" },
+                { CardElement.Range, "0" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Basic Resource" },
+                { CardElement.WatermarkSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Basic Tower Card
+
+            CardType.Basic, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "1" },
+                { CardElement.Damage, "1" },
+                { CardElement.Range, "1" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Basic Tower" },
+                { CardElement.WatermarkSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Medium Basic Tower Card
+
+            CardType.MediumBasic, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "2" },
+                { CardElement.Damage, "2" },
+                { CardElement.Range, "2" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Medium Basic Tower" },
+                { CardElement.WatermarkSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Heavy Basic Tower Card
+
+            CardType.HeavyBasic, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "3" },
+                { CardElement.Damage, "3" },
+                { CardElement.Range, "3" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Heavy Basic Tower" },
+                { CardElement.WatermarkSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+
+        #endregion
+
         #region Fire Cards
 
         {
@@ -108,6 +185,9 @@ public class GameManager
 
     public enum CardType
     {
+        //Basic card enums
+        BasicResource, Basic, MediumBasic, HeavyBasic,
+
         //Fire card enums
         FireResource, BasicFire, MediumFire, HeavyFire, FireballSpell,
 
@@ -125,8 +205,10 @@ public class GameManager
 
     #endregion
 
+    public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck");
+    public List<CardInfo> defaultDeck = new List<CardInfo>();
     public const int deckSize = 20;
-
+    
     #endregion
 
     #region Singleton
@@ -160,6 +242,30 @@ public class GameManager
     #endregion
 
     #region Public Methods
+
+    public CardInfo CreateCard(GameManager.CardType cardToMake)
+    {
+        CardInfo createdCard = new CardInfo(
+            cardToMake,
+            int.Parse(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.Cost]),
+            int.Parse(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.Damage]),
+            int.Parse(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.Range]),
+            GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.CardText],
+            Resources.Load<Sprite>(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.WatermarkSprite]),
+            Resources.Load<Sprite>(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.TowerSprite]),
+            Resources.Load<Sprite>(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.CardSprite]),
+            bool.Parse(GameManager.Instance.CardLibrary[cardToMake][GameManager.CardElement.IsSpell]));
+
+        return createdCard;
+    }
+
+    public void CreateDefaultDeck()
+    {
+        for(int i = 0; i < 20; i++)
+        {
+            defaultDeck.Add(CreateCard(CardType.Basic));
+        }
+    }
 
     #endregion
 }

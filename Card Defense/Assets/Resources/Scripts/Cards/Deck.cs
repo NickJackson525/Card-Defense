@@ -6,16 +6,17 @@ public class Deck : MonoBehaviour
 {
     #region Variables
 
+    public List<CardInfo> deck = new List<CardInfo>();
     public GameObject cardSlot1;
     public GameObject cardSlot2;
     public GameObject cardSlot3;
     public GameObject cardSlot4;
     public GameObject card;
+    public GameObject nextOpenCardSlot;
     public bool isFull = false;
-    private List<CardInfo> deck = new List<CardInfo>();
+    public int cardsInHand = 0;
     private CardInfo tempCard;
     private GameObject createdCard;
-    private GameObject nextOpenCardSlot;
 
     #endregion
 
@@ -26,6 +27,9 @@ public class Deck : MonoBehaviour
     {
         nextOpenCardSlot = cardSlot1;
 
+        GameManager.Instance.CreateDefaultDeck();
+        deck = GameManager.Instance.defaultDeck;
+        isFull = false;
     }
 
     #endregion
@@ -37,7 +41,7 @@ public class Deck : MonoBehaviour
     {
 		if(Input.GetKeyUp(KeyCode.Alpha1))
         {
-            tempCard = new CardInfo(GameManager.CardType.BasicFire, 1, 1, 1, "Basic Fire Tower", Resources.Load<Sprite>("Sprites/Cards/Fire Symbol"), Resources.Load<Sprite>("Sprites/Towers/Square"), Resources.Load<Sprite>("Sprites/Cards/Fire Card Back"), false);
+            tempCard = new CardInfo(GameManager.CardType.Basic, 1, 1, 1, "Basic Tower", Resources.Load<Sprite>("Sprites/Towers/Square"), Resources.Load<Sprite>("Sprites/Towers/Square"), Resources.Load<Sprite>("Sprites/Cards/Basic Card Back"), false);
             AddCardToDeck(tempCard);
         }
 
@@ -73,10 +77,12 @@ public class Deck : MonoBehaviour
 
     public void Draw()
     {
-        if (deck.Count > 0)
+        if ((deck.Count > 0) && (cardsInHand < 4))
         {
             tempCard = deck[0];
             deck.RemoveAt(0);
+            isFull = false;
+            cardsInHand++;
 
             createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
             createdCard.GetComponent<Card>().thisCardType = tempCard.thisCardType;
@@ -89,6 +95,21 @@ public class Deck : MonoBehaviour
             createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;
             createdCard.GetComponent<Card>().thisTower = tempCard.thisTower;
             createdCard.GetComponent<Card>().isSpell = tempCard.isSpell;
+            createdCard.GetComponent<Card>().cardSlot = nextOpenCardSlot;
+            createdCard.GetComponent<Card>().deck = gameObject;
+
+            if (cardsInHand == 1)
+            {
+                nextOpenCardSlot = cardSlot2;
+            }
+            else if(cardsInHand == 2)
+            {
+                nextOpenCardSlot = cardSlot3;
+            }
+            else
+            {
+                nextOpenCardSlot = cardSlot4;
+            }
         }
     }
 

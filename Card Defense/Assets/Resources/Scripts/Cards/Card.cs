@@ -9,6 +9,8 @@ public class Card : MonoBehaviour
 
     public GameManager.CardType thisCardType; //The type of card this is
     public GameObject tower;
+    public GameObject cardSlot;
+    public GameObject deck;
     public Text costText;                     //card cost text for this card object
     public Text damageText;                   //card damage text for this card object
     public Text rangeText;                    //card range text for this card object
@@ -22,6 +24,7 @@ public class Card : MonoBehaviour
     public bool isSpell = false;              //differenciation between spells and towers
     public bool inHand = true;                //used to see where the card currently is
     bool mouseHover = false;
+
     private const float outOfHandDist = 2f;   //the distance the card must be dragged in order to be played
     private Vector3 startPosition;            //stores the start position of this card
 
@@ -97,10 +100,11 @@ public class Card : MonoBehaviour
     private void OnMouseEnter()
     {
         //see if the card is in the hand or not
-        if (inHand)
+        if (inHand && !Input.GetMouseButton(0))
         {
             //if the card is in the hand, move up to indicate it is currently selected
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), .1f);
+            mouseHover = true;
         }
     }
 
@@ -115,6 +119,7 @@ public class Card : MonoBehaviour
             //jump back to the start position to indicate it is no longer selected
             transform.position = startPosition;
             GetComponent<Image>().sprite = thisCard;
+            mouseHover = false;
         }
     }
 
@@ -124,8 +129,6 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        mouseHover = true;
-
         //check if the left mouse button was released, meaning the card was either played or put back in the hand
         if (Input.GetMouseButtonUp(0))
         {
@@ -146,6 +149,8 @@ public class Card : MonoBehaviour
             {
                 //play card
                 Instantiate(tower, transform.position, transform.rotation);
+                deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
+                deck.GetComponent<Deck>().cardsInHand--;
                 Destroy(gameObject);
             }
         }
