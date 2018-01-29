@@ -39,7 +39,8 @@ GameObject:
   - component: {fileID: 222818590488655548}
   - component: {fileID: 114810652683892934}
   - component: {fileID: 114795418136056202}
-  - component: {fileID: 61272917706227764}
+  - component: {fileID: 61594617752139738}
+  - component: {fileID: 61323370731956118}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -115,7 +116,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &61272917706227764
+--- !u!61 &61323370731956118
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352829131372216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.040908813, y: -7.559986}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 125.17941, y: 164.28159}
+  m_EdgeRadius: 0
+--- !u!61 &61594617752139738
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -127,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.060028076, y: 0.16658401}
+  m_Offset: {x: 0.040908813, y: -7.6729774}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -138,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 135.79773, y: 180.4589}
+  m_Size: {x: 125.17941, y: 164.50757}
   m_EdgeRadius: 0
 --- !u!114 &114253403963038670
 MonoBehaviour:
@@ -279,6 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCardType: 1
   tower: {fileID: 1707545682993690, guid: 1a05629fb273f8d439ca27c5dca464c2, type: 2}
+  cardSlot: {fileID: 0}
+  deck: {fileID: 0}
   costText: {fileID: 114540572180835182}
   damageText: {fileID: 114279809007981356}
   rangeText: {fileID: 114268523926724708}
@@ -495,8 +523,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 180}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}

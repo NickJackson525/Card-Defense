@@ -49,12 +49,10 @@ public class Tower : MonoBehaviour
             if (Vector2.Distance(currentTarget.transform.position, this.gameObject.transform.position) <= range)
             {
                 createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
-                //createdBullet.GetComponent<Bullet>().move = true;
-                //createdBullet.GetComponent<Bullet>().target = currentTarget;
-                //createdBullet.GetComponent<Bullet>().damage = createdBullet.GetComponent<Bullet>().damage * (currentLevel + 1);
-                //createdBullet.GetComponent<Bullet>().type = thisPlant;
+                createdBullet.GetComponent<Bullet>().move = true;
+                createdBullet.GetComponent<Bullet>().target = currentTarget;
                 canShoot = false;
-                shootTimer = 60 - ((currentLevel - 1) * 20);
+                shootTimer = 60;
 
                 //switch (thisPlant)
                 //{

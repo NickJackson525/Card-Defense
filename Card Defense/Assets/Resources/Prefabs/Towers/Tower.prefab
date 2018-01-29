@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d201b24e167bff4f82df36d688a31c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 1028181969549654, guid: f11887d04d5c66d4e895637bc1a9c06b, type: 2}
   currentTarget: {fileID: 0}
   currentLevel: 1
-  range: 1
+  range: 3
 --- !u!212 &212883322539440180
 SpriteRenderer:
   m_ObjectHideFlags: 1
