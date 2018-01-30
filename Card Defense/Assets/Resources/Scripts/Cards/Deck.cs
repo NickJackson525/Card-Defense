@@ -29,7 +29,12 @@ public class Deck : MonoBehaviour
 
         GameManager.Instance.CreateDefaultDeck();
         deck = GameManager.Instance.defaultDeck;
-        isFull = false;
+        isFull = true;
+
+        Draw();
+        Draw();
+        Draw();
+        Draw();
     }
 
     #endregion

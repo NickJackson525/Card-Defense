@@ -151,6 +151,7 @@ public class Card : MonoBehaviour
                 Instantiate(tower, transform.position, transform.rotation);
                 deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
                 deck.GetComponent<Deck>().cardsInHand--;
+                deck.GetComponent<Deck>().Draw();
                 Destroy(gameObject);
             }
         }
