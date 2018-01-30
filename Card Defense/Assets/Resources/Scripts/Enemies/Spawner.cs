@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private GameObject enemy;
+    int timer = 120;
 
     private void Awake()
     {
@@ -18,6 +19,17 @@ public class Spawner : MonoBehaviour
 	
 	void Update ()
     {
+        if(timer > 0)
+        {
+            timer--;
+
+            if(timer == 0)
+            {
+                Instantiate(enemy, transform.position, transform.rotation);
+                timer = 120;
+            }
+        }
+
 		if(Input.GetKeyUp(KeyCode.Q))
         {
             Instantiate(enemy, transform.position, transform.rotation);
