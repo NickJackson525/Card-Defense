@@ -3,91 +3,105 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Card : MonoBehaviour
+public class Card : PauseableObject
 {
     #region Variables
 
-    public GameManager.CardType thisCardType; //The type of card this is
-    public GameObject tower;
-    public GameObject cardSlot;
-    public GameObject deck;
-    public Text costText;                     //card cost text for this card object
-    public Text damageText;                   //card damage text for this card object
-    public Text rangeText;                    //card range text for this card object
-    public Text cardNameText;                 //card name text for this card object
-    public Image cardWatermark;               //watermark image for this card object
-    public Image cardBack;                    //card back image for this card object
-    public int cardLevel = 1;                 //used for upgrading cards
-    public Sprite towerWatermark;             //the image on the card that represents its type
-    public Sprite thisTower;                  //the sprite the tower this card represents
-    public Sprite thisCard;                   //the sprite for this card
-    public bool isSpell = false;              //differenciation between spells and towers
-    public bool inHand = true;                //used to see where the card currently is
-    bool mouseHover = false;
+    #region Public
 
-    private const float outOfHandDist = 2f;   //the distance the card must be dragged in order to be played
-    private Vector3 startPosition;            //stores the start position of this card
+    public CardType thisCardType; //the type of card this is
+    public GameObject tower;      //the tower object that this card will create
+    public GameObject cardSlot;   //the card slot that this card is in
+    public GameObject deck;       //the deck this card came from
+    public Text costText;         //card cost text for this card object
+    public Text damageText;       //card damage text for this card object
+    public Text rangeText;        //card range text for this card object
+    public Text cardNameText;     //card name text for this card object
+    public Image cardWatermark;   //watermark image for this card object
+    public Image cardBack;        //card back image for this card object
+    public int cardLevel = 1;     //used for upgrading cards
+    public Sprite towerWatermark; //the image on the card that represents its type
+    public Sprite thisTower;      //the sprite the tower this card represents
+    public bool isSpell = false;  //differenciation between spells and towers
+    public bool inHand = true;    //used to see where the card currently is
 
     #endregion
 
-    #region Start
+    #region Private
 
-    // Use this for initialization
-    void Start()
+    private bool mouseHover = false;        //checks when the mouse is over this card or not
+    private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
+    private Vector3 startPosition;          //stores the start position of this card
+    private Vector3 mousePosition;          //the position of the mouse
+
+    #endregion
+
+    #endregion
+
+    #region Awake
+
+    //override parent Awake method
+    protected override void Awake()
     {
-        //get the start position
+        //call parent method
+        base.Awake();
+
+        //get the start position of this card
         startPosition = transform.position;
-        thisCard = GetComponent<Image>().sprite;
     }
 
     #endregion
 
     #region Update
 
-    // Update is called once per frame
     void Update()
     {
-        if (mouseHover)
+        //check that the game isn't paused
+        if (!GameManager.Instance.Paused)
         {
-            //check if the left mouse button is being held
-            if (Input.GetMouseButton(0))
+            //check if the mouse is over this card
+            if (mouseHover)
             {
-                //the card is being played, so it will follow the mouse
-                inHand = false;
-                transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, 0), 1f);
+                //check if the left mouse button is being held
+                if (Input.GetMouseButton(0))
+                {
+                    //the card is leaving the hand to follow the mouse
+                    inHand = false;
+
+                    //get mouse position and convert it to world space
+                    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                    //lerp towards mouse position
+                    transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
+                }
+                else
+                {
+                    //the card isn't being played
+                    inHand = true;
+                }
+            }
+
+            //check if the card has been dragged out of the hand
+            if (transform.position.y >= (startPosition.y + 2f))
+            {
+                GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
+                cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
+                costText.gameObject.SetActive(false);               //disable the cost text
+                damageText.gameObject.SetActive(false);             //disable the damage text
+                rangeText.gameObject.SetActive(false);              //disable the range text
+                cardNameText.gameObject.SetActive(false);           //disable the name text
+                transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
             }
             else
             {
-                //the card isn't being played
-                inHand = true;
+                GetComponent<Image>().sprite = cardBack.sprite; //make the current sprite the card
+                cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
+                costText.gameObject.SetActive(true);            //enable the cost text
+                damageText.gameObject.SetActive(true);          //enable the damage text
+                rangeText.gameObject.SetActive(true);           //enabkle the range text
+                cardNameText.gameObject.SetActive(true);        //enable the name text
+                transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
             }
-        }
-
-        //check if the card has been dragged out of the hand
-        if (transform.position.y >= (startPosition.y + 2f))
-        {
-            //if it has then change the sprite to be that of the tower
-            GetComponent<Image>().sprite = thisTower;
-
-            cardWatermark.gameObject.SetActive(false);
-            costText.gameObject.SetActive(false);
-            damageText.gameObject.SetActive(false);
-            rangeText.gameObject.SetActive(false);
-            cardNameText.gameObject.SetActive(false);
-            transform.localScale = new Vector3(.25f, .25f, 1f);
-        }
-        else
-        {
-            //if it hasn't then make the sprite the card
-            GetComponent<Image>().sprite = thisCard;
-
-            cardWatermark.gameObject.SetActive(true);
-            costText.gameObject.SetActive(true);
-            damageText.gameObject.SetActive(true);
-            rangeText.gameObject.SetActive(true);
-            cardNameText.gameObject.SetActive(true);
-            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
@@ -99,11 +113,13 @@ public class Card : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        //see if the card is in the hand or not
-        if (inHand && !Input.GetMouseButton(0))
+        //check that the game isn't paused, if the card is in the hand or not, and that the left mouse button isn't being held
+        if (!GameManager.Instance.Paused && inHand && !Input.GetMouseButton(0))
         {
-            //if the card is in the hand, move up to indicate it is currently selected
+            //move up to indicate the card is currently selected
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), .1f);
+
+            //the mouse is over the card
             mouseHover = true;
         }
     }
@@ -114,11 +130,16 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (!Input.GetMouseButton(0))
+        //check that the game isn't paused and that the left mouse button isn't being held down
+        if (!GameManager.Instance.Paused && !Input.GetMouseButton(0))
         {
             //jump back to the start position to indicate it is no longer selected
             transform.position = startPosition;
-            GetComponent<Image>().sprite = thisCard;
+
+            //change the sprite back to the card
+            GetComponent<Image>().sprite = cardBack.sprite;
+
+            //the mouse is no longer over the card
             mouseHover = false;
         }
     }
@@ -129,29 +150,21 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        //check if the left mouse button was released, meaning the card was either played or put back in the hand
-        if (Input.GetMouseButtonUp(0))
+        //checkthat the game isn't paused and if the left mouse button was released
+        if (!GameManager.Instance.Paused && Input.GetMouseButtonUp(0))
         {
-            //check if the card is back in the hand or not
-            if (GetComponent<Image>().sprite == thisCard)
+            //check that the card isn't in the hand
+            if(!inHand)
             {
-                //return the card to the hand
-                transform.position = startPosition;
-
-                cardWatermark.gameObject.SetActive(true);
-                costText.gameObject.SetActive(true);
-                damageText.gameObject.SetActive(true);
-                rangeText.gameObject.SetActive(true);
-                cardNameText.gameObject.SetActive(true);
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-            else
-            {
-                //play card
+                //create tower object
                 Instantiate(tower, transform.position, transform.rotation);
+
+                //update deck to draw a new card in the appropriate slot
                 deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
                 deck.GetComponent<Deck>().cardsInHand--;
                 deck.GetComponent<Deck>().Draw();
+
+                //destroy the card
                 Destroy(gameObject);
             }
         }
