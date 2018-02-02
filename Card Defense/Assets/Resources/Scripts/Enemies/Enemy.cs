@@ -9,7 +9,7 @@ public class Enemy : PauseableObject
 
     List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     Vector3 moveDirection;                          //the direction the enemy is currently moving in
-    const float speed = 1f;                         //the speed the enemy moves
+    const float speed = 5f;                         //the speed the enemy moves
     int pathCount = 0;                              //the current place the enemy is in the path
 
     #endregion

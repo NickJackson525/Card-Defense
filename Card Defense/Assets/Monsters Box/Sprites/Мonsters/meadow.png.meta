@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: bf5bda0062f256e41bde84b7c4483cc4
+timeCreated: 1483626581
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: meadow_0
+    21300002: meadow_1
+    21300004: meadow_2
+    21300006: meadow_3
+    21300008: meadow_4
+    21300010: meadow_5
+    21300012: meadow_6
+    21300014: meadow_7
+    21300016: meadow_8
+    21300018: meadow_9
+    21300020: meadow_10
+    21300022: meadow_11
+    21300024: meadow_12
+    21300026: meadow_13
+    21300028: meadow_14
+    21300030: meadow_15
+    21300032: meadow_16
+    21300034: meadow_17
+    21300036: meadow_18
+    21300038: meadow_19
+    21300040: meadow_20
+    21300042: meadow_21
+    21300044: meadow_22
+    21300046: meadow_23
+    21300048: meadow_24
+    21300050: meadow_25
+    21300052: meadow_26
+    21300054: meadow_27
+    21300056: meadow_28
+    21300058: meadow_29
+    21300060: meadow_30
+    21300062: meadow_31
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: meadow_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1432
+        width: 329
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_2
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 1470
+        width: 172
+        height: 242
+      alignment: 9
+      pivot: {x: 0.50809515, y: 0.6777258}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_3
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1413
+        width: 402
+        height: 299
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_4
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1347
+        width: 92
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5424997, y: 0.06300192}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1354
+        width: 92
+        height: 73
+      alignment: 9
+      pivot: {x: 0.4858334, y: 0.85707575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_6
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1352
+        width: 77
+        height: 64
+      alignment: 9
+      pivot: {x: 0.48307383, y: 0.8461952}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_7
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 1119
+        width: 172
+        height: 257
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69778097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_8
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1286
+        width: 104
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_9
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 1337
+        width: 68
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8191815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_10
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 1336
+        width: 70
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5000009, y: 0.7811088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1033
+        width: 352
+        height: 315
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_13
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 1288
+        width: 63
+        height: 49
+      alignment: 9
+      pivot: {x: 0.520688, y: 0.8191815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_14
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 1287
+        width: 66
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5394953, y: 0.8649292}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_15
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 1103
+        width: 172
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_16
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 971
+        width: 386
+        height: 299
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_17
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 750
+        width: 355
+        height: 418
+      alignment: 9
+      pivot: {x: 0.32377586, y: 0.4438757}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 951
+        width: 92
+        height: 73
+      alignment: 9
+      pivot: {x: 0.4858334, y: 0.87492895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_19
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 949
+        width: 77
+        height: 64
+      alignment: 9
+      pivot: {x: 0.48307383, y: 0.8869238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_20
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 766
+        width: 312
+        height: 295
+      alignment: 9
+      pivot: {x: 0.4958226, y: 0.56185263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_21
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 661
+        width: 329
+        height: 279
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_22
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 379
+        width: 141
+        height: 350
+      alignment: 9
+      pivot: {x: 0.19496599, y: 0.2728487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_23
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 504
+        width: 542
+        height: 412
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_24
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 566
+        width: 49
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5265986, y: 0.8723788}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_25
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 563
+        width: 49
+        height: 83
+      alignment: 9
+      pivot: {x: 0.47340143, y: 0.8768649}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 265
+        width: 386
+        height: 287
+      alignment: 9
+      pivot: {x: 0.89504987, y: 0.45912898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_27
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 12
+        width: 491
+        height: 352
+      alignment: 9
+      pivot: {x: 0.73093575, y: 0.29265234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_28
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 126
+        width: 183
+        height: 336
+      alignment: 9
+      pivot: {x: 0.6566843, y: 0.9615948}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_29
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 126
+        width: 150
+        height: 324
+      alignment: 9
+      pivot: {x: 0.46524414, y: 0.95857793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 141
+        height: 261
+      alignment: 9
+      pivot: {x: 0.5092435, y: 0.9244549}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: meadow_31
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 112
+        height: 234
+      alignment: 9
+      pivot: {x: 0.5349105, y: 0.912163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

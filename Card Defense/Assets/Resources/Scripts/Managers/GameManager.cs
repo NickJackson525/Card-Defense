@@ -395,6 +395,101 @@ class GameManager
         },
 
         #endregion
+
+        #region Void Cards
+
+        {
+            #region Void Resource Card
+
+            CardType.VoidResource, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "0" },
+                { CardElement.Damage, "0" },
+                { CardElement.Range, "0" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Void Resource" },
+                { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Basic Void Tower Card
+
+            CardType.BasicVoid, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "1" },
+                { CardElement.Damage, "1" },
+                { CardElement.Range, "1" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Basic Void Tower" },
+                { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Medium Void Tower Card
+
+            CardType.MediumVoid, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "2" },
+                { CardElement.Damage, "2" },
+                { CardElement.Range, "2" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Medium Void Tower" },
+                { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Heavy Void Tower Card
+
+            CardType.HeavyVoid, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "3" },
+                { CardElement.Damage, "3" },
+                { CardElement.Range, "3" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Heavy Void Tower" },
+                { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
+                { CardElement.IsSpell, "False" },
+            }
+
+            #endregion
+        },
+        {
+            #region Void Portal Spell Card
+
+            CardType.VoidPortalSpell, new Dictionary<CardElement, string>
+            {
+                { CardElement.Cost, "4" },
+                { CardElement.Damage, "4" },
+                { CardElement.Range, "4" },
+                { CardElement.Level, "1" },
+                { CardElement.CardText, "Void Portal Spell" },
+                { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
+                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
+                { CardElement.IsSpell, "True" },
+            }
+
+            #endregion
+        },
+
+        #endregion
     };
 
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
