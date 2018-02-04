@@ -47,7 +47,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Basic Resource" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -65,7 +65,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Basic Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -83,7 +83,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Medium Basic Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -101,7 +101,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Heavy Basic Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -124,7 +124,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Fire Resource" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -142,7 +142,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Basic Fire Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -160,7 +160,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Medium Fire Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -178,7 +178,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Heavy Fire Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -196,7 +196,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Fireball Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "True" },
             }
@@ -219,7 +219,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Ice Resource" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -237,7 +237,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Basic Ice Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -255,7 +255,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Medium Ice Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -273,7 +273,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Heavy Ice Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -291,7 +291,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Ice Storm Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "True" },
             }
@@ -314,7 +314,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Lightning Resource" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -332,7 +332,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Basic Lightning Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -350,7 +350,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Medium Lightning Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -368,7 +368,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Heavy Lightning Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -386,7 +386,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Lightning Storm Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "True" },
             }
@@ -409,7 +409,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Void Resource" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -427,7 +427,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Basic Void Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -445,7 +445,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Medium Void Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -463,7 +463,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Heavy Void Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
             }
@@ -481,7 +481,7 @@ class GameManager
                 { CardElement.Level, "1" },
                 { CardElement.CardText, "Void Portal Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
-                { CardElement.TowerSprite, "Sprites/Towers/Square" },
+                { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "True" },
             }

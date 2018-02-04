@@ -33,6 +33,7 @@ public class Card : PauseableObject
     private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
     private Vector3 startPosition;          //stores the start position of this card
     private Vector3 mousePosition;          //the position of the mouse
+    private Sprite thisCard;
 
     #endregion
 
@@ -52,6 +53,15 @@ public class Card : PauseableObject
 
     #endregion
 
+    #region Start
+
+    private void Start()
+    {
+        thisCard = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardType][CardElement.CardSprite]);
+    }
+
+    #endregion
+
     #region Update
 
     void Update()
@@ -65,25 +75,18 @@ public class Card : PauseableObject
                 //check if the left mouse button is being held
                 if (Input.GetMouseButton(0))
                 {
-                    //the card is leaving the hand to follow the mouse
-                    inHand = false;
-
                     //get mouse position and convert it to world space
                     mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                     //lerp towards mouse position
                     transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
                 }
-                else
-                {
-                    //the card isn't being played
-                    inHand = true;
-                }
             }
 
             //check if the card has been dragged out of the hand
-            if (transform.position.y >= (startPosition.y + 2f))
+            if (transform.position.y >= (startPosition.y + 5f))
             {
+                inHand = false;                                     //the card isn't in the hand
                 GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
                 cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
                 costText.gameObject.SetActive(false);               //disable the cost text
@@ -94,7 +97,8 @@ public class Card : PauseableObject
             }
             else
             {
-                GetComponent<Image>().sprite = cardBack.sprite; //make the current sprite the card
+                inHand = true;                                  //the card isn't in the hand
+                GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
                 cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
                 costText.gameObject.SetActive(true);            //enable the cost text
                 damageText.gameObject.SetActive(true);          //enable the damage text
@@ -117,7 +121,7 @@ public class Card : PauseableObject
         if (!GameManager.Instance.Paused && inHand && !Input.GetMouseButton(0))
         {
             //move up to indicate the card is currently selected
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), .1f);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 40f, transform.position.z), .1f);
 
             //the mouse is over the card
             mouseHover = true;
@@ -141,6 +145,9 @@ public class Card : PauseableObject
 
             //the mouse is no longer over the card
             mouseHover = false;
+
+            //the card is back in the hand
+            inHand = true;
         }
     }
 

@@ -9,7 +9,7 @@ public class Enemy : PauseableObject
 
     List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     Vector3 moveDirection;                          //the direction the enemy is currently moving in
-    const float speed = 5f;                         //the speed the enemy moves
+    const float speed = 1.5f;                       //the speed the enemy moves
     int pathCount = 0;                              //the current place the enemy is in the path
 
     #endregion
@@ -59,26 +59,19 @@ public class Enemy : PauseableObject
                     //get the direction of the next node to move towards
                     moveDirection = path[pathCount].transform.position - transform.position;
 
+                    //rotate sprite to face correct direction of movement
+                    if (moveDirection.x > 0)
+                    {
+                        transform.rotation = new Quaternion(transform.rotation.x, 180f, transform.rotation.z, transform.rotation.w);
+                        moveDirection = new Vector3(-moveDirection.x, moveDirection.y, moveDirection.z);
+                    }
+                    else
+                    {
+                        transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+                    }
+
                     //move towards the next node
                     transform.Translate(moveDirection.normalized * speed * Time.deltaTime);
-
-                    //rotate sprite to face correct direction of movement
-                    if (Vector3.Normalize(path[pathCount].transform.position - transform.position) == Vector3.up)
-                    {
-
-                    }
-                    else if (Vector3.Normalize(path[pathCount].transform.position - transform.position) == Vector3.down)
-                    {
-
-                    }
-                    else if (Vector3.Normalize(path[pathCount].transform.position - transform.position) == Vector3.left)
-                    {
-
-                    }
-                    else if (Vector3.Normalize(path[pathCount].transform.position - transform.position) == Vector3.right)
-                    {
-
-                    }
                 }
             }
 

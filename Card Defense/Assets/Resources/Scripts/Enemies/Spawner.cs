@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        enemy = Resources.Load<GameObject>("Prefabs/Enemies/Enemy1");
+        enemy = Resources.Load<GameObject>("Prefabs/Enemies/Monster1");
     }
 
     void Start ()
