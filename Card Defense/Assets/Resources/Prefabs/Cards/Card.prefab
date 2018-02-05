@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 222217872361931330}
   - component: {fileID: 114561809600777668}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Card Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -455,7 +455,9 @@ MonoBehaviour:
   damageText: {fileID: 114279809007981356}
   rangeText: {fileID: 114268523926724708}
   cardNameText: {fileID: 114841494458680942}
+  cardText: {fileID: 114561809600777668}
   cardWatermark: {fileID: 114253403963038670}
+  manaSymbol: {fileID: 114274283829925000}
   cardBack: {fileID: 114810652683892934}
   cardLevel: 1
   towerWatermark: {fileID: 0}

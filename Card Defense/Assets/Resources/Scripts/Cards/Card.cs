@@ -17,7 +17,9 @@ public class Card : PauseableObject
     public Text damageText;       //card damage text for this card object
     public Text rangeText;        //card range text for this card object
     public Text cardNameText;     //card name text for this card object
+    public Text cardText;         //text description of the card
     public Image cardWatermark;   //watermark image for this card object
+    public Image manaSymbol;      //image to represent mana
     public Image cardBack;        //card back image for this card object
     public int cardLevel = 1;     //used for upgrading cards
     public Sprite towerWatermark; //the image on the card that represents its type
@@ -89,10 +91,10 @@ public class Card : PauseableObject
                 inHand = false;                                     //the card isn't in the hand
                 GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
                 cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
+                manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
                 costText.gameObject.SetActive(false);               //disable the cost text
-                damageText.gameObject.SetActive(false);             //disable the damage text
-                rangeText.gameObject.SetActive(false);              //disable the range text
                 cardNameText.gameObject.SetActive(false);           //disable the name text
+                cardText.gameObject.SetActive(false);               //disable the card text
                 transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
             }
             else
@@ -100,10 +102,10 @@ public class Card : PauseableObject
                 inHand = true;                                  //the card isn't in the hand
                 GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
                 cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
+                manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
                 costText.gameObject.SetActive(true);            //enable the cost text
-                damageText.gameObject.SetActive(true);          //enable the damage text
-                rangeText.gameObject.SetActive(true);           //enabkle the range text
                 cardNameText.gameObject.SetActive(true);        //enable the name text
+                cardText.gameObject.SetActive(true);            //enable the card text
                 transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
             }
         }
