@@ -23,7 +23,7 @@ public enum CardType
     VoidResource, BasicVoid, MediumVoid, HeavyVoid, VoidPortalSpell,
 }
 
-public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell }
+public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell, IsLocked }
 
 #endregion
 
@@ -50,6 +50,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "False" },
             }
 
             #endregion
@@ -68,6 +69,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "False" },
             }
 
             #endregion
@@ -86,6 +88,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -104,6 +107,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -127,6 +131,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -145,6 +150,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -163,6 +169,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -181,6 +188,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -199,6 +207,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "True" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -222,6 +231,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -240,6 +250,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -258,6 +269,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -276,6 +288,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -294,6 +307,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "True" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -317,6 +331,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -335,6 +350,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -353,6 +369,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -371,6 +388,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -389,6 +407,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "True" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -412,6 +431,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -430,6 +450,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -448,6 +469,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -466,6 +488,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion
@@ -484,6 +507,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "True" },
+                { CardElement.IsLocked, "True" },
             }
 
             #endregion

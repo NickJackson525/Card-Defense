@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Card : PauseableObject
 {
@@ -24,6 +25,7 @@ public class Card : PauseableObject
     public int cardLevel = 1;     //used for upgrading cards
     public Sprite towerWatermark; //the image on the card that represents its type
     public Sprite thisTower;      //the sprite the tower this card represents
+    public bool isLocked = false; //used for deck bulding
     public bool isSpell = false;  //differenciation between spells and towers
     public bool inHand = true;    //used to see where the card currently is
 
@@ -85,28 +87,31 @@ public class Card : PauseableObject
                 }
             }
 
-            //check if the card has been dragged out of the hand
-            if (transform.position.y >= (startPosition.y + 5f))
+            if (SceneManager.GetActiveScene().name != "Deck Builder")
             {
-                inHand = false;                                     //the card isn't in the hand
-                GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
-                cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
-                manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
-                costText.gameObject.SetActive(false);               //disable the cost text
-                cardNameText.gameObject.SetActive(false);           //disable the name text
-                cardText.gameObject.SetActive(false);               //disable the card text
-                transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
-            }
-            else
-            {
-                inHand = true;                                  //the card isn't in the hand
-                GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
-                cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
-                manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
-                costText.gameObject.SetActive(true);            //enable the cost text
-                cardNameText.gameObject.SetActive(true);        //enable the name text
-                cardText.gameObject.SetActive(true);            //enable the card text
-                transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
+                //check if the card has been dragged out of the hand
+                if (transform.position.y >= (startPosition.y + 5f))
+                {
+                    inHand = false;                                     //the card isn't in the hand
+                    GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
+                    cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
+                    manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
+                    costText.gameObject.SetActive(false);               //disable the cost text
+                    cardNameText.gameObject.SetActive(false);           //disable the name text
+                    cardText.gameObject.SetActive(false);               //disable the card text
+                    transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
+                }
+                else
+                {
+                    inHand = true;                                  //the card isn't in the hand
+                    GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
+                    cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
+                    manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
+                    costText.gameObject.SetActive(true);            //enable the cost text
+                    cardNameText.gameObject.SetActive(true);        //enable the name text
+                    cardText.gameObject.SetActive(true);            //enable the card text
+                    transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
+                }
             }
         }
     }
@@ -122,8 +127,11 @@ public class Card : PauseableObject
         //check that the game isn't paused, if the card is in the hand or not, and that the left mouse button isn't being held
         if (!GameManager.Instance.Paused && inHand && !Input.GetMouseButton(0))
         {
-            //move up to indicate the card is currently selected
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 40f, transform.position.z), .1f);
+            if (SceneManager.GetActiveScene().name != "Deck Builder")
+            {
+                //move up to indicate the card is currently selected
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 40f, transform.position.z), .1f);
+            }
 
             //the mouse is over the card
             mouseHover = true;

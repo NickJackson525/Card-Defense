@@ -16,6 +16,7 @@ public class CardInfo
     public Sprite towerWatermark;           //the image on the card that represents its type
     public Sprite thisTower;                //the sprite the tower this card represents
     public Sprite thisCard;                 //the sprite for this card
+    public bool isLocked = false;           //used for deck building
     public bool isSpell = false;            //differenciation between spells and 
     private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
 
