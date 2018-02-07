@@ -27,6 +27,12 @@ public class Deck : MonoBehaviour
     void Start ()
     {
         nextOpenCardSlot = cardSlot1;
+
+        deck = GameManager.Instance.currentDeck;
+        Draw();
+        Draw();
+        Draw();
+        Draw();
     }
 
     #endregion
@@ -38,7 +44,7 @@ public class Deck : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Alpha1))
         {
             GameManager.Instance.CreateDefaultDeck(CardType.Basic);
-            deck = GameManager.Instance.defaultDeck;
+            deck = GameManager.Instance.currentDeck;
             isFull = true;
 
             Draw();
@@ -49,7 +55,7 @@ public class Deck : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
             GameManager.Instance.CreateDefaultDeck(CardType.BasicFire);
-            deck = GameManager.Instance.defaultDeck;
+            deck = GameManager.Instance.currentDeck;
             isFull = true;
 
             Draw();
@@ -60,7 +66,7 @@ public class Deck : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             GameManager.Instance.CreateDefaultDeck(CardType.BasicIce);
-            deck = GameManager.Instance.defaultDeck;
+            deck = GameManager.Instance.currentDeck;
             isFull = true;
 
             Draw();
@@ -71,7 +77,7 @@ public class Deck : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {
             GameManager.Instance.CreateDefaultDeck(CardType.BasicLightning);
-            deck = GameManager.Instance.defaultDeck;
+            deck = GameManager.Instance.currentDeck;
             isFull = true;
 
             Draw();
@@ -82,7 +88,7 @@ public class Deck : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha5))
         {
             GameManager.Instance.CreateDefaultDeck(CardType.BasicVoid);
-            deck = GameManager.Instance.defaultDeck;
+            deck = GameManager.Instance.currentDeck;
             isFull = true;
 
             Draw();

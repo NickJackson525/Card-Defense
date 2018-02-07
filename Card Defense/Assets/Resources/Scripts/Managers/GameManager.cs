@@ -517,7 +517,7 @@ class GameManager
     };
 
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
-    public List<CardInfo> defaultDeck = new List<CardInfo>();      //the default deck at the start of the game
+    public List<CardInfo> currentDeck = new List<CardInfo>();      //the default deck at the start of the game
     public const int deckSize = 20;                                //the maximum deck size for the game
     bool isPaused;                                                 //variable to pause the game
 
@@ -596,6 +596,19 @@ class GameManager
 
     #endregion
 
+    #region Update
+
+    private void Update()
+    {
+        //testing the pause functionality
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Paused = !Paused;
+        }
+    }
+
+    #endregion
+
     #region Public Methods
 
     //method to add an object to the pauseable objects list
@@ -622,7 +635,8 @@ class GameManager
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.WatermarkSprite]),
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.TowerSprite]),
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.CardSprite]),
-            bool.Parse(Instance.CardLibrary[cardToMake][CardElement.IsSpell]));
+            bool.Parse(Instance.CardLibrary[cardToMake][CardElement.IsSpell]),
+            bool.Parse(Instance.CardLibrary[cardToMake][CardElement.IsLocked]));
 
         return createdCard;
     }
@@ -630,22 +644,9 @@ class GameManager
     //create the default deck with specified cards
     public void CreateDefaultDeck(CardType type)
     {
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < deckSize; i++)
         {
-            defaultDeck.Add(CreateCard(type));
-        }
-    }
-
-    #endregion
-
-    #region Update
-
-    private void Update()
-    {
-        //testing the pause functionality
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Paused = !Paused;
+            currentDeck.Add(CreateCard(type));
         }
     }
 

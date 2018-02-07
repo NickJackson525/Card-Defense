@@ -17,6 +17,7 @@ public class CardInfo
     public Sprite thisTower;                //the sprite the tower this card represents
     public Sprite thisCard;                 //the sprite for this card
     public bool isLocked = false;           //used for deck building
+    public bool inDeck = false;             //used for deck building
     public bool isSpell = false;            //differenciation between spells and 
     private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
 
@@ -25,7 +26,7 @@ public class CardInfo
     #region Constructor
 
     //constructor for the class
-    public CardInfo(CardType type, int cost, int damage, int range, string text, Sprite watermark, Sprite tower, Sprite card, bool spell)
+    public CardInfo(CardType type, int cost, int damage, int range, string text, Sprite watermark, Sprite tower, Sprite card, bool spell, bool locked)
     {
         thisCardType = type;
         towerCost = cost;
@@ -36,6 +37,7 @@ public class CardInfo
         thisTower = tower;
         thisCard = card;
         isSpell = spell;
+        isLocked = locked;
     }
 
     #endregion

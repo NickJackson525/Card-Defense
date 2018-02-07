@@ -119,6 +119,7 @@ public class DisplayAvailableCards : MonoBehaviour
             createdCard.GetComponent<Card>().isLocked = tempCard.isLocked;
             createdCard.GetComponent<Card>().cardSlot = nextOpenCardSlot;
             createdCard.GetComponent<Card>().deck = gameObject;
+            createdCard.GetComponent<Card>().numberInDeck = (cardsCreated - 1) + ((currentPage - 1) * 9);
 
             displayedCards.Add(createdCard);
 

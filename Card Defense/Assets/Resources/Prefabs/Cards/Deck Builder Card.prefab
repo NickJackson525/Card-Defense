@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 114364197269982804}
   - component: {fileID: 61058165054578372}
   - component: {fileID: 61217550175758314}
+  - component: {fileID: 114993967975326726}
   m_Layer: 5
   m_Name: Deck Builder Card
   m_TagString: Untagged
@@ -93,6 +94,7 @@ GameObject:
   - component: {fileID: 224949626764508364}
   - component: {fileID: 222202513372202932}
   - component: {fileID: 114975700702996940}
+  - component: {fileID: 114617885432913074}
   m_Layer: 5
   m_Name: Lock
   m_TagString: Untagged
@@ -180,7 +182,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040908813, y: -19.773598}
+  m_Offset: {x: 0.21822357, y: 0.29516602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -191,7 +193,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 125.17941, y: 232.57875}
+  m_Size: {x: 90.907, y: 134.89609}
   m_EdgeRadius: 0
 --- !u!61 &61217550175758314
 BoxCollider2D:
@@ -205,7 +207,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040908813, y: -20.119125}
+  m_Offset: {x: 0.23143005, y: 0.36440277}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -216,7 +218,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 125.17941, y: 231.43576}
+  m_Size: {x: 91.26169, y: 134.44655}
   m_EdgeRadius: 0
 --- !u!114 &114151187123419374
 MonoBehaviour:
@@ -242,7 +244,7 @@ MonoBehaviour:
     m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 5
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -322,9 +324,11 @@ MonoBehaviour:
   manaSymbol: {fileID: 114409375973798318}
   cardBack: {fileID: 114922519556339692}
   cardLevel: 1
+  numberInDeck: 0
   towerWatermark: {fileID: 0}
   thisTower: {fileID: 0}
   isLocked: 0
+  inDeck: 0
   isSpell: 0
   inHand: 1
 --- !u!114 &114409375973798318
@@ -480,6 +484,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!114 &114617885432913074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244133293000066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cee36f1c30da54f8d1ca31befb95d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisCard: {fileID: 0}
 --- !u!114 &114922519556339692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,6 +550,47 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114993967975326726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212334719119732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.52156866, g: 0.52156866, b: 0.52156866, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 114922519556339692}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!222 &222021301588684682
 CanvasRenderer:
   m_ObjectHideFlags: 1

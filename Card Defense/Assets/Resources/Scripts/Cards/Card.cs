@@ -23,9 +23,11 @@ public class Card : PauseableObject
     public Image manaSymbol;      //image to represent mana
     public Image cardBack;        //card back image for this card object
     public int cardLevel = 1;     //used for upgrading cards
+    public int numberInDeck = 0;  //used for deck bulding
     public Sprite towerWatermark; //the image on the card that represents its type
     public Sprite thisTower;      //the sprite the tower this card represents
     public bool isLocked = false; //used for deck bulding
+    public bool inDeck = false;   //used for deck building
     public bool isSpell = false;  //differenciation between spells and towers
     public bool inHand = true;    //used to see where the card currently is
 
@@ -62,6 +64,11 @@ public class Card : PauseableObject
     private void Start()
     {
         thisCard = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardType][CardElement.CardSprite]);
+
+        if (GetComponentInChildren<LockImage>())
+        {
+            GetComponentInChildren<LockImage>().thisCard = gameObject;
+        }
     }
 
     #endregion
@@ -70,25 +77,37 @@ public class Card : PauseableObject
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Deck Builder")
+        {
+            if(isLocked)
+            {
+                GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                GetComponent<Button>().interactable = true;
+            }
+        }
+
         //check that the game isn't paused
         if (!GameManager.Instance.Paused)
         {
-            //check if the mouse is over this card
-            if (mouseHover)
-            {
-                //check if the left mouse button is being held
-                if (Input.GetMouseButton(0))
-                {
-                    //get mouse position and convert it to world space
-                    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                    //lerp towards mouse position
-                    transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
-                }
-            }
-
             if (SceneManager.GetActiveScene().name != "Deck Builder")
             {
+                //check if the mouse is over this card
+                if (mouseHover)
+                {
+                    //check if the left mouse button is being held
+                    if (Input.GetMouseButton(0))
+                    {
+                        //get mouse position and convert it to world space
+                        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                        //lerp towards mouse position
+                        transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
+                    }
+                }
+
                 //check if the card has been dragged out of the hand
                 if (transform.position.y >= (startPosition.y + 5f))
                 {
@@ -170,19 +189,45 @@ public class Card : PauseableObject
         //checkthat the game isn't paused and if the left mouse button was released
         if (!GameManager.Instance.Paused && Input.GetMouseButtonUp(0))
         {
-            //check that the card isn't in the hand
-            if(!inHand)
+            if (SceneManager.GetActiveScene().name != "Deck Builder")
             {
-                //create tower object
-                Instantiate(tower, transform.position, transform.rotation);
+                //check that the card isn't in the hand
+                if (!inHand)
+                {
+                    //create tower object
+                    Instantiate(tower, transform.position, transform.rotation);
 
-                //update deck to draw a new card in the appropriate slot
-                deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
-                deck.GetComponent<Deck>().cardsInHand--;
-                deck.GetComponent<Deck>().Draw();
+                    //update deck to draw a new card in the appropriate slot
+                    deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
+                    deck.GetComponent<Deck>().cardsInHand--;
+                    deck.GetComponent<Deck>().Draw();
 
-                //destroy the card
-                Destroy(gameObject);
+                    //destroy the card
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                //jump back to the start position to indicate it is no longer selected
+                transform.position = startPosition;
+
+                //the mouse is no longer over the card
+                mouseHover = false;
+
+                //the card is back in the hand
+                inHand = true;
+            }
+        }
+
+        if((SceneManager.GetActiveScene().name == "Deck Builder") && Input.GetMouseButtonUp(0))
+        {
+            if(inDeck)
+            {
+                GameManager.Instance.currentDeck.RemoveAt(numberInDeck);
+            }
+            else if((GameManager.Instance.currentDeck.Count < GameManager.deckSize) && !isLocked)
+            {
+                GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardType));
             }
         }
     }
