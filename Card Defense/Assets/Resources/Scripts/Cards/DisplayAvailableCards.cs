@@ -34,7 +34,7 @@ public class DisplayAvailableCards : MonoBehaviour
     {
         nextOpenCardSlot = cardSlot1;
 
-        foreach(KeyValuePair<CardType, Dictionary<CardElement, string>> card in GameManager.Instance.CardLibrary)
+        foreach(KeyValuePair<Cards, Dictionary<CardElement, string>> card in GameManager.Instance.CardLibrary)
         {
             AddCardToDeck(GameManager.Instance.CreateCard(card.Key));
         }
@@ -106,7 +106,7 @@ public class DisplayAvailableCards : MonoBehaviour
 
             createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
             createdCard.GetComponent<Image>().sprite = tempCard.thisCard;
-            createdCard.GetComponent<Card>().thisCardType = tempCard.thisCardType;
+            createdCard.GetComponent<Card>().thisCardName = tempCard.thisCardName;
             createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
             createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
             createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();

@@ -8,13 +8,17 @@ public class Tower : MonoBehaviour
 
     public GameObject bullet;
     public GameObject currentTarget;
-    GameObject createdBullet;
-    GameObject testEnemyExist;
-    int shootTimer = 0;
+    public GameObject manaStone;
+    public string type;
     public int currentLevel = 1;
-    bool canShoot = true;
-    public float range = 1f;
-    SpriteRenderer spriteRender;
+    public int damage = 1;
+    public int range = 1;
+    
+    private GameObject createdBullet;
+    private GameObject testEnemyExist;
+    private SpriteRenderer spriteRender;
+    private bool canShoot = true;
+    private int shootTimer = 0;
 
     #endregion
 
@@ -51,27 +55,31 @@ public class Tower : MonoBehaviour
                 createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
                 createdBullet.GetComponent<Bullet>().move = true;
                 createdBullet.GetComponent<Bullet>().target = currentTarget;
+                createdBullet.GetComponent<Bullet>().damage = damage;
                 canShoot = false;
                 shootTimer = 60;
 
-                //switch (thisPlant)
-                //{
-                //    case GameManager.ShopItems.BASIC:
-                //        createdBullet.GetComponent<Bullet>().thisSprite = basicBullet;
-                //        break;
-                //    case GameManager.ShopItems.FIRE:
-                //        createdBullet.GetComponent<Bullet>().thisSprite = fireBullet;
-                //        break;
-                //    case GameManager.ShopItems.ICE:
-                //        createdBullet.GetComponent<Bullet>().thisSprite = iceBullet;
-                //        break;
-                //    case GameManager.ShopItems.VOID:
-                //        createdBullet.GetComponent<Bullet>().thisSprite = voidBullet;
-                //        break;
-                //    default:
-                //        createdBullet.GetComponent<Bullet>().thisSprite = basicBullet;
-                //        break;
-                //}
+                switch (type)
+                {
+                    case "Basic":
+                        createdBullet.GetComponent<SpriteRenderer>().color = Color.white;
+                        break;
+                    case "Fire":
+                        createdBullet.GetComponent<SpriteRenderer>().color = Color.red;
+                        break;
+                    case "Ice":
+                        createdBullet.GetComponent<SpriteRenderer>().color = Color.blue;
+                        break;
+                    case "Lightning":
+                        createdBullet.GetComponent<SpriteRenderer>().color = Color.yellow;
+                        break;
+                    case "Void":
+                        createdBullet.GetComponent<SpriteRenderer>().color = Color.magenta;
+                        break;
+                    default:
+                        createdBullet.GetComponent<SpriteRenderer>().color = Color.black;
+                        break;
+                }
             }
         }
 

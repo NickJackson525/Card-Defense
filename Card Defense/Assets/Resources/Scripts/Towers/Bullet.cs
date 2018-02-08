@@ -6,16 +6,19 @@ public class Bullet : MonoBehaviour
 {
     #region Variables
 
+    public GameObject target;
     public Sprite thisSprite;
     public bool move = false;
-    public GameObject target;
-    public int damage = 15;
+    public int damage;
     public float speed = 5f;
-    Vector3 moveDirection;
+
+    private Vector3 moveDirection;
 
     #endregion
-	
-	void Update ()
+
+    #region Update
+
+    void Update ()
     {
         if (target == null)
         {
@@ -28,6 +31,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Collision
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if ((Random.Range(1, 4) == 1) && coll.gameObject.tag == "Enemy")
@@ -36,4 +43,6 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    #endregion
 }

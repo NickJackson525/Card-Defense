@@ -5,7 +5,7 @@ using UnityEngine;
 #region Enums
 
 //all the card types available
-public enum CardType
+public enum Cards
 {
     //Basic card enums
     BasicResource, Basic, MediumBasic, HeavyBasic,
@@ -23,7 +23,7 @@ public enum CardType
     VoidResource, BasicVoid, MediumVoid, HeavyVoid, VoidPortalSpell,
 }
 
-public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell, IsLocked }
+public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell, IsLocked, CardType }
 
 #endregion
 
@@ -32,14 +32,14 @@ class GameManager
     #region Variables
 
     //dictionary of every card in the game and their properties
-    public Dictionary<CardType, Dictionary<CardElement, string>> CardLibrary = new Dictionary<CardType, Dictionary<CardElement, string>>
+    public Dictionary<Cards, Dictionary<CardElement, string>> CardLibrary = new Dictionary<Cards, Dictionary<CardElement, string>>
     {
         #region Basic Cards
 
         {
             #region Basic Resource Card
 
-            CardType.BasicResource, new Dictionary<CardElement, string>
+            Cards.BasicResource, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "0" },
                 { CardElement.Damage, "0" },
@@ -51,6 +51,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "False" },
+                { CardElement.CardType, "Basic" },
             }
 
             #endregion
@@ -58,7 +59,7 @@ class GameManager
         {
             #region Basic Tower Card
 
-            CardType.Basic, new Dictionary<CardElement, string>
+            Cards.Basic, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "1" },
                 { CardElement.Damage, "1" },
@@ -70,6 +71,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "False" },
+                { CardElement.CardType, "Basic" },
             }
 
             #endregion
@@ -77,7 +79,7 @@ class GameManager
         {
             #region Medium Basic Tower Card
 
-            CardType.MediumBasic, new Dictionary<CardElement, string>
+            Cards.MediumBasic, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
@@ -89,6 +91,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Basic" },
             }
 
             #endregion
@@ -96,7 +99,7 @@ class GameManager
         {
             #region Heavy Basic Tower Card
 
-            CardType.HeavyBasic, new Dictionary<CardElement, string>
+            Cards.HeavyBasic, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
@@ -108,6 +111,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Basic Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Basic" },
             }
 
             #endregion
@@ -120,7 +124,7 @@ class GameManager
         {
             #region Fire Resource Card
 
-            CardType.FireResource, new Dictionary<CardElement, string>
+            Cards.FireResource, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "0" },
                 { CardElement.Damage, "0" },
@@ -132,6 +136,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Fire" },
             }
 
             #endregion
@@ -139,7 +144,7 @@ class GameManager
         {
             #region Basic Fire Tower Card
 
-            CardType.BasicFire, new Dictionary<CardElement, string>
+            Cards.BasicFire, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "1" },
                 { CardElement.Damage, "1" },
@@ -151,6 +156,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Fire" },
             }
 
             #endregion
@@ -158,7 +164,7 @@ class GameManager
         {
             #region Medium Fire Tower Card
 
-            CardType.MediumFire, new Dictionary<CardElement, string>
+            Cards.MediumFire, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
@@ -170,6 +176,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Fire" },
             }
 
             #endregion
@@ -177,7 +184,7 @@ class GameManager
         {
             #region Heavy Fire Tower Card
 
-            CardType.HeavyFire, new Dictionary<CardElement, string>
+            Cards.HeavyFire, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
@@ -189,6 +196,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Fire" },
             }
 
             #endregion
@@ -196,7 +204,7 @@ class GameManager
         {
             #region Fireball Spell Card
 
-            CardType.FireballSpell, new Dictionary<CardElement, string>
+            Cards.FireballSpell, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
@@ -208,6 +216,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Fire Card Back" },
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Fire" },
             }
 
             #endregion
@@ -220,7 +229,7 @@ class GameManager
         {
             #region Ice Resource Card
 
-            CardType.IceResource, new Dictionary<CardElement, string>
+            Cards.IceResource, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "0" },
                 { CardElement.Damage, "0" },
@@ -232,6 +241,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Ice" },
             }
 
             #endregion
@@ -239,7 +249,7 @@ class GameManager
         {
             #region Basic Ice Tower Card
 
-            CardType.BasicIce, new Dictionary<CardElement, string>
+            Cards.BasicIce, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "1" },
                 { CardElement.Damage, "1" },
@@ -251,6 +261,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Ice" },
             }
 
             #endregion
@@ -258,7 +269,7 @@ class GameManager
         {
             #region Medium Ice Tower Card
 
-            CardType.MediumIce, new Dictionary<CardElement, string>
+            Cards.MediumIce, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
@@ -270,6 +281,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Ice" },
             }
 
             #endregion
@@ -277,7 +289,7 @@ class GameManager
         {
             #region Heavy Ice Tower Card
 
-            CardType.HeavyIce, new Dictionary<CardElement, string>
+            Cards.HeavyIce, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
@@ -289,6 +301,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Ice" },
             }
 
             #endregion
@@ -296,7 +309,7 @@ class GameManager
         {
             #region Ice Storm Spell Card
 
-            CardType.IceStormSpell, new Dictionary<CardElement, string>
+            Cards.IceStormSpell, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
@@ -308,6 +321,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Ice Card Back" },
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Ice" },
             }
 
             #endregion
@@ -320,7 +334,7 @@ class GameManager
         {
             #region Lightning Resource Card
 
-            CardType.LightningResource, new Dictionary<CardElement, string>
+            Cards.LightningResource, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "0" },
                 { CardElement.Damage, "0" },
@@ -332,6 +346,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Lightning" },
             }
 
             #endregion
@@ -339,7 +354,7 @@ class GameManager
         {
             #region Basic Lightning Tower Card
 
-            CardType.BasicLightning, new Dictionary<CardElement, string>
+            Cards.BasicLightning, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "1" },
                 { CardElement.Damage, "1" },
@@ -351,6 +366,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Lightning" },
             }
 
             #endregion
@@ -358,7 +374,7 @@ class GameManager
         {
             #region Medium Lightning Tower Card
 
-            CardType.MediumLightning, new Dictionary<CardElement, string>
+            Cards.MediumLightning, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
@@ -370,6 +386,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Lightning" },
             }
 
             #endregion
@@ -377,7 +394,7 @@ class GameManager
         {
             #region Heavy Lightning Tower Card
 
-            CardType.HeavyLightning, new Dictionary<CardElement, string>
+            Cards.HeavyLightning, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
@@ -389,6 +406,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Lightning" },
             }
 
             #endregion
@@ -396,7 +414,7 @@ class GameManager
         {
             #region Lightning Strike Spell Card
 
-            CardType.LightningStrikeSpell, new Dictionary<CardElement, string>
+            Cards.LightningStrikeSpell, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
@@ -408,6 +426,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Lightning" },
             }
 
             #endregion
@@ -420,7 +439,7 @@ class GameManager
         {
             #region Void Resource Card
 
-            CardType.VoidResource, new Dictionary<CardElement, string>
+            Cards.VoidResource, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "0" },
                 { CardElement.Damage, "0" },
@@ -432,6 +451,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Void" },
             }
 
             #endregion
@@ -439,7 +459,7 @@ class GameManager
         {
             #region Basic Void Tower Card
 
-            CardType.BasicVoid, new Dictionary<CardElement, string>
+            Cards.BasicVoid, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "1" },
                 { CardElement.Damage, "1" },
@@ -451,6 +471,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Void" },
             }
 
             #endregion
@@ -458,7 +479,7 @@ class GameManager
         {
             #region Medium Void Tower Card
 
-            CardType.MediumVoid, new Dictionary<CardElement, string>
+            Cards.MediumVoid, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
@@ -470,6 +491,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Void" },
             }
 
             #endregion
@@ -477,7 +499,7 @@ class GameManager
         {
             #region Heavy Void Tower Card
 
-            CardType.HeavyVoid, new Dictionary<CardElement, string>
+            Cards.HeavyVoid, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
@@ -489,6 +511,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Void" },
             }
 
             #endregion
@@ -496,7 +519,7 @@ class GameManager
         {
             #region Void Portal Spell Card
 
-            CardType.VoidPortalSpell, new Dictionary<CardElement, string>
+            Cards.VoidPortalSpell, new Dictionary<CardElement, string>
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
@@ -508,6 +531,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Void Card Back" },
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.CardType, "Void" },
             }
 
             #endregion
@@ -624,10 +648,11 @@ class GameManager
     }
 
     //method to create a card using the values in the CardLibrary dictionary
-    public CardInfo CreateCard(CardType cardToMake)
+    public CardInfo CreateCard(Cards cardToMake)
     {
         CardInfo createdCard = new CardInfo(
             cardToMake,
+            Instance.CardLibrary[cardToMake][CardElement.CardType],
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Cost]),
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Damage]),
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Range]),
@@ -642,7 +667,7 @@ class GameManager
     }
 
     //create the default deck with specified cards
-    public void CreateDefaultDeck(CardType type)
+    public void CreateDefaultDeck(Cards type)
     {
         for(int i = 0; i < deckSize; i++)
         {

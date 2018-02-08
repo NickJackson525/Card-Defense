@@ -9,7 +9,7 @@ public class Initializer : MonoBehaviour
     {
         if (GameManager.Instance.currentDeck.Count == 0)
         {
-            GameManager.Instance.CreateDefaultDeck(CardType.Basic);
+            GameManager.Instance.CreateDefaultDeck(Cards.Basic);
         }
 	}
 }

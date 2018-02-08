@@ -43,7 +43,7 @@ public class Deck : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Alpha1))
         {
-            GameManager.Instance.CreateDefaultDeck(CardType.Basic);
+            GameManager.Instance.CreateDefaultDeck(Cards.Basic);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -54,7 +54,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
-            GameManager.Instance.CreateDefaultDeck(CardType.BasicFire);
+            GameManager.Instance.CreateDefaultDeck(Cards.BasicFire);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -65,7 +65,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
-            GameManager.Instance.CreateDefaultDeck(CardType.BasicIce);
+            GameManager.Instance.CreateDefaultDeck(Cards.BasicIce);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -76,7 +76,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {
-            GameManager.Instance.CreateDefaultDeck(CardType.BasicLightning);
+            GameManager.Instance.CreateDefaultDeck(Cards.BasicLightning);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -87,7 +87,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha5))
         {
-            GameManager.Instance.CreateDefaultDeck(CardType.BasicVoid);
+            GameManager.Instance.CreateDefaultDeck(Cards.BasicVoid);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -133,7 +133,7 @@ public class Deck : MonoBehaviour
 
             createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
             createdCard.GetComponent<Image>().sprite = tempCard.thisCard;
-            createdCard.GetComponent<Card>().thisCardType = tempCard.thisCardType;
+            createdCard.GetComponent<Card>().thisCardName = tempCard.thisCardName;
             createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
             createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
             createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
@@ -145,6 +145,7 @@ public class Deck : MonoBehaviour
             createdCard.GetComponent<Card>().isSpell = tempCard.isSpell;
             createdCard.GetComponent<Card>().cardSlot = nextOpenCardSlot;
             createdCard.GetComponent<Card>().deck = gameObject;
+            createdCard.GetComponent<Card>().type = tempCard.cardType;
 
             if (cardsInHand == 1)
             {

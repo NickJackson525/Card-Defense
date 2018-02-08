@@ -10,7 +10,8 @@ public class Card : PauseableObject
 
     #region Public
 
-    public CardType thisCardType; //the type of card this is
+    public Cards thisCardName;    //the name of this card
+    public string type;           //the type of card this is
     public GameObject tower;      //the tower object that this card will create
     public GameObject cardSlot;   //the card slot that this card is in
     public GameObject deck;       //the deck this card came from
@@ -35,6 +36,7 @@ public class Card : PauseableObject
 
     #region Private
 
+    private GameObject createdTower;        //the tower object that is created
     private bool mouseHover = false;        //checks when the mouse is over this card or not
     private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
     private Vector3 startPosition;          //stores the start position of this card
@@ -63,7 +65,7 @@ public class Card : PauseableObject
 
     private void Start()
     {
-        thisCard = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardType][CardElement.CardSprite]);
+        thisCard = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardName][CardElement.CardSprite]);
 
         if (GetComponentInChildren<LockImage>())
         {
@@ -195,7 +197,29 @@ public class Card : PauseableObject
                 if (!inHand)
                 {
                     //create tower object
-                    Instantiate(tower, transform.position, transform.rotation);
+                    createdTower = Instantiate(tower, transform.position, transform.rotation);
+
+                    switch (type)
+                    {
+                        case "Basic":
+                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                            break;
+                        case "Fire":
+                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
+                            break;
+                        case "Ice":
+                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.blue;
+                            break;
+                        case "Lightning":
+                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.yellow;
+                            break;
+                        case "Void":
+                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
+                            break;
+                        default:
+                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                            break;
+                    }
 
                     //update deck to draw a new card in the appropriate slot
                     deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
@@ -227,7 +251,7 @@ public class Card : PauseableObject
             }
             else if((GameManager.Instance.currentDeck.Count < GameManager.deckSize) && !isLocked)
             {
-                GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardType));
+                GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardName));
             }
         }
     }

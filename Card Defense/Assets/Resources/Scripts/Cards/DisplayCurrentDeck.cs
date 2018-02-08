@@ -119,7 +119,7 @@ public class DisplayCurrentDeck : MonoBehaviour
 
                 createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
                 createdCard.GetComponent<Image>().sprite = tempCard.thisCard;
-                createdCard.GetComponent<Card>().thisCardType = tempCard.thisCardType;
+                createdCard.GetComponent<Card>().thisCardName = tempCard.thisCardName;
                 createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
                 createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
                 createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
