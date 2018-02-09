@@ -9,12 +9,18 @@ public class Bullet : MonoBehaviour
     public GameObject target;
     public Sprite thisSprite;
     public bool move = false;
+    public string type;
     public int damage;
-    public float speed = 5f;
 
     private Vector3 moveDirection;
+    private float speed = 400f;
 
     #endregion
+
+    private void Start()
+    {
+        moveDirection = target.transform.position - transform.position;
+    }
 
     #region Update
 
@@ -26,8 +32,7 @@ public class Bullet : MonoBehaviour
         }
         else if (move)
         {
-            moveDirection = target.transform.position - transform.position;
-            transform.Translate(moveDirection.normalized * speed * Time.deltaTime);
+            GetComponent<Rigidbody2D>().velocity = moveDirection.normalized * speed * Time.deltaTime;
         }
     }
 
@@ -37,9 +42,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        if ((Random.Range(1, 4) == 1) && coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.tag == "Enemy")
         {
-            Destroy(coll.gameObject);
+            if (Random.Range(1, 4) == 1)
+            {
+                Destroy(coll.gameObject);
+            }
+
             Destroy(gameObject);
         }
     }

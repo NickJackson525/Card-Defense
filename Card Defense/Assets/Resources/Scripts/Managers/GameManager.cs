@@ -543,6 +543,7 @@ class GameManager
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
     public List<CardInfo> currentDeck = new List<CardInfo>();      //the default deck at the start of the game
     public const int deckSize = 20;                                //the maximum deck size for the game
+    public const float rangeConst = 1.5f;                               //the default range of the towers
     bool isPaused;                                                 //variable to pause the game
 
     #endregion

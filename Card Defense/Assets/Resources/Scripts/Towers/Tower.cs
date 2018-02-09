@@ -12,7 +12,7 @@ public class Tower : MonoBehaviour
     public string type;
     public int currentLevel = 1;
     public int damage = 1;
-    public int range = 1;
+    public float range = 1;
     
     private GameObject createdBullet;
     private GameObject testEnemyExist;
@@ -28,6 +28,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         spriteRender = GetComponent<SpriteRenderer>();
+        range = range * GameManager.rangeConst;
     }
 
     #endregion
@@ -56,8 +57,12 @@ public class Tower : MonoBehaviour
                 createdBullet.GetComponent<Bullet>().move = true;
                 createdBullet.GetComponent<Bullet>().target = currentTarget;
                 createdBullet.GetComponent<Bullet>().damage = damage;
+                createdBullet.GetComponent<Bullet>().type = type;
+
                 canShoot = false;
                 shootTimer = 60;
+
+                #region Color Bullet
 
                 switch (type)
                 {
@@ -80,6 +85,8 @@ public class Tower : MonoBehaviour
                         createdBullet.GetComponent<SpriteRenderer>().color = Color.black;
                         break;
                 }
+
+                #endregion
             }
         }
 
