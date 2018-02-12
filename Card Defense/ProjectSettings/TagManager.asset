@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - PathNode
+  - NewCard
+  - Bullet
   layers:
   - Default
   - TransparentFX

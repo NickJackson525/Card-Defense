@@ -37,21 +37,4 @@ public class Bullet : MonoBehaviour
     }
 
     #endregion
-
-    #region Collision
-
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag == "Enemy")
-        {
-            if (Random.Range(1, 4) == 1)
-            {
-                Destroy(coll.gameObject);
-            }
-
-            Destroy(gameObject);
-        }
-    }
-
-    #endregion
 }

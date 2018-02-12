@@ -7,10 +7,16 @@ public class Enemy : PauseableObject
 {
     #region Variables
 
-    List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
-    Vector3 moveDirection;                          //the direction the enemy is currently moving in
-    const float speed = 1.5f;                       //the speed the enemy moves
-    int pathCount = 0;                              //the current place the enemy is in the path
+    public float currSpeed = 1.5f;                        //the speed the enemy moves
+    public float naturalSpeed = 1.5f;
+    public float health = 20f;                              //the health of the enemy
+
+    private List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
+    private Vector3 moveDirection;                          //the direction the enemy is currently moving in
+    private int pathCount = 0;                              //the current place the enemy is in the path
+    private int fireTimer = 0;
+    private int frozenTimer = 0;
+    private int damageToTake = 0;
 
     #endregion
 
@@ -34,6 +40,41 @@ public class Enemy : PauseableObject
         //check that the game isn't paused
         if (!GameManager.Instance.Paused)
         {
+            #region Fire Damage
+
+            if(fireTimer > 0)
+            {
+                fireTimer--;
+
+                if ((fireTimer % 10) == 0)
+                {
+                    health -= damageToTake;
+                }
+
+                if(fireTimer == 0)
+                {
+                    damageToTake = 0;
+                }
+            }
+
+            #endregion
+
+            #region Frozen
+
+            if(frozenTimer > 0)
+            {
+                frozenTimer--;
+
+                currSpeed = naturalSpeed / 2f;
+
+                if(frozenTimer == 0)
+                {
+                    currSpeed = naturalSpeed;
+                }
+            }
+
+            #endregion
+
             #region Path
 
             //check that the enemy isn't at the end of the path
@@ -71,11 +112,54 @@ public class Enemy : PauseableObject
                     }
 
                     //move towards the next node
-                    transform.Translate(moveDirection.normalized * speed * Time.deltaTime);
+                    transform.Translate(moveDirection.normalized * currSpeed * Time.deltaTime);
                 }
             }
 
             #endregion
+
+            #region Check Death
+
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+            #endregion
+        }
+    }
+
+    #endregion
+
+    #region Collision
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Bullet")
+        {
+            switch(coll.GetComponent<Bullet>().type)
+            {
+                case "Basic":
+                    health -= coll.GetComponent<Bullet>().damage;
+                    break;
+                case "Fire":
+                    fireTimer = 240;
+                    damageToTake = coll.GetComponent<Bullet>().damage;
+                    break;
+                case "Ice":
+                    frozenTimer = 240;
+                    health -= coll.GetComponent<Bullet>().damage;
+                    break;
+                case "Lightning":
+                    break;
+                case "Void":
+                    break;
+                default:
+                    health -= coll.GetComponent<Bullet>().damage;
+                    break;
+            }
+
+            Destroy(coll.gameObject);
         }
     }
 

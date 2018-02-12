@@ -198,6 +198,9 @@ public class Card : PauseableObject
                 {
                     //create tower object
                     createdTower = Instantiate(tower, transform.position, transform.rotation);
+                    createdTower.GetComponent<Tower>().type = type;
+                    createdTower.GetComponent<Tower>().damage = int.Parse(damageText.text);
+                    createdTower.GetComponent<Tower>().range = int.Parse(rangeText.text);
 
                     switch (type)
                     {
