@@ -10,6 +10,8 @@ public class Initializer : MonoBehaviour
         if (GameManager.Instance.currentDeck.Count == 0)
         {
             GameManager.Instance.CreateDefaultDeck(Cards.Basic);
+            GameManager.Instance.deckType1 = DeckType.Basic;
+            GameManager.Instance.deckType2 = DeckType.None;
         }
 	}
 }

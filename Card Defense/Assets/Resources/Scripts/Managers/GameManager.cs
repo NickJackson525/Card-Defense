@@ -25,6 +25,8 @@ public enum Cards
 
 public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell, IsLocked, CardType }
 
+public enum DeckType { Basic, Fire, Ice, Lightning, Void, None }
+
 #endregion
 
 class GameManager
@@ -542,8 +544,10 @@ class GameManager
 
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
     public List<CardInfo> currentDeck = new List<CardInfo>();      //the default deck at the start of the game
+    public DeckType deckType1 = DeckType.None;                             //the first type that the deck is
+    public DeckType deckType2 = DeckType.None;                             //the second type that the deck is
     public const int deckSize = 20;                                //the maximum deck size for the game
-    public const float rangeConst = 1.5f;                               //the default range of the towers
+    public const float rangeConst = 1.5f;                          //the default range of the towers
     bool isPaused;                                                 //variable to pause the game
 
     #endregion

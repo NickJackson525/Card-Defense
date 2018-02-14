@@ -81,13 +81,18 @@ public class Card : PauseableObject
     {
         if (SceneManager.GetActiveScene().name == "Deck Builder")
         {
-            if(isLocked)
+            if (isLocked)
             {
                 GetComponent<Button>().interactable = false;
             }
-            else
+            else if ((GameManager.Instance.deckType1.ToString() == type) || (GameManager.Instance.deckType1.ToString() == type))
             {
                 GetComponent<Button>().interactable = true;
+            }
+            else if (GameManager.Instance.deckType1 == DeckType.None)
+            {
+                GetComponent<Button>().interactable = true;
+                GameManager.Instance.deckType2 = DeckType
             }
         }
 
