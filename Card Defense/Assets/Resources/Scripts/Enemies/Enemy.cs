@@ -139,20 +139,20 @@ public class Enemy : PauseableObject
         {
             switch(coll.GetComponent<Bullet>().type)
             {
-                case "Basic":
+                case DeckType.Basic:
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
-                case "Fire":
+                case DeckType.Fire:
                     fireTimer = 240;
                     damageToTake = coll.GetComponent<Bullet>().damage;
                     break;
-                case "Ice":
+                case DeckType.Ice:
                     frozenTimer = 240;
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
-                case "Lightning":
+                case DeckType.Lightning:
                     break;
-                case "Void":
+                case DeckType.Void:
                     break;
                 default:
                     health -= coll.GetComponent<Bullet>().damage;

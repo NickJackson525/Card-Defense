@@ -11,7 +11,7 @@ public class Card : PauseableObject
     #region Public
 
     public Cards thisCardName;    //the name of this card
-    public string type;           //the type of card this is
+    public DeckType type;           //the type of card this is
     public GameObject tower;      //the tower object that this card will create
     public GameObject cardSlot;   //the card slot that this card is in
     public GameObject deck;       //the deck this card came from
@@ -85,14 +85,13 @@ public class Card : PauseableObject
             {
                 GetComponent<Button>().interactable = false;
             }
-            else if ((GameManager.Instance.deckType1.ToString() == type) || (GameManager.Instance.deckType1.ToString() == type))
+            else if ((GameManager.Instance.deckType1 == type) || (GameManager.Instance.deckType2 == type) || (GameManager.Instance.deckType1 == DeckType.None) || (GameManager.Instance.deckType2 == DeckType.None))
             {
                 GetComponent<Button>().interactable = true;
             }
-            else if (GameManager.Instance.deckType1 == DeckType.None)
+            else
             {
-                GetComponent<Button>().interactable = true;
-                GameManager.Instance.deckType2 = DeckType
+                GetComponent<Button>().interactable = false;
             }
         }
 
@@ -209,19 +208,19 @@ public class Card : PauseableObject
 
                     switch (type)
                     {
-                        case "Basic":
+                        case DeckType.Basic:
                             createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
                             break;
-                        case "Fire":
+                        case DeckType.Fire:
                             createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
                             break;
-                        case "Ice":
+                        case DeckType.Ice:
                             createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.blue;
                             break;
-                        case "Lightning":
+                        case DeckType.Lightning:
                             createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.yellow;
                             break;
-                        case "Void":
+                        case DeckType.Void:
                             createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
                             break;
                         default:
@@ -251,15 +250,29 @@ public class Card : PauseableObject
             }
         }
 
-        if((SceneManager.GetActiveScene().name == "Deck Builder") && Input.GetMouseButtonUp(0))
+        if ((SceneManager.GetActiveScene().name == "Deck Builder") && Input.GetMouseButtonUp(0))
         {
-            if(inDeck)
+            if (inDeck)
             {
                 GameManager.Instance.currentDeck.RemoveAt(numberInDeck);
+                GameManager.Instance.UpdateDeckTypes();
             }
-            else if((GameManager.Instance.currentDeck.Count < GameManager.deckSize) && !isLocked)
+            else if ((GameManager.Instance.currentDeck.Count < GameManager.deckSize) && !isLocked)
             {
-                GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardName));
+                if ((GameManager.Instance.deckType1 == type) || (GameManager.Instance.deckType2 == type))
+                {
+                    GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardName));
+                }
+                else if (GameManager.Instance.deckType1 == DeckType.None)
+                {
+                    GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardName));
+                    GameManager.Instance.deckType1 = type;
+                }
+                else if (GameManager.Instance.deckType2 == DeckType.None)
+                {
+                    GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardName));
+                    GameManager.Instance.deckType2 = type;
+                }
             }
         }
     }

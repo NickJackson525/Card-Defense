@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public GameObject target;
     public Sprite thisSprite;
     public bool move = false;
-    public string type;
+    public DeckType type;
     public int damage;
 
     private Vector3 moveDirection;
@@ -17,10 +17,14 @@ public class Bullet : MonoBehaviour
 
     #endregion
 
+    #region Start
+
     private void Start()
     {
         moveDirection = target.transform.position - transform.position;
     }
+
+    #endregion
 
     #region Update
 

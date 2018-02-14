@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 223437653169956514}
   - component: {fileID: 114931464932074606}
   - component: {fileID: 114214688932959056}
+  - component: {fileID: 114121259284057490}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -233,6 +234,23 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &114121259284057490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705904561648810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61ba2c08c06f2d43b7510b92d674c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mana1: {fileID: 114619862806290306}
+  mana2: {fileID: 114137914329186696}
+  manaImage1: {fileID: 114606266532818624}
+  manaImage2: {fileID: 114500695098218344}
+  numManaType1: 0
+  numManaType2: 0
 --- !u!114 &114137914329186696
 MonoBehaviour:
   m_ObjectHideFlags: 1

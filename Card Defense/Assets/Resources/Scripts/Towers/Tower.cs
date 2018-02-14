@@ -9,7 +9,7 @@ public class Tower : MonoBehaviour
     public GameObject bullet;
     public GameObject currentTarget;
     public GameObject manaStone;
-    public string type;
+    public DeckType type;
     public int currentLevel = 1;
     public int damage = 1;
     public float range = 1;
@@ -66,19 +66,19 @@ public class Tower : MonoBehaviour
 
                 switch (type)
                 {
-                    case "Basic":
+                    case DeckType.Basic:
                         createdBullet.GetComponent<SpriteRenderer>().color = Color.white;
                         break;
-                    case "Fire":
+                    case DeckType.Fire:
                         createdBullet.GetComponent<SpriteRenderer>().color = Color.red;
                         break;
-                    case "Ice":
+                    case DeckType.Ice:
                         createdBullet.GetComponent<SpriteRenderer>().color = Color.blue;
                         break;
-                    case "Lightning":
+                    case DeckType.Lightning:
                         createdBullet.GetComponent<SpriteRenderer>().color = Color.yellow;
                         break;
-                    case "Void":
+                    case DeckType.Void:
                         createdBullet.GetComponent<SpriteRenderer>().color = Color.magenta;
                         break;
                     default:

@@ -544,11 +544,12 @@ class GameManager
 
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
     public List<CardInfo> currentDeck = new List<CardInfo>();      //the default deck at the start of the game
-    public DeckType deckType1 = DeckType.None;                             //the first type that the deck is
-    public DeckType deckType2 = DeckType.None;                             //the second type that the deck is
+    public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
+    public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
     public const int deckSize = 20;                                //the maximum deck size for the game
     public const float rangeConst = 1.5f;                          //the default range of the towers
     bool isPaused;                                                 //variable to pause the game
+    private DeckType createdCardType;                              //used for creating cards
 
     #endregion
 
@@ -655,9 +656,31 @@ class GameManager
     //method to create a card using the values in the CardLibrary dictionary
     public CardInfo CreateCard(Cards cardToMake)
     {
+        switch(Instance.CardLibrary[cardToMake][CardElement.CardType])
+        {
+            case "Basic":
+                createdCardType = DeckType.Basic;
+                break;
+            case "Fire":
+                createdCardType = DeckType.Fire;
+                break;
+            case "Ice":
+                createdCardType = DeckType.Ice;
+                break;
+            case "Lightning":
+                createdCardType = DeckType.Lightning;
+                break;
+            case "Void":
+                createdCardType = DeckType.Void;
+                break;
+            default:
+                createdCardType = DeckType.Basic;
+                break;
+        }
+
         CardInfo createdCard = new CardInfo(
             cardToMake,
-            Instance.CardLibrary[cardToMake][CardElement.CardType],
+            createdCardType,
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Cost]),
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Damage]),
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Range]),
@@ -677,6 +700,28 @@ class GameManager
         for(int i = 0; i < deckSize; i++)
         {
             currentDeck.Add(CreateCard(type));
+        }
+    }
+
+    public void UpdateDeckTypes()
+    {
+        Instance.deckType1 = DeckType.None;
+        Instance.deckType2 = DeckType.None;
+
+        foreach (CardInfo card in Instance.currentDeck)
+        {
+            if ((Instance.deckType1 == card.cardType) || (Instance.deckType2 == card.cardType))
+            {
+                //Do nothing
+            }
+            else if (Instance.deckType1 == DeckType.None)
+            {
+                Instance.deckType1 = card.cardType;
+            }
+            else if (Instance.deckType2 == DeckType.None)
+            {
+                Instance.deckType2 = card.cardType;
+            }
         }
     }
 
