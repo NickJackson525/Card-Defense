@@ -43,7 +43,7 @@ public class Deck : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Alpha1))
         {
-            GameManager.Instance.CreateDefaultDeck(Cards.Basic);
+            GameManager.Instance.CreateDefaultDeck(Cards.BasicResource, Cards.Basic);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -54,7 +54,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
-            GameManager.Instance.CreateDefaultDeck(Cards.BasicFire);
+            GameManager.Instance.CreateDefaultDeck(Cards.FireResource, Cards.BasicFire);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -65,7 +65,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
-            GameManager.Instance.CreateDefaultDeck(Cards.BasicIce);
+            GameManager.Instance.CreateDefaultDeck(Cards.IceResource, Cards.BasicIce);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -76,7 +76,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {
-            GameManager.Instance.CreateDefaultDeck(Cards.BasicLightning);
+            GameManager.Instance.CreateDefaultDeck(Cards.LightningResource, Cards.BasicLightning);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -87,7 +87,7 @@ public class Deck : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Alpha5))
         {
-            GameManager.Instance.CreateDefaultDeck(Cards.BasicVoid);
+            GameManager.Instance.CreateDefaultDeck(Cards.VoidResource, Cards.BasicVoid);
             deck = GameManager.Instance.currentDeck;
             isFull = true;
 
@@ -137,7 +137,8 @@ public class Deck : MonoBehaviour
             createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
             createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
             createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
-            createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardText;
+            createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardType.ToString();
+            createdCard.GetComponent<Card>().cardText.text = tempCard.cardText;
             createdCard.GetComponent<Card>().cardWatermark.sprite = tempCard.towerWatermark;
             createdCard.GetComponent<Card>().cardBack.sprite = tempCard.thisCard;
             createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;

@@ -46,7 +46,7 @@ class GameManager
                 { CardElement.Cost, "0" },
                 { CardElement.Damage, "0" },
                 { CardElement.Range, "0" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "0" },
                 { CardElement.CardText, "Basic Resource" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -66,7 +66,7 @@ class GameManager
                 { CardElement.Cost, "1" },
                 { CardElement.Damage, "1" },
                 { CardElement.Range, "1" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "0" },
                 { CardElement.CardText, "Basic Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -86,7 +86,7 @@ class GameManager
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Medium Basic Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -106,7 +106,7 @@ class GameManager
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "3" },
                 { CardElement.CardText, "Heavy Basic Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Basic Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -171,7 +171,7 @@ class GameManager
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Medium Fire Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -191,7 +191,7 @@ class GameManager
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "3" },
                 { CardElement.CardText, "Heavy Fire Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -211,7 +211,7 @@ class GameManager
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
                 { CardElement.Range, "4" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Fireball Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -276,7 +276,7 @@ class GameManager
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Medium Ice Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -296,7 +296,7 @@ class GameManager
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "3" },
                 { CardElement.CardText, "Heavy Ice Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -316,7 +316,7 @@ class GameManager
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
                 { CardElement.Range, "4" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Ice Storm Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -381,7 +381,7 @@ class GameManager
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Medium Lightning Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -401,7 +401,7 @@ class GameManager
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "3" },
                 { CardElement.CardText, "Heavy Lightning Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -421,7 +421,7 @@ class GameManager
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
                 { CardElement.Range, "4" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Lightning Storm Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -486,7 +486,7 @@ class GameManager
                 { CardElement.Cost, "2" },
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Medium Void Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -506,7 +506,7 @@ class GameManager
                 { CardElement.Cost, "3" },
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "3" },
                 { CardElement.CardText, "Heavy Void Tower" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -526,7 +526,7 @@ class GameManager
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
                 { CardElement.Range, "4" },
-                { CardElement.Level, "1" },
+                { CardElement.Level, "2" },
                 { CardElement.CardText, "Void Portal Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower" },
@@ -547,6 +547,7 @@ class GameManager
     public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
     public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
     public const int deckSize = 20;                                //the maximum deck size for the game
+    public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public const float rangeConst = 3f;                            //the default range of the towers
     bool isPaused;                                                 //variable to pause the game
     private DeckType createdCardType;                              //used for creating cards
@@ -635,6 +636,22 @@ class GameManager
         {
             Paused = !Paused;
         }
+
+        //test leveling to unlock cards
+        if(Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            playerLevel = 1;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            playerLevel = 2;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            playerLevel = 3;
+        }
     }
 
     #endregion
@@ -684,6 +701,7 @@ class GameManager
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Cost]),
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Damage]),
             int.Parse(Instance.CardLibrary[cardToMake][CardElement.Range]),
+            int.Parse(Instance.CardLibrary[cardToMake][CardElement.Level]),
             Instance.CardLibrary[cardToMake][CardElement.CardText],
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.WatermarkSprite]),
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.TowerSprite]),
@@ -695,9 +713,14 @@ class GameManager
     }
 
     //create the default deck with specified cards
-    public void CreateDefaultDeck(Cards type)
+    public void CreateDefaultDeck(Cards resourceType ,Cards type)
     {
-        for(int i = 0; i < deckSize; i++)
+        for(int i = 0; i < deckSize / 2; i++)
+        {
+            currentDeck.Add(CreateCard(resourceType));
+        }
+
+        for (int i = 0; i < deckSize / 2; i++)
         {
             currentDeck.Add(CreateCard(type));
         }

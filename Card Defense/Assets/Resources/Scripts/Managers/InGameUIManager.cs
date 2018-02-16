@@ -35,6 +35,8 @@ public class InGameUIManager : MonoBehaviour
 
     #endregion
 
+    #region Update
+
     // Update is called once per frame
     void Update ()
     {
@@ -117,4 +119,7 @@ public class InGameUIManager : MonoBehaviour
                 break;
         }
     }
+
+    #endregion
 }
+

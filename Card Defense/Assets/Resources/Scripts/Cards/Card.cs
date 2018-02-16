@@ -11,7 +11,7 @@ public class Card : PauseableObject
     #region Public
 
     public Cards thisCardName;    //the name of this card
-    public DeckType type;           //the type of card this is
+    public DeckType type;         //the type of card this is
     public GameObject tower;      //the tower object that this card will create
     public GameObject cardSlot;   //the card slot that this card is in
     public GameObject deck;       //the deck this card came from
@@ -37,11 +37,13 @@ public class Card : PauseableObject
     #region Private
 
     private GameObject createdTower;        //the tower object that is created
+    private GameObject UICanvas;            //the ui canvas in the game
     private bool mouseHover = false;        //checks when the mouse is over this card or not
+    private bool hasEnoughResources = false;   //bool if the user has enough resources
     private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
     private Vector3 startPosition;          //stores the start position of this card
     private Vector3 mousePosition;          //the position of the mouse
-    private Sprite thisCard;
+    private Sprite thisCard;                //the card sprite for this particular card
 
     #endregion
 
@@ -71,6 +73,11 @@ public class Card : PauseableObject
         {
             GetComponentInChildren<LockImage>().thisCard = gameObject;
         }
+
+        if(SceneManager.GetActiveScene().name != "Deck Builder")
+        {
+            UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
+        }
     }
 
     #endregion
@@ -81,6 +88,12 @@ public class Card : PauseableObject
     {
         if (SceneManager.GetActiveScene().name == "Deck Builder")
         {
+            if(GameManager.Instance.playerLevel >= cardLevel)
+            {
+                GameManager.Instance.CardLibrary[thisCardName][CardElement.IsLocked] = "False";
+                isLocked = false;
+            }
+
             if (isLocked)
             {
                 GetComponent<Button>().interactable = false;
@@ -100,42 +113,62 @@ public class Card : PauseableObject
         {
             if (SceneManager.GetActiveScene().name != "Deck Builder")
             {
-                //check if the mouse is over this card
-                if (mouseHover)
-                {
-                    //check if the left mouse button is being held
-                    if (Input.GetMouseButton(0))
-                    {
-                        //get mouse position and convert it to world space
-                        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                #region Check if player has enough resources
 
-                        //lerp towards mouse position
-                        transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
-                    }
+                if((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 >= int.Parse(costText.text)))
+                {
+                    hasEnoughResources = true;
                 }
-
-                //check if the card has been dragged out of the hand
-                if (transform.position.y >= (startPosition.y + 5f))
+                else if ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 >= int.Parse(costText.text)))
                 {
-                    inHand = false;                                     //the card isn't in the hand
-                    GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
-                    cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
-                    manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
-                    costText.gameObject.SetActive(false);               //disable the cost text
-                    cardNameText.gameObject.SetActive(false);           //disable the name text
-                    cardText.gameObject.SetActive(false);               //disable the card text
-                    transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
+                    hasEnoughResources = true;
                 }
                 else
                 {
-                    inHand = true;                                  //the card isn't in the hand
-                    GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
-                    cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
-                    manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
-                    costText.gameObject.SetActive(true);            //enable the cost text
-                    cardNameText.gameObject.SetActive(true);        //enable the name text
-                    cardText.gameObject.SetActive(true);            //enable the card text
-                    transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
+                    hasEnoughResources = false;
+                }
+
+                #endregion
+
+                if (hasEnoughResources)
+                {
+                    //check if the mouse is over this card
+                    if (mouseHover)
+                    {
+                        //check if the left mouse button is being held
+                        if (Input.GetMouseButton(0))
+                        {
+                            //get mouse position and convert it to world space
+                            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                            //lerp towards mouse position
+                            transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
+                        }
+                    }
+
+                    //check if the card has been dragged out of the hand
+                    if (transform.position.y >= (startPosition.y + 5f))
+                    {
+                        inHand = false;                                     //the card isn't in the hand
+                        GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
+                        cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
+                        manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
+                        costText.gameObject.SetActive(false);               //disable the cost text
+                        cardNameText.gameObject.SetActive(false);           //disable the name text
+                        cardText.gameObject.SetActive(false);               //disable the card text
+                        transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
+                    }
+                    else
+                    {
+                        inHand = true;                                  //the card isn't in the hand
+                        GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
+                        cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
+                        manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
+                        costText.gameObject.SetActive(true);            //enable the cost text
+                        cardNameText.gameObject.SetActive(true);        //enable the name text
+                        cardText.gameObject.SetActive(true);            //enable the card text
+                        transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
+                    }
                 }
             }
         }
@@ -170,7 +203,7 @@ public class Card : PauseableObject
     private void OnMouseExit()
     {
         //check that the game isn't paused and that the left mouse button isn't being held down
-        if (!GameManager.Instance.Paused && !Input.GetMouseButton(0))
+        if (!GameManager.Instance.Paused && !Input.GetMouseButton(0) || !hasEnoughResources)
         {
             //jump back to the start position to indicate it is no longer selected
             transform.position = startPosition;

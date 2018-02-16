@@ -52,8 +52,11 @@ public class Tower : MonoBehaviour
 
         if (canShoot && (testEnemyExist != null) && (currentTarget != null))
         {
-            if (Vector2.Distance(currentTarget.transform.position, this.gameObject.transform.position) <= range)
+            if (enemyList.Count > 0)
             {
+                currentTarget = enemyList[0];
+                //if (Vector2.Distance(currentTarget.transform.position, this.gameObject.transform.position) <= range)
+                //{
                 createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
                 createdBullet.GetComponent<Bullet>().move = true;
                 createdBullet.GetComponent<Bullet>().target = currentTarget;
@@ -88,6 +91,7 @@ public class Tower : MonoBehaviour
                 }
 
                 #endregion
+                //}
             }
         }
 
@@ -127,11 +131,20 @@ public class Tower : MonoBehaviour
 
     #region Collisions
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.tag == "Enemy")
         {
             enemyList.Add(coll.gameObject);
+            SortEnemyList();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Enemy")
+        {
+            enemyList.Remove(coll.gameObject);
             SortEnemyList();
         }
     }
