@@ -7,16 +7,17 @@ public class Enemy : PauseableObject
 {
     #region Variables
 
-    public float currSpeed = 1.5f;                        //the speed the enemy moves
-    public float naturalSpeed = 1.5f;
-    public float health = 20f;                              //the health of the enemy
+    public float currSpeed = 1.5f;                          //the speed the enemy is currently moving
+    public float naturalSpeed = 1.5f;                       //the speed the enemy goes without anything altering it
+    public float health = 10f;                              //the health of the enemy
+    public float distFromEnd = 0;                           //how far away this enemy is from the end of the track
 
     private List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     private Vector3 moveDirection;                          //the direction the enemy is currently moving in
     private int pathCount = 0;                              //the current place the enemy is in the path
-    private int fireTimer = 0;
-    private int frozenTimer = 0;
-    private int damageToTake = 0;
+    private int fireTimer = 0;                              //how long the damage over time will last
+    private int frozenTimer = 0;                            //how long the enemy will stay slowed
+    private int damageToTake = 0;                           //how much damage to take over time
 
     #endregion
 
@@ -40,6 +41,12 @@ public class Enemy : PauseableObject
         //check that the game isn't paused
         if (!GameManager.Instance.Paused)
         {
+            #region Update Distance to End
+
+            distFromEnd = (path.Count() - (pathCount + 1)) + Vector2.Distance(path[pathCount].gameObject.transform.position, transform.position);
+
+            #endregion
+
             #region Fire Damage
 
             if(fireTimer > 0)
@@ -93,6 +100,7 @@ public class Enemy : PauseableObject
                 //if the enemy has reached the last node, destroy it
                 if (pathCount >= path.Count())
                 {
+                    //TODO: Add code to damage base health
                     Destroy(gameObject);
                 }
                 else

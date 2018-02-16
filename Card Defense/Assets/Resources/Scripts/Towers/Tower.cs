@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
     private SpriteRenderer spriteRender;
     private bool canShoot = true;
     private int shootTimer = 0;
+    private List<GameObject> enemyList = new List<GameObject>();
 
     #endregion
 
@@ -95,9 +96,9 @@ public class Tower : MonoBehaviour
 
     #endregion
 
-    #region Custom Methods
+    #region Private Methods
 
-    public GameObject FindClosestEnemy()
+    private GameObject FindClosestEnemy()
     {
         GameObject[] allEnemies;
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -115,6 +116,24 @@ public class Tower : MonoBehaviour
             }
         }
         return closest;
+    }
+
+    private void SortEnemyList()
+    {
+        enemyList.Sort((p1, p2) => p1.GetComponent<Enemy>().distFromEnd.CompareTo(p2.GetComponent<Enemy>().distFromEnd));
+    }
+
+    #endregion
+
+    #region Collisions
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(coll.gameObject.tag == "Enemy")
+        {
+            enemyList.Add(coll.gameObject);
+            SortEnemyList();
+        }
     }
 
     #endregion
