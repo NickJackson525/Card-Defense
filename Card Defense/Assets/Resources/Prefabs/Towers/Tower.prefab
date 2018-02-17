@@ -131,6 +131,7 @@ MonoBehaviour:
   bullet: {fileID: 1028181969549654, guid: f11887d04d5c66d4e895637bc1a9c06b, type: 2}
   currentTarget: {fileID: 0}
   manaStone: {fileID: 1084770999788432}
+  collRadius: {fileID: 1449347595281428}
   type: 0
   currentLevel: 1
   damage: 1

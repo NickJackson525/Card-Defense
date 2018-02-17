@@ -15,6 +15,7 @@ public class Card : PauseableObject
     public GameObject tower;      //the tower object that this card will create
     public GameObject cardSlot;   //the card slot that this card is in
     public GameObject deck;       //the deck this card came from
+    public GameObject radius;
     public Text costText;         //card cost text for this card object
     public Text damageText;       //card damage text for this card object
     public Text rangeText;        //card range text for this card object
@@ -36,14 +37,14 @@ public class Card : PauseableObject
 
     #region Private
 
-    private GameObject createdTower;        //the tower object that is created
-    private GameObject UICanvas;            //the ui canvas in the game
-    private bool mouseHover = false;        //checks when the mouse is over this card or not
-    private bool hasEnoughResources = false;   //bool if the user has enough resources
-    private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
-    private Vector3 startPosition;          //stores the start position of this card
-    private Vector3 mousePosition;          //the position of the mouse
-    private Sprite thisCard;                //the card sprite for this particular card
+    private GameObject createdTower;         //the tower object that is created
+    private GameObject UICanvas;             //the ui canvas in the game
+    private bool mouseHover = false;         //checks when the mouse is over this card or not
+    private bool hasEnoughResources = false; //bool if the user has enough resources
+    private const float outOfHandDist = 2f;  //the distance the card must be dragged in order to be played
+    private Vector3 startPosition;           //stores the start position of this card
+    private Vector3 mousePosition;           //the position of the mouse
+    private Sprite thisCard;                 //the card sprite for this particular card
 
     #endregion
 
@@ -238,6 +239,7 @@ public class Card : PauseableObject
                     createdTower.GetComponent<Tower>().type = type;
                     createdTower.GetComponent<Tower>().damage = int.Parse(damageText.text);
                     createdTower.GetComponent<Tower>().range = int.Parse(rangeText.text);
+                    createdTower.GetComponent<SpriteRenderer>().sprite = thisTower;
 
                     switch (type)
                     {
@@ -265,6 +267,16 @@ public class Card : PauseableObject
                     deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
                     deck.GetComponent<Deck>().cardsInHand--;
                     deck.GetComponent<Deck>().Draw();
+
+                    //decrease mana stored
+                    if (GameManager.Instance.deckType1 == type)
+                    {
+                        UICanvas.GetComponent<InGameUIManager>().numManaType1 -= int.Parse(costText.text);
+                    }
+                    else if (GameManager.Instance.deckType2 == type)
+                    {
+                        UICanvas.GetComponent<InGameUIManager>().numManaType2 -= int.Parse(costText.text);
+                    }
 
                     //destroy the card
                     Destroy(gameObject);
