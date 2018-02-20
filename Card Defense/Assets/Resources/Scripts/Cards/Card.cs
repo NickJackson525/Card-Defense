@@ -10,28 +10,30 @@ public class Card : PauseableObject
 
     #region Public
 
-    public Cards thisCardName;    //the name of this card
-    public DeckType type;         //the type of card this is
-    public GameObject tower;      //the tower object that this card will create
-    public GameObject cardSlot;   //the card slot that this card is in
-    public GameObject deck;       //the deck this card came from
+    public Cards thisCardName;          //the name of this card
+    public DeckType type;               //the type of card this is
+    public GameObject tower;            //the tower object that this card will create
+    public GameObject cardSlot;         //the card slot that this card is in
+    public GameObject deck;             //the deck this card came from
     public GameObject radius;
-    public Text costText;         //card cost text for this card object
-    public Text damageText;       //card damage text for this card object
-    public Text rangeText;        //card range text for this card object
-    public Text cardNameText;     //card name text for this card object
-    public Text cardText;         //text description of the card
-    public Image cardWatermark;   //watermark image for this card object
-    public Image manaSymbol;      //image to represent mana
-    public Image cardBack;        //card back image for this card object
-    public int cardLevel = 1;     //used for upgrading cards
-    public int numberInDeck = 0;  //used for deck bulding
-    public Sprite towerWatermark; //the image on the card that represents its type
-    public Sprite thisTower;      //the sprite the tower this card represents
-    public bool isLocked = false; //used for deck bulding
-    public bool inDeck = false;   //used for deck building
-    public bool isSpell = false;  //differenciation between spells and towers
-    public bool inHand = true;    //used to see where the card currently is
+    public GameObject somethingNewIcon;
+    public Text costText;               //card cost text for this card object
+    public Text damageText;             //card damage text for this card object
+    public Text rangeText;              //card range text for this card object
+    public Text cardNameText;           //card name text for this card object
+    public Text cardText;               //text description of the card
+    public Image cardWatermark;         //watermark image for this card object
+    public Image manaSymbol;            //image to represent mana
+    public Image cardBack;              //card back image for this card object
+    public int cardLevel = 1;           //used for upgrading cards
+    public int numberInDeck = 0;        //used for deck bulding
+    public Sprite towerWatermark;       //the image on the card that represents its type
+    public Sprite thisTower;            //the sprite the tower this card represents
+    public bool isLocked = false;       //used for deck bulding
+    public bool inDeck = false;         //used for deck building
+    public bool isSpell = false;        //differenciation between spells and towers
+    public bool hasBeenSeen = true;
+    public bool inHand = true;          //used to see where the card currently is
 
     #endregion
 
@@ -75,7 +77,7 @@ public class Card : PauseableObject
             GetComponentInChildren<LockImage>().thisCard = gameObject;
         }
 
-        if(SceneManager.GetActiveScene().name != "Deck Builder")
+        if (SceneManager.GetActiveScene().name != "Deck Builder")
         {
             UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
         }
@@ -89,7 +91,16 @@ public class Card : PauseableObject
     {
         if (SceneManager.GetActiveScene().name == "Deck Builder")
         {
-            if(GameManager.Instance.playerLevel >= cardLevel)
+            if (!isLocked && !hasBeenSeen)
+            {
+                somethingNewIcon.SetActive(true);
+            }
+            else if (hasBeenSeen)
+            {
+                somethingNewIcon.SetActive(false);
+            }
+
+            if (GameManager.Instance.playerLevel >= cardLevel)
             {
                 GameManager.Instance.CardLibrary[thisCardName][CardElement.IsLocked] = "False";
                 isLocked = false;
@@ -190,6 +201,11 @@ public class Card : PauseableObject
             {
                 //move up to indicate the card is currently selected
                 transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 40f, transform.position.z), .1f);
+            }
+            else
+            {
+                hasBeenSeen = true;
+                GameManager.Instance.CardLibrary[thisCardName][CardElement.HasBeenLookedAt] = hasBeenSeen.ToString();
             }
 
             //the mouse is over the card

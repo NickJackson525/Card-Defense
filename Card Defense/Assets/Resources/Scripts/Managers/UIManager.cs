@@ -9,6 +9,26 @@ public class UIManager : MonoBehaviour
 
     public GameObject instructionsWindow;
     public GameObject settingsWindow;
+    public GameObject somethingNewIcon;
+
+    #endregion
+
+    #region Update
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            if (GameManager.Instance.newCardsToLookAt)
+            {
+                somethingNewIcon.SetActive(true);
+            }
+            else
+            {
+                somethingNewIcon.SetActive(false);
+            }
+        }
+    }
 
     #endregion
 

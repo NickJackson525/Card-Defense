@@ -231,6 +231,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &233954089 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1497661720614454, guid: f1a1e063a143dec47bfa505e42fd42cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 289076619}
 --- !u!1001 &289076619
 Prefab:
   m_ObjectHideFlags: 0
@@ -347,6 +352,11 @@ Prefab:
       propertyPath: m_TagString
       value: NewCard
       objectReference: {fileID: 0}
+    - target: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
+        type: 2}
+      propertyPath: somethingNewIcon
+      value: 
+      objectReference: {fileID: 233954089}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1a1e063a143dec47bfa505e42fd42cd, type: 2}
   m_IsPrefabParent: 0

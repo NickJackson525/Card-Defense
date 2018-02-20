@@ -23,7 +23,7 @@ public enum Cards
     VoidResource, BasicVoid, MediumVoid, HeavyVoid, VoidPortalSpell,
 }
 
-public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell, IsLocked, CardType }
+public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite, TowerSprite, CardSprite, IsSpell, IsLocked, CardType, HasBeenLookedAt }
 
 public enum DeckType { Basic, Fire, Ice, Lightning, Void, None }
 
@@ -54,6 +54,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "False" },
                 { CardElement.CardType, "Basic" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -74,6 +75,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "False" },
                 { CardElement.CardType, "Basic" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -94,6 +96,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Basic" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -114,6 +117,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Basic" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -139,6 +143,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Fire" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -159,6 +164,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Fire" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -179,6 +185,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Fire" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -199,6 +206,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Fire" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -219,6 +227,7 @@ class GameManager
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Fire" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -244,6 +253,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Ice" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -264,6 +274,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Ice" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -284,6 +295,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Ice" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -304,6 +316,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Ice" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -324,6 +337,7 @@ class GameManager
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Ice" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -349,6 +363,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -369,6 +384,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -389,6 +405,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -408,6 +425,7 @@ class GameManager
                 { CardElement.CardSprite, "Sprites/Cards/Lightning Card Back" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
+                { CardElement.HasBeenLookedAt, "False" },
                 { CardElement.CardType, "Lightning" },
             }
 
@@ -429,6 +447,7 @@ class GameManager
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -454,6 +473,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -474,6 +494,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -494,6 +515,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -514,6 +536,7 @@ class GameManager
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -534,6 +557,7 @@ class GameManager
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
+                { CardElement.HasBeenLookedAt, "False" },
             }
 
             #endregion
@@ -549,6 +573,7 @@ class GameManager
     public const int deckSize = 20;                                //the maximum deck size for the game
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public const float rangeConst = 3f;                            //the default range of the towers
+    public bool newCardsToLookAt = true;
     bool isPaused;                                                 //variable to pause the game
     private DeckType createdCardType;                              //used for creating cards
 
@@ -631,6 +656,8 @@ class GameManager
 
     private void Update()
     {
+        CheckForNewCards();
+
         //testing the pause functionality
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -707,7 +734,8 @@ class GameManager
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.TowerSprite]),
             Resources.Load<Sprite>(Instance.CardLibrary[cardToMake][CardElement.CardSprite]),
             bool.Parse(Instance.CardLibrary[cardToMake][CardElement.IsSpell]),
-            bool.Parse(Instance.CardLibrary[cardToMake][CardElement.IsLocked]));
+            bool.Parse(Instance.CardLibrary[cardToMake][CardElement.IsLocked]),
+            bool.Parse(Instance.CardLibrary[cardToMake][CardElement.HasBeenLookedAt]));
 
         return createdCard;
     }
@@ -715,12 +743,12 @@ class GameManager
     //create the default deck with specified cards
     public void CreateDefaultDeck(Cards resourceType ,Cards type)
     {
-        for(int i = 0; i < deckSize / 2; i++)
+        for(int i = 0; i < deckSize / 4; i++)
         {
             currentDeck.Add(CreateCard(resourceType));
         }
 
-        for (int i = 0; i < deckSize / 2; i++)
+        for (int i = 0; i < ((3 * deckSize) / 4); i++)
         {
             currentDeck.Add(CreateCard(type));
         }
@@ -744,6 +772,20 @@ class GameManager
             else if (Instance.deckType2 == DeckType.None)
             {
                 Instance.deckType2 = card.cardType;
+            }
+        }
+    }
+
+
+    public void CheckForNewCards()
+    {
+        newCardsToLookAt = false;
+
+        foreach(KeyValuePair<Cards, Dictionary<CardElement, string>> card in CardLibrary)
+        {
+            if(!bool.Parse(card.Value[CardElement.IsLocked]) && !bool.Parse(card.Value[CardElement.HasBeenLookedAt]))
+            {
+                newCardsToLookAt = true;
             }
         }
     }

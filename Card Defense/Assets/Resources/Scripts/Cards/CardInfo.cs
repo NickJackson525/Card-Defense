@@ -20,6 +20,7 @@ public class CardInfo
     public bool isLocked = false;           //used for deck building
     public bool inDeck = false;             //used for deck building
     public bool isSpell = false;            //differenciation between spells and 
+    public bool hasBeenSeen = false;        //if the card has been viewed since it was unlocked
     private const float outOfHandDist = 2f; //the distance the card must be dragged in order to be played
 
     #endregion
@@ -27,7 +28,7 @@ public class CardInfo
     #region Constructor
 
     //constructor for the class
-    public CardInfo(Cards name, DeckType type, int cost, int damage, int range, int level, string text, Sprite watermark, Sprite tower, Sprite card, bool spell, bool locked)
+    public CardInfo(Cards name, DeckType type, int cost, int damage, int range, int level, string text, Sprite watermark, Sprite tower, Sprite card, bool spell, bool locked, bool seen)
     {
         thisCardName = name;
         cardType = type;
@@ -41,6 +42,7 @@ public class CardInfo
         thisCard = card;
         isSpell = spell;
         isLocked = locked;
+        hasBeenSeen = seen;
     }
 
     #endregion

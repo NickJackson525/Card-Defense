@@ -29,6 +29,7 @@ public class Deck : MonoBehaviour
         nextOpenCardSlot = cardSlot1;
 
         deck = GameManager.Instance.currentDeck;
+        deck = ShuffleDeck(deck);
         Draw();
         Draw();
         Draw();
@@ -161,6 +162,22 @@ public class Deck : MonoBehaviour
                 nextOpenCardSlot = cardSlot4;
             }
         }
+    }
+
+    public List<CardInfo> ShuffleDeck(List<CardInfo> deckToShuffle)
+    {
+        CardInfo temp;
+        int rand;
+
+        for(int i = 0; i < deckToShuffle.Count; i++)
+        {
+            rand = Random.Range(0, deckToShuffle.Count - 1);
+            temp = deckToShuffle[rand];
+            deckToShuffle[rand] = deckToShuffle[i];
+            deckToShuffle[i] = temp;
+        }
+
+        return deckToShuffle;
     }
 
     #endregion
