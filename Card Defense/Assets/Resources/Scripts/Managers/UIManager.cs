@@ -39,6 +39,19 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void AcceptDeck()
+    {
+        GameManager.Instance.savedDeck = GameManager.Instance.currentDeck.ToArray();
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void RejectDeck()
+    {
+        GameManager.Instance.currentDeck.Clear();
+        GameManager.Instance.currentDeck = new List<CardInfo>(GameManager.Instance.savedDeck);
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void SettingsWindow()
     {
         if(settingsWindow.activeSelf)

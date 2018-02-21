@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 #region Enums
 
@@ -567,15 +568,21 @@ class GameManager
     };
 
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
-    public List<CardInfo> currentDeck = new List<CardInfo>();      //the default deck at the start of the game
+    public List<CardInfo> currentDeck = new List<CardInfo>();      //the current deck
     public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
     public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
     public const int deckSize = 20;                                //the maximum deck size for the game
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
+    public int baseHealth = 100;
     public const float rangeConst = 3f;                            //the default range of the towers
     public bool newCardsToLookAt = true;
+    public CardInfo[] savedDeck = new CardInfo[deckSize];          //a saved copy of the current deck, so it can be reset
+
     bool isPaused;                                                 //variable to pause the game
+    private GameObject UICanvas;                                   //the ui canvas in the game
     private DeckType createdCardType;                              //used for creating cards
+    private int generateResourceTimer = 1200;
+    private bool justGeneratedResourceType1 = false;
 
     #endregion
 
@@ -658,11 +665,79 @@ class GameManager
     {
         CheckForNewCards();
 
+        #region Check Game Over
+
+        if(baseHealth <= 0)
+        {
+            //TODO: add code here to open up the game over screen
+            ResetVariables();
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        #endregion
+
+        #region Get UICanvas Reference
+
+        if((UICanvas == null) && (GameObject.FindGameObjectWithTag("InGameUI")))
+        {
+            UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
+        }
+
+        #endregion
+
+        #region Generate Resources
+
+        if (generateResourceTimer > 0)
+        {
+            generateResourceTimer--;
+
+            if(generateResourceTimer == 0)
+            {
+                generateResourceTimer = 1200;
+
+                if (deckType2 != DeckType.None)
+                {
+                    if (justGeneratedResourceType1)
+                    {
+                        justGeneratedResourceType1 = false;
+                        UICanvas.GetComponent<InGameUIManager>().numManaType2++;
+                    }
+                    else
+                    {
+                        justGeneratedResourceType1 = true;
+                        UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+                    }
+                }
+                else
+                {
+                    UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Pause Game
+
         //testing the pause functionality
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Paused = !Paused;
         }
+
+        #endregion
+
+        #region Main Menu
+
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            ResetVariables();
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        #endregion
+
+        #region Test Level-Up
 
         //test leveling to unlock cards
         if(Input.GetKeyUp(KeyCode.Alpha1))
@@ -679,6 +754,8 @@ class GameManager
         {
             playerLevel = 3;
         }
+
+        #endregion
     }
 
     #endregion
@@ -776,7 +853,6 @@ class GameManager
         }
     }
 
-
     public void CheckForNewCards()
     {
         newCardsToLookAt = false;
@@ -788,6 +864,14 @@ class GameManager
                 newCardsToLookAt = true;
             }
         }
+    }
+
+    public void ResetVariables()
+    {
+        Instance.baseHealth = 100;
+        Instance.currentDeck.Clear();
+
+        Instance.currentDeck = new List<CardInfo>(Instance.savedDeck);
     }
 
     #endregion

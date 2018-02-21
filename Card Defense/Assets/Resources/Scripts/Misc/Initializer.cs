@@ -9,9 +9,11 @@ public class Initializer : MonoBehaviour
     {
         if (GameManager.Instance.currentDeck.Count == 0)
         {
-            GameManager.Instance.CreateDefaultDeck(Cards.LightningResource, Cards.BasicLightning);
-            GameManager.Instance.deckType1 = DeckType.Lightning;
+            GameManager.Instance.CreateDefaultDeck(Cards.BasicResource, Cards.Basic);
+            GameManager.Instance.deckType1 = DeckType.Basic;
             GameManager.Instance.deckType2 = DeckType.None;
+
+            GameManager.Instance.savedDeck = GameManager.Instance.currentDeck.ToArray();
         }
 	}
 }

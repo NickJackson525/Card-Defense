@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currSpeed: 1.5
   naturalSpeed: 1.5
-  health: 5
+  health: 10
   distFromEnd: 0
 --- !u!212 &212200538828772834
 SpriteRenderer:

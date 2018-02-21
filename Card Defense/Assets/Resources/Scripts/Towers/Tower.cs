@@ -22,7 +22,7 @@ public class Tower : MonoBehaviour
     private SpriteRenderer spriteRender;
     private bool canShoot = true;
     private int shootTimer = 0;
-    private int manaGenerationTimer = 400;
+    private int manaGenerationTimer = 800;
     private List<GameObject> enemyList = new List<GameObject>();
 
     #endregion

@@ -9,9 +9,9 @@ public class Enemy : PauseableObject
 
     public float currSpeed = 1.5f;                          //the speed the enemy is currently moving
     public float naturalSpeed = 1.5f;                       //the speed the enemy goes without anything altering it
-    public float health = 10f;                              //the health of the enemy
+    public float health = 20f;                              //the health of the enemy
     public float distFromEnd = 0;                           //how far away this enemy is from the end of the track
-
+    
     private List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     private Vector3 moveDirection;                          //the direction the enemy is currently moving in
     private int pathCount = 0;                              //the current place the enemy is in the path
@@ -100,7 +100,7 @@ public class Enemy : PauseableObject
                 //if the enemy has reached the last node, destroy it
                 if (pathCount >= path.Count())
                 {
-                    //TODO: Add code to damage base health
+                    GameManager.Instance.baseHealth -= (int)health;
                     Destroy(gameObject);
                 }
                 else

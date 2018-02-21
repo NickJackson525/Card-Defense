@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Deck : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class Deck : MonoBehaviour
     public GameObject nextOpenCardSlot;
     public bool isFull = false;
     public int cardsInHand = 0;
+
     private CardInfo tempCard;
     private GameObject createdCard;
+    public GameObject UICanvas;             //the ui canvas in the game
 
     #endregion
 
@@ -26,6 +29,14 @@ public class Deck : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        if (SceneManager.GetActiveScene().name != "Deck Builder")
+        {
+            UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
+        }
+
+        UICanvas.GetComponent<InGameUIManager>().numManaType1 = 1;
+        UICanvas.GetComponent<InGameUIManager>().numManaType2 = 1;
+
         nextOpenCardSlot = cardSlot1;
 
         deck = GameManager.Instance.currentDeck;
