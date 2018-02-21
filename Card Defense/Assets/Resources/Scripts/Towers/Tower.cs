@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour
     public GameObject currentTarget;
     public GameObject manaStone;
     public GameObject collRadius;
+    public GameObject lightningBolt;
     public DeckType type;
     public int currentLevel = 1;
     public int damage = 1;
@@ -81,44 +82,56 @@ public class Tower : MonoBehaviour
             {
                 if (enemyList.Count > 0)
                 {
-                    currentTarget = enemyList[0];
-                    //if (Vector2.Distance(currentTarget.transform.position, this.gameObject.transform.position) <= range)
-                    //{
-                    createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
-                    createdBullet.GetComponent<Bullet>().move = true;
-                    createdBullet.GetComponent<Bullet>().target = currentTarget;
-                    createdBullet.GetComponent<Bullet>().damage = damage;
-                    createdBullet.GetComponent<Bullet>().type = type;
-
-                    canShoot = false;
-                    shootTimer = 60;
-
-                    #region Color Bullet
-
-                    switch (type)
+                    if (type == DeckType.Lightning)
                     {
-                        case DeckType.Basic:
-                            createdBullet.GetComponent<SpriteRenderer>().color = Color.white;
-                            break;
-                        case DeckType.Fire:
-                            createdBullet.GetComponent<SpriteRenderer>().color = Color.red;
-                            break;
-                        case DeckType.Ice:
-                            createdBullet.GetComponent<SpriteRenderer>().color = Color.blue;
-                            break;
-                        case DeckType.Lightning:
-                            createdBullet.GetComponent<SpriteRenderer>().color = Color.yellow;
-                            break;
-                        case DeckType.Void:
-                            createdBullet.GetComponent<SpriteRenderer>().color = Color.magenta;
-                            break;
-                        default:
-                            createdBullet.GetComponent<SpriteRenderer>().color = Color.black;
-                            break;
-                    }
+                        currentTarget = enemyList[0];
 
-                    #endregion
-                    //}
+                        for(int i = 0; i < Random.Range(5, 7); i++)
+                        {
+                            createdBullet = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
+                            createdBullet.GetComponent<LightningBolt>().startPosition = transform.position;
+                            createdBullet.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
+                        }
+                    }
+                    else
+                    {
+                        currentTarget = enemyList[0];
+
+                        createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
+                        createdBullet.GetComponent<Bullet>().move = true;
+                        createdBullet.GetComponent<Bullet>().target = currentTarget;
+                        createdBullet.GetComponent<Bullet>().damage = damage;
+                        createdBullet.GetComponent<Bullet>().type = type;
+
+                        canShoot = false;
+                        shootTimer = 60;
+
+                        #region Color Bullet
+
+                        switch (type)
+                        {
+                            case DeckType.Basic:
+                                createdBullet.GetComponent<SpriteRenderer>().color = Color.white;
+                                break;
+                            case DeckType.Fire:
+                                createdBullet.GetComponent<SpriteRenderer>().color = Color.red;
+                                break;
+                            case DeckType.Ice:
+                                createdBullet.GetComponent<SpriteRenderer>().color = Color.blue;
+                                break;
+                            case DeckType.Lightning:
+                                createdBullet.GetComponent<SpriteRenderer>().color = Color.yellow;
+                                break;
+                            case DeckType.Void:
+                                createdBullet.GetComponent<SpriteRenderer>().color = Color.magenta;
+                                break;
+                            default:
+                                createdBullet.GetComponent<SpriteRenderer>().color = Color.black;
+                                break;
+                        }
+
+                        #endregion
+                    }
                 }
             }
 

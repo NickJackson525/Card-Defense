@@ -132,6 +132,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   manaStone: {fileID: 1084770999788432}
   collRadius: {fileID: 1449347595281428}
+  lightningBolt: {fileID: 1034543500719406, guid: e26a1c6a42c3bb949bbc81d741a6f7e8,
+    type: 2}
   type: 0
   currentLevel: 1
   damage: 1
