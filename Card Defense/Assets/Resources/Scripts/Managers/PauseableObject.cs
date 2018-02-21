@@ -29,6 +29,8 @@ public class PauseableObject : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
+
+        GameManager.Instance.AddPausableObject(this);
     }
 
     #endregion

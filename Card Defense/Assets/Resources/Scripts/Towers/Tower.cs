@@ -43,99 +43,106 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        //if damage and ranger are 0 then this is a resource tower
-        if ((damage == 0) && (range == 0))
+        if (!GameManager.Instance.Paused)
         {
-            if (manaGenerationTimer > 0)
+            //if damage and range are 0 then this is a resource tower
+            if ((damage == 0) && (range == 0))
             {
-                manaGenerationTimer--;
-
-                if (manaGenerationTimer == 0)
+                if (manaGenerationTimer > 0)
                 {
-                    if (GameManager.Instance.deckType1 == type)
+                    manaGenerationTimer--;
+
+                    if (manaGenerationTimer == 0)
                     {
-                        UICanvas.GetComponent<InGameUIManager>().numManaType1++;
-                    }
-                    else if (GameManager.Instance.deckType2 == type)
-                    {
-                        UICanvas.GetComponent<InGameUIManager>().numManaType2++;
-                    }
-
-                    manaGenerationTimer = 400;
-                }
-            }
-        }
-        else
-        {
-            currentTarget = FindClosestEnemy();
-            testEnemyExist = GameObject.FindGameObjectWithTag("Enemy");
-            shootTimer--;
-
-            if (shootTimer == 0)
-            {
-                canShoot = true;
-            }
-
-            #region Shoot
-
-            if (canShoot && (testEnemyExist != null) && (currentTarget != null))
-            {
-                if (enemyList.Count > 0)
-                {
-                    if (type == DeckType.Lightning)
-                    {
-                        currentTarget = enemyList[0];
-
-                        for(int i = 0; i < Random.Range(5, 7); i++)
+                        if (GameManager.Instance.deckType1 == type)
                         {
-                            createdBullet = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
-                            createdBullet.GetComponent<LightningBolt>().startPosition = transform.position;
-                            createdBullet.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
+                            UICanvas.GetComponent<InGameUIManager>().numManaType1++;
                         }
-                    }
-                    else
-                    {
-                        currentTarget = enemyList[0];
-
-                        createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
-                        createdBullet.GetComponent<Bullet>().move = true;
-                        createdBullet.GetComponent<Bullet>().target = currentTarget;
-                        createdBullet.GetComponent<Bullet>().damage = damage;
-                        createdBullet.GetComponent<Bullet>().type = type;
-
-                        canShoot = false;
-                        shootTimer = 60;
-
-                        #region Color Bullet
-
-                        switch (type)
+                        else if (GameManager.Instance.deckType2 == type)
                         {
-                            case DeckType.Basic:
-                                createdBullet.GetComponent<SpriteRenderer>().color = Color.white;
-                                break;
-                            case DeckType.Fire:
-                                createdBullet.GetComponent<SpriteRenderer>().color = Color.red;
-                                break;
-                            case DeckType.Ice:
-                                createdBullet.GetComponent<SpriteRenderer>().color = Color.blue;
-                                break;
-                            case DeckType.Lightning:
-                                createdBullet.GetComponent<SpriteRenderer>().color = Color.yellow;
-                                break;
-                            case DeckType.Void:
-                                createdBullet.GetComponent<SpriteRenderer>().color = Color.magenta;
-                                break;
-                            default:
-                                createdBullet.GetComponent<SpriteRenderer>().color = Color.black;
-                                break;
+                            UICanvas.GetComponent<InGameUIManager>().numManaType2++;
                         }
 
-                        #endregion
+                        manaGenerationTimer = 400;
                     }
                 }
             }
+            else
+            {
+                currentTarget = FindClosestEnemy();
+                testEnemyExist = GameObject.FindGameObjectWithTag("Enemy");
+                shootTimer--;
 
-            #endregion
+                if (shootTimer == 0)
+                {
+                    canShoot = true;
+                }
+
+                #region Shoot
+
+                if (canShoot && (testEnemyExist != null) && (currentTarget != null))
+                {
+                    if (enemyList.Count > 0)
+                    {
+                        if (type == DeckType.Lightning)
+                        {
+                            currentTarget = enemyList[0];
+
+                            for (int i = 0; i < Random.Range(4, 8); i++)
+                            {
+                                createdBullet = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
+                                createdBullet.GetComponent<LightningBolt>().startPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, 0f);
+                                createdBullet.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
+                                currentTarget.GetComponent<Enemy>().health -= 1;
+
+                                canShoot = false;
+                                shootTimer = 60;
+                            }
+                        }
+                        else
+                        {
+                            currentTarget = enemyList[0];
+
+                            createdBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
+                            createdBullet.GetComponent<Bullet>().move = true;
+                            createdBullet.GetComponent<Bullet>().target = currentTarget;
+                            createdBullet.GetComponent<Bullet>().damage = damage;
+                            createdBullet.GetComponent<Bullet>().type = type;
+
+                            canShoot = false;
+                            shootTimer = 60;
+
+                            #region Color Bullet
+
+                            switch (type)
+                            {
+                                case DeckType.Basic:
+                                    createdBullet.GetComponent<SpriteRenderer>().color = Color.white;
+                                    break;
+                                case DeckType.Fire:
+                                    createdBullet.GetComponent<SpriteRenderer>().color = Color.red;
+                                    break;
+                                case DeckType.Ice:
+                                    createdBullet.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    break;
+                                case DeckType.Lightning:
+                                    createdBullet.GetComponent<SpriteRenderer>().color = Color.yellow;
+                                    break;
+                                case DeckType.Void:
+                                    createdBullet.GetComponent<SpriteRenderer>().color = Color.magenta;
+                                    break;
+                                default:
+                                    createdBullet.GetComponent<SpriteRenderer>().color = Color.black;
+                                    break;
+                            }
+
+                            #endregion
+                        }
+                    }
+                }
+
+                #endregion
+            }
         }
     }
 

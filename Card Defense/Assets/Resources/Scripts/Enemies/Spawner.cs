@@ -11,28 +11,26 @@ public class Spawner : MonoBehaviour
     {
         enemy = Resources.Load<GameObject>("Prefabs/Enemies/Monster1");
     }
-
-    void Start ()
-    {
-		
-	}
 	
 	void Update ()
     {
-        if(timer > 0)
+        if (!GameManager.Instance.Paused)
         {
-            timer--;
+            if (timer > 0)
+            {
+                timer--;
 
-            if(timer == 0)
+                if (timer == 0)
+                {
+                    Instantiate(enemy, transform.position, transform.rotation);
+                    timer = 120;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.Q))
             {
                 Instantiate(enemy, transform.position, transform.rotation);
-                timer = 120;
             }
-        }
-
-		if(Input.GetKeyUp(KeyCode.Q))
-        {
-            Instantiate(enemy, transform.position, transform.rotation);
         }
 	}
 }

@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     public int damage;
 
     private Vector3 moveDirection;
-    private float speed = 400f;
+    private float speed = 600f;
 
     #endregion
 

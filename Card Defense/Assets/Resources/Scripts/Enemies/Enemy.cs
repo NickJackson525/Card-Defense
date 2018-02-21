@@ -161,6 +161,12 @@ public class Enemy : PauseableObject
                 case DeckType.Lightning:
                     break;
                 case DeckType.Void:
+                    if(Random.Range(0, 8) == 0)
+                    {
+                        health = 0;
+                    }
+
+                    health -= coll.GetComponent<Bullet>().damage;
                     break;
                 default:
                     health -= coll.GetComponent<Bullet>().damage;

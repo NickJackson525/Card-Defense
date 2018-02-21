@@ -12,13 +12,11 @@ public class LightningBolt : MonoBehaviour
     private List<Vector3> linePoints = new List<Vector3>();
     private Vector3 offsetPoint1;
     private Vector3 offsetPoint2;
-    private Vector3 towerOffset;
-    private Vector3 enemyOffset;
     private LineRenderer line;
     private int startDelay = 0;
     private int destroyTimer = 0;
-    private const float xOffsetMax = .5f;
-    private const float yOffsetMax = .5f;
+    private const float xOffsetMax = .75f;
+    private const float yOffsetMax = .75f;
 
     #endregion
 
@@ -27,65 +25,76 @@ public class LightningBolt : MonoBehaviour
     {
         line = GetComponent<LineRenderer>();
         startDelay = Random.Range(0, 16);
-        destroyTimer = Random.Range(30, 61);
+        destroyTimer = Random.Range(16, 30);
 
         if(startDelay == 0)
         {
             DrawLightningBolt();
         }
-
-        towerOffset = Vector3.zero - startPosition;
-        enemyOffset = Vector3.zero - endPosition;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(startDelay > 0)
+        if (!GameManager.Instance.Paused)
         {
-            startDelay--;
-
-            if(startDelay == 0)
+            if (startDelay > 0)
             {
-                DrawLightningBolt();
+                startDelay--;
+
+                if (startDelay == 0)
+                {
+                    DrawLightningBolt();
+                }
             }
-        }
 
-        if(destroyTimer > 0)
-        {
-            destroyTimer--;
-
-            if(destroyTimer == 0)
+            if (destroyTimer > 0)
             {
-                Destroy(gameObject);
+                destroyTimer--;
+
+                if (destroyTimer == 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 	}
 
     public void DrawLightningBolt()
     {
+        Vector3 slopeVector = endPosition - startPosition;
+
         linePoints.Add(startPosition);
 
-        offsetPoint1 = new Vector3((enemyOffset.x * .25f) + enemyOffset.x, (enemyOffset.y * .25f) + enemyOffset.y, enemyOffset.z);
-        offsetPoint2 = new Vector3((enemyOffset.x * .75f) + enemyOffset.x, (enemyOffset.y * .75f) + enemyOffset.y, enemyOffset.z);
-        offsetPoint1 = SkewPoint(offsetPoint1);
-        offsetPoint2 = SkewPoint(offsetPoint2);
+        offsetPoint1 = endPosition - (slopeVector * Random.Range(.2f, .3f));
+        offsetPoint2 = endPosition - (slopeVector * Random.Range(.7f, .8f));
+        SkewPoints();
 
-        linePoints.Add(offsetPoint1);
         linePoints.Add(offsetPoint2);
+        linePoints.Add(offsetPoint1);
         linePoints.Add(endPosition);
 
         line.SetPositions(linePoints.ToArray());
     }
 
-    public Vector3 SkewPoint(Vector3 point)
+    public void SkewPoints()
     {
         int positiveOrNegative = Random.Range(-1, 2);
 
-        point = new Vector3(positiveOrNegative * (point.x + Random.Range(0, xOffsetMax)), point.y, point.z);
-        positiveOrNegative = Random.Range(-1, 2);
-        point = new Vector3(point.x, positiveOrNegative * (point.y + Random.Range(0, yOffsetMax)), point.z);
-
-        return point;
+        //50% chance to skew x values or y values
+        if (Random.Range(0, 2) == 0)
+        {
+            //skew x values
+            offsetPoint1 = new Vector3(offsetPoint1.x + (positiveOrNegative * Random.Range(0, xOffsetMax)), offsetPoint1.y, offsetPoint1.z);
+            positiveOrNegative *= -1;
+            offsetPoint2 = new Vector3(offsetPoint2.x + (positiveOrNegative * Random.Range(0, xOffsetMax)), offsetPoint2.y, offsetPoint2.z);
+        }
+        else
+        {
+            //skew y values
+            offsetPoint1 = new Vector3(offsetPoint1.x, offsetPoint1.y + (positiveOrNegative * Random.Range(0, yOffsetMax)), offsetPoint1.z);
+            positiveOrNegative *= -1;
+            offsetPoint2 = new Vector3(offsetPoint2.x, offsetPoint2.y + (positiveOrNegative * Random.Range(0, yOffsetMax)), offsetPoint2.z);
+        }
     }
 }
