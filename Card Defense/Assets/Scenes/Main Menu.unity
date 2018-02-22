@@ -158,7 +158,7 @@ Prefab:
     - target: {fileID: 224507348352033188, guid: e9d340d1711081b4abb552a7ee8fae0a,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224507348352033188, guid: e9d340d1711081b4abb552a7ee8fae0a,
         type: 2}
@@ -220,22 +220,9 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1328682373}
-    - target: {fileID: 1058832577870292, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711792919238234, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &233954089 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1497661720614454, guid: f1a1e063a143dec47bfa505e42fd42cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 289076619}
 --- !u!1001 &289076619
 Prefab:
   m_ObjectHideFlags: 0
@@ -333,6 +320,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223372638524318922, guid: f1a1e063a143dec47bfa505e42fd42cd,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 733231737}
     - target: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
         type: 2}
       propertyPath: instructionsWindow
@@ -342,21 +334,7 @@ Prefab:
         type: 2}
       propertyPath: settingsWindow
       value: 
-      objectReference: {fileID: 1407194352}
-    - target: {fileID: 223372638524318922, guid: f1a1e063a143dec47bfa505e42fd42cd,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 733231737}
-    - target: {fileID: 1497661720614454, guid: f1a1e063a143dec47bfa505e42fd42cd, type: 2}
-      propertyPath: m_TagString
-      value: NewCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
-        type: 2}
-      propertyPath: somethingNewIcon
-      value: 
-      objectReference: {fileID: 233954089}
+      objectReference: {fileID: 481372847}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1a1e063a143dec47bfa505e42fd42cd, type: 2}
   m_IsPrefabParent: 0
@@ -365,6 +343,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1058832577870292, guid: e9d340d1711081b4abb552a7ee8fae0a,
     type: 2}
   m_PrefabInternal: {fileID: 159823565}
+--- !u!1 &481372847 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1397041159}
 --- !u!1 &733231733
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +511,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1154605639
+--- !u!114 &1328682373 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 289076619}
+  m_Script: {fileID: 11500000, guid: 6b20b0c80650c3a49b4c19c9f671a0af, type: 3}
+--- !u!1001 &1397041159
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -573,7 +562,7 @@ Prefab:
     - target: {fileID: 224516731279664586, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224516731279664586, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
         type: 2}
@@ -625,27 +614,20 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223836875275491714, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 733231737}
     - target: {fileID: 114398912280315528, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1328682373}
+    - target: {fileID: 223836875275491714, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 733231737}
+    - target: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
+      propertyPath: m_Name
+      value: Settings Canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1328682373 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 289076619}
-  m_Script: {fileID: 11500000, guid: 6b20b0c80650c3a49b4c19c9f671a0af, type: 3}
---- !u!1 &1407194352 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1154605639}

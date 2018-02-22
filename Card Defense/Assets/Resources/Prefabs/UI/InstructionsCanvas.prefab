@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &114075953635830270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,7 +169,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2fcbfb91632f9c146b1273f10bf079f1, type: 3}
-    m_FontSize: 65
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -299,11 +299,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8899f22702db2b94ca75933bbce7b98e, type: 3}
-    m_FontSize: 30
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 52
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -399,7 +399,9 @@ MonoBehaviour:
     click available cards to add them to your deck if it has avaiable slots. When
     you are satisfied with your deck, click the check mark to confirm your changes.
     When in game, hold left click over a card and drag it onto the map to play it.
-    If you decide not to play it, drag it back to your hand.
+    If you decide not to play it, drag it back to your hand. For testing, press 3
+    to unlock all the cards. In game press p to pause and esc to return to the main
+    menu.
 --- !u!114 &114938256368469596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.3056417, y: 0.30484182}
+  m_SizeDelta: {x: -72.75, y: -37.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224058166509369416
 RectTransform:
@@ -510,8 +512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00003051795, y: -0.03250122}
-  m_SizeDelta: {x: 520, y: 600}
+  m_AnchoredPosition: {x: 0, y: 1}
+  m_SizeDelta: {x: 734, y: 847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224198969350754624
 RectTransform:
@@ -528,8 +530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.583086, y: -16.845}
-  m_SizeDelta: {x: 378.9, y: 352.19}
+  m_AnchoredPosition: {x: 11.5, y: -22.600012}
+  m_SizeDelta: {x: 620, y: 497.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224214652075408056
 RectTransform:
@@ -547,8 +549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.41, y: -225.6}
-  m_SizeDelta: {x: 118.91, y: 65.32}
+  m_AnchoredPosition: {x: -161.3, y: -329.4}
+  m_SizeDelta: {x: 212.3, y: 116.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224239408651340460
 RectTransform:
@@ -588,8 +590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000012398505, y: 229.61496}
-  m_SizeDelta: {x: 619.6, y: 140.7}
+  m_AnchoredPosition: {x: 0, y: 325.3}
+  m_SizeDelta: {x: 874.6, y: 198.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224507348352033188
 RectTransform:
@@ -625,8 +627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 418.8, y: 140}
+  m_AnchoredPosition: {x: 6.1, y: 0}
+  m_SizeDelta: {x: 586.3, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &225076029796159762
 CanvasGroup:

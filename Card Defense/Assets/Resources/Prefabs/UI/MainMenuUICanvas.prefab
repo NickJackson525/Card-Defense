@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 212710450118145562}
   m_Layer: 0
   m_Name: Something New
-  m_TagString: Untagged
+  m_TagString: NewCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -818,6 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionsWindow: {fileID: 0}
   settingsWindow: {fileID: 0}
+  somethingNewIcon: {fileID: 1497661720614454}
 --- !u!114 &114541117359326158
 MonoBehaviour:
   m_ObjectHideFlags: 1
