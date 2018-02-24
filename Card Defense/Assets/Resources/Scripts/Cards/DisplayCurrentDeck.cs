@@ -7,25 +7,33 @@ public class DisplayCurrentDeck : MonoBehaviour
 {
     #region Variables
 
-    public List<CardInfo> currentDeck = new List<CardInfo>();
-    public List<GameObject> displayedCards = new List<GameObject>();
-    public GameObject card;
-    public GameObject cardSlot1;
-    public GameObject cardSlot2;
-    public GameObject cardSlot3;
-    public GameObject cardSlot4;
-    public GameObject cardSlot5;
-    public GameObject cardSlot6;
-    public GameObject cardSlot7;
-    public GameObject cardSlot8;
-    public GameObject cardSlot9;
-    public GameObject nextOpenCardSlot;
-    public int currentPage = 0;
-    public int cardsCreated = 0;
+    #region Public 
 
-    private GameObject createdCard;
-    private CardInfo tempCard;
-    private int currentDeckSize = 0;
+    public GameObject cardSlot1;        // The first location to display a card
+    public GameObject cardSlot2;        // The second location to display a card
+    public GameObject cardSlot3;        // The third location to display a card
+    public GameObject cardSlot4;        // The fourth location to display a card
+    public GameObject cardSlot5;        // The fifth location to display a card
+    public GameObject cardSlot6;        // The sixth location to display a card
+    public GameObject cardSlot7;        // The seventh location to display a card
+    public GameObject cardSlot8;        // The eigth location to display a card
+    public GameObject cardSlot9;        // The ninth location to display a card
+
+    #endregion
+
+    #region Private
+
+    private List<CardInfo> currentDeck;      // A local copy of the current deck to be used to display them in a grid
+    private List<GameObject> displayedCards; // The current cards being displayed on the grid
+    private GameObject card;                 // Used to create the displayed cards
+    private GameObject nextOpenCardSlot;     // Used to keep track of the next open card slot
+    private GameObject createdCard;          // Used to temporarily store the card GameObject just created
+    private CardInfo tempCard;               // Used to get the card info grom the CardLibrary dictoionary
+    private int currentDeckSize = 0;         // Used to store the current deck size
+    private int currentPage = 0;             // Used to keep track of which page is being displayed
+    private int cardsCreated = 0;            // Used to keep track of how many cards have been created/displayed
+
+    #endregion
 
     #endregion
 
@@ -33,11 +41,14 @@ public class DisplayCurrentDeck : MonoBehaviour
 
     void Start()
     {
-        nextOpenCardSlot = cardSlot1;
-
+        //initialize variables
+        card = Resources.Load<GameObject>("Prefabs/Cards/Deck Builder Card");
         currentDeck = GameManager.Instance.currentDeck;
+        displayedCards = new List<GameObject>();
+        nextOpenCardSlot = cardSlot1;
         currentDeckSize = currentDeck.Count;
 
+        //view the first page
         ViewNextPage();
     }
 
@@ -45,16 +56,20 @@ public class DisplayCurrentDeck : MonoBehaviour
 
     #region Update
 
-    // Update is called once per frame
     void Update()
     {
+        //check if a card has been removed or added
         if (currentDeckSize != GameManager.Instance.currentDeck.Count)
         {
+            //reset deck size
             currentDeckSize = GameManager.Instance.currentDeck.Count;
+
+            //redisplay the current deck
             DestroyDisplayedCards();
             DisplayCards();
         }
 
+        //update deck size
         currentDeckSize = GameManager.Instance.currentDeck.Count;
     }
 
@@ -62,11 +77,13 @@ public class DisplayCurrentDeck : MonoBehaviour
 
     #region Public Methods
 
+    //Method adds a new card to the current deck
     public void AddCardToDeck(CardInfo cardToAdd)
     {
         currentDeck.Add(cardToAdd);
     }
 
+    //Method destroys all the currently displayed cards so new ones can be created
     public void DestroyDisplayedCards()
     {
         foreach (GameObject card in displayedCards)
@@ -77,46 +94,54 @@ public class DisplayCurrentDeck : MonoBehaviour
         displayedCards.Clear();
     }
 
+    //Go to the next page of the deck
     public void ViewNextPage()
     {
+        //check that this isn't the last page of the deck
         if (currentPage < ((float)currentDeck.Count / 9f))
         {
+            //view the next page of the deck
             currentPage++;
             DestroyDisplayedCards();
             DisplayCards();
         }
     }
 
+    //Go to the previous page of the deck
     public void ViewPreviousPage()
     {
+        //check that this isn't the first page
         if (currentPage > 1)
         {
+            //view the previous page
             currentPage--;
             DestroyDisplayedCards();
             DisplayCards();
         }
     }
 
-
+    /// <summary>
+    /// This method displays the cards from the current page of the deck, up to 9 cards
+    /// </summary>
     public void DisplayCards()
     {
+        //start at the first card slot
         nextOpenCardSlot = cardSlot1;
         cardsCreated = 0;
 
-        if(((cardsCreated + ((currentPage - 1) * 9)) == 0) && (currentPage > 1))
-        {
-            currentPage--;
-        }
-
+        //loop 9 times, once for each card slot
         for (int i = 0; i < 9; i++)
         {
+            //check that there are still cards to display on this page
             if (cardsCreated + ((currentPage - 1) * 9) < currentDeck.Count)
             {
+                //get the next card and increase the number of cards created
                 tempCard = currentDeck[cardsCreated + ((currentPage - 1) * 9)];
                 cardsCreated++;
 
                 #region Create Card Game Object
 
+                //create the carg object and initialize all of its values
                 createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
                 createdCard.GetComponent<Image>().sprite = tempCard.thisCard;
                 createdCard.GetComponent<Card>().thisCardName = tempCard.thisCardName;
@@ -136,43 +161,39 @@ public class DisplayCurrentDeck : MonoBehaviour
                 createdCard.GetComponent<Card>().numberInDeck = (cardsCreated - 1) + ((currentPage - 1) * 9);
                 createdCard.GetComponent<Card>().type = tempCard.cardType;
 
+                //add the creaded card to the displayed cards deck
                 displayedCards.Add(createdCard);
 
                 #endregion
 
                 #region Update Next Open Card Slot
 
-                if (cardsCreated == 1)
+                switch(cardsCreated)
                 {
-                    nextOpenCardSlot = cardSlot2;
-                }
-                else if (cardsCreated == 2)
-                {
-                    nextOpenCardSlot = cardSlot3;
-                }
-                else if (cardsCreated == 3)
-                {
-                    nextOpenCardSlot = cardSlot4;
-                }
-                else if (cardsCreated == 4)
-                {
-                    nextOpenCardSlot = cardSlot5;
-                }
-                else if (cardsCreated == 5)
-                {
-                    nextOpenCardSlot = cardSlot6;
-                }
-                else if (cardsCreated == 6)
-                {
-                    nextOpenCardSlot = cardSlot7;
-                }
-                else if (cardsCreated == 7)
-                {
-                    nextOpenCardSlot = cardSlot8;
-                }
-                else
-                {
-                    nextOpenCardSlot = cardSlot9;
+                    case 1:
+                        nextOpenCardSlot = cardSlot2;
+                        break;
+                    case 2:
+                        nextOpenCardSlot = cardSlot3;
+                        break;
+                    case 3:
+                        nextOpenCardSlot = cardSlot4;
+                        break;
+                    case 4:
+                        nextOpenCardSlot = cardSlot5;
+                        break;
+                    case 5:
+                        nextOpenCardSlot = cardSlot6;
+                        break;
+                    case 6:
+                        nextOpenCardSlot = cardSlot7;
+                        break;
+                    case 7:
+                        nextOpenCardSlot = cardSlot8;
+                        break;
+                    case 8:
+                        nextOpenCardSlot = cardSlot9;
+                        break;
                 }
 
                 #endregion

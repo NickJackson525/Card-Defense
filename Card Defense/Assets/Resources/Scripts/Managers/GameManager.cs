@@ -687,7 +687,7 @@ class GameManager
 
         #region Generate Resources
 
-        if (generateResourceTimer > 0)
+        if ((SceneManager.GetActiveScene().name == "Map 1") && (generateResourceTimer > 0))
         {
             generateResourceTimer--;
 
