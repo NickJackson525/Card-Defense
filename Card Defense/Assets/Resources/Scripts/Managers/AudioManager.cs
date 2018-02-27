@@ -5,7 +5,18 @@ using UnityEngine.SceneManagement;
 
 #region Enums
 
+//used to determine which audiosource will be used to play a sound
 public enum AudioSourceType { Background, Effects, UI }
+
+//list of sound names as enums
+public enum Sound
+{
+    //background
+    BackgroundMusic1, BackgroundMusic2, BackgroundMusic3, BackgroundMusic4, BackgroundMusic5,
+
+    //sound effects
+    ButtonClick, DeckShuffle, DrawCard, Enemy1, Enemy2, Enemy3
+}
 
 #endregion
 
@@ -13,6 +24,7 @@ public class AudioManager
 {
     #region Variables
 
+    //Dictionary that loads all the sounds for the game
     public Dictionary<Sound, AudioClip> SoundClips = new Dictionary<Sound, AudioClip>
     {
         {Sound.BackgroundMusic1, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic1")},
@@ -22,12 +34,15 @@ public class AudioManager
         {Sound.BackgroundMusic5, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic5")},
     };
 
-    public enum Sound { BackgroundMusic1, BackgroundMusic2, BackgroundMusic3, BackgroundMusic4, BackgroundMusic5, ButtonClick, DeckShuffle, DrawCard, Enemy1, Enemy2, Enemy3 }
-
+    //audio sources for ui, effects, and background music
     public AudioSource UIAudioSource;
     public AudioSource effectsAudioSource;
     public AudioSource backroundAudioSource;
-    private int previousBackgroundTrack = 0;
+
+    private int previousBackgroundTrack = 0; //used so that a background tract isn't played 2 times in a row
+    private float backgroundVolume = .5f;    //volume level of background music
+    private float UIVolume = .5f;            //volume level of ui sounds
+    private float effectVolume = .5f;        //volume level of sound effects
 
     #endregion
 
@@ -36,7 +51,7 @@ public class AudioManager
     // create variable for storing singleton that any script can access
     private static AudioManager instance;
 
-    // create GameManager
+    // create AudioManager
     private AudioManager()
     {
         //create internal updater object
@@ -55,6 +70,7 @@ public class AudioManager
 
     public void Update()
     {
+        //check if background music track has ended, if so play another
         if (!backroundAudioSource.GetComponent<AudioSource>().isPlaying)
         {
             PlayBackgroundMusic();
@@ -65,52 +81,74 @@ public class AudioManager
 
     #region Play Sounds
 
+    /// <summary>
+    /// Plays any sound in the stored dictionary, on the specified audiosource
+    /// </summary>
     public void PlaySound(AudioSourceType source, Sound soundToPlay)
     {
+        //switch to determine which audiosource to use
         switch (source)
         {
             case AudioSourceType.Background:
+                //check that the audiosource exists
                 if (backroundAudioSource != null)
                 {
+                    //stop whatever is already playing and play a new sound
                     backroundAudioSource.Stop();
-                    backroundAudioSource.PlayOneShot(SoundClips[soundToPlay], 1f);
+                    backroundAudioSource.PlayOneShot(SoundClips[soundToPlay], backgroundVolume);
+                    backroundAudioSource.volume = backgroundVolume;
                 }
                 break;
             case AudioSourceType.Effects:
+                //check that the audiosource exists
                 if (effectsAudioSource != null)
                 {
+                    //stop whatever is already playing and play a new sound
                     effectsAudioSource.Stop();
-                    effectsAudioSource.PlayOneShot(SoundClips[soundToPlay], 1f);
+                    effectsAudioSource.PlayOneShot(SoundClips[soundToPlay], effectVolume);
+                    effectsAudioSource.volume = effectVolume;
                 }
                 break;
             case AudioSourceType.UI:
+                //check that the audiosource exists
                 if (UIAudioSource != null)
                 {
+                    //stop whatever is already playing and play a new sound
                     UIAudioSource.Stop();
-                    UIAudioSource.PlayOneShot(SoundClips[soundToPlay], 1f);
+                    UIAudioSource.PlayOneShot(SoundClips[soundToPlay], UIVolume);
+                    UIAudioSource.volume = UIVolume;
                 }
                 break;
             default:
+                //check that the audiosource exists
                 if (effectsAudioSource != null)
                 {
+                    //stop whatever is already playing and play a new sound
                     effectsAudioSource.Stop();
-                    effectsAudioSource.PlayOneShot(SoundClips[soundToPlay], 1f);
+                    effectsAudioSource.PlayOneShot(SoundClips[soundToPlay], effectVolume);
+                    effectsAudioSource.volume = effectVolume;
                 }
                 break;
         }
     }
 
+    /// <summary>
+    /// Method to randomly pick a background track to play. It also stops a track from being placed twice in a row.
+    /// </summary>
     public void PlayBackgroundMusic()
     {
         int rand = Random.Range(0, 5);
 
+        //loop until a new track number is picked
         while(rand == previousBackgroundTrack)
         {
             rand = Random.Range(0, 5);
         }
 
+        //reset track number
         previousBackgroundTrack = rand;
 
+        //play the selected track
         switch(rand)
         {
             case 0:
@@ -138,7 +176,7 @@ public class AudioManager
 
     #region Internal Updater Class
 
-    //class to allow the gamemanager singleton to have an update method
+    //class to allow the audiomanager singleton to have an update method
     class Updater : MonoBehaviour
     {
         private void Update()
