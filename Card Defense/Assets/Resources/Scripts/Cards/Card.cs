@@ -12,7 +12,6 @@ public class Card : PauseableObject
 
     public Cards thisCardName;          //the name of this card
     public DeckType type;               //the type of card this is
-    public GameObject tower;            //the tower object that this card will create
     public GameObject cardSlot;         //the card slot that this card is in
     public GameObject deck;             //the deck this card came from
     public GameObject radius;
@@ -39,6 +38,7 @@ public class Card : PauseableObject
 
     #region Private
 
+    private GameObject tower;                 //the tower object that this card will create
     private GameObject createdTower;         //the tower object that is created
     private GameObject UICanvas;             //the ui canvas in the game
     private bool mouseHover = false;         //checks when the mouse is over this card or not
@@ -70,6 +70,7 @@ public class Card : PauseableObject
 
     private void Start()
     {
+        tower = Resources.Load<GameObject>("Prefabs/Towers/Tower");
         thisCard = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardName][CardElement.CardSprite]);
 
         if (GetComponentInChildren<LockImage>())
@@ -80,6 +81,13 @@ public class Card : PauseableObject
         if (SceneManager.GetActiveScene().name != "Deck Builder")
         {
             UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
+        }
+
+        hasBeenSeen = bool.Parse( GameManager.Instance.CardLibrary[thisCardName][CardElement.HasBeenLookedAt]);
+
+        if(inDeck)
+        {
+            hasBeenSeen = true;
         }
     }
 
@@ -161,26 +169,30 @@ public class Card : PauseableObject
                     //check if the card has been dragged out of the hand
                     if (transform.position.y >= (startPosition.y + 5f))
                     {
-                        inHand = false;                                     //the card isn't in the hand
-                        GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
-                        cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
-                        manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
-                        costText.gameObject.SetActive(false);               //disable the cost text
-                        cardNameText.gameObject.SetActive(false);           //disable the name text
-                        cardText.gameObject.SetActive(false);               //disable the card text
-                        transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
+                        CreateTower();
+                        Destroy(gameObject);
+
+                        //inHand = false;                                     //the card isn't in the hand
+                        //GetComponent<Image>().sprite = thisTower;           //change the sprite to be that of the tower
+                        //cardWatermark.gameObject.SetActive(false);          //disable the watermark sprite
+                        //manaSymbol.gameObject.SetActive(false);             //disable the mana sprite
+                        //costText.gameObject.SetActive(false);               //disable the cost text
+                        //cardNameText.gameObject.SetActive(false);           //disable the name text
+                        //cardText.gameObject.SetActive(false);               //disable the card text
+                        //transform.localScale = new Vector3(.25f, .25f, 1f); //rescale the object
                     }
-                    else
-                    {
-                        inHand = true;                                  //the card isn't in the hand
-                        GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
-                        cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
-                        manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
-                        costText.gameObject.SetActive(true);            //enable the cost text
-                        cardNameText.gameObject.SetActive(true);        //enable the name text
-                        cardText.gameObject.SetActive(true);            //enable the card text
-                        transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
-                    }
+                    //else
+                    //{
+                    //    //TODO: Remove this, because tower will check when to re-create a card
+                    //    inHand = true;                                  //the card isn't in the hand
+                    //    GetComponent<Image>().sprite = thisCard;        //make the current sprite the card
+                    //    cardWatermark.gameObject.SetActive(true);       //enable the watermark sprite
+                    //    manaSymbol.gameObject.SetActive(true);          //enable the mana sprite
+                    //    costText.gameObject.SetActive(true);            //enable the cost text
+                    //    cardNameText.gameObject.SetActive(true);        //enable the name text
+                    //    cardText.gameObject.SetActive(true);            //enable the card text
+                    //    transform.localScale = new Vector3(1f, 1f, 1f); //rescale the object
+                    //}
                 }
             }
         }
@@ -204,8 +216,11 @@ public class Card : PauseableObject
             }
             else
             {
-                hasBeenSeen = true;
-                GameManager.Instance.CardLibrary[thisCardName][CardElement.HasBeenLookedAt] = hasBeenSeen.ToString();
+                if (!isLocked)
+                {
+                    hasBeenSeen = true;
+                    GameManager.Instance.CardLibrary[thisCardName][CardElement.HasBeenLookedAt] = hasBeenSeen.ToString();
+                }
             }
 
             //the mouse is over the card
@@ -245,60 +260,7 @@ public class Card : PauseableObject
         //checkthat the game isn't paused and if the left mouse button was released
         if (!GameManager.Instance.Paused && Input.GetMouseButtonUp(0))
         {
-            if (SceneManager.GetActiveScene().name != "Deck Builder")
-            {
-                //check that the card isn't in the hand
-                if (!inHand)
-                {
-                    //create tower object
-                    createdTower = Instantiate(tower, transform.position, transform.rotation);
-                    createdTower.GetComponent<Tower>().type = type;
-                    createdTower.GetComponent<Tower>().damage = int.Parse(damageText.text);
-                    createdTower.GetComponent<Tower>().range = int.Parse(rangeText.text);
-                    createdTower.GetComponent<SpriteRenderer>().sprite = thisTower;
-
-                    switch (type)
-                    {
-                        case DeckType.Basic:
-                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
-                            break;
-                        case DeckType.Fire:
-                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
-                            break;
-                        case DeckType.Ice:
-                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.blue;
-                            break;
-                        case DeckType.Lightning:
-                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.yellow;
-                            break;
-                        case DeckType.Void:
-                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
-                            break;
-                        default:
-                            createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
-                            break;
-                    }
-
-                    //update deck to draw a new card in the appropriate slot
-                    deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
-                    deck.GetComponent<Deck>().cardsInHand--;
-                    deck.GetComponent<Deck>().Draw();
-
-                    //decrease mana stored
-                    if (GameManager.Instance.deckType1 == type)
-                    {
-                        UICanvas.GetComponent<InGameUIManager>().numManaType1 -= int.Parse(costText.text);
-                    }
-                    else if (GameManager.Instance.deckType2 == type)
-                    {
-                        UICanvas.GetComponent<InGameUIManager>().numManaType2 -= int.Parse(costText.text);
-                    }
-
-                    //destroy the card
-                    Destroy(gameObject);
-                }
-            }
-            else
+            if (SceneManager.GetActiveScene().name == "Deck Builder")
             {
                 //jump back to the start position to indicate it is no longer selected
                 transform.position = startPosition;
@@ -335,6 +297,46 @@ public class Card : PauseableObject
                     GameManager.Instance.deckType2 = type;
                 }
             }
+        }
+    }
+
+    #endregion
+
+    #region Create Tower
+
+    private void CreateTower()
+    {
+        createdTower = Instantiate(tower, transform.position, transform.rotation);
+        createdTower.GetComponent<Tower>().type = type;
+        createdTower.GetComponent<Tower>().damage = int.Parse(damageText.text);
+        createdTower.GetComponent<Tower>().range = int.Parse(rangeText.text);
+        createdTower.GetComponent<Tower>().deck = deck;
+        createdTower.GetComponent<Tower>().cardSlot = cardSlot;
+        createdTower.GetComponent<Tower>().costText = costText;
+        createdTower.GetComponent<Tower>().startPosition = startPosition;
+        createdTower.GetComponent<Tower>().thisCardName = thisCardName;
+        createdTower.GetComponent<SpriteRenderer>().sprite = thisTower;
+
+        switch (type)
+        {
+            case DeckType.Basic:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                break;
+            case DeckType.Fire:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
+                break;
+            case DeckType.Ice:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.blue;
+                break;
+            case DeckType.Lightning:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.yellow;
+                break;
+            case DeckType.Void:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
+                break;
+            default:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                break;
         }
     }
 

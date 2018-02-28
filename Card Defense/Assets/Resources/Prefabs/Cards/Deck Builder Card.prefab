@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1268845014649798
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +347,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCardName: 0
   type: 0
-  tower: {fileID: 1707545682993690, guid: 1a05629fb273f8d439ca27c5dca464c2, type: 2}
   cardSlot: {fileID: 0}
   deck: {fileID: 0}
   radius: {fileID: 0}

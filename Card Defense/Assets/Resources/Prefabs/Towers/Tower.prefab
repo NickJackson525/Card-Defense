@@ -54,6 +54,8 @@ GameObject:
   - component: {fileID: 212883322539440180}
   - component: {fileID: 114078659250906702}
   - component: {fileID: 58528627472084164}
+  - component: {fileID: 61679089733794312}
+  - component: {fileID: 50120226500854326}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -81,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707545682993690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.67, y: 12.4, z: 0}
+  m_LocalPosition: {x: -5.6625714, y: 1.5019482, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4447776088270836}
@@ -102,8 +104,43 @@ Transform:
   m_Father: {fileID: 4799424519559200}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50120226500854326
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707545682993690}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &58528627472084164
 CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707545682993690}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
+--- !u!61 &61679089733794312
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -114,9 +151,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.32257146}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.7, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Size: {x: 1.7, y: 0.91530955}
+  m_EdgeRadius: 0
 --- !u!114 &114078659250906702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,16 +175,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d201b24e167bff4f82df36d688a31c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1028181969549654, guid: f11887d04d5c66d4e895637bc1a9c06b, type: 2}
-  currentTarget: {fileID: 0}
   manaStone: {fileID: 1084770999788432}
   collRadius: {fileID: 1449347595281428}
-  lightningBolt: {fileID: 1034543500719406, guid: e26a1c6a42c3bb949bbc81d741a6f7e8,
-    type: 2}
+  deck: {fileID: 0}
+  cardSlot: {fileID: 0}
+  costText: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  thisCardName: 0
   type: 0
   currentLevel: 1
   damage: 1
   range: 3
+  isPlaced: 0
 --- !u!212 &212198702511118364
 SpriteRenderer:
   m_ObjectHideFlags: 1

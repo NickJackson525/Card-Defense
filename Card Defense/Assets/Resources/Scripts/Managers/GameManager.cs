@@ -859,7 +859,7 @@ class GameManager
 
         foreach(KeyValuePair<Cards, Dictionary<CardElement, string>> card in CardLibrary)
         {
-            if(!bool.Parse(card.Value[CardElement.IsLocked]) && !bool.Parse(card.Value[CardElement.HasBeenLookedAt]))
+            if ((playerLevel >= int.Parse(card.Value[CardElement.Level])) && !bool.Parse(card.Value[CardElement.HasBeenLookedAt]))
             {
                 newCardsToLookAt = true;
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class Tower : MonoBehaviour
 
     public GameObject manaStone;  // Used so that the color can be changed upon creation of this tower to match the type
     public GameObject collRadius; // Used to show the player the range of this tower
+    public GameObject deck;
+    public GameObject cardSlot;
+    public Text costText;
+    public Vector3 startPosition; // Used to see if the tower is being put back in the hand or not
+    public Cards thisCardName;
     public DeckType type;         // Used to create the right type of bullet or mana
     public int currentLevel = 1;  // Used to scale everything when the tower levels up
     public int damage = 1;        // Used to assign the damage to the bullet when created
@@ -26,7 +32,11 @@ public class Tower : MonoBehaviour
     private GameObject lightningBolt;                            // Used as a template for creating lightning bolts
     private GameObject createdObject;                            // Used to modify the values of the created object. Either a bullet or lightning bolt
     private GameObject UICanvas;                                 // Used to increment mana levels
+    private GameObject cardPrefab;
+    private Vector3 mousePosition;
     private bool canShoot = true;                                // Used to control when this tower can shoot
+    public bool isPlaced = false;                                // Used to move the tower around before it gets placed down
+    private bool canBePlaced = false;                            // Used to limit where the tower cna be placed at
     private int shootTimer = 0;                                  // Used to control the time between each shot of this tower
     private int manaGenerationTimer = 800;                       // Used to control the time between each mana generatrion of this tower
     private List<GameObject> enemyList = new List<GameObject>(); // Used to store all the enemies within range
@@ -40,15 +50,13 @@ public class Tower : MonoBehaviour
     void Start()
     {
         //get references
+        cardPrefab = Resources.Load<GameObject>("Prefabs/Cards/Card");
         bullet = Resources.Load<GameObject>("Prefabs/Towers/Bullet");
         lightningBolt = Resources.Load<GameObject>("Prefabs/Towers/LightningBolt");
         UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
 
         //scale range
         range = range * GameManager.rangeConst;
-
-        //deactivate the radius object
-        collRadius.SetActive(false);
     }
 
     #endregion
@@ -60,111 +68,166 @@ public class Tower : MonoBehaviour
         //check that the game isn't paused
         if (!GameManager.Instance.Paused)
         {
-            //if damage and range are 0 then this is a resource tower
-            if ((damage == 0) && (range == 0))
+            if (isPlaced)
             {
-                //check that the timer still is counting down
-                if (manaGenerationTimer > 0)
+                //if damage and range are 0 then this is a resource tower
+                if ((damage == 0) && (range == 0))
                 {
-                    //update the timer
-                    manaGenerationTimer--;
-
-                    //check if the timer is at 0
-                    if (manaGenerationTimer == 0)
+                    //check that the timer still is counting down
+                    if (manaGenerationTimer > 0)
                     {
-                        //determine which type this tower is and update the appropriate mana type
-                        if (GameManager.Instance.deckType1 == type)
-                        {
-                            UICanvas.GetComponent<InGameUIManager>().numManaType1++;
-                        }
-                        else if (GameManager.Instance.deckType2 == type)
-                        {
-                            UICanvas.GetComponent<InGameUIManager>().numManaType2++;
-                        }
+                        //update the timer
+                        manaGenerationTimer--;
 
-                        //reset timer
-                        manaGenerationTimer = 800;
+                        //check if the timer is at 0
+                        if (manaGenerationTimer == 0)
+                        {
+                            //determine which type this tower is and update the appropriate mana type
+                            if (GameManager.Instance.deckType1 == type)
+                            {
+                                UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+                            }
+                            else if (GameManager.Instance.deckType2 == type)
+                            {
+                                UICanvas.GetComponent<InGameUIManager>().numManaType2++;
+                            }
+
+                            //reset timer
+                            manaGenerationTimer = 800;
+                        }
                     }
+                }
+                else
+                {
+                    //find the closest enemy
+                    currentTarget = FindClosestEnemy();
+
+                    //update shoot timer
+                    shootTimer--;
+
+                    //check if the shoot timer is 0, meaning the tower can shoot again
+                    if (shootTimer <= 0)
+                    {
+                        canShoot = true;
+                    }
+
+                    #region Shoot
+
+                    //check if the tower can shoot and if there are enemi
+                    if (canShoot && (enemyList.Count > 0))
+                    {
+                        //select the current target
+                        currentTarget = enemyList[0];
+
+                        //reset the canshoot variable and reset the timer
+                        canShoot = false;
+                        shootTimer = 60;
+
+                        //check if this tower is lighting type
+                        if (type == DeckType.Lightning)
+                        {
+                            //create lighting bolts
+                            for (int i = 0; i < Random.Range(4, 8); i++)
+                            {
+                                //create lightning bolt and assign values
+                                createdObject = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
+                                createdObject.GetComponent<LightningBolt>().startPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, 0f);
+                                createdObject.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
+                                currentTarget.GetComponent<Enemy>().health -= damage * currentLevel;
+                            }
+                        }
+                        else
+                        {
+                            //create bullet and assign values
+                            createdObject = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
+                            createdObject.GetComponent<Bullet>().move = true;
+                            createdObject.GetComponent<Bullet>().target = currentTarget;
+                            createdObject.GetComponent<Bullet>().damage = damage * currentLevel;
+                            createdObject.GetComponent<Bullet>().type = type;
+
+                            #region Color Bullet
+
+                            //color the bullet based on the type of tower
+                            switch (type)
+                            {
+                                case DeckType.Basic:
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.white;
+                                    break;
+                                case DeckType.Fire:
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.red;
+                                    break;
+                                case DeckType.Ice:
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    break;
+                                case DeckType.Lightning:
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                                    break;
+                                case DeckType.Void:
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                                    break;
+                                default:
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.black;
+                                    break;
+                            }
+
+                            #endregion
+                        }
+                    }
+
+                    #endregion
                 }
             }
             else
             {
-                //find the closest enemy
-                currentTarget = FindClosestEnemy();
-
-                //update shoot timer
-                shootTimer--;
-
-                //check if the shoot timer is 0, meaning the tower can shoot again
-                if (shootTimer <= 0)
+                //check if the card has been dragged out of the hand
+                if (transform.position.y >= (startPosition.y + 5f))
                 {
-                    canShoot = true;
-                }
-
-                #region Shoot
-
-                //check if the tower can shoot and if there are enemi
-                if (canShoot && (enemyList.Count > 0))
-                {
-                    //select the current target
-                    currentTarget = enemyList[0];
-
-                    //reset the canshoot variable and reset the timer
-                    canShoot = false;
-                    shootTimer = 60;
-
-                    //check if this tower is lighting type
-                    if (type == DeckType.Lightning)
+                    //check if the left mouse button is being held
+                    if (Input.GetMouseButton(0))
                     {
-                        //create lighting bolts
-                        for (int i = 0; i < Random.Range(4, 8); i++)
+                        //get mouse position and convert it to world space
+                        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                        //lerp towards mouse position
+                        transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
+                    }
+
+                    if (Input.GetMouseButtonUp(0) && canBePlaced)
+                    {
+                        isPlaced = true;
+
+                        //deactivate the radius object
+                        collRadius.SetActive(false);
+
+                        //lock the tower in place
+                        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+                        //update deck to draw a new card in the appropriate slot
+                        deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
+                        deck.GetComponent<Deck>().cardsInHand--;
+                        deck.GetComponent<Deck>().Draw();
+
+                        //decrease mana stored
+                        if (GameManager.Instance.deckType1 == type)
                         {
-                            //create lightning bolt and assign values
-                            createdObject = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
-                            createdObject.GetComponent<LightningBolt>().startPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, 0f);
-                            createdObject.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
-                            currentTarget.GetComponent<Enemy>().health -= damage * currentLevel;
+                            UICanvas.GetComponent<InGameUIManager>().numManaType1 -= int.Parse(costText.text);
+                        }
+                        else if (GameManager.Instance.deckType2 == type)
+                        {
+                            UICanvas.GetComponent<InGameUIManager>().numManaType2 -= int.Parse(costText.text);
                         }
                     }
-                    else
+                    else if (Input.GetMouseButtonUp(0) && !canBePlaced)
                     {
-                        //create bullet and assign values
-                        createdObject = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
-                        createdObject.GetComponent<Bullet>().move = true;
-                        createdObject.GetComponent<Bullet>().target = currentTarget;
-                        createdObject.GetComponent<Bullet>().damage = damage * currentLevel;
-                        createdObject.GetComponent<Bullet>().type = type;
-
-                        #region Color Bullet
-
-                        //color the bullet based on the type of tower
-                        switch (type)
-                        {
-                            case DeckType.Basic:
-                                createdObject.GetComponent<SpriteRenderer>().color = Color.white;
-                                break;
-                            case DeckType.Fire:
-                                createdObject.GetComponent<SpriteRenderer>().color = Color.red;
-                                break;
-                            case DeckType.Ice:
-                                createdObject.GetComponent<SpriteRenderer>().color = Color.blue;
-                                break;
-                            case DeckType.Lightning:
-                                createdObject.GetComponent<SpriteRenderer>().color = Color.yellow;
-                                break;
-                            case DeckType.Void:
-                                createdObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-                                break;
-                            default:
-                                createdObject.GetComponent<SpriteRenderer>().color = Color.black;
-                                break;
-                        }
-
-                        #endregion
+                        CreateCard();
+                        Destroy(gameObject);
                     }
                 }
-
-                #endregion
+                else
+                {
+                    CreateCard();
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -208,6 +271,29 @@ public class Tower : MonoBehaviour
         enemyList.Sort((p1, p2) => p1.GetComponent<Enemy>().distFromEnd.CompareTo(p2.GetComponent<Enemy>().distFromEnd));
     }
 
+    private void CreateCard()
+    {
+        GameObject createdCard;
+        CardInfo card = GameManager.Instance.CreateCard(thisCardName);
+
+        createdCard = Instantiate(cardPrefab, Vector3.zero, cardSlot.transform.rotation, cardSlot.transform);
+        createdCard.GetComponent<Image>().sprite = card.thisCard;
+        createdCard.GetComponent<Card>().thisCardName = card.thisCardName;
+        createdCard.GetComponent<Card>().costText.text = costText.text;
+        createdCard.GetComponent<Card>().damageText.text = card.towerDamage.ToString();
+        createdCard.GetComponent<Card>().rangeText.text = card.towerRange.ToString();
+        createdCard.GetComponent<Card>().cardNameText.text = card.cardType.ToString();
+        createdCard.GetComponent<Card>().cardText.text = card.cardText;
+        createdCard.GetComponent<Card>().cardWatermark.sprite = card.towerWatermark;
+        createdCard.GetComponent<Card>().cardBack.sprite = card.thisCard;
+        createdCard.GetComponent<Card>().cardLevel = card.cardLevel;
+        createdCard.GetComponent<Card>().thisTower = card.thisTower;
+        createdCard.GetComponent<Card>().isSpell = card.isSpell;
+        createdCard.GetComponent<Card>().cardSlot = cardSlot;
+        createdCard.GetComponent<Card>().deck = deck;
+        createdCard.GetComponent<Card>().type = card.cardType;
+    }
+
     #endregion
 
     #region Collisions
@@ -234,6 +320,18 @@ public class Tower : MonoBehaviour
             enemyList.Remove(coll.gameObject);
             SortEnemyList();
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        canBePlaced = false;
+        GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    private void OnCollisionExit2D(Collision2D coll)
+    {
+        canBePlaced = true;
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     #endregion
