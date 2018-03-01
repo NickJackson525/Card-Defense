@@ -7,8 +7,8 @@ public class Enemy : PauseableObject
 {
     #region Variables
 
-    public float currSpeed = 1.5f;                          //the speed the enemy is currently moving
-    public float naturalSpeed = 1.5f;                       //the speed the enemy goes without anything altering it
+    public float currSpeed;                                 //the speed the enemy is currently moving
+    public float naturalSpeed;                              //the speed the enemy goes without anything altering it
     public float health = 20f;                              //the health of the enemy
     public float distFromEnd = 0;                           //how far away this enemy is from the end of the track
     
@@ -25,6 +25,8 @@ public class Enemy : PauseableObject
 
     void Start ()
     {
+        currSpeed = naturalSpeed;
+
         //get all the path nodes in the level
         path = GameObject.FindGameObjectsWithTag("PathNode").ToList();
 

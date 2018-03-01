@@ -6,11 +6,7 @@ public class Spawner : MonoBehaviour
 {
     #region Variables
 
-    private Dictionary<EnemyType, GameObject> EnemyList = new Dictionary<EnemyType, GameObject>
-    {
-        {EnemyType.Sheep, Resources.Load<GameObject>("Prefabs/Enemies/Sheep") },
-        {EnemyType.SpikedSheep, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
-    };
+    private Dictionary<EnemyType, GameObject> EnemyList;
 
     private Dictionary<WaveNumber, Dictionary<EnemyType, int>> GrassMapWaveEnemies = new Dictionary<WaveNumber, Dictionary<EnemyType, int>>
     {
@@ -150,11 +146,10 @@ public class Spawner : MonoBehaviour
         #endregion
     }
 
-    private enum WaveNumber { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten }
-    private WaveNumber currentWave = WaveNumber.One;
-    private EnemyType enemyType1;
-    private EnemyType enemyType2;
-    private List<GameObject> waveEnemies;
+    private enum WaveNumber { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten }
+    private WaveNumber currentWave = WaveNumber.Zero;
+    private EnemyType type = EnemyType.Sheep;
+    private List<GameObject> waveEnemies = new List<GameObject>();
     private int primarySpawnTimer = 120;          // Used to delay when enemies are spawned
 
     #endregion
@@ -163,7 +158,33 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-
+         EnemyList = new Dictionary<EnemyType, GameObject>
+         {
+            {EnemyType.Sheep, Resources.Load<GameObject>("Prefabs/Enemies/Sheep") },
+            {EnemyType.SpikedSheep, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Ram, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Boar, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Pig, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Bull, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Goat, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Bat, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Bug, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Cyclops, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Minutaur, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Wolf, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Bee, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Spider, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Gazelle, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Werewolf, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.FireImp, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.WeakFireElemental, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.StrongFireElemental, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.FireBug, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.FireDragon, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Bear, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Skeleton, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Treant, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+         };
     }
 
     #endregion
@@ -172,6 +193,13 @@ public class Spawner : MonoBehaviour
 
     void Update ()
     {
+        if(waveEnemies.Count == 0)
+        {
+            currentWave++;
+
+            GenerateWave();
+        }
+
         //check that the game isn't paused
         if (!GameManager.Instance.Paused)
         {
@@ -185,7 +213,8 @@ public class Spawner : MonoBehaviour
                 if (primarySpawnTimer == 0)
                 {
                     //spawn enemy
-                    Instantiate(EnemyList[EnemyType.Sheep], transform.position, transform.rotation);
+                    Instantiate(waveEnemies[0], transform.position, transform.rotation);
+                    waveEnemies.RemoveAt(0);
 
                     //reset timer
                     primarySpawnTimer = 120;
@@ -200,49 +229,25 @@ public class Spawner : MonoBehaviour
 
     private void GenerateWave()
     {
-        switch (currentWave)
+        foreach (KeyValuePair<WaveNumber, Dictionary<EnemyType, int>> enemy in GrassMapWaveEnemies)
         {
-            case WaveNumber.One:
-                foreach(KeyValuePair<WaveNumber, Dictionary<EnemyType, int>> enemy in GrassMapWaveEnemies)
+            if (enemy.Key == currentWave)
+            {
+                for (int j = 0; j < 24; j++)
                 {
-                    if(enemy.Key == currentWave)
+                    int loopMax = enemy.Value[type];
+
+                    for (int i = 0; i < loopMax; i++)
                     {
-                        foreach (KeyCode key in enemy.Value.Values)
-                        {
-                            //for (int i = 0; i < enemy.Value[key.]; i++)
-                            //{
-
-                            //}
-                        }
+                        waveEnemies.Add(EnemyList[type]);
                     }
+
+                    type++;
                 }
-                break;
-            case WaveNumber.Two:
-                break;
-            case WaveNumber.Three:
-                break;
-            case WaveNumber.Four:
-                break;
-            case WaveNumber.Five:
-                break;
-            case WaveNumber.Six:
-                break;
-            case WaveNumber.Seven:
-                break;
-            case WaveNumber.Eight:
-                break;
-            case WaveNumber.Nine:
-                break;
-            case WaveNumber.Ten:
-                break;
-            default:
-                break;
+
+                type = EnemyType.Sheep;
+            }
         }
-    }
-
-    private void SpawnEnemy()
-    {
-
     }
 
     #endregion
