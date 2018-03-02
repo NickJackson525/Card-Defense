@@ -36,7 +36,7 @@ public class Tower : MonoBehaviour
     private Vector3 mousePosition;
     private bool canShoot = true;                                // Used to control when this tower can shoot
     public bool isPlaced = false;                                // Used to move the tower around before it gets placed down
-    private bool canBePlaced = false;                            // Used to limit where the tower cna be placed at
+    private bool canBePlaced = true;                             // Used to limit where the tower cna be placed at
     private int shootTimer = 0;                                  // Used to control the time between each shot of this tower
     private int manaGenerationTimer = 800;                       // Used to control the time between each mana generatrion of this tower
     private List<GameObject> enemyList = new List<GameObject>(); // Used to store all the enemies within range
