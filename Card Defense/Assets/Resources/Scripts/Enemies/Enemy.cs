@@ -23,7 +23,7 @@ public class Enemy : PauseableObject
 
     #region Start
 
-    void Start ()
+    protected virtual void Start ()
     {
         currSpeed = naturalSpeed;
 
@@ -38,7 +38,7 @@ public class Enemy : PauseableObject
 
     #region Update
 
-    void Update ()
+    protected virtual void Update()
     {
         //check that the game isn't paused
         if (!GameManager.Instance.Paused)

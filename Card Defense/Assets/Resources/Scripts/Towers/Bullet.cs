@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     private Vector3 moveDirection;
     private float speed = 600f;
+    private int destroyTimer = 400;
 
     #endregion
 
@@ -37,6 +38,13 @@ public class Bullet : MonoBehaviour
         else if (move)
         {
             GetComponent<Rigidbody2D>().velocity = moveDirection.normalized * speed * Time.deltaTime;
+        }
+
+        destroyTimer--;
+
+        if(destroyTimer <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -199,7 +199,7 @@ public class Spawner : MonoBehaviour
          {
             {EnemyType.Sheep, Resources.Load<GameObject>("Prefabs/Enemies/Sheep") },
             {EnemyType.SpikedSheep, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
-            {EnemyType.Ram, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Ram, Resources.Load<GameObject>("Prefabs/Enemies/Ram") },
             {EnemyType.Boar, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Pig, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Bull, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },

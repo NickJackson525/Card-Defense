@@ -13,6 +13,15 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Start
+
+    private void Start()
+    {
+
+    }
+
+    #endregion
+
     #region Update
 
     private void Update()
@@ -42,6 +51,7 @@ public class UIManager : MonoBehaviour
     public void AcceptDeck()
     {
         GameManager.Instance.savedDeck = GameManager.Instance.currentDeck.ToArray();
+        GameManager.Instance.Save();
         SceneManager.LoadScene("Main Menu");
     }
 

@@ -76,6 +76,7 @@ public class Card : PauseableObject
         if (GetComponentInChildren<LockImage>())
         {
             GetComponentInChildren<LockImage>().thisCard = gameObject;
+            GetComponentInChildren<LockImage>().gameObject.GetComponent<Image>().enabled = false;
         }
 
         if (SceneManager.GetActiveScene().name != "Deck Builder")
@@ -99,6 +100,8 @@ public class Card : PauseableObject
     {
         if (SceneManager.GetActiveScene().name == "Deck Builder")
         {
+            hasBeenSeen = bool.Parse(GameManager.Instance.CardLibrary[thisCardName][CardElement.HasBeenLookedAt]);
+
             if (!isLocked && !hasBeenSeen)
             {
                 somethingNewIcon.SetActive(true);

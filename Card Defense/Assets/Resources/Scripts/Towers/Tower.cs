@@ -39,6 +39,7 @@ public class Tower : MonoBehaviour
     private bool canBePlaced = true;                             // Used to limit where the tower cna be placed at
     private int shootTimer = 0;                                  // Used to control the time between each shot of this tower
     private int manaGenerationTimer = 800;                       // Used to control the time between each mana generatrion of this tower
+    private int rand;
     private List<GameObject> enemyList = new List<GameObject>(); // Used to store all the enemies within range
 
     #endregion
@@ -126,15 +127,18 @@ public class Tower : MonoBehaviour
                         //check if this tower is lighting type
                         if (type == DeckType.Lightning)
                         {
+                            rand = Random.Range(4, 8);
+
                             //create lighting bolts
-                            for (int i = 0; i < Random.Range(4, 8); i++)
+                            for (int i = 0; i < rand; i++)
                             {
                                 //create lightning bolt and assign values
                                 createdObject = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
                                 createdObject.GetComponent<LightningBolt>().startPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, 0f);
                                 createdObject.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
-                                currentTarget.GetComponent<Enemy>().health -= damage * currentLevel;
                             }
+
+                            currentTarget.GetComponent<Enemy>().health -= (rand * (damage * currentLevel)) / 2;
                         }
                         else
                         {

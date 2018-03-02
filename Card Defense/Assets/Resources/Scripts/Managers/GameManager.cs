@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -575,6 +578,7 @@ class GameManager
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public int baseHealth = 100;
     public const float rangeConst = 3f;                            //the default range of the towers
+    public float currentXP = 0;
     public bool newCardsToLookAt = true;
     public CardInfo[] savedDeck = new CardInfo[deckSize];          //a saved copy of the current deck, so it can be reset
 
@@ -582,6 +586,7 @@ class GameManager
     private GameObject UICanvas;                                   //the ui canvas in the game
     private DeckType createdCardType;                              //used for creating cards
     private int generateResourceTimer = 1200;
+    private float xpToNextLevel = 500;
     private bool justGeneratedResourceType1 = false;
 
     #endregion
@@ -645,7 +650,7 @@ class GameManager
     private GameManager()
     {
         //create internal updater object
-        Object.DontDestroyOnLoad(new GameObject("Updater", typeof(Updater)));
+        UnityEngine.Object.DontDestroyOnLoad(new GameObject("Updater", typeof(Updater)));
 
         //create list of pausable objects
         PauseableObjects = new List<PauseableObject>();
@@ -737,7 +742,7 @@ class GameManager
 
         #endregion
 
-        #region Test Level-Up
+        #region Test Stuff
 
         //test leveling to unlock cards
         if(Input.GetKeyUp(KeyCode.Alpha1))
@@ -753,6 +758,22 @@ class GameManager
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             playerLevel = 3;
+        }
+
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            ResetPlayerData();
+        }
+
+        #endregion
+
+        #region Level Up
+
+        if(currentXP >= xpToNextLevel)
+        {
+            playerLevel++;
+
+            xpToNextLevel *= 2;
         }
 
         #endregion
@@ -820,6 +841,8 @@ class GameManager
     //create the default deck with specified cards
     public void CreateDefaultDeck(Cards resourceType ,Cards type)
     {
+        currentDeck.Clear();
+
         for(int i = 0; i < deckSize / 4; i++)
         {
             currentDeck.Add(CreateCard(resourceType));
@@ -829,6 +852,8 @@ class GameManager
         {
             currentDeck.Add(CreateCard(type));
         }
+
+        savedDeck = currentDeck.ToArray();
     }
 
     public void UpdateDeckTypes()
@@ -874,6 +899,53 @@ class GameManager
         Instance.currentDeck = new List<CardInfo>(Instance.savedDeck);
     }
 
+
+    public void Save()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + "/PlayerInfo.dat", FileMode.OpenOrCreate);
+
+        PlayerData data = new PlayerData(playerLevel, currentXP, currentDeck, deckType1, deckType2);
+
+        formatter.Serialize(file, data);
+        file.Close();
+    }
+
+    public void Load()
+    {
+        if(File.Exists(Application.persistentDataPath + "/PlayerInfo.dat"))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/PlayerInfo.dat", FileMode.Open);
+            PlayerData data = (PlayerData)formatter.Deserialize(file);
+
+            playerLevel = data.level;
+            currentXP = data.experience;
+            deckType1 = data.type1;
+            deckType2 = data.type2;
+
+            currentDeck.Clear();
+
+            for(int i = 0; i < data.playersDeck.Count; i++)
+            {
+                currentDeck.Add(CreateCard(data.playersDeck[i]));
+            }
+
+            file.Close();
+        }
+    }
+
+    public void ResetPlayerData()
+    {
+        playerLevel = 0;
+        currentXP = 0;
+        CreateDefaultDeck(Cards.BasicResource, Cards.Basic);
+        Instance.deckType1 = DeckType.Basic;
+        Instance.deckType2 = DeckType.None;
+
+        Instance.Save();
+    }
+
     #endregion
 
     #region Internal Updater Class
@@ -889,3 +961,30 @@ class GameManager
 
     #endregion
 }
+
+#region Player Data Class
+
+[Serializable]
+class PlayerData
+{
+    public int level;
+    public float experience;
+    public List<Cards> playersDeck = new List<Cards>();
+    public DeckType type1;
+    public DeckType type2;
+
+    public PlayerData(int playerLevel, float playerExperience, List<CardInfo> deck, DeckType type1, DeckType type2)
+    {
+        level = playerLevel;
+        experience = playerExperience;
+        this.type1 = type1;
+        this.type2 = type2;
+
+        for(int i = 0; i < deck.Count; i++)
+        {
+            playersDeck.Add(deck[i].thisCardName);
+        }
+    }
+}
+
+#endregion
