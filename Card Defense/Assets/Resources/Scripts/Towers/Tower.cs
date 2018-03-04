@@ -20,6 +20,7 @@ public class Tower : MonoBehaviour
     public int currentLevel = 1;  // Used to scale everything when the tower levels up
     public int damage = 1;        // Used to assign the damage to the bullet when created
     public float range = 1;       // Used to scale the range collider and collRadius gameobject
+    public bool isPlaced = false; // Used to move the tower around before it gets placed down
 
     #endregion
 
@@ -33,10 +34,12 @@ public class Tower : MonoBehaviour
     private GameObject createdObject;                            // Used to modify the values of the created object. Either a bullet or lightning bolt
     private GameObject UICanvas;                                 // Used to increment mana levels
     private GameObject cardPrefab;
+    private GameObject tower;                                    //the tower object that this card will create
+    private GameObject towerToUpgrade;
     private Vector3 mousePosition;
     private bool canShoot = true;                                // Used to control when this tower can shoot
-    public bool isPlaced = false;                                // Used to move the tower around before it gets placed down
     private bool canBePlaced = true;                             // Used to limit where the tower cna be placed at
+    private bool canPlaceUpdrage = false;
     private int shootTimer = 0;                                  // Used to control the time between each shot of this tower
     private int manaGenerationTimer = 800;                       // Used to control the time between each mana generatrion of this tower
     private int rand;
@@ -54,10 +57,13 @@ public class Tower : MonoBehaviour
         cardPrefab = Resources.Load<GameObject>("Prefabs/Cards/Card");
         bullet = Resources.Load<GameObject>("Prefabs/Towers/Bullet");
         lightningBolt = Resources.Load<GameObject>("Prefabs/Towers/LightningBolt");
+        tower = Resources.Load<GameObject>("Prefabs/Towers/Tower");
         UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
 
         //scale range
-        range = range * GameManager.rangeConst;
+        //range = range * GameManager.rangeConst;
+        GetComponent<CircleCollider2D>().radius *= range;
+        collRadius.transform.localScale *= range;
     }
 
     #endregion
@@ -196,7 +202,7 @@ public class Tower : MonoBehaviour
                         transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
                     }
 
-                    if (Input.GetMouseButtonUp(0) && canBePlaced)
+                    if (Input.GetMouseButtonUp(0) && canBePlaced && !canPlaceUpdrage)
                     {
                         isPlaced = true;
 
@@ -221,7 +227,38 @@ public class Tower : MonoBehaviour
                             UICanvas.GetComponent<InGameUIManager>().numManaType2 -= int.Parse(costText.text);
                         }
                     }
-                    else if (Input.GetMouseButtonUp(0) && !canBePlaced)
+                    else if(Input.GetMouseButtonUp(0) && canPlaceUpdrage)
+                    {
+                        if (((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 >= 2 * int.Parse(costText.text))) 
+                            || ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 >= 2 * int.Parse(costText.text))))
+                        {
+                            CreateTower(towerToUpgrade);
+
+                            //update deck to draw a new card in the appropriate slot
+                            deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
+                            deck.GetComponent<Deck>().cardsInHand--;
+                            deck.GetComponent<Deck>().Draw();
+
+                            //decrease mana stored
+                            if (GameManager.Instance.deckType1 == type)
+                            {
+                                UICanvas.GetComponent<InGameUIManager>().numManaType1 -= 2 * int.Parse(costText.text);
+                            }
+                            else if (GameManager.Instance.deckType2 == type)
+                            {
+                                UICanvas.GetComponent<InGameUIManager>().numManaType2 -= 2 * int.Parse(costText.text);
+                            }
+
+                            Destroy(towerToUpgrade);
+                            Destroy(gameObject);
+                        }
+                        else
+                        {
+                            CreateCard();
+                            Destroy(gameObject);
+                        }
+                    }
+                    else if (Input.GetMouseButtonUp(0) && !canBePlaced && !canPlaceUpdrage)
                     {
                         CreateCard();
                         Destroy(gameObject);
@@ -298,6 +335,69 @@ public class Tower : MonoBehaviour
         createdCard.GetComponent<Card>().type = card.cardType;
     }
 
+    #region Create Tower
+
+    private void CreateTower(GameObject origionalTower)
+    {
+        GameObject createdTower = Instantiate(tower, origionalTower.transform.position, origionalTower.transform.rotation);
+
+        if (thisCardName.ToString().Contains("Heavy") || thisCardName.ToString().Contains("Resource"))
+        {
+            createdTower.GetComponent<Tower>().thisCardName = thisCardName;
+            createdTower.GetComponent<Tower>().type = type;
+            createdTower.GetComponent<Tower>().deck = deck;
+            createdTower.GetComponent<Tower>().cardSlot = cardSlot;
+            createdTower.GetComponent<Tower>().costText = costText;
+            createdTower.GetComponent<Tower>().startPosition = startPosition;
+            createdTower.GetComponent<Tower>().isPlaced = true;
+            createdTower.GetComponent<Tower>().damage++;
+            createdTower.GetComponent<Tower>().range++;
+            createdTower.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+            createdTower.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            createdTower.GetComponent<Tower>().collRadius.SetActive(false);
+        }
+        else
+        {
+            createdTower.GetComponent<Tower>().thisCardName = thisCardName;
+            createdTower.GetComponent<Tower>().thisCardName++;
+            createdTower.GetComponent<Tower>().type = type;
+            createdTower.GetComponent<Tower>().deck = deck;
+            createdTower.GetComponent<Tower>().cardSlot = cardSlot;
+            createdTower.GetComponent<Tower>().costText = costText;
+            createdTower.GetComponent<Tower>().startPosition = startPosition;
+            createdTower.GetComponent<Tower>().isPlaced = true;
+            createdTower.GetComponent<Tower>().damage = int.Parse(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.Damage]);
+            createdTower.GetComponent<Tower>().range = int.Parse(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.Range]);
+            createdTower.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.TowerSprite]);
+            createdTower.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            createdTower.GetComponent<Tower>().collRadius.SetActive(false);
+        }
+
+        switch (type)
+        {
+            case DeckType.Basic:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                break;
+            case DeckType.Fire:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
+                break;
+            case DeckType.Ice:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.blue;
+                break;
+            case DeckType.Lightning:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.yellow;
+                break;
+            case DeckType.Void:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
+                break;
+            default:
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                break;
+        }
+    }
+
+    #endregion
+
     #endregion
 
     #region Collisions
@@ -328,12 +428,22 @@ public class Tower : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D coll)
     {
-        canBePlaced = false;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        if ((coll.gameObject.GetComponent<Tower>()) && coll.gameObject.GetComponent<Tower>().thisCardName == thisCardName)
+        {
+            towerToUpgrade = coll.gameObject;
+            canPlaceUpdrage = true;
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else
+        {
+            canBePlaced = false;
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D coll)
     {
+        canPlaceUpdrage = false;
         canBePlaced = true;
         GetComponent<SpriteRenderer>().color = Color.white;
     }

@@ -577,7 +577,7 @@ class GameManager
     public const int deckSize = 20;                                //the maximum deck size for the game
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public int baseHealth = 100;
-    public const float rangeConst = 3f;                            //the default range of the towers
+    public const float rangeConst = 2f;                            //the default range of the towers
     public float currentXP = 0;
     public bool newCardsToLookAt = true;
     public CardInfo[] savedDeck = new CardInfo[deckSize];          //a saved copy of the current deck, so it can be reset
