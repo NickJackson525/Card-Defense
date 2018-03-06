@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 224561308643937880}
   - component: {fileID: 222139787800878426}
   - component: {fileID: 114513856224612576}
+  - component: {fileID: 58370465909426828}
   m_Layer: 5
   m_Name: Radius
   m_TagString: Untagged
@@ -168,6 +169,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!58 &58370465909426828
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866276384743498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 50
 --- !u!61 &61323370731956118
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -458,10 +474,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCardName: 0
   type: 0
-  tower: {fileID: 1707545682993690, guid: 1a05629fb273f8d439ca27c5dca464c2, type: 2}
   cardSlot: {fileID: 0}
   deck: {fileID: 0}
   radius: {fileID: 1866276384743498}
+  somethingNewIcon: {fileID: 0}
   costText: {fileID: 114550611176690360}
   damageText: {fileID: 114279809007981356}
   rangeText: {fileID: 114268523926724708}
@@ -477,6 +493,7 @@ MonoBehaviour:
   isLocked: 0
   inDeck: 0
   isSpell: 0
+  hasBeenSeen: 1
   inHand: 1
 --- !u!114 &114810652683892934
 MonoBehaviour:

@@ -350,11 +350,20 @@ public class Tower : MonoBehaviour
             createdTower.GetComponent<Tower>().costText = costText;
             createdTower.GetComponent<Tower>().startPosition = startPosition;
             createdTower.GetComponent<Tower>().isPlaced = true;
-            createdTower.GetComponent<Tower>().damage++;
-            createdTower.GetComponent<Tower>().range++;
             createdTower.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
             createdTower.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             createdTower.GetComponent<Tower>().collRadius.SetActive(false);
+
+            if (thisCardName.ToString().Contains("Heavy"))
+            {
+                createdTower.GetComponent<Tower>().damage++;
+                createdTower.GetComponent<Tower>().range++;
+            }
+            else
+            {
+                createdTower.GetComponent<Tower>().damage = 0;
+                createdTower.GetComponent<Tower>().range = 0;
+            }
         }
         else
         {
@@ -431,8 +440,23 @@ public class Tower : MonoBehaviour
         if ((coll.gameObject.GetComponent<Tower>()) && coll.gameObject.GetComponent<Tower>().thisCardName == thisCardName)
         {
             towerToUpgrade = coll.gameObject;
-            canPlaceUpdrage = true;
-            GetComponent<SpriteRenderer>().color = Color.green;
+
+            if(coll.gameObject.GetComponent<Tower>().thisCardName.ToString().Contains("Resource"))
+            {
+                canPlaceUpdrage = false;
+                GetComponent<SpriteRenderer>().color = Color.red;
+            }
+            else if (((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 >= 2 * int.Parse(costText.text))) 
+                || ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 >= 2 * int.Parse(costText.text))))
+            { 
+                canPlaceUpdrage = true;
+                GetComponent<SpriteRenderer>().color = Color.green;
+            }
+            else
+            {
+                canPlaceUpdrage = false;
+                GetComponent<SpriteRenderer>().color = Color.red;
+            }
         }
         else
         {

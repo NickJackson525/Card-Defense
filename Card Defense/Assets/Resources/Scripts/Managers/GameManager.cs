@@ -222,7 +222,7 @@ class GameManager
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
-                { CardElement.Range, "4" },
+                { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
                 { CardElement.CardText, "Fireball Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Fire Symbol" },
@@ -332,7 +332,7 @@ class GameManager
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
-                { CardElement.Range, "4" },
+                { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
                 { CardElement.CardText, "Ice Storm Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Ice Symbol" },
@@ -442,7 +442,7 @@ class GameManager
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
-                { CardElement.Range, "4" },
+                { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
                 { CardElement.CardText, "Lightning Storm Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning Symbol" },
@@ -552,7 +552,7 @@ class GameManager
             {
                 { CardElement.Cost, "4" },
                 { CardElement.Damage, "4" },
-                { CardElement.Range, "4" },
+                { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
                 { CardElement.CardText, "Void Portal Spell" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void Symbol" },
