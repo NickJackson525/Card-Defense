@@ -18,6 +18,8 @@ public class DisplayCurrentDeck : MonoBehaviour
     public GameObject cardSlot7;        // The seventh location to display a card
     public GameObject cardSlot8;        // The eigth location to display a card
     public GameObject cardSlot9;        // The ninth location to display a card
+    public Text currentPageDisplay;
+    public Text displayNumCardsInDeck;
 
     #endregion
 
@@ -71,6 +73,9 @@ public class DisplayCurrentDeck : MonoBehaviour
 
         //update deck size
         currentDeckSize = GameManager.Instance.currentDeck.Count;
+
+        currentPageDisplay.text = currentPage + " / " + ((currentDeck.Count / 9) + 1);
+        displayNumCardsInDeck.text = GameManager.Instance.currentDeck.Count + " / " + GameManager.deckSize;
     }
 
     #endregion
@@ -98,7 +103,7 @@ public class DisplayCurrentDeck : MonoBehaviour
     public void ViewNextPage()
     {
         //check that this isn't the last page of the deck
-        if (currentPage < ((float)currentDeck.Count / 9f))
+        if (currentPage < ((currentDeck.Count / 9) + 1))
         {
             //view the next page of the deck
             currentPage++;

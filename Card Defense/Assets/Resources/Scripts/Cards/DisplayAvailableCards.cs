@@ -20,6 +20,7 @@ public class DisplayAvailableCards : MonoBehaviour
     public GameObject cardSlot8;
     public GameObject cardSlot9;
     public GameObject nextOpenCardSlot;
+    public Text currentPageDisplay;
     public int currentPage = 0;
     public int cardsCreated = 0;
 
@@ -49,8 +50,8 @@ public class DisplayAvailableCards : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-		
-	}
+        currentPageDisplay.text = currentPage + " / " + ((allCardsDeck.Count / 9) + 1);
+    }
 
     #endregion
 
@@ -73,7 +74,7 @@ public class DisplayAvailableCards : MonoBehaviour
 
     public void ViewNextPage()
     {
-        if (currentPage < ((float)allCardsDeck.Count / 9f))
+        if (currentPage < ((allCardsDeck.Count / 9) + 1))
         {
             currentPage++;
             DestroyDisplayedCards();
