@@ -440,8 +440,9 @@ public class Tower : MonoBehaviour
         if ((coll.gameObject.GetComponent<Tower>()) && coll.gameObject.GetComponent<Tower>().thisCardName == thisCardName)
         {
             towerToUpgrade = coll.gameObject;
+            canBePlaced = false;
 
-            if(coll.gameObject.GetComponent<Tower>().thisCardName.ToString().Contains("Resource"))
+            if (coll.gameObject.GetComponent<Tower>().thisCardName.ToString().Contains("Resource"))
             {
                 canPlaceUpdrage = false;
                 GetComponent<SpriteRenderer>().color = Color.red;

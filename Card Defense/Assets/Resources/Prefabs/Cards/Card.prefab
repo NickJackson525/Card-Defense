@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114795418136056202}
   - component: {fileID: 61594617752139738}
   - component: {fileID: 61323370731956118}
+  - component: {fileID: 58619594271256246}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -184,6 +185,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 50
+--- !u!58 &58619594271256246
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352829131372216}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 100
 --- !u!61 &61323370731956118
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -495,6 +511,9 @@ MonoBehaviour:
   isSpell: 0
   hasBeenSeen: 1
   inHand: 1
+  coll1: {fileID: 61594617752139738}
+  coll2: {fileID: 61323370731956118}
+  cirColl1: {fileID: 58619594271256246}
 --- !u!114 &114810652683892934
 MonoBehaviour:
   m_ObjectHideFlags: 1

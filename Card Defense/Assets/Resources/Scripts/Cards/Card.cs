@@ -33,6 +33,9 @@ public class Card : PauseableObject
     public bool isSpell = false;        //differenciation between spells and towers
     public bool hasBeenSeen = true;
     public bool inHand = true;          //used to see where the card currently is
+    public BoxCollider2D coll1;
+    public BoxCollider2D coll2;
+    public CircleCollider2D cirColl1;
 
     #endregion
 
@@ -168,6 +171,11 @@ public class Card : PauseableObject
                             // Lerp towards mouse position
                             transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
                         }
+                        else if(!Input.GetMouseButton(0) && radius.activeSelf)
+                        {
+                            //Player used a spell card
+                            CastSpell(thisCardName);
+                        }
                     }
 
                     // Check if the card has been dragged out of the hand
@@ -181,6 +189,9 @@ public class Card : PauseableObject
                         }
                         else
                         {
+                            coll1.enabled = false;
+                            coll2.enabled = false;
+                            cirColl1.enabled = true;
                             radius.transform.localScale = new Vector3(int.Parse(rangeText.text), int.Parse(rangeText.text), int.Parse(rangeText.text));
                             radius.SetActive(true);
                             GetComponent<Image>().enabled = false;
@@ -193,6 +204,9 @@ public class Card : PauseableObject
                     }
                     else
                     {
+                        coll1.enabled = true;
+                        coll2.enabled = true;
+                        cirColl1.enabled = false;
                         radius.SetActive(false);
                         GetComponent<Image>().enabled = true;
                         costText.enabled = true;
@@ -268,15 +282,7 @@ public class Card : PauseableObject
         //checkthat the game isn't paused and if the left mouse button was released
         if (!GameManager.Instance.Paused && Input.GetMouseButtonUp(0))
         {
-            if (SceneManager.GetActiveScene().name != "Deck Builder")
-            {
-                if(radius.activeSelf)
-                {
-                    //Player used a spell card
-                    CastSpell(thisCardName);
-                }
-            }
-            else
+            if (SceneManager.GetActiveScene().name == "Deck Builder")
             {
                 if (inDeck)
                 {
@@ -350,19 +356,30 @@ public class Card : PauseableObject
 
     private void CastSpell(Cards spellCardType)
     {
-        switch (spellCardType)
+        for(int i = 0; i < enemiesInRange.Count; i++)
         {
-            case Cards.FireballSpell:
-                break;
-            case Cards.IceStormSpell:
-                break;
-            case Cards.LightningStrikeSpell:
-                break;
-            case Cards.VoidPortalSpell:
-                break;
-            default:
-                break;
+            switch (spellCardType)
+            {
+                case Cards.FireballSpell:
+                    enemiesInRange[i].GetComponent<Enemy>().spellDamageToTake = int.Parse(damageText.text);
+                    enemiesInRange[i].GetComponent<Enemy>().spellFireTimer = 120;
+                    break;
+                case Cards.IceStormSpell:
+                    break;
+                case Cards.LightningStrikeSpell:
+                    break;
+                case Cards.VoidPortalSpell:
+                    break;
+                default:
+                    break;
+            }
         }
+
+        deck.GetComponent<Deck>().nextOpenCardSlot = cardSlot;
+        deck.GetComponent<Deck>().cardsInHand--;
+        deck.GetComponent<Deck>().Draw();
+
+        Destroy(gameObject);
     }
 
     #endregion

@@ -7,6 +7,9 @@ public class Enemy : PauseableObject
 {
     #region Variables
 
+    public SpriteRenderer body;
+    public int spellFireTimer = 0;                          //how long the damage over time from a spell will last
+    public int spellDamageToTake = 0;                       //how much damage to take over time
     public float currSpeed;                                 //the speed the enemy is currently moving
     public float naturalSpeed;                              //the speed the enemy goes without anything altering it
     public float health = 20f;                              //the health of the enemy
@@ -15,9 +18,9 @@ public class Enemy : PauseableObject
     private List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     private Vector3 moveDirection;                          //the direction the enemy is currently moving in
     private int pathCount = 0;                              //the current place the enemy is in the path
-    private int fireTimer = 0;                              //how long the damage over time will last
+    private int bulletFireTimer = 0;                        //how long the damage over time from a bullet will last
     private int frozenTimer = 0;                            //how long the enemy will stay slowed
-    private int damageToTake = 0;                           //how much damage to take over time
+    private int bulletDamageToTake = 0;                     //how much damage to take over time
 
     #endregion
 
@@ -49,20 +52,41 @@ public class Enemy : PauseableObject
 
             #endregion
 
-            #region Fire Damage
+            #region Fire Damage From Bullet
 
-            if(fireTimer > 0)
+            if(bulletFireTimer > 0)
             {
-                fireTimer--;
+                bulletFireTimer--;
 
-                if ((fireTimer % 10) == 0)
+                if ((bulletFireTimer % 10) == 0)
                 {
-                    health -= damageToTake;
+                    health -= bulletDamageToTake;
                 }
 
-                if(fireTimer == 0)
+                if(bulletFireTimer == 0)
                 {
-                    damageToTake = 0;
+                    bulletDamageToTake = 0;
+                }
+            }
+
+            #endregion
+
+            #region Fire Damage From Spells
+
+            if (spellFireTimer > 0)
+            {
+                body.color = Color.red;
+                spellFireTimer--;
+
+                if ((spellFireTimer % 10) == 0)
+                {
+                    health -= spellDamageToTake;
+                }
+
+                if (spellFireTimer == 0)
+                {
+                    body.color = Color.white;
+                    spellDamageToTake = 0;
                 }
             }
 
@@ -70,7 +94,7 @@ public class Enemy : PauseableObject
 
             #region Frozen
 
-            if(frozenTimer > 0)
+            if (frozenTimer > 0)
             {
                 frozenTimer--;
 
@@ -153,11 +177,11 @@ public class Enemy : PauseableObject
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
                 case DeckType.Fire:
-                    fireTimer = 240;
-                    damageToTake = coll.GetComponent<Bullet>().damage;
+                    bulletFireTimer = 120;
+                    bulletDamageToTake = coll.GetComponent<Bullet>().damage;
                     break;
                 case DeckType.Ice:
-                    frozenTimer = 240;
+                    frozenTimer = 120;
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
                 case DeckType.Lightning:
