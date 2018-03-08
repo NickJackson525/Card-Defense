@@ -45,6 +45,8 @@ public class Card : PauseableObject
     private GameObject tower;                                         //the tower object that this card will create
     private GameObject createdTower;                                  //the tower object that is created
     private GameObject UICanvas;                                      //the ui canvas in the game
+    public GameObject fireExplosion;
+    public GameObject iceExplosion;
     private bool mouseHover = false;                                  //checks when the mouse is over this card or not
     private bool hasEnoughResources = false;                          //bool if the user has enough resources
     private const float outOfHandDist = 2f;                           //the distance the card must be dragged in order to be played
@@ -75,6 +77,8 @@ public class Card : PauseableObject
     private void Start()
     {
         tower = Resources.Load<GameObject>("Prefabs/Towers/Tower");
+        fireExplosion = Resources.Load<GameObject>("Prefabs/Cards/Fire Explosion");
+        iceExplosion = Resources.Load<GameObject>("Prefabs/Cards/Ice Explosion");
         thisCard = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardName][CardElement.CardSprite]);
 
         if (GetComponentInChildren<LockImage>())
@@ -363,8 +367,11 @@ public class Card : PauseableObject
                 case Cards.FireballSpell:
                     enemiesInRange[i].GetComponent<Enemy>().spellDamageToTake = int.Parse(damageText.text);
                     enemiesInRange[i].GetComponent<Enemy>().spellFireTimer = 120;
+                    Instantiate(fireExplosion, transform.position, transform.rotation);
                     break;
                 case Cards.IceStormSpell:
+                    enemiesInRange[i].GetComponent<Enemy>().spellFrozenTimer = 120;
+                    Instantiate(iceExplosion, transform.position, transform.rotation);
                     break;
                 case Cards.LightningStrikeSpell:
                     break;

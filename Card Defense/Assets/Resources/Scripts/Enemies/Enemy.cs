@@ -7,8 +7,8 @@ public class Enemy : PauseableObject
 {
     #region Variables
 
-    public SpriteRenderer body;
     public int spellFireTimer = 0;                          //how long the damage over time from a spell will last
+    public int spellFrozenTimer = 0;                       //how long the enemy will stay slowed
     public int spellDamageToTake = 0;                       //how much damage to take over time
     public float currSpeed;                                 //the speed the enemy is currently moving
     public float naturalSpeed;                              //the speed the enemy goes without anything altering it
@@ -19,7 +19,7 @@ public class Enemy : PauseableObject
     private Vector3 moveDirection;                          //the direction the enemy is currently moving in
     private int pathCount = 0;                              //the current place the enemy is in the path
     private int bulletFireTimer = 0;                        //how long the damage over time from a bullet will last
-    private int frozenTimer = 0;                            //how long the enemy will stay slowed
+    private int bulletFrozenTimer = 0;                      //how long the enemy will stay slowed
     private int bulletDamageToTake = 0;                     //how much damage to take over time
 
     #endregion
@@ -75,7 +75,6 @@ public class Enemy : PauseableObject
 
             if (spellFireTimer > 0)
             {
-                body.color = Color.red;
                 spellFireTimer--;
 
                 if ((spellFireTimer % 10) == 0)
@@ -85,22 +84,37 @@ public class Enemy : PauseableObject
 
                 if (spellFireTimer == 0)
                 {
-                    body.color = Color.white;
                     spellDamageToTake = 0;
                 }
             }
 
             #endregion
 
-            #region Frozen
+            #region Frozen From Bullet
 
-            if (frozenTimer > 0)
+            if (bulletFrozenTimer > 0)
             {
-                frozenTimer--;
+                bulletFrozenTimer--;
 
                 currSpeed = naturalSpeed / 2f;
 
-                if(frozenTimer == 0)
+                if(bulletFrozenTimer == 0)
+                {
+                    currSpeed = naturalSpeed;
+                }
+            }
+
+            #endregion
+
+            #region Frozen From Spells
+
+            if (spellFrozenTimer > 0)
+            {
+                spellFrozenTimer--;
+
+                currSpeed = 0;
+
+                if (spellFrozenTimer == 0)
                 {
                     currSpeed = naturalSpeed;
                 }
@@ -181,7 +195,7 @@ public class Enemy : PauseableObject
                     bulletDamageToTake = coll.GetComponent<Bullet>().damage;
                     break;
                 case DeckType.Ice:
-                    frozenTimer = 120;
+                    bulletFrozenTimer = 120;
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
                 case DeckType.Lightning:

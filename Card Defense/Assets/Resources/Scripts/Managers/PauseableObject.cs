@@ -29,6 +29,10 @@ public class PauseableObject : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
+        else if(GetComponentInChildren<Animator>())
+        {
+            anim = GetComponentInChildren<Animator>();
+        }
 
         GameManager.Instance.AddPausableObject(this);
     }
