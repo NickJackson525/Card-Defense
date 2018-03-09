@@ -368,6 +368,9 @@ MonoBehaviour:
   isSpell: 0
   hasBeenSeen: 1
   inHand: 1
+  coll1: {fileID: 0}
+  coll2: {fileID: 0}
+  cirColl1: {fileID: 0}
 --- !u!114 &114409375973798318
 MonoBehaviour:
   m_ObjectHideFlags: 1

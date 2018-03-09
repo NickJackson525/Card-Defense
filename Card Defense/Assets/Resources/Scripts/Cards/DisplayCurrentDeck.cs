@@ -153,7 +153,8 @@ public class DisplayCurrentDeck : MonoBehaviour
                 createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
                 createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
                 createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
-                createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardText;
+                createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardType.ToString();
+                createdCard.GetComponent<Card>().cardText.text = tempCard.cardText;
                 createdCard.GetComponent<Card>().cardWatermark.sprite = tempCard.towerWatermark;
                 createdCard.GetComponent<Card>().cardBack.sprite = tempCard.thisCard;
                 createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;

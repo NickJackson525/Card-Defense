@@ -20,7 +20,7 @@ public class Deck : MonoBehaviour
 
     private CardInfo tempCard;
     private GameObject createdCard;
-    public GameObject UICanvas;             //the ui canvas in the game
+    private GameObject UICanvas;             //the ui canvas in the game
 
     #endregion
 

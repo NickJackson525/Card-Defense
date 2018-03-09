@@ -45,8 +45,8 @@ public class Card : PauseableObject
     private GameObject tower;                                         //the tower object that this card will create
     private GameObject createdTower;                                  //the tower object that is created
     private GameObject UICanvas;                                      //the ui canvas in the game
-    public GameObject fireExplosion;
-    public GameObject iceExplosion;
+    private GameObject fireExplosion;
+    private GameObject iceExplosion;
     private bool mouseHover = false;                                  //checks when the mouse is over this card or not
     private bool hasEnoughResources = false;                          //bool if the user has enough resources
     private const float outOfHandDist = 2f;                           //the distance the card must be dragged in order to be played
