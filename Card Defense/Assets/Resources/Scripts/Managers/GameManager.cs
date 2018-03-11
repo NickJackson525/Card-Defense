@@ -379,7 +379,7 @@ class GameManager
 
         #region Lightning Cards
 
-        {//TODO: art, type
+        {//TODO: type
             #region Lightning Resource Card
 
             Cards.LightningResource, new Dictionary<CardElement, string>
@@ -393,7 +393,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower1" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning/Lightning Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Lightning/Lightning Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Basic Lightning Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Lightning Resource Art" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
@@ -402,7 +402,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: text, type
+        {//TODO: type
             #region Basic Lightning Tower Card
 
             Cards.BasicLightning, new Dictionary<CardElement, string>
@@ -411,7 +411,7 @@ class GameManager
                 { CardElement.Damage, "1" },
                 { CardElement.Range, "1" },
                 { CardElement.Level, "1" },
-                { CardElement.CardText, "Basic Lightning Tower" },
+                { CardElement.CardText, "Basic tower that shoots lightning" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower2" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning/Lightning Card Back" },
@@ -425,7 +425,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: art, text, type
+        {//TODO: type
             #region Medium Lightning Tower Card
 
             Cards.MediumLightning, new Dictionary<CardElement, string>
@@ -434,12 +434,12 @@ class GameManager
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
-                { CardElement.CardText, "Medium Lightning Tower" },
+                { CardElement.CardText, "Medium tower that shoots lightning" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower3" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning/Lightning Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Lightning/Lightning Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Basic Lightning Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Medium Lightning Art" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
@@ -448,7 +448,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: art, text, type
+        {//TODO: type
             #region Heavy Lightning Tower Card
 
             Cards.HeavyLightning, new Dictionary<CardElement, string>
@@ -457,12 +457,12 @@ class GameManager
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
                 { CardElement.Level, "3" },
-                { CardElement.CardText, "Heavy Lightning Tower" },
+                { CardElement.CardText, "Heavy tower that shoots lightning" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower4" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning/Lightning Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Lightning/Lightning Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Basic Lightning Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Heavy Lightning Art" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.HasBeenLookedAt, "False" },
@@ -471,7 +471,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: art, text, type
+        {//TODO: type
             #region Lightning Strike Spell Card
 
             Cards.LightningStrikeSpell, new Dictionary<CardElement, string>
@@ -480,12 +480,12 @@ class GameManager
                 { CardElement.Damage, "4" },
                 { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
-                { CardElement.CardText, "Lightning Storm Spell" },
+                { CardElement.CardText, "Lightning storm that shocks all enemies within range" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Lightning/Lightning Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower1" },
                 { CardElement.CardSprite, "Sprites/Cards/Lightning/Lightning Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Lightning/Lightning Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Basic Lightning Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Lightning/Lightning Storm Art" },
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Lightning" },
@@ -499,7 +499,7 @@ class GameManager
 
         #region Void Cards
 
-        {//TODO: art, type
+        {//TODO: type
             #region Void Resource Card
 
             Cards.VoidResource, new Dictionary<CardElement, string>
@@ -513,7 +513,7 @@ class GameManager
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower1" },
                 { CardElement.CardSprite, "Sprites/Cards/Void/Void Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Void/Void Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Void/Basic Void Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Void/Void Resource Art" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
@@ -522,7 +522,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: text, type
+        {//TODO: type
             #region Basic Void Tower Card
 
             Cards.BasicVoid, new Dictionary<CardElement, string>
@@ -531,7 +531,7 @@ class GameManager
                 { CardElement.Damage, "1" },
                 { CardElement.Range, "1" },
                 { CardElement.Level, "1" },
-                { CardElement.CardText, "Basic Void Tower" },
+                { CardElement.CardText, "Basic tower that can instant kill or teleport enemy" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower2" },
                 { CardElement.CardSprite, "Sprites/Cards/Void/Void Card Back" },
@@ -545,7 +545,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: art, text, type
+        {//TODO: type
             #region Medium Void Tower Card
 
             Cards.MediumVoid, new Dictionary<CardElement, string>
@@ -554,12 +554,12 @@ class GameManager
                 { CardElement.Damage, "2" },
                 { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
-                { CardElement.CardText, "Medium Void Tower" },
+                { CardElement.CardText, "Medium tower that can instant kill or teleport enemy" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower3" },
                 { CardElement.CardSprite, "Sprites/Cards/Void/Void Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Void/Void Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Void/Basic Void Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Void/Medium Void Art" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
@@ -568,7 +568,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: art, text, type
+        {//TODO: type
             #region Heavy Void Tower Card
 
             Cards.HeavyVoid, new Dictionary<CardElement, string>
@@ -577,12 +577,12 @@ class GameManager
                 { CardElement.Damage, "3" },
                 { CardElement.Range, "3" },
                 { CardElement.Level, "3" },
-                { CardElement.CardText, "Heavy Void Tower" },
+                { CardElement.CardText, "Heavy tower that can instant kill or teleport enemy" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower4" },
                 { CardElement.CardSprite, "Sprites/Cards/Void/Void Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Void/Void Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Void/Basic Void Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Void/Heavy Void Art" },
                 { CardElement.IsSpell, "False" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
@@ -591,7 +591,7 @@ class GameManager
 
             #endregion
         },
-        {//TODO: art, text, type
+        {//TODO: type
             #region Void Portal Spell Card
 
             Cards.VoidPortalSpell, new Dictionary<CardElement, string>
@@ -600,12 +600,12 @@ class GameManager
                 { CardElement.Damage, "4" },
                 { CardElement.Range, "2" },
                 { CardElement.Level, "2" },
-                { CardElement.CardText, "Void Portal Spell" },
+                { CardElement.CardText, "Void Portal that sends all enemies that enter back to the start" },
                 { CardElement.WatermarkSprite, "Sprites/Cards/Void/Void Symbol" },
                 { CardElement.TowerSprite, "Sprites/Towers/GreyTower1" },
                 { CardElement.CardSprite, "Sprites/Cards/Void/Void Card Back" },
                 { CardElement.CardOutlineSprite, "Sprites/Cards/Void/Void Card Back Outline" },
-                { CardElement.CardArtSprite, "Sprites/Cards/Void/Basic Void Art" },
+                { CardElement.CardArtSprite, "Sprites/Cards/Void/Void Portal Art" },
                 { CardElement.IsSpell, "True" },
                 { CardElement.IsLocked, "True" },
                 { CardElement.CardType, "Void" },
