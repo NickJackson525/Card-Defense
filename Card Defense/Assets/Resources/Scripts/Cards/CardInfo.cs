@@ -17,7 +17,9 @@ public class CardInfo
     public string cardText;                 //the name of the card
     public Sprite towerWatermark;           //the image on the card that represents its type
     public Sprite thisTower;                //the sprite the tower this card represents
+    public Sprite thisCardArt;              //the sprite for this card's art
     public Sprite thisCard;                 //the sprite for this card
+    public Sprite thisCardOutline;          //the sprite for this card's outline
     public bool isLocked = false;           //used for deck building
     public bool inDeck = false;             //used for deck building
     public bool isSpell = false;            //differenciation between spells and 
@@ -29,7 +31,7 @@ public class CardInfo
     #region Constructor
 
     //constructor for the class
-    public CardInfo(Cards name, DeckType type, int cost, int damage, int range, int level, string text, Sprite watermark, Sprite tower, Sprite card, bool spell, bool locked, bool seen)
+    public CardInfo(Cards name, DeckType type, int cost, int damage, int range, int level, string text, Sprite watermark, Sprite tower, Sprite cardArt, Sprite card, Sprite cardOutline, bool spell, bool locked, bool seen)
     {
         thisCardName = name;
         cardType = type;
@@ -40,7 +42,9 @@ public class CardInfo
         cardText = text;
         towerWatermark = watermark;
         thisTower = tower;
+        thisCardArt = cardArt;
         thisCard = card;
+        thisCardOutline = cardOutline;
         isSpell = spell;
         isLocked = locked;
         hasBeenSeen = seen;

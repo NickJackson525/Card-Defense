@@ -156,7 +156,9 @@ public class DisplayCurrentDeck : MonoBehaviour
                 createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardType.ToString();
                 createdCard.GetComponent<Card>().cardText.text = tempCard.cardText;
                 createdCard.GetComponent<Card>().cardWatermark.sprite = tempCard.towerWatermark;
+                createdCard.GetComponent<Card>().cardArt.sprite = tempCard.thisCardArt;
                 createdCard.GetComponent<Card>().cardBack.sprite = tempCard.thisCard;
+                createdCard.GetComponent<Card>().cardBackOutline.sprite = tempCard.thisCardOutline;
                 createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;
                 createdCard.GetComponent<Card>().thisTower = tempCard.thisTower;
                 createdCard.GetComponent<Card>().isSpell = tempCard.isSpell;

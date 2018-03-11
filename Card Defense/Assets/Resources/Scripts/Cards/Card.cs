@@ -21,9 +21,11 @@ public class Card : PauseableObject
     public Text rangeText;              //card range text for this card object
     public Text cardNameText;           //card name text for this card object
     public Text cardText;               //text description of the card
+    public Image cardArt;               //card art image for this card object
     public Image cardWatermark;         //watermark image for this card object
     public Image manaSymbol;            //image to represent mana
     public Image cardBack;              //card back image for this card object
+    public Image cardBackOutline;       //card back outline image for this card object
     public int cardLevel = 1;           //used for upgrading cards
     public int numberInDeck = 0;        //used for deck bulding
     public Sprite towerWatermark;       //the image on the card that represents its type
@@ -127,6 +129,8 @@ public class Card : PauseableObject
 
             if (isLocked)
             {
+                cardArt.color = new Color(.52f, .52f, .52f);
+                cardBackOutline.color = new Color(.52f, .52f, .52f);
                 GetComponent<Button>().interactable = false;
             }
             else if ((GameManager.Instance.deckType1 == type) || (GameManager.Instance.deckType2 == type) || (GameManager.Instance.deckType1 == DeckType.None) || (GameManager.Instance.deckType2 == DeckType.None))
@@ -135,7 +139,20 @@ public class Card : PauseableObject
             }
             else
             {
+                cardArt.color = new Color(.52f, .52f, .52f);
+                cardBackOutline.color = new Color(.52f, .52f, .52f);
                 GetComponent<Button>().interactable = false;
+            }
+
+            if(mouseHover && !isLocked)
+            {
+                cardArt.color = new Color(.52f, .52f, .52f);
+                cardBackOutline.color = new Color(.52f, .52f, .52f);
+            }
+            else if(!mouseHover && !isLocked)
+            {
+                cardArt.color = Color.white;
+                cardBackOutline.color = Color.white;
             }
         }
 

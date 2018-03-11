@@ -26,11 +26,11 @@ public class InGameUIManager : MonoBehaviour
 
     void Start ()
     {
-		basicImage = Resources.Load<Sprite>("Sprites/Cards/Basic Symbol");
-        fireImage = Resources.Load<Sprite>("Sprites/Cards/Fire Symbol");
-        iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice Symbol");
-        lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning Symbol");
-        voidImage = Resources.Load<Sprite>("Sprites/Cards/Void Symbol");
+		basicImage = Resources.Load<Sprite>("Sprites/Cards/Basic/Basic Symbol");
+        fireImage = Resources.Load<Sprite>("Sprites/Cards/Fire/Fire Symbol");
+        iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice/Ice Symbol");
+        lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
+        voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
     }
 
     #endregion

@@ -276,6 +276,29 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1955202118}
+    - target: {fileID: 1742823209214564, guid: 01572dab56d0be04bb20915a790155af, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224776766278087690, guid: 01572dab56d0be04bb20915a790155af,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.9034085
+      objectReference: {fileID: 0}
+    - target: {fileID: 224776766278087690, guid: 01572dab56d0be04bb20915a790155af,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 596.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292402367753972, guid: 01572dab56d0be04bb20915a790155af, type: 2}
+      propertyPath: m_Name
+      value: Resume Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 114940226101778694, guid: 01572dab56d0be04bb20915a790155af,
+        type: 2}
+      propertyPath: m_Text
+      value: Resume
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01572dab56d0be04bb20915a790155af, type: 2}
   m_IsPrefabParent: 0
