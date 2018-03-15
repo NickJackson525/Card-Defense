@@ -221,6 +221,8 @@ public class Card : PauseableObject
                             cardNameText.enabled = false;
                             cardText.enabled = false;
                             cardWatermark.enabled = false;
+                            cardBackOutline.enabled = false;
+                            cardArt.enabled = false;
                         }
                     }
                     else
@@ -235,6 +237,8 @@ public class Card : PauseableObject
                         cardNameText.enabled = true;
                         cardText.enabled = true;
                         cardWatermark.enabled = true;
+                        cardBackOutline.enabled = true;
+                        cardArt.enabled = true;
                     }
                 }
             }

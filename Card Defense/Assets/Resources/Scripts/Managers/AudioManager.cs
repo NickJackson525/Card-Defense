@@ -39,6 +39,9 @@ public class AudioManager
     public AudioSource effectsAudioSource;
     public AudioSource backroundAudioSource;
 
+    public bool isMusicMuted = false;
+    public bool areEffectsMuted = false;
+
     private int previousBackgroundTrack = 0; //used so that a background tract isn't played 2 times in a row
     private float backgroundVolume = .5f;    //volume level of background music
     private float UIVolume = .5f;            //volume level of ui sounds
@@ -71,7 +74,7 @@ public class AudioManager
     public void Update()
     {
         //check if background music track has ended, if so play another
-        if (!backroundAudioSource.GetComponent<AudioSource>().isPlaying)
+        if (!backroundAudioSource.GetComponent<AudioSource>().isPlaying && !isMusicMuted)
         {
             PlayBackgroundMusic();
         }
@@ -79,7 +82,7 @@ public class AudioManager
 
     #endregion
 
-    #region Play Sounds
+    #region Public Methods
 
     /// <summary>
     /// Plays any sound in the stored dictionary, on the specified audiosource
@@ -91,7 +94,7 @@ public class AudioManager
         {
             case AudioSourceType.Background:
                 //check that the audiosource exists
-                if (backroundAudioSource != null)
+                if ((backroundAudioSource != null) && !isMusicMuted)
                 {
                     //stop whatever is already playing and play a new sound
                     backroundAudioSource.Stop();
@@ -101,7 +104,7 @@ public class AudioManager
                 break;
             case AudioSourceType.Effects:
                 //check that the audiosource exists
-                if (effectsAudioSource != null)
+                if ((effectsAudioSource != null) && !areEffectsMuted)
                 {
                     //stop whatever is already playing and play a new sound
                     effectsAudioSource.Stop();
@@ -121,7 +124,7 @@ public class AudioManager
                 break;
             default:
                 //check that the audiosource exists
-                if (effectsAudioSource != null)
+                if ((effectsAudioSource != null) && !areEffectsMuted)
                 {
                     //stop whatever is already playing and play a new sound
                     effectsAudioSource.Stop();
@@ -168,6 +171,25 @@ public class AudioManager
                 break;
             default:
                 PlaySound(AudioSourceType.Background, Sound.BackgroundMusic1);
+                break;
+        }
+    }
+
+    public void MuteSounds(AudioSourceType source)
+    {
+        switch (source)
+        {
+            case AudioSourceType.Background:
+                backroundAudioSource.Stop();
+                break;
+            case AudioSourceType.Effects:
+                effectsAudioSource.Stop();
+                break;
+            case AudioSourceType.UI:
+                UIAudioSource.Stop();
+                break;
+            default:
+                effectsAudioSource.Stop();
                 break;
         }
     }

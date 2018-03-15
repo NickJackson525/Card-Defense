@@ -320,18 +320,20 @@ public class Tower : MonoBehaviour
         createdCard = Instantiate(cardPrefab, Vector3.zero, cardSlot.transform.rotation, cardSlot.transform);
         createdCard.GetComponent<Image>().sprite = card.thisCard;
         createdCard.GetComponent<Card>().thisCardName = card.thisCardName;
-        createdCard.GetComponent<Card>().costText.text = costText.text;
+        createdCard.GetComponent<Card>().costText.text = card.towerCost.ToString();
         createdCard.GetComponent<Card>().damageText.text = card.towerDamage.ToString();
         createdCard.GetComponent<Card>().rangeText.text = card.towerRange.ToString();
         createdCard.GetComponent<Card>().cardNameText.text = card.cardType.ToString();
         createdCard.GetComponent<Card>().cardText.text = card.cardText;
         createdCard.GetComponent<Card>().cardWatermark.sprite = card.towerWatermark;
+        createdCard.GetComponent<Card>().cardArt.sprite = card.thisCardArt;
         createdCard.GetComponent<Card>().cardBack.sprite = card.thisCard;
+        createdCard.GetComponent<Card>().cardBackOutline.sprite = card.thisCardOutline;
         createdCard.GetComponent<Card>().cardLevel = card.cardLevel;
         createdCard.GetComponent<Card>().thisTower = card.thisTower;
         createdCard.GetComponent<Card>().isSpell = card.isSpell;
         createdCard.GetComponent<Card>().cardSlot = cardSlot;
-        createdCard.GetComponent<Card>().deck = deck;
+        createdCard.GetComponent<Card>().deck = gameObject;
         createdCard.GetComponent<Card>().type = card.cardType;
     }
 
