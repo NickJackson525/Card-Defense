@@ -100,73 +100,76 @@ public class DisplayAvailableCards : MonoBehaviour
 
         for (int i = 0; i < 9; i++)
         {
-            tempCard = allCardsDeck[cardsCreated + ((currentPage - 1) * 9)];
-            cardsCreated++;
+            if ((((currentPage - 1) * 9) + cardsCreated) < allCardsDeck.Count)
+            {
+                tempCard = allCardsDeck[cardsCreated + ((currentPage - 1) * 9)];
+                cardsCreated++;
 
-            #region Create Card Game Object
+                #region Create Card Game Object
 
-            createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
-            createdCard.GetComponent<Image>().sprite = tempCard.thisCard;
-            createdCard.GetComponent<Card>().thisCardName = tempCard.thisCardName;
-            createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
-            createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
-            createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
-            createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardType.ToString();
-            createdCard.GetComponent<Card>().cardText.text = tempCard.cardText;
-            createdCard.GetComponent<Card>().cardWatermark.sprite = tempCard.towerWatermark;
-            createdCard.GetComponent<Card>().cardArt.sprite = tempCard.thisCardArt;
-            createdCard.GetComponent<Card>().cardBack.sprite = tempCard.thisCard;
-            createdCard.GetComponent<Card>().cardBackOutline.sprite = tempCard.thisCardOutline;
-            createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;
-            createdCard.GetComponent<Card>().thisTower = tempCard.thisTower;
-            createdCard.GetComponent<Card>().isSpell = tempCard.isSpell;
-            createdCard.GetComponent<Card>().isLocked = tempCard.isLocked;
-            createdCard.GetComponent<Card>().cardSlot = nextOpenCardSlot;
-            createdCard.GetComponent<Card>().deck = gameObject;
-            createdCard.GetComponent<Card>().numberInDeck = (cardsCreated - 1) + ((currentPage - 1) * 9);
-            createdCard.GetComponent<Card>().type = tempCard.cardType;
-            createdCard.GetComponent<Card>().hasBeenSeen = tempCard.hasBeenSeen;
+                createdCard = Instantiate(card, Vector3.zero, nextOpenCardSlot.transform.rotation, nextOpenCardSlot.transform);
+                createdCard.GetComponent<Image>().sprite = tempCard.thisCard;
+                createdCard.GetComponent<Card>().thisCardName = tempCard.thisCardName;
+                createdCard.GetComponent<Card>().costText.text = tempCard.towerCost.ToString();
+                createdCard.GetComponent<Card>().damageText.text = tempCard.towerDamage.ToString();
+                createdCard.GetComponent<Card>().rangeText.text = tempCard.towerRange.ToString();
+                createdCard.GetComponent<Card>().cardNameText.text = tempCard.cardType.ToString();
+                createdCard.GetComponent<Card>().cardText.text = tempCard.cardText;
+                createdCard.GetComponent<Card>().cardWatermark.sprite = tempCard.towerWatermark;
+                createdCard.GetComponent<Card>().cardArt.sprite = tempCard.thisCardArt;
+                createdCard.GetComponent<Card>().cardBack.sprite = tempCard.thisCard;
+                createdCard.GetComponent<Card>().cardBackOutline.sprite = tempCard.thisCardOutline;
+                createdCard.GetComponent<Card>().cardLevel = tempCard.cardLevel;
+                createdCard.GetComponent<Card>().thisTower = tempCard.thisTower;
+                createdCard.GetComponent<Card>().isSpell = tempCard.isSpell;
+                createdCard.GetComponent<Card>().isLocked = tempCard.isLocked;
+                createdCard.GetComponent<Card>().cardSlot = nextOpenCardSlot;
+                createdCard.GetComponent<Card>().deck = gameObject;
+                createdCard.GetComponent<Card>().numberInDeck = (cardsCreated - 1) + ((currentPage - 1) * 9);
+                createdCard.GetComponent<Card>().type = tempCard.cardType;
+                createdCard.GetComponent<Card>().hasBeenSeen = tempCard.hasBeenSeen;
 
-            displayedCards.Add(createdCard);
+                displayedCards.Add(createdCard);
 
-            #endregion
+                #endregion
 
-            #region Update Next Open Card Slot
+                #region Update Next Open Card Slot
 
-            if (cardsCreated == 1)
-            {
-                nextOpenCardSlot = cardSlot2;
-            }
-            else if (cardsCreated == 2)
-            {
-                nextOpenCardSlot = cardSlot3;
-            }
-            else if (cardsCreated == 3)
-            {
-                nextOpenCardSlot = cardSlot4;
-            }
-            else if (cardsCreated == 4)
-            {
-                nextOpenCardSlot = cardSlot5;
-            }
-            else if (cardsCreated == 5)
-            {
-                nextOpenCardSlot = cardSlot6;
-            }
-            else if (cardsCreated == 6)
-            {
-                nextOpenCardSlot = cardSlot7;
-            }
-            else if (cardsCreated == 7)
-            {
-                nextOpenCardSlot = cardSlot8;
-            }
-            else
-            {
-                nextOpenCardSlot = cardSlot9;
-            }
+                if (cardsCreated == 1)
+                {
+                    nextOpenCardSlot = cardSlot2;
+                }
+                else if (cardsCreated == 2)
+                {
+                    nextOpenCardSlot = cardSlot3;
+                }
+                else if (cardsCreated == 3)
+                {
+                    nextOpenCardSlot = cardSlot4;
+                }
+                else if (cardsCreated == 4)
+                {
+                    nextOpenCardSlot = cardSlot5;
+                }
+                else if (cardsCreated == 5)
+                {
+                    nextOpenCardSlot = cardSlot6;
+                }
+                else if (cardsCreated == 6)
+                {
+                    nextOpenCardSlot = cardSlot7;
+                }
+                else if (cardsCreated == 7)
+                {
+                    nextOpenCardSlot = cardSlot8;
+                }
+                else
+                {
+                    nextOpenCardSlot = cardSlot9;
+                }
 
-            #endregion
+                #endregion
+            }
         }
     }
 

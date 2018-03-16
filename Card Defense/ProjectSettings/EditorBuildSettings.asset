@@ -12,5 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Deck Builder.unity
     guid: 71fd4910f51385c4e96c801714ce953d
   - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: 8cc2e136012bf2047b5d7506aa54847c
+  - enabled: 1
     path: Assets/Scenes/Map 1.unity
     guid: 1a47f574cc77cfa4dbcbb7b88cc4dcac

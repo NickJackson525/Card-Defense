@@ -14,6 +14,7 @@ public class InGameUIManager : MonoBehaviour
     public int numManaType1 = 0;
     public int numManaType2 = 0;
 
+    private GameObject pauseMenu;
     private Sprite basicImage;
     private Sprite fireImage;
     private Sprite iceImage;
@@ -31,6 +32,7 @@ public class InGameUIManager : MonoBehaviour
         iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice/Ice Symbol");
         lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
         voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
+        pauseMenu = GameObject.Find("PauseMenu");
     }
 
     #endregion
@@ -40,6 +42,15 @@ public class InGameUIManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if (GameManager.Instance.Paused)
+        {
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+        }
+
         mana1.text = numManaType1.ToString();
         mana2.text = numManaType2.ToString();
 

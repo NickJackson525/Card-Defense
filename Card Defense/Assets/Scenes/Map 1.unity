@@ -276,29 +276,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1955202118}
-    - target: {fileID: 1742823209214564, guid: 01572dab56d0be04bb20915a790155af, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224776766278087690, guid: 01572dab56d0be04bb20915a790155af,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.9034085
-      objectReference: {fileID: 0}
-    - target: {fileID: 224776766278087690, guid: 01572dab56d0be04bb20915a790155af,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 596.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292402367753972, guid: 01572dab56d0be04bb20915a790155af, type: 2}
-      propertyPath: m_Name
-      value: Resume Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 114940226101778694, guid: 01572dab56d0be04bb20915a790155af,
-        type: 2}
-      propertyPath: m_Text
-      value: Resume
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01572dab56d0be04bb20915a790155af, type: 2}
   m_IsPrefabParent: 0
@@ -628,6 +605,10 @@ Prefab:
     - target: {fileID: 4955943363975824, guid: 3b0a6204dff141646a1999d7dfdff669, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049375968442146, guid: 3b0a6204dff141646a1999d7dfdff669, type: 2}
+      propertyPath: m_TagString
+      value: Spawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b0a6204dff141646a1999d7dfdff669, type: 2}
@@ -1353,7 +1334,7 @@ GameObject:
   - component: {fileID: 1951154473}
   m_Layer: 0
   m_Name: PathNodes
-  m_TagString: Untagged
+  m_TagString: NodeArray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

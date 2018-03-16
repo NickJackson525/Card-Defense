@@ -61,9 +61,14 @@ public class Tower : MonoBehaviour
         UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
 
         //scale range
-        //range = range * GameManager.rangeConst;
         GetComponent<CircleCollider2D>().radius *= range;
         collRadius.transform.localScale *= range;
+
+        //check if this is a resource tower, and tag it as one if it is
+        if(thisCardName.ToString().Contains("Resource"))
+        {
+            gameObject.tag = "Resource";
+        }
     }
 
     #endregion
@@ -80,6 +85,8 @@ public class Tower : MonoBehaviour
                 //if damage and range are 0 then this is a resource tower
                 if ((damage == 0) && (range == 0))
                 {
+                    #region Resource Tower
+
                     //check that the timer still is counting down
                     if (manaGenerationTimer > 0)
                     {
@@ -87,7 +94,7 @@ public class Tower : MonoBehaviour
                         manaGenerationTimer--;
 
                         //check if the timer is at 0
-                        if (manaGenerationTimer == 0)
+                        if ((manaGenerationTimer == 0) && ((UICanvas.GetComponent<InGameUIManager>().numManaType1 + UICanvas.GetComponent<InGameUIManager>().numManaType2) < GameObject.FindGameObjectsWithTag("Resource").Length))
                         {
                             //determine which type this tower is and update the appropriate mana type
                             if (GameManager.Instance.deckType1 == type)
@@ -102,10 +109,19 @@ public class Tower : MonoBehaviour
                             //reset timer
                             manaGenerationTimer = 800;
                         }
+                        else if(manaGenerationTimer == 0)
+                        {
+                            //reset timer
+                            manaGenerationTimer = 800;
+                        }
                     }
+
+                    #endregion
                 }
                 else
                 {
+                    #region Regular Tower
+
                     //find the closest enemy
                     currentTarget = FindClosestEnemy();
 
@@ -183,6 +199,8 @@ public class Tower : MonoBehaviour
                             #endregion
                         }
                     }
+
+                    #endregion
 
                     #endregion
                 }

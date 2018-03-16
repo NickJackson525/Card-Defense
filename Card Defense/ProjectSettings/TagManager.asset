@@ -9,6 +9,10 @@ TagManager:
   - NewCard
   - Bullet
   - InGameUI
+  - Resource
+  - AudioSource
+  - NodeArray
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -52,6 +52,7 @@ public class Card : PauseableObject
     private bool mouseHover = false;                                  //checks when the mouse is over this card or not
     private bool hasEnoughResources = false;                          //bool if the user has enough resources
     private const float outOfHandDist = 2f;                           //the distance the card must be dragged in order to be played
+    private int numResourceTowers = 0;
     private Vector3 startPosition;                                    //stores the start position of this card
     private Vector3 mousePosition;                                    //the position of the mouse
     private Sprite thisCard;                                          //the card sprite for this particular card
@@ -108,6 +109,8 @@ public class Card : PauseableObject
 
     void Update()
     {
+        #region Deck Builder
+
         if (SceneManager.GetActiveScene().name == "Deck Builder")
         {
             hasBeenSeen = bool.Parse(GameManager.Instance.CardLibrary[thisCardName][CardElement.HasBeenLookedAt]);
@@ -156,92 +159,126 @@ public class Card : PauseableObject
             }
         }
 
+        #endregion
+
         //check that the game isn't paused
-        if (!GameManager.Instance.Paused)
+        if (!GameManager.Instance.Paused && (SceneManager.GetActiveScene().name != "Deck Builder"))
         {
-            if (SceneManager.GetActiveScene().name != "Deck Builder")
+            #region Scale Resource Tower Cost
+
+            if(thisCardName.ToString().Contains("Resource"))
             {
-                #region Check if player has enough resources
+                numResourceTowers = GameObject.FindGameObjectsWithTag("Resource").Length;
 
-                if((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 >= int.Parse(costText.text)))
+                foreach(GameObject resourceTower in GameObject.FindGameObjectsWithTag("Resource"))
                 {
-                    hasEnoughResources = true;
-                }
-                else if ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 >= int.Parse(costText.text)))
-                {
-                    hasEnoughResources = true;
-                }
-                else
-                {
-                    hasEnoughResources = false;
-                }
-
-                #endregion
-
-                if (hasEnoughResources)
-                {
-                    // Check if the mouse is over this card
-                    if (mouseHover)
+                    if(!resourceTower.GetComponent<Tower>().isPlaced)
                     {
-                        // Check if the left mouse button is being held
-                        if (Input.GetMouseButton(0))
-                        {
-                            // Get mouse position and convert it to world space
-                            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                            // Lerp towards mouse position
-                            transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
-                        }
-                        else if(!Input.GetMouseButton(0) && radius.activeSelf)
-                        {
-                            //Player used a spell card
-                            CastSpell(thisCardName);
-                        }
+                        numResourceTowers--;
                     }
+                }
 
-                    // Check if the card has been dragged out of the hand
-                    if (transform.position.y >= (startPosition.y + 5f))
+                costText.text = numResourceTowers.ToString();
+            }
+
+            #endregion
+
+            #region Check if player has enough resources
+
+            if ((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 >= int.Parse(costText.text)))
+            {
+                hasEnoughResources = true;
+            }
+            else if ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 >= int.Parse(costText.text)))
+            {
+                hasEnoughResources = true;
+            }
+            else
+            {
+                hasEnoughResources = false;
+            }
+
+            #endregion
+
+            #region Card Being Played
+
+            if (hasEnoughResources)
+            {
+                // Check if the mouse is over this card
+                if (mouseHover)
+                {
+                    // Check if the left mouse button is being held
+                    if (Input.GetMouseButton(0))
                     {
-                        // Check if this is a spell or a tower
-                        if (!isSpell)
-                        {
-                            CreateTower();
-                            Destroy(gameObject);
-                        }
-                        else
-                        {
-                            coll1.enabled = false;
-                            coll2.enabled = false;
-                            cirColl1.enabled = true;
-                            radius.transform.localScale = new Vector3(int.Parse(rangeText.text), int.Parse(rangeText.text), int.Parse(rangeText.text));
-                            radius.SetActive(true);
-                            GetComponent<Image>().enabled = false;
-                            costText.enabled = false;
-                            manaSymbol.enabled = false;
-                            cardNameText.enabled = false;
-                            cardText.enabled = false;
-                            cardWatermark.enabled = false;
-                            cardBackOutline.enabled = false;
-                            cardArt.enabled = false;
-                        }
+                        // Get mouse position and convert it to world space
+                        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                        // Lerp towards mouse position
+                        transform.position = Vector3.Lerp(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), 1f);
+                    }
+                    else if (!Input.GetMouseButton(0) && radius.activeSelf)
+                    {
+                        //Player used a spell card
+                        CastSpell(thisCardName);
+                    }
+                }
+
+                #region Card Leaving Hand
+
+                // Check if the card has been dragged out of the hand
+                if (transform.position.y >= (startPosition.y + 5f))
+                {
+                    // Check if this is a spell or a tower
+                    if (!isSpell)
+                    {
+                        CreateTower();
+                        Destroy(gameObject);
                     }
                     else
                     {
-                        coll1.enabled = true;
-                        coll2.enabled = true;
-                        cirColl1.enabled = false;
-                        radius.SetActive(false);
-                        GetComponent<Image>().enabled = true;
-                        costText.enabled = true;
-                        manaSymbol.enabled = true;
-                        cardNameText.enabled = true;
-                        cardText.enabled = true;
-                        cardWatermark.enabled = true;
-                        cardBackOutline.enabled = true;
-                        cardArt.enabled = true;
+                        #region Disable Card Visuals
+
+                        coll1.enabled = false;
+                        coll2.enabled = false;
+                        cirColl1.enabled = true;
+                        radius.transform.localScale = new Vector3(int.Parse(rangeText.text), int.Parse(rangeText.text), int.Parse(rangeText.text));
+                        radius.SetActive(true);
+                        GetComponent<Image>().enabled = false;
+                        costText.enabled = false;
+                        manaSymbol.enabled = false;
+                        cardNameText.enabled = false;
+                        cardText.enabled = false;
+                        cardWatermark.enabled = false;
+                        cardBackOutline.enabled = false;
+                        cardArt.enabled = false;
+
+                        #endregion
                     }
                 }
+                else
+                {
+                    #region Re-Enable Card Visuals
+
+                    coll1.enabled = true;
+                    coll2.enabled = true;
+                    cirColl1.enabled = false;
+                    radius.SetActive(false);
+                    GetComponent<Image>().enabled = true;
+                    costText.enabled = true;
+                    manaSymbol.enabled = true;
+                    cardNameText.enabled = true;
+                    cardText.enabled = true;
+                    cardWatermark.enabled = true;
+                    cardBackOutline.enabled = true;
+                    cardArt.enabled = true;
+
+                    #endregion
+                }
+
+                #endregion
             }
+
+            #endregion
         }
     }
 

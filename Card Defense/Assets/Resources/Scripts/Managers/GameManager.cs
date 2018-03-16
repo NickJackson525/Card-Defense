@@ -744,9 +744,9 @@ class GameManager
         {
             generateResourceTimer--;
 
-            if(generateResourceTimer == 0)
+            if((generateResourceTimer == 0) && (GameObject.FindGameObjectsWithTag("Resource").Length < 1))
             {
-                generateResourceTimer = 1200;
+                generateResourceTimer = 800;
 
                 if (deckType2 != DeckType.None)
                 {
@@ -766,26 +766,19 @@ class GameManager
                     UICanvas.GetComponent<InGameUIManager>().numManaType1++;
                 }
             }
+            else
+            {
+                generateResourceTimer = 800;
+            }
         }
 
         #endregion
 
         #region Pause Game
 
-        //testing the pause functionality
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Paused = !Paused;
-        }
-
-        #endregion
-
-        #region Main Menu
-
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            ResetVariables();
-            SceneManager.LoadScene("Main Menu");
         }
 
         #endregion
