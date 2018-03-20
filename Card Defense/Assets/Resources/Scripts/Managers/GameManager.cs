@@ -622,6 +622,7 @@ class GameManager
     public List<CardInfo> currentDeck = new List<CardInfo>();      //the current deck
     public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
     public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
+    public LevelNumber currentLevel = LevelNumber.One;
     public const int deckSize = 20;                                //the maximum deck size for the game
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public int baseHealth = 100;

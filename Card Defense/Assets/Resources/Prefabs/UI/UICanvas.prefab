@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 114931464932074606}
   - component: {fileID: 114214688932959056}
   - component: {fileID: 114121259284057490}
+  - component: {fileID: 114385793421703536}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: InGameUI
@@ -911,6 +912,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114385793421703536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705904561648810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d3c8bf084d2a340a9c053a2f325715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114488755309017878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1667,7 +1679,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &224047484055681044
 RectTransform:
