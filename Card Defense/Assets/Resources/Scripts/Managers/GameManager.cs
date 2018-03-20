@@ -628,6 +628,7 @@ class GameManager
     public int baseHealth = 100;
     public const float rangeConst = 2f;                            //the default range of the towers
     public float currentXP = 0;
+    public float xpToNextLevel = 500;
     public bool newCardsToLookAt = true;
     public CardInfo[] savedDeck = new CardInfo[deckSize];          //a saved copy of the current deck, so it can be reset
 
@@ -635,7 +636,6 @@ class GameManager
     private GameObject UICanvas;                                   //the ui canvas in the game
     private DeckType createdCardType;                              //used for creating cards
     private int generateResourceTimer = 1200;
-    private float xpToNextLevel = 500;
     private bool justGeneratedResourceType1 = false;
 
     #endregion
@@ -713,6 +713,21 @@ class GameManager
 
     #endregion
 
+    #region Start
+
+    private void Start()
+    {
+        foreach (KeyValuePair<Cards, Dictionary<CardElement, string>> card in GameManager.Instance.CardLibrary)
+        {
+            if (!bool.Parse(card.Value[CardElement.IsLocked]))
+            {
+                card.Value[CardElement.HasBeenLookedAt] = "True";
+            }
+        }
+    }
+
+    #endregion
+
     #region Update
 
     private void Update()
@@ -786,6 +801,17 @@ class GameManager
 
         #region Test Stuff
 
+        if(Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            currentXP += 10;
+        }
+
+        if(Input.GetKeyUp(KeyCode.RightControl))
+        {
+            Save();
+            SceneManager.LoadScene("Main Menu");
+        }
+
         //test leveling to unlock cards
         if(Input.GetKeyUp(KeyCode.Alpha1))
         {
@@ -816,6 +842,7 @@ class GameManager
             playerLevel++;
 
             xpToNextLevel *= 2;
+            currentXP = 0;
         }
 
         #endregion
@@ -930,6 +957,7 @@ class GameManager
         {
             if ((playerLevel >= int.Parse(card.Value[CardElement.Level])) && !bool.Parse(card.Value[CardElement.HasBeenLookedAt]))
             {
+                card.Value[CardElement.IsLocked] = "False";
                 newCardsToLookAt = true;
             }
         }
@@ -937,6 +965,7 @@ class GameManager
 
     public void ResetVariables()
     {
+        Paused = false;
         Instance.baseHealth = 100;
         Instance.currentDeck.Clear();
 
@@ -997,6 +1026,11 @@ class GameManager
     //class to allow the gamemanager singleton to have an update method
     class Updater: MonoBehaviour
     {
+        private void Start()
+        {
+            Instance.Start();
+        }
+
         private void Update()
         {
             Instance.Update();   

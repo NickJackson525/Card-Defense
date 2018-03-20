@@ -18,19 +18,6 @@ public class Initializer : MonoBehaviour
 
             GameManager.Instance.Save();
         }
-
-        foreach (KeyValuePair<Cards, Dictionary<CardElement, string>> card in GameManager.Instance.CardLibrary)
-        {
-            if(GameManager.Instance.playerLevel >= int.Parse(card.Value[CardElement.Level]))
-            {
-                card.Value[CardElement.IsLocked] = "False";
-            }
-
-            if(!bool.Parse(card.Value[CardElement.IsLocked]))
-            {
-                card.Value[CardElement.HasBeenLookedAt] = "True";
-            }
-        }
     }
 
     #endregion
