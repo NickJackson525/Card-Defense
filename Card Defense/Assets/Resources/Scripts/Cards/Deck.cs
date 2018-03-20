@@ -179,6 +179,8 @@ public class Deck : MonoBehaviour
 
     public List<CardInfo> ShuffleDeck(List<CardInfo> deckToShuffle)
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.DeckShuffle);
+
         CardInfo temp;
         int rand;
 

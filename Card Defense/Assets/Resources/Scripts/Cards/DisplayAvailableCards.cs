@@ -76,6 +76,8 @@ public class DisplayAvailableCards : MonoBehaviour
     {
         if (currentPage < ((allCardsDeck.Count / 9) + 1))
         {
+            AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.TurnPage);
+
             currentPage++;
             DestroyDisplayedCards();
             DisplayCards();
@@ -86,6 +88,8 @@ public class DisplayAvailableCards : MonoBehaviour
     {
         if (currentPage > 1)
         {
+            AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.TurnPage);
+
             currentPage--;
             DestroyDisplayedCards();
             DisplayCards();

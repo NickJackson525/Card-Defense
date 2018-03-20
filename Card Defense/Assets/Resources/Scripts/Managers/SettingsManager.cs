@@ -28,7 +28,9 @@ public class SettingsManager : MonoBehaviour
 
     public void MuteMusic(Image muteButton)
     {
-        if(AudioManager.Instance.isMusicMuted)
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
+        if (AudioManager.Instance.isMusicMuted)
         {
             AudioManager.Instance.isMusicMuted = false;
             muteButton.sprite = unMuted;
@@ -43,6 +45,8 @@ public class SettingsManager : MonoBehaviour
 
     public void MuteSoundEffects(Image muteButton)
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
         if (AudioManager.Instance.areEffectsMuted)
         {
             AudioManager.Instance.areEffectsMuted = false;
@@ -58,12 +62,14 @@ public class SettingsManager : MonoBehaviour
 
     public void MainMenu()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         GameManager.Instance.ResetVariables();
         SceneManager.LoadScene("Main Menu");
     }
 
     public void ResumeGame()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         GameManager.Instance.Paused = false;
     }
 

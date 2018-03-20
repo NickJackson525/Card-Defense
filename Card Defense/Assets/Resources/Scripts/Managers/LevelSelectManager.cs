@@ -53,6 +53,40 @@ public class LevelSelectManager : MonoBehaviour
         },
 
         #endregion
+
+        #region Level Two
+
+        {
+            LevelNumber.Two, new Dictionary<LevelElements, string>
+            {
+                {LevelElements.Map, "Prefabs/Maps/SnowMap1" },        // path for resources.load to use to create the map
+                {LevelElements.MapLocation, "-24.47,18.01,0" },        // where to place the map in the world
+                {LevelElements.NodePrefab, "Prefabs/Paths/PathNode" }, // path for resources.load to use to create nodes
+                {LevelElements.Node1, "-24.62875,13.08,0" },           // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node2, "14.4925,13.13,0" },             // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node3, "16.745,10.07,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node4, "14.76875,6.670001,0" },         // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node5, "9.998126,6.2,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node6, "7.841251,2.94,0" },             // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node7, "3.08125,4.68,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node8, "1.105,7.25,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node9, "-1.7,7.16,0" },                 // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node10, "-3.431875,4.87,0" },           // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node11, "-5.981876,2.58,0" },           // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node12, "-8.765627,3.58,0" },           // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node13, "-11.39,7.01,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node14, "-14.47125,7.11,0" },           // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node15, "-16.49,4.92,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node16, "-19.72,2.07,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node17, "-20.12375,-0.6800001,0" },     // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node18, "-18.00938,-3.48,0" },          // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node19, "25.63813,-3.15,0" },           // position to create node at, will give them the count number in the creation loop
+                {LevelElements.NumberOfNodes, "19" },                  // position to move the spawner to for this map
+                {LevelElements.SpawnerLocation, "-28.65,12.97,0" },    // position to move the spawner to for this map
+            }
+        },
+
+        #endregion
     };
 
     private GameObject mapPrefab;

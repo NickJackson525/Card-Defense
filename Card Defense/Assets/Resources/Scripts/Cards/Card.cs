@@ -348,11 +348,15 @@ public class Card : PauseableObject
             {
                 if (inDeck)
                 {
+                    AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.DrawCard);
+
                     GameManager.Instance.currentDeck.RemoveAt(numberInDeck);
                     GameManager.Instance.UpdateDeckTypes();
                 }
                 else if ((GameManager.Instance.currentDeck.Count < GameManager.deckSize) && !isLocked)
                 {
+                    AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.DrawCard);
+
                     if ((GameManager.Instance.deckType1 == type) || (GameManager.Instance.deckType2 == type))
                     {
                         GameManager.Instance.currentDeck.Add(GameManager.Instance.CreateCard(thisCardName));

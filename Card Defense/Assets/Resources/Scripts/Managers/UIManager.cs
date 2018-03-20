@@ -122,11 +122,13 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         SceneManager.LoadScene(sceneName);
     }
 
     public void AcceptDeck()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         GameManager.Instance.savedDeck = GameManager.Instance.currentDeck.ToArray();
         GameManager.Instance.Save();
         SceneManager.LoadScene("Main Menu");
@@ -134,6 +136,7 @@ public class UIManager : MonoBehaviour
 
     public void RejectDeck()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         GameManager.Instance.currentDeck.Clear();
         GameManager.Instance.currentDeck = new List<CardInfo>(GameManager.Instance.savedDeck);
         SceneManager.LoadScene("Main Menu");
@@ -141,7 +144,9 @@ public class UIManager : MonoBehaviour
 
     public void SettingsWindow()
     {
-        if(settingsWindow.activeSelf)
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
+        if (settingsWindow.activeSelf)
         {
             settingsWindow.SetActive(false);
         }
@@ -153,6 +158,8 @@ public class UIManager : MonoBehaviour
 
     public void InstructionsWindow()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
         if (instructionsWindow.activeSelf)
         {
             instructionsWindow.SetActive(false);
@@ -165,6 +172,7 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         Application.Quit();
     }
 

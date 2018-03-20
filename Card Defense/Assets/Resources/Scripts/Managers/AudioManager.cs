@@ -15,7 +15,10 @@ public enum Sound
     BackgroundMusic1, BackgroundMusic2, BackgroundMusic3, BackgroundMusic4, BackgroundMusic5,
 
     //sound effects
-    ButtonClick, DeckShuffle, DrawCard, Enemy1, Enemy2, Enemy3
+    ButtonClick, DeckShuffle, DrawCard, TurnPage,
+
+    //Enemies
+    Enemy1, Enemy2, Enemy3
 }
 
 #endregion
@@ -32,6 +35,10 @@ public class AudioManager
         {Sound.BackgroundMusic3, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic3")},
         {Sound.BackgroundMusic4, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic4")},
         {Sound.BackgroundMusic5, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic5")},
+        {Sound.ButtonClick, Resources.Load<AudioClip>("Sounds/UI/ButtonClick")},
+        {Sound.DeckShuffle, Resources.Load<AudioClip>("Sounds/Cards/Shuffle")},
+        {Sound.DrawCard, Resources.Load<AudioClip>("Sounds/Cards/Draw")},
+        {Sound.TurnPage, Resources.Load<AudioClip>("Sounds/UI/TurnPage")},
     };
 
     //audio sources for ui, effects, and background music
@@ -113,8 +120,8 @@ public class AudioManager
                 }
                 break;
             case AudioSourceType.UI:
-                //check that the audiosource exists
-                if (UIAudioSource != null)
+                //check that the audiosource exists and isn't playing a sound already
+                if ((UIAudioSource != null) && !UIAudioSource.isPlaying)
                 {
                     //stop whatever is already playing and play a new sound
                     UIAudioSource.Stop();

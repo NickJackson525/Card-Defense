@@ -1,111 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 3/15/2018 12:42:50 PM-->
+<!--Last exported: 3/19/2018 9:31:36 PM-->
 <Tiled2Unity version="1.0.13.2">
-  <AssignMaterial mesh="GrassMap1_mesh_0001" material="31" />
-  <AssignMaterial mesh="GrassMap1_mesh_0002" material="11" />
-  <AssignMaterial mesh="GrassMap1_mesh_0003" material="41" />
-  <AssignMaterial mesh="GrassMap1_mesh_0004" material="44" />
-  <AssignMaterial mesh="GrassMap1_mesh_0005" material="39" />
-  <AssignMaterial mesh="GrassMap1_mesh_0006" material="40" />
-  <AssignMaterial mesh="GrassMap1_mesh_0007" material="47" />
-  <AssignMaterial mesh="GrassMap1_mesh_0008" material="45" />
-  <AssignMaterial mesh="GrassMap1_mesh_0009" material="46" />
-  <AssignMaterial mesh="GrassMap1_mesh_0010" material="42" />
+  <AssignMaterial mesh="GrassMap1_mesh_0001" material="Grass31" />
+  <AssignMaterial mesh="GrassMap1_mesh_0002" material="Grass11" />
+  <AssignMaterial mesh="GrassMap1_mesh_0003" material="Grass41" />
+  <AssignMaterial mesh="GrassMap1_mesh_0004" material="Grass44" />
+  <AssignMaterial mesh="GrassMap1_mesh_0005" material="Grass39" />
+  <AssignMaterial mesh="GrassMap1_mesh_0006" material="Grass40" />
+  <AssignMaterial mesh="GrassMap1_mesh_0007" material="Grass47" />
+  <AssignMaterial mesh="GrassMap1_mesh_0008" material="Grass45" />
+  <AssignMaterial mesh="GrassMap1_mesh_0009" material="Grass46" />
+  <AssignMaterial mesh="GrassMap1_mesh_0010" material="Grass42" />
   <Prefab name="GrassMap1" orientation="Orthogonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="0" numLayers="2" numTilesWide="15" numTilesHigh="15" tileWidth="256" tileHeight="256" exportScale="1" mapWidthInPixels="3840" mapHeightInPixels="3840" backgroundColor="#808080">
     <GameObject name="Grass" x="0" y="0" z="0">
       <TileLayer offsetX="0" offsetY="0" />
-      <GameObject name="31" x="0" y="0" mesh="GrassMap1_mesh_0001" sortingLayerName="" sortingOrder="0" opacity="1" />
+      <GameObject name="Grass31" x="0" y="0" mesh="GrassMap1_mesh_0001" sortingLayerName="" sortingOrder="0" opacity="1" />
     </GameObject>
     <GameObject name="Path" x="0" y="0" z="0">
       <TileLayer offsetX="0" offsetY="0" />
-      <GameObject name="11" x="0" y="0" mesh="GrassMap1_mesh_0002" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="41" x="0" y="0" mesh="GrassMap1_mesh_0003" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="44" x="0" y="0" mesh="GrassMap1_mesh_0004" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="39" x="0" y="0" mesh="GrassMap1_mesh_0005" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="40" x="0" y="0" mesh="GrassMap1_mesh_0006" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="47" x="0" y="0" mesh="GrassMap1_mesh_0007" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="45" x="0" y="0" mesh="GrassMap1_mesh_0008" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="46" x="0" y="0" mesh="GrassMap1_mesh_0009" sortingLayerName="" sortingOrder="1" opacity="1" />
-      <GameObject name="42" x="0" y="0" mesh="GrassMap1_mesh_0010" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass11" x="0" y="0" mesh="GrassMap1_mesh_0002" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass41" x="0" y="0" mesh="GrassMap1_mesh_0003" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass44" x="0" y="0" mesh="GrassMap1_mesh_0004" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass39" x="0" y="0" mesh="GrassMap1_mesh_0005" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass40" x="0" y="0" mesh="GrassMap1_mesh_0006" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass47" x="0" y="0" mesh="GrassMap1_mesh_0007" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass45" x="0" y="0" mesh="GrassMap1_mesh_0008" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass46" x="0" y="0" mesh="GrassMap1_mesh_0009" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Grass42" x="0" y="0" mesh="GrassMap1_mesh_0010" sortingLayerName="" sortingOrder="1" opacity="1" />
       <GameObject name="Collision">
         <PolygonCollider2D>
-          <Path>-1,-476 3072,-476 3072,-296 -1,-296</Path>
-          <Path>3072,-808 2814,-808 2814,-988 3072,-988</Path>
-          <Path>510,-1756 3840,-1756 3840,-1576 510,-1576</Path>
+          <Path>3071,-295 2816,-295 2816,-472 3071,-472</Path>
+          <Path>2815,-295 2560,-295 2560,-472 2815,-472</Path>
+          <Path>2559,-295 2304,-295 2304,-472 2559,-472</Path>
+          <Path>2303,-295 2048,-295 2048,-472 2303,-472</Path>
+          <Path>2047,-295 1792,-295 1792,-472 2047,-472</Path>
+          <Path>1791,-295 1536,-295 1536,-472 1791,-472</Path>
+          <Path>1535,-295 1280,-295 1280,-472 1535,-472</Path>
+          <Path>1279,-295 1024,-295 1024,-472 1279,-472</Path>
+          <Path>1023,-295 768,-295 768,-472 1023,-472</Path>
+          <Path>767,-295 512,-295 512,-472 767,-472</Path>
+          <Path>511,-295 256,-295 256,-472 511,-472</Path>
+          <Path>255,-295 0,-295 0,-472 255,-472</Path>
+          <Path>3071,-807 2816,-807 2816,-984 3071,-984</Path>
+          <Path>3839,-1575 3584,-1575 3584,-1752 3839,-1752</Path>
+          <Path>3583,-1575 3328,-1575 3328,-1752 3583,-1752</Path>
+          <Path>3327,-1575 3072,-1575 3072,-1752 3327,-1752</Path>
+          <Path>3071,-1575 2816,-1575 2816,-1752 3071,-1752</Path>
+          <Path>2815,-1575 2560,-1575 2560,-1752 2815,-1752</Path>
+          <Path>2559,-1575 2304,-1575 2304,-1752 2559,-1752</Path>
+          <Path>2303,-1575 2048,-1575 2048,-1752 2303,-1752</Path>
+          <Path>2047,-1575 1792,-1575 1792,-1752 2047,-1752</Path>
+          <Path>1791,-1575 1536,-1575 1536,-1752 1791,-1752</Path>
+          <Path>1535,-1575 1280,-1575 1280,-1752 1535,-1752</Path>
+          <Path>1279,-1575 1024,-1575 1024,-1752 1279,-1752</Path>
+          <Path>1023,-1575 768,-1575 768,-1752 1023,-1752</Path>
+          <Path>512,-1752 767,-1752 767,-1575 512,-1575</Path>
         </PolygonCollider2D>
         <EdgeCollider2D>
-          <Points>3072,-476 3072,-478 3096,-488 3106,-512 3299,-508 3239,-415 3173,-356 3071,-290</Points>
+          <Points>3193,-511 3072,-290 3073,-479 3098,-491 3107,-512 3298,-510 3262,-433 3187,-368 3071,-293</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>3197,-508 3072,-293 3072,-296</Points>
+          <Points>3108,-512 3139,-635 3131,-703 3102,-766 3291,-766 3306,-667 3301,-580 3283,-508 3112,-513 3305,-646 3105,-765</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>3109,-512 3142,-611 3133,-694 3105,-767 3296,-767 3305,-674 3307,-601 3283,-510 3110,-512 3304,-645 3107,-765</Points>
+          <Points>3073,-904 3295,-768 3104,-768 3104,-788 3073,-802 3072,-991 3214,-892 3295,-770</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>3072,-988 3173,-930 3244,-870 3295,-768 3107,-770 3184,-911</Points>
+          <Points>2046,-813 1920,-960 1792,-807 1793,-988 1885,-962 1961,-962 2047,-992 2046,-813 1958,-789 1897,-789 1791,-808</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>3106,-769 3094,-794 3072,-800 3072,-808</Points>
+          <Points>1022,-813 896,-960 768,-807 769,-988 861,-962 937,-962 1023,-992 1022,-813 934,-789 873,-789 767,-808</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2049,-816 1913,-957 1793,-813 1793,-990 1886,-955 1975,-963 2048,-989 2049,-813 1957,-792 1881,-791 1793,-811</Points>
+          <Points>2813,-894 2594,-1024 2781,-1020 2792,-1002 2813,-988 2815,-800 2743,-843 2677,-905 2591,-1022</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>1025,-816 889,-957 769,-813 769,-990 862,-955 951,-963 1024,-989 1025,-813 933,-792 857,-791 769,-811</Points>
+          <Points>1789,-894 1570,-1024 1757,-1020 1768,-1002 1789,-988 1791,-800 1719,-843 1653,-905 1567,-1022</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2173,-1020 2048,-805 2048,-990 2072,-1000 2082,-1024 2275,-1020 2215,-927 2149,-868 2047,-802</Points>
+          <Points>765,-894 546,-1024 733,-1020 744,-1002 765,-988 767,-800 695,-843 629,-905 543,-1022</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>1149,-1020 1024,-805 1024,-990 1048,-1000 1058,-1024 1251,-1020 1191,-927 1125,-868 1023,-802</Points>
+          <Points>2169,-1023 2048,-802 2049,-991 2074,-1003 2083,-1024 2274,-1022 2238,-945 2163,-880 2047,-805</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2815,-806 2734,-853 2661,-917 2607,-977 2589,-1023 2783,-1024 2791,-996 2815,-991 2815,-988</Points>
+          <Points>1145,-1023 1024,-802 1025,-991 1050,-1003 1059,-1024 1250,-1022 1214,-945 1139,-880 1023,-805</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>1791,-806 1710,-853 1637,-917 1583,-977 1565,-1023 1759,-1024 1767,-996 1791,-991 1792,-809 1653,-1023</Points>
+          <Points>2078,-1023 2121,-1113 2194,-1172 2304,-1246 2305,-1056 2276,-1047 2272,-1024 2082,-1023 2301,-1161</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>767,-806 686,-853 613,-917 559,-977 541,-1023 735,-1024 743,-996 767,-991 768,-809 629,-1023</Points>
+          <Points>1054,-1023 1097,-1113 1170,-1172 1280,-1246 1281,-1056 1252,-1047 1248,-1024 1058,-1023 1277,-1161</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2814,-812 2677,-1023</Points>
+          <Points>2561,-1160 2783,-1024 2592,-1024 2592,-1044 2561,-1058 2560,-1247 2702,-1148 2783,-1026</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2594,-1025 2582,-1050 2560,-1056 2560,-1244 2661,-1186 2732,-1126 2783,-1024 2595,-1026 2672,-1167</Points>
+          <Points>1537,-1160 1759,-1024 1568,-1024 1568,-1044 1537,-1058 1536,-1247 1678,-1148 1759,-1026</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2079,-1025 2132,-1125 2221,-1200 2302,-1247 2303,-1062 2277,-1046 2269,-1025 2080,-1024 2301,-1153</Points>
+          <Points>513,-1160 735,-1024 544,-1024 544,-1044 513,-1058 512,-1247 654,-1148 735,-1026</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>1570,-1025 1558,-1050 1536,-1056 1536,-1244 1637,-1186 1708,-1126 1759,-1024 1571,-1026 1648,-1167</Points>
+          <Points>509,-1150 290,-1280 477,-1276 488,-1258 509,-1244 511,-1056 439,-1099 373,-1161 287,-1278</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>1055,-1025 1108,-1125 1197,-1200 1278,-1247 1279,-1062 1253,-1046 1245,-1025 1056,-1024 1277,-1153</Points>
+          <Points>2559,-1063 2429,-1257 2305,-1058 2303,-1244 2345,-1256 2446,-1259 2560,-1238 2560,-1062 2483,-1085 2418,-1092 2304,-1059</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>546,-1025 534,-1050 512,-1056 512,-1244 613,-1186 684,-1126 735,-1024 547,-1026 624,-1167</Points>
+          <Points>1535,-1063 1405,-1257 1281,-1058 1279,-1244 1321,-1256 1422,-1259 1536,-1238 1536,-1062 1459,-1085 1394,-1092 1280,-1059</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>2303,-1057 2404,-1090 2478,-1087 2561,-1064 2560,-1243 2468,-1258 2392,-1260 2305,-1242 2304,-1057 2431,-1258 2561,-1066</Points>
+          <Points>308,-1281 279,-1368 278,-1441 291,-1534 478,-1536 444,-1426 458,-1328 476,-1280 309,-1281 442,-1423 294,-1532</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>1279,-1057 1380,-1090 1454,-1087 1537,-1064 1536,-1243 1444,-1258 1368,-1260 1281,-1242 1280,-1057 1407,-1258 1537,-1066</Points>
+          <Points>286,-1535 329,-1625 402,-1684 512,-1758 512,-1752</Points>
         </EdgeCollider2D>
         <EdgeCollider2D>
-          <Points>511,-1062 430,-1109 357,-1173 303,-1233 285,-1279 479,-1280 487,-1252 511,-1247 512,-1065 373,-1279</Points>
-        </EdgeCollider2D>
-        <EdgeCollider2D>
-          <Points>301,-1281 273,-1396 278,-1468 296,-1536 480,-1534 449,-1441 444,-1368 474,-1279 302,-1278 447,-1406 296,-1534</Points>
-        </EdgeCollider2D>
-        <EdgeCollider2D>
-          <Points>511,-1576 511,-1574 485,-1558 477,-1537 288,-1536 509,-1665</Points>
-        </EdgeCollider2D>
-        <EdgeCollider2D>
-          <Points>287,-1537 340,-1637 429,-1712 510,-1759 510,-1756</Points>
+          <Points>513,-1575 513,-1568 484,-1559 480,-1536 290,-1535 509,-1673</Points>
         </EdgeCollider2D>
       </GameObject>
     </GameObject>
@@ -120,14 +134,14 @@
   <ImportMesh filename="GrassMap1_mesh_0008.obj">IyBUaWxlZDJVbml0eSBnZW5lcmF0ZWQgZmlsZS4gRG8gbm90IG1vZGlmeSBieSBoYW5kLg0KIyBXYXZlZnJvbnQgZmlsZSBmb3IgJ0dyYXNzTWFwMV9tZXNoXzAwMDgub2JqJw0KDQojIFZlcnRpY2VzIChDb3VudCA9IDEyKQ0KdiAtMTAyNCAtMTI4MCAwDQp2IC0xMjgwIC0xMjgwIDANCnYgLTEyODAgLTEwMjQgMA0KdiAtMTAyNCAtMTAyNCAwDQp2IC0yMDQ4IC0xMjgwIDANCnYgLTIzMDQgLTEyODAgMA0KdiAtMjMwNCAtMTAyNCAwDQp2IC0yMDQ4IC0xMDI0IDANCnYgLTI1NiAtMTc5MiAwDQp2IC01MTIgLTE3OTIgMA0KdiAtNTEyIC0xNTM2IDANCnYgLTI1NiAtMTUzNiAwDQoNCiMgVGV4dHVyZSBjb29yaWRpbmF0ZXMgKENvdW50ID0gNCkNCnZ0IDAgMA0KdnQgMSAwDQp2dCAxIDENCnZ0IDAgMQ0KDQojIE5vcm1hbA0Kdm4gMCAwIC0xDQoNCiMgTWVzaCBkZXNjcmlwdGlvbg0KZyBHcmFzc01hcDFfbWVzaF8wMDA4DQoNCiMgRmFjZXMNCmYgMS8xLzEgMi8yLzEgMy8zLzEgNC80LzEKZiA1LzEvMSA2LzIvMSA3LzMvMSA4LzQvMQpmIDkvMS8xIDEwLzIvMSAxMS8zLzEgMTIvNC8xCg0K</ImportMesh>
   <ImportMesh filename="GrassMap1_mesh_0009.obj">IyBUaWxlZDJVbml0eSBnZW5lcmF0ZWQgZmlsZS4gRG8gbm90IG1vZGlmeSBieSBoYW5kLg0KIyBXYXZlZnJvbnQgZmlsZSBmb3IgJ0dyYXNzTWFwMV9tZXNoXzAwMDkub2JqJw0KDQojIFZlcnRpY2VzIChDb3VudCA9IDgpDQp2IC0xMjgwIC0xMjgwIDANCnYgLTE1MzYgLTEyODAgMA0KdiAtMTUzNiAtMTAyNCAwDQp2IC0xMjgwIC0xMDI0IDANCnYgLTIzMDQgLTEyODAgMA0KdiAtMjU2MCAtMTI4MCAwDQp2IC0yNTYwIC0xMDI0IDANCnYgLTIzMDQgLTEwMjQgMA0KDQojIFRleHR1cmUgY29vcmlkaW5hdGVzIChDb3VudCA9IDQpDQp2dCAwIDANCnZ0IDEgMA0KdnQgMSAxDQp2dCAwIDENCg0KIyBOb3JtYWwNCnZuIDAgMCAtMQ0KDQojIE1lc2ggZGVzY3JpcHRpb24NCmcgR3Jhc3NNYXAxX21lc2hfMDAwOQ0KDQojIEZhY2VzDQpmIDEvMS8xIDIvMi8xIDMvMy8xIDQvNC8xCmYgNS8xLzEgNi8yLzEgNy8zLzEgOC80LzEKDQo=</ImportMesh>
   <ImportMesh filename="GrassMap1_mesh_0010.obj">IyBUaWxlZDJVbml0eSBnZW5lcmF0ZWQgZmlsZS4gRG8gbm90IG1vZGlmeSBieSBoYW5kLg0KIyBXYXZlZnJvbnQgZmlsZSBmb3IgJ0dyYXNzTWFwMV9tZXNoXzAwMTAub2JqJw0KDQojIFZlcnRpY2VzIChDb3VudCA9IDQpDQp2IC0yNTYgLTE1MzYgMA0KdiAtNTEyIC0xNTM2IDANCnYgLTUxMiAtMTI4MCAwDQp2IC0yNTYgLTEyODAgMA0KDQojIFRleHR1cmUgY29vcmlkaW5hdGVzIChDb3VudCA9IDQpDQp2dCAwIDANCnZ0IDEgMA0KdnQgMSAxDQp2dCAwIDENCg0KIyBOb3JtYWwNCnZuIDAgMCAtMQ0KDQojIE1lc2ggZGVzY3JpcHRpb24NCmcgR3Jhc3NNYXAxX21lc2hfMDAxMA0KDQojIEZhY2VzDQpmIDEvMS8xIDIvMi8xIDMvMy8xIDQvNC8xCg0K</ImportMesh>
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/31.png" materialName="31" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/11.png" materialName="11" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/41.png" materialName="41" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/44.png" materialName="44" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/39.png" materialName="39" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/40.png" materialName="40" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/47.png" materialName="47" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/45.png" materialName="45" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/46.png" materialName="46" />
-  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/42.png" materialName="42" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass31.png" materialName="Grass31" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass11.png" materialName="Grass11" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass41.png" materialName="Grass41" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass44.png" materialName="Grass44" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass39.png" materialName="Grass39" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass40.png" materialName="Grass40" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass47.png" materialName="Grass47" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass45.png" materialName="Grass45" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass46.png" materialName="Grass46" />
+  <InternalTexture assetPath="Assets/Tower Defence Construction Pack/ground_tiles/green_grass/Grass42.png" materialName="Grass42" />
 </Tiled2Unity>

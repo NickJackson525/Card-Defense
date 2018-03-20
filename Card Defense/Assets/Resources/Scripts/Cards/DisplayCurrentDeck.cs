@@ -105,6 +105,8 @@ public class DisplayCurrentDeck : MonoBehaviour
         //check that this isn't the last page of the deck
         if (currentPage < ((currentDeck.Count / 9) + 1))
         {
+            AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.TurnPage);
+
             //view the next page of the deck
             currentPage++;
             DestroyDisplayedCards();
@@ -118,6 +120,8 @@ public class DisplayCurrentDeck : MonoBehaviour
         //check that this isn't the first page
         if (currentPage > 1)
         {
+            AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.TurnPage);
+
             //view the previous page
             currentPage--;
             DestroyDisplayedCards();
