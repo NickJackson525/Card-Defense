@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 #region Enums
 
@@ -89,6 +90,8 @@ public class LevelSelectManager : MonoBehaviour
         #endregion
     };
 
+    public GameObject popupPanel;
+
     private GameObject mapPrefab;
     private GameObject nodePrefab;
     private GameObject createdNode;
@@ -100,7 +103,10 @@ public class LevelSelectManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        LoadLevel(GameManager.Instance.currentLevel);
+        if (SceneManager.GetActiveScene().name == "Map 1")
+        {
+            LoadLevel(GameManager.Instance.currentLevel);
+        }
 	}
 
     #endregion
@@ -116,6 +122,17 @@ public class LevelSelectManager : MonoBehaviour
     #endregion
 
     #region Public Methods
+
+    public void LevelInfoPanel(LevelNumber level)
+    {
+        //TODO: open info panel and populate it with this level's info (create method to call in infopanel.cs)
+        //TODO: will have to add more elements to levellibrary, and add them to save() somehow
+    }
+
+    public void SelectLevel(LevelNumber level)
+    {
+        //TODO: make this method update the currently selected level, and load the "Map 1" scene, this will be called when the battle button is called
+    }
 
     public void LoadLevel(LevelNumber level)
     {

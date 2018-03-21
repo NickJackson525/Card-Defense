@@ -81,7 +81,7 @@ public class AudioManager
     public void Update()
     {
         //check if background music track has ended, if so play another
-        if (!backroundAudioSource.GetComponent<AudioSource>().isPlaying && !isMusicMuted)
+        if (backroundAudioSource && !backroundAudioSource.GetComponent<AudioSource>().isPlaying && !isMusicMuted)
         {
             PlayBackgroundMusic();
         }

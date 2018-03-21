@@ -14,6 +14,7 @@ TagManager:
   - NodeArray
   - Spawner
   - Map
+  - InfoPopup
   layers:
   - Default
   - TransparentFX
