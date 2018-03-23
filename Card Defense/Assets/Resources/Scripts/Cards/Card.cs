@@ -168,9 +168,9 @@ public class Card : PauseableObject
 
             if(thisCardName.ToString().Contains("Resource"))
             {
-                numResourceTowers = GameObject.FindGameObjectsWithTag("Resource").Length;
+                numResourceTowers = GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length;
 
-                foreach(GameObject resourceTower in GameObject.FindGameObjectsWithTag("Resource"))
+                foreach(GameObject resourceTower in GameObject.FindGameObjectsWithTag(type.ToString() + "Resource"))
                 {
                     if(!resourceTower.GetComponent<Tower>().isPlaced)
                     {

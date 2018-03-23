@@ -760,9 +760,9 @@ class GameManager
         {
             generateResourceTimer--;
 
-            if((generateResourceTimer == 0) && (GameObject.FindGameObjectsWithTag("Resource").Length < 1))
+            if(generateResourceTimer == 0)
             {
-                generateResourceTimer = 800;
+                generateResourceTimer = 1200;
 
                 if (deckType2 != DeckType.None)
                 {
@@ -781,10 +781,6 @@ class GameManager
                 {
                     UICanvas.GetComponent<InGameUIManager>().numManaType1++;
                 }
-            }
-            else
-            {
-                generateResourceTimer = 800;
             }
         }
 

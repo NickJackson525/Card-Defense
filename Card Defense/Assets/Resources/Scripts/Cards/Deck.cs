@@ -34,8 +34,16 @@ public class Deck : MonoBehaviour
             UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
         }
 
-        UICanvas.GetComponent<InGameUIManager>().numManaType1 = 1;
-        UICanvas.GetComponent<InGameUIManager>().numManaType2 = 1;
+        if (GameManager.Instance.deckType2 != DeckType.None)
+        {
+            UICanvas.GetComponent<InGameUIManager>().numManaType1 = 1;
+            UICanvas.GetComponent<InGameUIManager>().numManaType2 = 1;
+        }
+        else
+        {
+            UICanvas.GetComponent<InGameUIManager>().numManaType1 = 1;
+            UICanvas.GetComponent<InGameUIManager>().numManaType2 = 0;
+        }
 
         nextOpenCardSlot = cardSlot1;
 

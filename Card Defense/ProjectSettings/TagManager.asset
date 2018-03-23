@@ -15,6 +15,11 @@ TagManager:
   - Spawner
   - Map
   - InfoPopup
+  - BasicResource
+  - FireResource
+  - IceResource
+  - LightningResource
+  - VoidResource
   layers:
   - Default
   - TransparentFX

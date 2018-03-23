@@ -67,7 +67,7 @@ public class Tower : MonoBehaviour
         //check if this is a resource tower, and tag it as one if it is
         if(thisCardName.ToString().Contains("Resource"))
         {
-            gameObject.tag = "Resource";
+            gameObject.tag = type.ToString() + "Resource";
         }
     }
 
@@ -94,23 +94,18 @@ public class Tower : MonoBehaviour
                         manaGenerationTimer--;
 
                         //check if the timer is at 0
-                        if ((manaGenerationTimer == 0) && ((UICanvas.GetComponent<InGameUIManager>().numManaType1 + UICanvas.GetComponent<InGameUIManager>().numManaType2) < GameObject.FindGameObjectsWithTag("Resource").Length))
+                        if (manaGenerationTimer == 0)
                         {
                             //determine which type this tower is and update the appropriate mana type
-                            if (GameManager.Instance.deckType1 == type)
+                            if ((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 < GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length))
                             {
                                 UICanvas.GetComponent<InGameUIManager>().numManaType1++;
                             }
-                            else if (GameManager.Instance.deckType2 == type)
+                            else if ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 < GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length))
                             {
                                 UICanvas.GetComponent<InGameUIManager>().numManaType2++;
                             }
 
-                            //reset timer
-                            manaGenerationTimer = 800;
-                        }
-                        else if(manaGenerationTimer == 0)
-                        {
                             //reset timer
                             manaGenerationTimer = 800;
                         }
@@ -136,7 +131,7 @@ public class Tower : MonoBehaviour
 
                     #region Shoot
 
-                    //check if the tower can shoot and if there are enemi
+                    //check if the tower can shoot and if there are enemies
                     if (canShoot && (enemyList.Count > 0))
                     {
                         //select the current target
@@ -161,6 +156,14 @@ public class Tower : MonoBehaviour
                             }
 
                             currentTarget.GetComponent<Enemy>().health -= (rand * (damage * currentLevel)) / 2;
+                            currentTarget.GetComponent<Enemy>().timesChained++;
+                            currentTarget.GetComponent<Enemy>().lightningLevel = currentLevel;
+                            currentTarget.GetComponent<Enemy>().maxLightningBoltsToCreate = rand;
+                            currentTarget.GetComponent<Enemy>().lightningBolt = lightningBolt;
+                            currentTarget.GetComponent<Enemy>().hasBeenHitByLightning = true;
+                            currentTarget.GetComponent<Enemy>().lightningTimer = 1;
+                            currentTarget.GetComponent<Enemy>().lightningDamage = damage * currentLevel;
+                            currentTarget.GetComponent<Enemy>().CreateLightningBolts();
                         }
                         else
                         {
@@ -351,7 +354,7 @@ public class Tower : MonoBehaviour
         createdCard.GetComponent<Card>().thisTower = card.thisTower;
         createdCard.GetComponent<Card>().isSpell = card.isSpell;
         createdCard.GetComponent<Card>().cardSlot = cardSlot;
-        createdCard.GetComponent<Card>().deck = gameObject;
+        createdCard.GetComponent<Card>().deck = deck;
         createdCard.GetComponent<Card>().type = card.cardType;
     }
 

@@ -1069,7 +1069,7 @@ Prefab:
     - target: {fileID: 114648336616738134, guid: f1a1e063a143dec47bfa505e42fd42cd,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level Select
+      value: Map 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1a1e063a143dec47bfa505e42fd42cd, type: 2}

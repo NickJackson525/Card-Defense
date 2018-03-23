@@ -7,14 +7,23 @@ public class Enemy : PauseableObject
 {
     #region Variables
 
+    public GameObject lightningBolt;
     public int spellFireTimer = 0;                          //how long the damage over time from a spell will last
     public int spellFrozenTimer = 0;                       //how long the enemy will stay slowed
     public int spellDamageToTake = 0;                       //how much damage to take over time
+    public int timesChained = 0;
+    public int maxLightningBoltsToCreate = 0;
+    public int lightningTimer = 0;
+    public int lightningDamage = 0;
+    public int lightningLevel = 0;
     public float currSpeed;                                 //the speed the enemy is currently moving
     public float naturalSpeed;                              //the speed the enemy goes without anything altering it
     public float health = 20f;                              //the health of the enemy
     public float distFromEnd = 0;                           //how far away this enemy is from the end of the track
-    
+    public bool hasBeenHitByLightning = false;
+
+    private GameObject createdObject;
+    private GameObject closestEnemy;
     private List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     private Vector3 moveDirection;                          //the direction the enemy is currently moving in
     private int pathCount = 0;                              //the current place the enemy is in the path
@@ -122,6 +131,20 @@ public class Enemy : PauseableObject
 
             #endregion
 
+            #region Chain Lightning Cooldown
+
+            if(lightningTimer > 0)
+            {
+                lightningTimer--;
+
+                if(lightningTimer <= 0)
+                {
+                    hasBeenHitByLightning = false;
+                }
+            }
+
+            #endregion
+
             #region Path
 
             //check that the enemy isn't at the end of the path
@@ -179,6 +202,69 @@ public class Enemy : PauseableObject
 
     #endregion
 
+    #region Public Methods
+
+    public void CreateLightningBolts()
+    {
+        int rand = Random.Range(1, maxLightningBoltsToCreate);
+        closestEnemy = FindClosestEnemy();
+
+        if (closestEnemy && (timesChained <= lightningLevel))
+        {
+            //create lighting bolts
+            for (int i = 0; i < rand; i++)
+            {
+                //create lightning bolt and assign values
+                createdObject = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
+                createdObject.GetComponent<LightningBolt>().startPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+                createdObject.GetComponent<LightningBolt>().endPosition = closestEnemy.transform.position;
+            }
+
+            closestEnemy.GetComponent<Enemy>().health -= (rand * lightningDamage) / 2;
+            closestEnemy.GetComponent<Enemy>().timesChained = timesChained + 1;
+            closestEnemy.GetComponent<Enemy>().lightningLevel = lightningLevel;
+            closestEnemy.GetComponent<Enemy>().maxLightningBoltsToCreate = rand;
+            closestEnemy.GetComponent<Enemy>().lightningBolt = lightningBolt;
+            closestEnemy.GetComponent<Enemy>().hasBeenHitByLightning = true;
+            closestEnemy.GetComponent<Enemy>().lightningTimer = 1;
+            closestEnemy.GetComponent<Enemy>().lightningDamage = lightningDamage;
+            closestEnemy.GetComponent<Enemy>().CreateLightningBolts();
+        }
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    private GameObject FindClosestEnemy()
+    {
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        Vector3 position = transform.position;
+        Vector3 diff;
+        float distance = Mathf.Infinity;
+        float curDistance;
+
+        foreach (GameObject enemy in allEnemies)
+        {
+            if (!enemy.GetComponent<Enemy>().hasBeenHitByLightning && (enemy.transform.position != gameObject.transform.position))
+            {
+                diff = enemy.transform.position - position;
+                curDistance = diff.sqrMagnitude;
+
+                if (curDistance < distance)
+                {
+                    closest = enemy;
+                    distance = curDistance;
+                }
+            }
+        }
+
+        return closest;
+    }
+
+    #endregion
+
     #region Collision
 
     private void OnTriggerEnter2D(Collider2D coll)
@@ -201,9 +287,15 @@ public class Enemy : PauseableObject
                 case DeckType.Lightning:
                     break;
                 case DeckType.Void:
-                    if(Random.Range(0, 8) == 0)
+                    if(Random.Range(0, 20) == 0)
                     {
                         health = 0;
+                    }
+
+                    if (Random.Range(0, 10) == 0)
+                    {
+                        transform.position = path[0].transform.position;
+                        pathCount = 0;
                     }
 
                     health -= coll.GetComponent<Bullet>().damage;
