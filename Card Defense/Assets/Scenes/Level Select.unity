@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &100816293 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1820707428932482, guid: ce76a9154cec65042abac325004b5468,
+    type: 2}
+  m_PrefabInternal: {fileID: 2030763096}
 --- !u!1 &174190971
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,23 +271,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1013320964 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1815299537208390, guid: 5e8cf12b88d4feb47a33a0356a2a8640,
+--- !u!114 &1013320965 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114607379073121974, guid: 5e8cf12b88d4feb47a33a0356a2a8640,
     type: 2}
   m_PrefabInternal: {fileID: 1861495645}
---- !u!114 &1013320965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1013320964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42d3c8bf084d2a340a9c053a2f325715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupPanel: {fileID: 0}
 --- !u!1 &1369768744
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +455,11 @@ Prefab:
       propertyPath: m_Name
       value: Level Icons
       objectReference: {fileID: 0}
+    - target: {fileID: 114607379073121974, guid: 5e8cf12b88d4feb47a33a0356a2a8640,
+        type: 2}
+      propertyPath: infoPopup
+      value: 
+      objectReference: {fileID: 100816293}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e8cf12b88d4feb47a33a0356a2a8640, type: 2}
   m_IsPrefabParent: 0
@@ -603,6 +602,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114524587850484772, guid: ce76a9154cec65042abac325004b5468,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1013320965}
+    - target: {fileID: 114535701339201692, guid: ce76a9154cec65042abac325004b5468,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1013320965}
     - target: {fileID: 223527544308680916, guid: ce76a9154cec65042abac325004b5468,
         type: 2}
       propertyPath: m_Camera
@@ -611,10 +620,6 @@ Prefab:
     - target: {fileID: 1110574305041294, guid: ce76a9154cec65042abac325004b5468, type: 2}
       propertyPath: m_Name
       value: Level Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820707428932482, guid: ce76a9154cec65042abac325004b5468, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce76a9154cec65042abac325004b5468, type: 2}

@@ -11,23 +11,16 @@ public class InfoPanel : MonoBehaviour
     public Image star2;
     public Image star3;
     public Image difficultyCrown;
-
-    private Sprite bronzeCrown;
-    private Sprite silverCrown;
-    private Sprite goldCrown;
+    public Sprite bronzeCrown;
+    public Sprite silverCrown;
+    public Sprite goldCrown;
 
     // Use this for initialization
     void Start ()
     {
-        //TODO: get sprite references
-        //bronzeCrown = Resources.Load<Sprite>("Sprites/UI/BronzeCrown");
-        //silverCrown = Resources.Load<Sprite>("Sprites/UI/SilverCrown");
-        //goldCrown = Resources.Load<Sprite>("Sprites/UI/GoldCrown");
+        //get sprite references
+        bronzeCrown = Resources.Load<Sprite>("Sprites/UI/BronzeCrown");
+        silverCrown = Resources.Load<Sprite>("Sprites/UI/SilverCrown");
+        goldCrown = Resources.Load<Sprite>("Sprites/UI/GoldCrown");
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 }

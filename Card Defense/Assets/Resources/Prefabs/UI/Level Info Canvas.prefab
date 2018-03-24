@@ -269,6 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224301615464741280}
   - component: {fileID: 225840801647595570}
+  - component: {fileID: 114433472025974180}
   m_Layer: 5
   m_Name: Info Popup
   m_TagString: InfoPopup
@@ -626,6 +627,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114433472025974180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1820707428932482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2123f5659903774cb7dc85faf9e2d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 114191255845613578}
+  mapScreenshot: {fileID: 114098081815619242}
+  star1: {fileID: 114131174878344356}
+  star2: {fileID: 114690422343165216}
+  star3: {fileID: 114381793221675242}
+  difficultyCrown: {fileID: 114497999403234326}
+  bronzeCrown: {fileID: 0}
+  silverCrown: {fileID: 0}
+  goldCrown: {fileID: 0}
 --- !u!114 &114497999403234326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -693,7 +714,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: SettingsWindow
+        m_MethodName: ClosePopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -745,7 +766,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: SettingsWindow
+        m_MethodName: SelectLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

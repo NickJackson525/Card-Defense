@@ -738,7 +738,7 @@ class GameManager
 
         if(baseHealth <= 0)
         {
-            //TODO: add code here to open up the game over screen
+            //TODO: add code here to open up the game over screen and to save the level state
             ResetVariables();
             SceneManager.LoadScene("Main Menu");
         }

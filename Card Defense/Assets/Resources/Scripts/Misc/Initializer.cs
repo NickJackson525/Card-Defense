@@ -10,6 +10,11 @@ public class Initializer : MonoBehaviour
     {
         GameManager.Instance.Load();
 
+        // Uncomment to reset level saves
+        //LevelSelectManager.Instance.SaveLevelInfo();
+
+        LevelSelectManager.Instance.LoadLevelInfo();
+
         if (GameManager.Instance.currentDeck.Count == 0)
         {
             GameManager.Instance.CreateDefaultDeck(Cards.BasicResource, Cards.Basic);

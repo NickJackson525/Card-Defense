@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +13,8 @@ public enum LevelNumber { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, 
 public enum LevelElements
 {
     NodePrefab, Node1, Node2, Node3, Node4, Node5, Node6, Node7, Node8, Node9, Node10,
-    Node11, Node12, Node13, Node14, Node15, Node16, Node17, Node18, Node19, NumberOfNodes, Map, MapLocation, SpawnerLocation
+    Node11, Node12, Node13, Node14, Node15, Node16, Node17, Node18, Node19, NumberOfNodes, Map, MapLocation, SpawnerLocation,
+    Star1Unlocked, Star2Unlocked, Star3Unlocked, MapScreenshot, DifficultyCompleted
 }
 
 #endregion
@@ -21,7 +25,7 @@ public class LevelSelectManager : MonoBehaviour
 
     public Dictionary<LevelNumber, Dictionary<LevelElements, string>> LevelLibrary = new Dictionary<LevelNumber, Dictionary<LevelElements, string>>
     {
-        #region Level One
+        #region Level One (Grass Map 1)
 
         {
             LevelNumber.One, new Dictionary<LevelElements, string>
@@ -48,14 +52,19 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Node17, "-20.12375,-0.6800001,0" },     // position to create node at, will give them the count number in the creation loop
                 {LevelElements.Node18, "-18.00938,-3.48,0" },          // position to create node at, will give them the count number in the creation loop
                 {LevelElements.Node19, "25.63813,-3.15,0" },           // position to create node at, will give them the count number in the creation loop
-                {LevelElements.NumberOfNodes, "19" },                  // position to move the spawner to for this map
+                {LevelElements.NumberOfNodes, "19" },                  // total number of nodes for this map
                 {LevelElements.SpawnerLocation, "-28.65,12.97,0" },    // position to move the spawner to for this map
+                {LevelElements.Star1Unlocked, "False" },
+                {LevelElements.Star2Unlocked, "False" },
+                {LevelElements.Star3Unlocked, "False" },
+                {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap1" },
+                {LevelElements.DifficultyCompleted, "None" }
             }
         },
 
         #endregion
 
-        #region Level Two
+        #region Level Two (Ice Map 1)
 
         {
             LevelNumber.Two, new Dictionary<LevelElements, string>
@@ -84,17 +93,41 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Node19, "25.63813,-3.15,0" },           // position to create node at, will give them the count number in the creation loop
                 {LevelElements.NumberOfNodes, "19" },                  // position to move the spawner to for this map
                 {LevelElements.SpawnerLocation, "-28.65,12.97,0" },    // position to move the spawner to for this map
+                {LevelElements.Star1Unlocked, "False" },
+                {LevelElements.Star2Unlocked, "False" },
+                {LevelElements.Star3Unlocked, "False" },
+                {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/IceMap1" },
+                {LevelElements.DifficultyCompleted, "None" }
             }
         },
 
         #endregion
     };
 
-    public GameObject popupPanel;
+    public GameObject infoPopup;
 
     private GameObject mapPrefab;
     private GameObject nodePrefab;
     private GameObject createdNode;
+
+    #endregion
+
+    #region Singleton Constructor
+
+    // create variable for storing singleton that any script can access
+    private static LevelSelectManager instance;
+
+    // create LevelSelectManager
+    private LevelSelectManager()
+    {
+        DontDestroyOnLoad(this);
+    }
+
+    // Property for Singleton
+    public static LevelSelectManager Instance
+    {
+        get { return instance ?? (instance = new LevelSelectManager()); }
+    }
 
     #endregion
 
@@ -105,7 +138,7 @@ public class LevelSelectManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Map 1")
         {
-            LoadLevel(GameManager.Instance.currentLevel);
+            CreateLevel(GameManager.Instance.currentLevel);
         }
 	}
 
@@ -123,18 +156,92 @@ public class LevelSelectManager : MonoBehaviour
 
     #region Public Methods
 
-    public void LevelInfoPanel(LevelNumber level)
+    public void LevelInfoPanel(int level)
     {
-        //TODO: open info panel and populate it with this level's info (create method to call in infopanel.cs)
-        //TODO: will have to add more elements to levellibrary, and add them to save() somehow
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        infoPopup.SetActive(true);
+        infoPopup.GetComponent<InfoPanel>().title.text = "Level " + ((int)level + 1);
+        infoPopup.GetComponent<InfoPanel>().mapScreenshot.sprite = Resources.Load<Sprite>(LevelLibrary[(LevelNumber)level][LevelElements.MapScreenshot]);
+
+        #region Check Star 1
+
+        if (bool.Parse(LevelLibrary[(LevelNumber)level][LevelElements.Star1Unlocked]))
+        {
+            infoPopup.GetComponent<InfoPanel>().star1.color = Color.white;
+        }
+        else
+        {
+            infoPopup.GetComponent<InfoPanel>().star1.color = Color.black;
+        }
+
+        #endregion
+
+        #region Check Star 2
+
+        if (bool.Parse(LevelLibrary[(LevelNumber)level][LevelElements.Star2Unlocked]))
+        {
+            infoPopup.GetComponent<InfoPanel>().star2.color = Color.white;
+        }
+        else
+        {
+            infoPopup.GetComponent<InfoPanel>().star2.color = Color.black;
+        }
+
+        #endregion
+
+        #region Check Star 3
+
+        if (bool.Parse(LevelLibrary[(LevelNumber)level][LevelElements.Star3Unlocked]))
+        {
+            infoPopup.GetComponent<InfoPanel>().star3.color = Color.white;
+        }
+        else
+        {
+            infoPopup.GetComponent<InfoPanel>().star3.color = Color.black;
+        }
+
+        #endregion
+
+        #region Check Crown
+
+        if (LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Bronze")
+        {
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.sprite = infoPopup.GetComponent<InfoPanel>().bronzeCrown;
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.white;
+        }
+        else if (LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Silver")
+        {
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.sprite = infoPopup.GetComponent<InfoPanel>().silverCrown;
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.white;
+        }
+        else if (LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Gold")
+        {
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.sprite = infoPopup.GetComponent<InfoPanel>().goldCrown;
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.white;
+        }
+        else
+        {
+            infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.black;
+        }
+
+        #endregion
+
+        GameManager.Instance.currentLevel = (LevelNumber)level;
     }
 
-    public void SelectLevel(LevelNumber level)
+    public void ClosePopup()
     {
-        //TODO: make this method update the currently selected level, and load the "Map 1" scene, this will be called when the battle button is called
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        infoPopup.SetActive(false);
+    }
+    
+    public void SelectLevel()
+    {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        SceneManager.LoadScene("Map 1");
     }
 
-    public void LoadLevel(LevelNumber level)
+    public void CreateLevel(LevelNumber level)
     {
         //delete old level
         DeleteCurrentLevel();
@@ -155,6 +262,55 @@ public class LevelSelectManager : MonoBehaviour
 
         //move spawner
         GameObject.FindGameObjectWithTag("Spawner").transform.position = GetVector3FromString(LevelLibrary[level][LevelElements.SpawnerLocation]);
+    }
+
+    public void SaveLevelInfo()
+    {
+        int index = 0;
+        AllLevels allLevels;
+        LevelData[] levelData = new LevelData[Enum.GetNames(typeof(LevelNumber)).Length];
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + "/LevelInfo.dat", FileMode.OpenOrCreate);
+
+        foreach(KeyValuePair<LevelNumber, Dictionary<LevelElements, string>> level in LevelLibrary)
+        {
+            levelData[index] = new LevelData(bool.Parse(level.Value[LevelElements.Star1Unlocked]), 
+                                             bool.Parse(level.Value[LevelElements.Star2Unlocked]), 
+                                             bool.Parse(level.Value[LevelElements.Star3Unlocked]), 
+                                             level.Value[LevelElements.DifficultyCompleted],
+                                             level.Key);
+
+            index++;
+        }
+
+        allLevels = new AllLevels(levelData);
+
+        formatter.Serialize(file, allLevels);
+        file.Close();
+    }
+
+    public void LoadLevelInfo()
+    {
+        if (File.Exists(Application.persistentDataPath + "/LevelInfo.dat"))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/LevelInfo.dat", FileMode.Open);
+            AllLevels data = (AllLevels)formatter.Deserialize(file);
+
+            foreach(LevelData levelInfo in data.levelData)
+            {
+                LevelLibrary[levelInfo.level][LevelElements.Star1Unlocked] = levelInfo.star1Unlocked.ToString();
+                LevelLibrary[levelInfo.level][LevelElements.Star2Unlocked] = levelInfo.star2Unlocked.ToString();
+                LevelLibrary[levelInfo.level][LevelElements.Star3Unlocked] = levelInfo.star3Unlocked.ToString();
+                LevelLibrary[levelInfo.level][LevelElements.DifficultyCompleted] = levelInfo.difficultyCompleted;
+            }
+
+            file.Close();
+        }
+        else
+        {
+            SaveLevelInfo();
+        }
     }
 
     #endregion
@@ -192,3 +348,37 @@ public class LevelSelectManager : MonoBehaviour
 
     #endregion
 }
+
+#region Level Data Classes
+
+[Serializable]
+class LevelData
+{
+    public LevelNumber level;
+    public bool star1Unlocked;
+    public bool star2Unlocked;
+    public bool star3Unlocked;
+    public string difficultyCompleted;
+
+    public LevelData(bool s1Unlocked, bool s2Unlocked, bool s3Unlocked, string difficulty, LevelNumber levelNumber)
+    {
+        level = levelNumber;
+        star1Unlocked = s1Unlocked;
+        star2Unlocked = s2Unlocked;
+        star3Unlocked = s3Unlocked;
+        difficultyCompleted = difficulty;
+    }
+}
+
+[Serializable]
+class AllLevels
+{
+    public LevelData[] levelData;
+
+    public AllLevels(LevelData[] data)
+    {
+        levelData = data;
+    }
+}
+
+#endregion
