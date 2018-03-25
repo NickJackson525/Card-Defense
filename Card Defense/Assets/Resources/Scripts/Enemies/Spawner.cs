@@ -239,7 +239,8 @@ public class Spawner : MonoBehaviour
                 GameManager.Instance.Paused = true;
                 GameManager.Instance.endGamePopup.SetActive(true);
                 GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().title.text = "Victory!";
-
+                LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel + 1][LevelElements.isLevelLocked] = "False";
+                
                 if (GameManager.Instance.baseHealth == 100)
                 {
                     LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star1Unlocked] = "True";
@@ -367,23 +368,23 @@ public class Spawner : MonoBehaviour
                     //add the number and type of enemies specified to the waveenemies list
                     for (int i = 0; i < numEnemiesToAdd; i++)
                     {
-                        if (currentWave > WaveNumber.Three)
-                        {
-                            if (justAddedToList1)
-                            {
-                                spawnList2.Add(EnemyList[type]);
-                                justAddedToList1 = false;
-                            }
-                            else
-                            {
-                                spawnList1.Add(EnemyList[type]);
-                                justAddedToList1 = true;
-                            }
-                        }
-                        else
-                        {
+                        //if (currentWave > WaveNumber.Three)
+                        //{
+                        //    if (justAddedToList1)
+                        //    {
+                        //        spawnList2.Add(EnemyList[type]);
+                        //        justAddedToList1 = false;
+                        //    }
+                        //    else
+                        //    {
+                        //        spawnList1.Add(EnemyList[type]);
+                        //        justAddedToList1 = true;
+                        //    }
+                        //}
+                        //else
+                        //{
                             spawnList1.Add(EnemyList[type]);
-                        }
+                        //}
                     }
 
                     //go to next type

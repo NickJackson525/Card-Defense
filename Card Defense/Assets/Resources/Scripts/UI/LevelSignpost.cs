@@ -37,6 +37,17 @@ public class LevelSignpost : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if (bool.Parse(LevelSelectManager.Instance.LevelLibrary[level][LevelElements.isLevelLocked]))
+        {
+            GetComponent<Button>().interactable = false;
+            GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            GetComponent<Button>().interactable = true;
+            GetComponent<Image>().color = Color.white;
+        }
+
 		if(bool.Parse(LevelSelectManager.Instance.LevelLibrary[level][LevelElements.Star1Unlocked]))
         {
             star1.color = Color.white;

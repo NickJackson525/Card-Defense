@@ -14,7 +14,7 @@ public enum LevelElements
 {
     NodePrefab, Node1, Node2, Node3, Node4, Node5, Node6, Node7, Node8, Node9, Node10,
     Node11, Node12, Node13, Node14, Node15, Node16, Node17, Node18, Node19, NumberOfNodes, Map, MapLocation, SpawnerLocation,
-    Star1Unlocked, Star2Unlocked, Star3Unlocked, MapScreenshot, DifficultyCompleted
+    Star1Unlocked, Star2Unlocked, Star3Unlocked, MapScreenshot, DifficultyCompleted, isLevelLocked
 }
 
 #endregion
@@ -58,7 +58,8 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star2Unlocked, "False" },
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap1" },
-                {LevelElements.DifficultyCompleted, "None" }
+                {LevelElements.DifficultyCompleted, "None" },
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
@@ -97,7 +98,8 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star2Unlocked, "False" },
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/IceMap1" },
-                {LevelElements.DifficultyCompleted, "None" }
+                {LevelElements.DifficultyCompleted, "None" },
+                {LevelElements.isLevelLocked, "True" }
             }
         },
 
