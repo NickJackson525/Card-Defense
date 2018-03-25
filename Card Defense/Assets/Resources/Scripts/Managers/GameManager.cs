@@ -31,6 +31,8 @@ public enum CardElement { Cost, Damage, Range, Level, CardText, WatermarkSprite,
 
 public enum DeckType { Basic, Fire, Ice, Lightning, Void, None }
 
+public enum Difficulty { Easy, Medium, Hard }
+
 #endregion
 
 class GameManager
@@ -620,9 +622,11 @@ class GameManager
 
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
     public List<CardInfo> currentDeck = new List<CardInfo>();      //the current deck
+    public GameObject endGamePopup;
     public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
     public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
     public LevelNumber currentLevel = LevelNumber.One;
+    public Difficulty currenfDifficulty = Difficulty.Hard;
     public const int deckSize = 20;                                //the maximum deck size for the game
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public int baseHealth = 100;
@@ -738,18 +742,25 @@ class GameManager
 
         if(baseHealth <= 0)
         {
-            //TODO: add code here to open up the game over screen and to save the level state
-            ResetVariables();
-            SceneManager.LoadScene("Main Menu");
+            Paused = true;
+            endGamePopup.SetActive(true);
+            endGamePopup.GetComponent<EndGamePopup>().xpGainText.text = "0";
+            endGamePopup.GetComponent<EndGamePopup>().title.text = "Defeat!";
         }
 
         #endregion
 
-        #region Get UICanvas Reference
+        #region Get References
 
         if((UICanvas == null) && (GameObject.FindGameObjectWithTag("InGameUI")))
         {
             UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
+        }
+
+        if(!endGamePopup && (SceneManager.GetActiveScene().name == "Map 1"))
+        {
+            endGamePopup = GameObject.FindGameObjectWithTag("EndGamePopup");
+            endGamePopup.SetActive(false);
         }
 
         #endregion

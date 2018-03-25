@@ -16,7 +16,7 @@ public class InfoPanel : MonoBehaviour
     public Sprite goldCrown;
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         //get sprite references
         bronzeCrown = Resources.Load<Sprite>("Sprites/UI/BronzeCrown");

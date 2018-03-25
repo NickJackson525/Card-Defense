@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 #region Enums
 
-public enum LevelNumber { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Eleven }
+public enum LevelNumber { One, Two }
 
 public enum LevelElements
 {
@@ -120,7 +120,7 @@ public class LevelSelectManager : MonoBehaviour
     // create LevelSelectManager
     private LevelSelectManager()
     {
-        DontDestroyOnLoad(this);
+        
     }
 
     // Property for Singleton
@@ -149,7 +149,22 @@ public class LevelSelectManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-		
+		if (Input.GetKeyDown(KeyCode.P))
+        {
+            LevelLibrary[LevelNumber.One][LevelElements.Star1Unlocked] = "True";
+            LevelLibrary[LevelNumber.One][LevelElements.DifficultyCompleted] = "Bronze";
+            SaveLevelInfo();
+            LoadLevelInfo();
+        }
+
+        if ((SceneManager.GetActiveScene().name != "Level Select") && (gameObject.name == "Level Icons"))
+        {
+            gameObject.SetActive(false);
+        }
+        else if (!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+        }
 	}
 
     #endregion
@@ -161,11 +176,11 @@ public class LevelSelectManager : MonoBehaviour
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         infoPopup.SetActive(true);
         infoPopup.GetComponent<InfoPanel>().title.text = "Level " + ((int)level + 1);
-        infoPopup.GetComponent<InfoPanel>().mapScreenshot.sprite = Resources.Load<Sprite>(LevelLibrary[(LevelNumber)level][LevelElements.MapScreenshot]);
+        infoPopup.GetComponent<InfoPanel>().mapScreenshot.sprite = Resources.Load<Sprite>(Instance.LevelLibrary[(LevelNumber)level][LevelElements.MapScreenshot]);
 
         #region Check Star 1
 
-        if (bool.Parse(LevelLibrary[(LevelNumber)level][LevelElements.Star1Unlocked]))
+        if (bool.Parse(Instance.LevelLibrary[(LevelNumber)level][LevelElements.Star1Unlocked]))
         {
             infoPopup.GetComponent<InfoPanel>().star1.color = Color.white;
         }
@@ -178,7 +193,7 @@ public class LevelSelectManager : MonoBehaviour
 
         #region Check Star 2
 
-        if (bool.Parse(LevelLibrary[(LevelNumber)level][LevelElements.Star2Unlocked]))
+        if (bool.Parse(Instance.LevelLibrary[(LevelNumber)level][LevelElements.Star2Unlocked]))
         {
             infoPopup.GetComponent<InfoPanel>().star2.color = Color.white;
         }
@@ -191,7 +206,7 @@ public class LevelSelectManager : MonoBehaviour
 
         #region Check Star 3
 
-        if (bool.Parse(LevelLibrary[(LevelNumber)level][LevelElements.Star3Unlocked]))
+        if (bool.Parse(Instance.LevelLibrary[(LevelNumber)level][LevelElements.Star3Unlocked]))
         {
             infoPopup.GetComponent<InfoPanel>().star3.color = Color.white;
         }
@@ -204,17 +219,17 @@ public class LevelSelectManager : MonoBehaviour
 
         #region Check Crown
 
-        if (LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Bronze")
+        if (Instance.LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Bronze")
         {
             infoPopup.GetComponent<InfoPanel>().difficultyCrown.sprite = infoPopup.GetComponent<InfoPanel>().bronzeCrown;
             infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.white;
         }
-        else if (LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Silver")
+        else if (Instance.LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Silver")
         {
             infoPopup.GetComponent<InfoPanel>().difficultyCrown.sprite = infoPopup.GetComponent<InfoPanel>().silverCrown;
             infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.white;
         }
-        else if (LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Gold")
+        else if (Instance.LevelLibrary[(LevelNumber)level][LevelElements.DifficultyCompleted] == "Gold")
         {
             infoPopup.GetComponent<InfoPanel>().difficultyCrown.sprite = infoPopup.GetComponent<InfoPanel>().goldCrown;
             infoPopup.GetComponent<InfoPanel>().difficultyCrown.color = Color.white;

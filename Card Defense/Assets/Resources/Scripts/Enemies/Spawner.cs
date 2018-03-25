@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -180,7 +181,7 @@ public class Spawner : MonoBehaviour
         #endregion
     }
 
-    private enum WaveNumber { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten }
+    private enum WaveNumber { Zero, One, Two, Three, Four }
     private WaveNumber currentWave = WaveNumber.Zero;
     private EnemyType type = EnemyType.Sheep;
     private List<GameObject> spawnList1 = new List<GameObject>();
@@ -233,11 +234,73 @@ public class Spawner : MonoBehaviour
         //start the next wave when this one has ended and there are no more enemies on screen
         if((spawnList1.Count == 0) && (!GameObject.FindGameObjectWithTag("Enemy")))
         {
-            //go to next wave
-            currentWave++;
+            if (!GameManager.Instance.endGamePopup.activeSelf && (((int)currentWave + 1) == Enum.GetNames(typeof(WaveNumber)).Length))
+            {
+                GameManager.Instance.Paused = true;
+                GameManager.Instance.endGamePopup.SetActive(true);
+                GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().title.text = "Victory!";
 
-            //create the wave
-            GenerateWave();
+                if (GameManager.Instance.baseHealth == 100)
+                {
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star1Unlocked] = "True";
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star2Unlocked] = "True";
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star3Unlocked] = "True";
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().star1.color = Color.white;
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().star2.color = Color.white;
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().star3.color = Color.white;
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().xpGainText.text = "250";
+                    GameManager.Instance.currentXP += 250;
+                }
+                else if(GameManager.Instance.baseHealth > 50)
+                {
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star1Unlocked] = "True";
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star2Unlocked] = "True";
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().star1.color = Color.white;
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().star2.color = Color.white;
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().xpGainText.text = "125";
+                    GameManager.Instance.currentXP += 125;
+                }
+                else
+                {
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star1Unlocked] = "True";
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().star1.color = Color.white;
+                    GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().xpGainText.text = "50";
+                    GameManager.Instance.currentXP += 50;
+                }
+
+                switch (GameManager.Instance.currenfDifficulty)
+                {
+                    case Difficulty.Easy:
+                        LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.DifficultyCompleted] = "Bronze";
+                        GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().difficultyCrown.sprite = GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().bronzeCrown;
+                        break;
+                    case Difficulty.Medium:
+                        LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.DifficultyCompleted] = "Silver";
+                        GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().difficultyCrown.sprite = GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().silverCrown;
+                        break;
+                    case Difficulty.Hard:
+                        LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.DifficultyCompleted] = "Gold";
+                        GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().difficultyCrown.sprite = GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().goldCrown;
+                        break;
+                    default:
+                        LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.DifficultyCompleted] = "Bronze";
+                        GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().difficultyCrown.sprite = GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().bronzeCrown;
+                        break;
+                }
+
+                GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().difficultyCrown.color = Color.white;
+
+                LevelSelectManager.Instance.SaveLevelInfo();
+                LevelSelectManager.Instance.LoadLevelInfo();
+            }
+            else
+            {
+                //go to next wave
+                currentWave++;
+
+                //create the wave
+                GenerateWave();
+            }
         }
 
         //check that the game isn't paused

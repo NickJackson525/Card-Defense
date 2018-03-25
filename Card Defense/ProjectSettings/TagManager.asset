@@ -20,6 +20,7 @@ TagManager:
   - IceResource
   - LightningResource
   - VoidResource
+  - EndGamePopup
   layers:
   - Default
   - TransparentFX

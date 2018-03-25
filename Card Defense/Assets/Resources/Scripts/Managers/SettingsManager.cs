@@ -8,6 +8,7 @@ public class SettingsManager : MonoBehaviour
 {
     #region Variables
 
+    public GameObject EndGamePopup;
     private Sprite unMuted;
     private Sprite muted;
 
@@ -60,11 +61,12 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    public void MainMenu()
+    public void LevelSelect()
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        GameManager.Instance.Paused = false;
         GameManager.Instance.ResetVariables();
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Level Select");
     }
 
     public void ResumeGame()
@@ -73,34 +75,45 @@ public class SettingsManager : MonoBehaviour
         GameManager.Instance.Paused = false;
     }
 
+    public void RestartLevel()
+    {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        GameManager.Instance.ResetVariables();
+        GameManager.Instance.Paused = false;
+        SceneManager.LoadScene("Map 1");
+    }
+
     #endregion
 
     #region Private Methods
 
     private void OnEnable()
     {
-        if((unMuted == null) || (muted == null))
+        if (SceneManager.GetActiveScene().name != "Level Select")
         {
-            unMuted = Resources.Load<Sprite>("Sprites/UI/UnMuted");
-            muted = Resources.Load<Sprite>("Sprites/UI/Muted");
-        }
+            if ((unMuted == null) || (muted == null))
+            {
+                unMuted = Resources.Load<Sprite>("Sprites/UI/UnMuted");
+                muted = Resources.Load<Sprite>("Sprites/UI/Muted");
+            }
 
-        if(AudioManager.Instance.isMusicMuted)
-        {
-            GameObject.Find("Music Toggle").GetComponent<Image>().sprite = muted;
-        }
-        else
-        {
-            GameObject.Find("Music Toggle").GetComponent<Image>().sprite = unMuted;
-        }
+            if (AudioManager.Instance.isMusicMuted)
+            {
+                GameObject.Find("Music Toggle").GetComponent<Image>().sprite = muted;
+            }
+            else
+            {
+                GameObject.Find("Music Toggle").GetComponent<Image>().sprite = unMuted;
+            }
 
-        if (AudioManager.Instance.areEffectsMuted)
-        {
-            GameObject.Find("Effects Toggle").GetComponent<Image>().sprite = muted;
-        }
-        else
-        {
-            GameObject.Find("Effects Toggle").GetComponent<Image>().sprite = unMuted;
+            if (AudioManager.Instance.areEffectsMuted)
+            {
+                GameObject.Find("Effects Toggle").GetComponent<Image>().sprite = muted;
+            }
+            else
+            {
+                GameObject.Find("Effects Toggle").GetComponent<Image>().sprite = unMuted;
+            }
         }
     }
 
