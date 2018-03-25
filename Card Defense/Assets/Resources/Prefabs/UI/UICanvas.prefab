@@ -203,6 +203,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224732551380683660}
+  - component: {fileID: 114062509100789082}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -1134,6 +1135,19 @@ MonoBehaviour:
   m_Text: 'Level
 
     Select'
+--- !u!114 &114062509100789082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348721768403400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fb0621ccdc8ef48b41c23582f6c76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarFill: {fileID: 114823938022442590}
+  healthBarText: {fileID: 114623296947129240}
 --- !u!114 &114074780804430960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2451,10 +2465,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: c335340e4223fb442996f0061d0eebe0, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

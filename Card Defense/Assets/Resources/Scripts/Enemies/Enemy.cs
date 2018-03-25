@@ -220,7 +220,7 @@ public class Enemy : PauseableObject
                 createdObject.GetComponent<LightningBolt>().endPosition = closestEnemy.transform.position;
             }
 
-            closestEnemy.GetComponent<Enemy>().health -= (rand * lightningDamage) / 2;
+            closestEnemy.GetComponent<Enemy>().health -= rand * lightningDamage;
             closestEnemy.GetComponent<Enemy>().timesChained = timesChained + 1;
             closestEnemy.GetComponent<Enemy>().lightningLevel = lightningLevel;
             closestEnemy.GetComponent<Enemy>().maxLightningBoltsToCreate = rand;

@@ -137,14 +137,14 @@ public class Tower : MonoBehaviour
                         //select the current target
                         currentTarget = enemyList[0];
 
-                        //reset the canshoot variable and reset the timer
+                        //reset the canshoot variable
                         canShoot = false;
-                        shootTimer = 60;
 
                         //check if this tower is lighting type
                         if (type == DeckType.Lightning)
                         {
-                            rand = Random.Range(4, 8);
+                            shootTimer = 90;
+                            rand = Random.Range(1 * currentLevel, (2 * currentLevel) + 1);
 
                             //create lighting bolts
                             for (int i = 0; i < rand; i++)
@@ -155,23 +155,25 @@ public class Tower : MonoBehaviour
                                 createdObject.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
                             }
 
-                            currentTarget.GetComponent<Enemy>().health -= (rand * (damage * currentLevel)) / 2;
+                            currentTarget.GetComponent<Enemy>().health -= rand * damage;
                             currentTarget.GetComponent<Enemy>().timesChained++;
                             currentTarget.GetComponent<Enemy>().lightningLevel = currentLevel;
                             currentTarget.GetComponent<Enemy>().maxLightningBoltsToCreate = rand;
                             currentTarget.GetComponent<Enemy>().lightningBolt = lightningBolt;
                             currentTarget.GetComponent<Enemy>().hasBeenHitByLightning = true;
                             currentTarget.GetComponent<Enemy>().lightningTimer = 1;
-                            currentTarget.GetComponent<Enemy>().lightningDamage = damage * currentLevel;
+                            currentTarget.GetComponent<Enemy>().lightningDamage = damage;
                             currentTarget.GetComponent<Enemy>().CreateLightningBolts();
                         }
                         else
                         {
+                            shootTimer = 60;
+
                             //create bullet and assign values
                             createdObject = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
                             createdObject.GetComponent<Bullet>().move = true;
                             createdObject.GetComponent<Bullet>().target = currentTarget;
-                            createdObject.GetComponent<Bullet>().damage = damage * currentLevel;
+                            createdObject.GetComponent<Bullet>().damage = damage;
                             createdObject.GetComponent<Bullet>().type = type;
 
                             #region Color Bullet
@@ -400,6 +402,7 @@ public class Tower : MonoBehaviour
             createdTower.GetComponent<Tower>().isPlaced = true;
             createdTower.GetComponent<Tower>().damage = int.Parse(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.Damage]);
             createdTower.GetComponent<Tower>().range = int.Parse(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.Range]);
+            createdTower.GetComponent<Tower>().currentLevel = currentLevel + 1;
             createdTower.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.TowerSprite]);
             createdTower.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             createdTower.GetComponent<Tower>().collRadius.SetActive(false);

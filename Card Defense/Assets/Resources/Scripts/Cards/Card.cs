@@ -49,6 +49,7 @@ public class Card : PauseableObject
     private GameObject UICanvas;                                      //the ui canvas in the game
     private GameObject fireExplosion;
     private GameObject iceExplosion;
+    private GameObject lightningBolt;                                 // Used as a template for creating lightning bolts
     private bool mouseHover = false;                                  //checks when the mouse is over this card or not
     private bool hasEnoughResources = false;                          //bool if the user has enough resources
     private const float outOfHandDist = 2f;                           //the distance the card must be dragged in order to be played
@@ -71,6 +72,8 @@ public class Card : PauseableObject
 
         //get the start position of this card
         startPosition = transform.position;
+
+        lightningBolt = Resources.Load<GameObject>("Prefabs/Towers/LightningBolt");
     }
 
     #endregion
@@ -220,6 +223,16 @@ public class Card : PauseableObject
                     {
                         //Player used a spell card
                         CastSpell(thisCardName);
+
+                        //decrease mana stored
+                        if (GameManager.Instance.deckType1 == type)
+                        {
+                            UICanvas.GetComponent<InGameUIManager>().numManaType1 -= int.Parse(costText.text);
+                        }
+                        else if (GameManager.Instance.deckType2 == type)
+                        {
+                            UICanvas.GetComponent<InGameUIManager>().numManaType2 -= int.Parse(costText.text);
+                        }
                     }
                 }
 
@@ -391,8 +404,9 @@ public class Card : PauseableObject
         createdTower.GetComponent<Tower>().costText = costText;
         createdTower.GetComponent<Tower>().startPosition = startPosition;
         createdTower.GetComponent<Tower>().thisCardName = thisCardName;
+        createdTower.GetComponent<Tower>().currentLevel = cardLevel;
         createdTower.GetComponent<SpriteRenderer>().sprite = thisTower;
-
+        
         switch (type)
         {
             case DeckType.Basic:
@@ -436,6 +450,7 @@ public class Card : PauseableObject
                     Instantiate(iceExplosion, transform.position, transform.rotation);
                     break;
                 case Cards.LightningStrikeSpell:
+                    CreateLightningBolts();
                     break;
                 case Cards.VoidPortalSpell:
                     break;
@@ -449,6 +464,70 @@ public class Card : PauseableObject
         deck.GetComponent<Deck>().Draw();
 
         Destroy(gameObject);
+    }
+
+    #endregion
+
+    #region Creat Lightning Bolts
+
+    public void CreateLightningBolts()
+    {
+        int boltsToCreate = 10;
+        GameObject closestEnemy = FindClosestEnemy();
+        GameObject createdObject;
+
+        if (closestEnemy)
+        {
+            //create lighting bolts
+            for (int i = 0; i < boltsToCreate; i++)
+            {
+                //create lightning bolt and assign values
+                createdObject = Instantiate(lightningBolt, new Vector3(transform.position.x, transform.position.y + 1.2f, 0f), transform.rotation);
+                createdObject.GetComponent<LightningBolt>().startPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+                createdObject.GetComponent<LightningBolt>().endPosition = closestEnemy.transform.position;
+            }
+
+            closestEnemy.GetComponent<Enemy>().health -= boltsToCreate * 2;
+            closestEnemy.GetComponent<Enemy>().timesChained = 1;
+            closestEnemy.GetComponent<Enemy>().lightningLevel = 6;
+            closestEnemy.GetComponent<Enemy>().maxLightningBoltsToCreate = boltsToCreate;
+            closestEnemy.GetComponent<Enemy>().lightningBolt = lightningBolt;
+            closestEnemy.GetComponent<Enemy>().hasBeenHitByLightning = true;
+            closestEnemy.GetComponent<Enemy>().lightningTimer = 1;
+            closestEnemy.GetComponent<Enemy>().lightningDamage = boltsToCreate / 2;
+            closestEnemy.GetComponent<Enemy>().CreateLightningBolts();
+        }
+    }
+
+    #endregion
+
+    #region Find Closest Enemy
+
+    private GameObject FindClosestEnemy()
+    {
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        Vector3 position = transform.position;
+        Vector3 diff;
+        float distance = Mathf.Infinity;
+        float curDistance;
+
+        foreach (GameObject enemy in allEnemies)
+        {
+            if (!enemy.GetComponent<Enemy>().hasBeenHitByLightning && (enemy.transform.position != gameObject.transform.position))
+            {
+                diff = enemy.transform.position - position;
+                curDistance = diff.sqrMagnitude;
+
+                if (curDistance < distance)
+                {
+                    closest = enemy;
+                    distance = curDistance;
+                }
+            }
+        }
+
+        return closest;
     }
 
     #endregion

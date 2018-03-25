@@ -975,7 +975,6 @@ class GameManager
         Paused = false;
         Instance.baseHealth = 100;
         Instance.currentDeck.Clear();
-
         Instance.currentDeck = new List<CardInfo>(Instance.savedDeck);
     }
 
