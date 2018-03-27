@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         GameManager.Instance.savedDeck = GameManager.Instance.currentDeck.ToArray();
         GameManager.Instance.Save();
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(GameManager.Instance.previousScene);
     }
 
     public void RejectDeck()
@@ -139,7 +139,7 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         GameManager.Instance.currentDeck.Clear();
         GameManager.Instance.currentDeck = new List<CardInfo>(GameManager.Instance.savedDeck);
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(GameManager.Instance.previousScene);
     }
 
     public void SettingsWindow()

@@ -626,7 +626,7 @@ class GameManager
     public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
     public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
     public LevelNumber currentLevel = LevelNumber.One;
-    public Difficulty currenfDifficulty = Difficulty.Hard;
+    public Difficulty currenfDifficulty = Difficulty.Medium;
     public const int deckSize = 20;                                //the maximum deck size for the game
     public int playerLevel = 0;                                    //the level of the player, used for unlocking cards
     public int baseHealth = 100;
@@ -635,6 +635,7 @@ class GameManager
     public float xpToNextLevel = 500;
     public bool newCardsToLookAt = true;
     public CardInfo[] savedDeck = new CardInfo[deckSize];          //a saved copy of the current deck, so it can be reset
+    public string previousScene;
 
     bool isPaused;                                                 //variable to pause the game
     private GameObject UICanvas;                                   //the ui canvas in the game

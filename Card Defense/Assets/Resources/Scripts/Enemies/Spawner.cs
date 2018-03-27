@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
         {
             WaveNumber.One, new Dictionary<EnemyType, int>
             {
-                {EnemyType.Sheep, 20 },
+                {EnemyType.Sheep, 2 },
                 {EnemyType.SpikedSheep, 0 },
                 {EnemyType.Ram, 0 },
                 {EnemyType.Boar, 0 },
