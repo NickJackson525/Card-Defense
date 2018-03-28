@@ -297,10 +297,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50b858be8d59df42bee8a1ff06e2c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningBolt: {fileID: 0}
+  spellFireTimer: 0
+  spellFrozenTimer: 0
+  spellDamageToTake: 0
+  timesChained: 0
+  maxLightningBoltsToCreate: 0
+  lightningTimer: 0
+  lightningDamage: 0
+  lightningLevel: 0
   currSpeed: 2
   naturalSpeed: 2
   health: 20
+  fireResistance: 0
+  iceResistance: 0
+  lightningResistance: 1
+  voidResistance: 0
   distFromEnd: 0
+  hasBeenHitByLightning: 0
 --- !u!212 &212024219317178146
 SpriteRenderer:
   m_ObjectHideFlags: 1

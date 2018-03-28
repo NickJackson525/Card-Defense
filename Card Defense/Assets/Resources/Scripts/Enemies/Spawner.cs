@@ -9,139 +9,189 @@ public class Spawner : MonoBehaviour
 
     private Dictionary<EnemyType, GameObject> EnemyList;
 
-    private Dictionary<WaveNumber, Dictionary<EnemyType, int>> GrassMapWaveEnemies = new Dictionary<WaveNumber, Dictionary<EnemyType, int>>
+    private Dictionary<LevelNumber, Dictionary<WaveNumber, List<int>>> MapLibrary = new Dictionary<LevelNumber, Dictionary<WaveNumber, List<int>>>
     {
-        #region Wave 1
+        #region Grass Map 1
 
         {
-            WaveNumber.One, new Dictionary<EnemyType, int>
+            LevelNumber.One, new Dictionary<WaveNumber, List<int>>
             {
-                {EnemyType.Sheep, 2 },
-                {EnemyType.SpikedSheep, 0 },
-                {EnemyType.Ram, 0 },
-                {EnemyType.Boar, 0 },
-                {EnemyType.Pig, 0 },
-                {EnemyType.Bull, 0 },
-                {EnemyType.Goat, 0 },
-                {EnemyType.Bat, 0 },
-                {EnemyType.Bug, 0 },
-                {EnemyType.Cyclops, 0 },
-                {EnemyType.Minutaur, 0 },
-                {EnemyType.Wolf, 0 },
-                {EnemyType.Bee, 0 },
-                {EnemyType.Spider, 0 },
-                {EnemyType.Gazelle, 0 },
-                {EnemyType.Werewolf, 0 },
-                {EnemyType.FireImp, 0 },
-                {EnemyType.WeakFireElemental, 0 },
-                {EnemyType.StrongFireElemental, 0 },
-                {EnemyType.FireBug, 0 },
-                {EnemyType.FireDragon, 0 },
-                {EnemyType.Bear, 0 },
-                {EnemyType.Skeleton, 0 },
-                {EnemyType.Treant, 0 },
+                #region Wave 1
+
+                {
+                    WaveNumber.One, new List<int>
+                    {
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 2
+
+                {
+                    WaveNumber.Two, new List<int>
+                    {
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 3
+
+                {
+                    WaveNumber.Three, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 4
+
+                {
+                    WaveNumber.Four, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 5
+
+                {
+                    WaveNumber.Five, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                    }
+                },
+
+                #endregion
             }
         },
 
         #endregion
 
-        #region Wave 2
+        #region Winter Map 1
 
         {
-            WaveNumber.Two, new Dictionary<EnemyType, int>
+            LevelNumber.Two, new Dictionary<WaveNumber, List<int>>
             {
-                {EnemyType.Sheep, 20 },
-                {EnemyType.SpikedSheep, 10 },
-                {EnemyType.Ram, 0 },
-                {EnemyType.Boar, 0 },
-                {EnemyType.Pig, 0 },
-                {EnemyType.Bull, 0 },
-                {EnemyType.Goat, 0 },
-                {EnemyType.Bat, 0 },
-                {EnemyType.Bug, 0 },
-                {EnemyType.Cyclops, 0 },
-                {EnemyType.Minutaur, 0 },
-                {EnemyType.Wolf, 0 },
-                {EnemyType.Bee, 0 },
-                {EnemyType.Spider, 0 },
-                {EnemyType.Gazelle, 0 },
-                {EnemyType.Werewolf, 0 },
-                {EnemyType.FireImp, 0 },
-                {EnemyType.WeakFireElemental, 0 },
-                {EnemyType.StrongFireElemental, 0 },
-                {EnemyType.FireBug, 0 },
-                {EnemyType.FireDragon, 0 },
-                {EnemyType.Bear, 0 },
-                {EnemyType.Skeleton, 0 },
-                {EnemyType.Treant, 0 },
-            }
-        },
+                #region Wave 1
 
-        #endregion
+                {
+                    WaveNumber.One, new List<int>
+                    {
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                    }
+                },
 
-        #region Wave 3
+                #endregion
 
-        {
-            WaveNumber.Three, new Dictionary<EnemyType, int>
-            {
-                {EnemyType.Sheep, 40 },
-                {EnemyType.SpikedSheep, 20 },
-                {EnemyType.Ram, 0 },
-                {EnemyType.Boar, 0 },
-                {EnemyType.Pig, 0 },
-                {EnemyType.Bull, 0 },
-                {EnemyType.Goat, 0 },
-                {EnemyType.Bat, 0 },
-                {EnemyType.Bug, 0 },
-                {EnemyType.Cyclops, 0 },
-                {EnemyType.Minutaur, 0 },
-                {EnemyType.Wolf, 0 },
-                {EnemyType.Bee, 0 },
-                {EnemyType.Spider, 0 },
-                {EnemyType.Gazelle, 0 },
-                {EnemyType.Werewolf, 0 },
-                {EnemyType.FireImp, 0 },
-                {EnemyType.WeakFireElemental, 0 },
-                {EnemyType.StrongFireElemental, 0 },
-                {EnemyType.FireBug, 0 },
-                {EnemyType.FireDragon, 0 },
-                {EnemyType.Bear, 0 },
-                {EnemyType.Skeleton, 0 },
-                {EnemyType.Treant, 0 },
-            }
-        },
+                #region Wave 2
 
-        #endregion
+                {
+                    WaveNumber.Two, new List<int>
+                    {
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                    }
+                },
 
-        #region Wave 4
+                #endregion
 
-        {
-            WaveNumber.Four, new Dictionary<EnemyType, int>
-            {
-                {EnemyType.Sheep, 40 },
-                {EnemyType.SpikedSheep, 30 },
-                {EnemyType.Ram, 20 },
-                {EnemyType.Boar, 0 },
-                {EnemyType.Pig, 0 },
-                {EnemyType.Bull, 0 },
-                {EnemyType.Goat, 0 },
-                {EnemyType.Bat, 0 },
-                {EnemyType.Bug, 0 },
-                {EnemyType.Cyclops, 0 },
-                {EnemyType.Minutaur, 0 },
-                {EnemyType.Wolf, 0 },
-                {EnemyType.Bee, 0 },
-                {EnemyType.Spider, 0 },
-                {EnemyType.Gazelle, 0 },
-                {EnemyType.Werewolf, 0 },
-                {EnemyType.FireImp, 0 },
-                {EnemyType.WeakFireElemental, 0 },
-                {EnemyType.StrongFireElemental, 0 },
-                {EnemyType.FireBug, 0 },
-                {EnemyType.FireDragon, 0 },
-                {EnemyType.Bear, 0 },
-                {EnemyType.Skeleton, 0 },
-                {EnemyType.Treant, 0 },
+                #region Wave 3
+
+                {
+                    WaveNumber.Three, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 4
+
+                {
+                    WaveNumber.Four, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 5
+
+                {
+                    WaveNumber.Five, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                    }
+                },
+
+                #endregion
             }
         },
 
@@ -152,7 +202,7 @@ public class Spawner : MonoBehaviour
     {
         #region Basic Enemies
 
-        Sheep, SpikedSheep, Ram, Boar, Pig, Bull, Goat, Bat, Bug, Cyclops, Minutaur, Wolf, Bee, Spider, Gazelle, Werewolf,
+        Sheep, Ram, Boar, Pig, Bull, Goat, Bat, Bug, Cyclops, Minutaur, Bee, Spider, Gazelle, Werewolf,
 
         #endregion
 
@@ -164,13 +214,13 @@ public class Spawner : MonoBehaviour
 
         #region Ice Resistant Enemies
 
-        Bear,
+        Wolf, Bear,
 
         #endregion
 
         #region Lightning Resistant Enemies
 
-        Skeleton,
+        SpikedSheep, Skeleton,
 
         #endregion
 
@@ -181,14 +231,13 @@ public class Spawner : MonoBehaviour
         #endregion
     }
 
-    private enum WaveNumber { Zero, One, Two, Three, Four }
+    private enum WaveNumber { Zero, One, Two, Three, Four, Five }
     private WaveNumber currentWave = WaveNumber.Zero;
     private EnemyType type = EnemyType.Sheep;
     private List<GameObject> spawnList1 = new List<GameObject>();
     private List<GameObject> spawnList2 = new List<GameObject>();
     private int SpawnTimer1 = 120;          // Used to delay when enemies are spawned
     private int SpawnTimer2 = 180;          // Used to delay when enemies are spawned
-    private bool justAddedToList1 = false;
 
     #endregion
 
@@ -196,7 +245,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-         EnemyList = new Dictionary<EnemyType, GameObject>
+        EnemyList = new Dictionary<EnemyType, GameObject>
          {
             {EnemyType.Sheep, Resources.Load<GameObject>("Prefabs/Enemies/Sheep") },
             {EnemyType.SpikedSheep, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
@@ -205,11 +254,11 @@ public class Spawner : MonoBehaviour
             {EnemyType.Pig, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Bull, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Goat, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
-            {EnemyType.Bat, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Bat, Resources.Load<GameObject>("Prefabs/Enemies/Bat") },
             {EnemyType.Bug, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Cyclops, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Minutaur, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
-            {EnemyType.Wolf, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Wolf, Resources.Load<GameObject>("Prefabs/Enemies/Wolf") },
             {EnemyType.Bee, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Spider, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Gazelle, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
@@ -229,10 +278,10 @@ public class Spawner : MonoBehaviour
 
     #region Update
 
-    void Update ()
+    void Update()
     {
         //start the next wave when this one has ended and there are no more enemies on screen
-        if((spawnList1.Count == 0) && (!GameObject.FindGameObjectWithTag("Enemy")))
+        if ((spawnList1.Count == 0) && (!GameObject.FindGameObjectWithTag("Enemy")))
         {
             if (!GameManager.Instance.endGamePopup.activeSelf && (((int)currentWave + 1) == Enum.GetNames(typeof(WaveNumber)).Length))
             {
@@ -240,7 +289,7 @@ public class Spawner : MonoBehaviour
                 GameManager.Instance.endGamePopup.SetActive(true);
                 GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().title.text = "Victory!";
                 LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel + 1][LevelElements.isLevelLocked] = "False";
-                
+
                 if (GameManager.Instance.baseHealth == 100)
                 {
                     LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star1Unlocked] = "True";
@@ -252,7 +301,7 @@ public class Spawner : MonoBehaviour
                     GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().xpGainText.text = "250";
                     GameManager.Instance.currentXP += 250;
                 }
-                else if(GameManager.Instance.baseHealth > 50)
+                else if (GameManager.Instance.baseHealth > 50)
                 {
                     LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star1Unlocked] = "True";
                     LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Star2Unlocked] = "True";
@@ -300,7 +349,7 @@ public class Spawner : MonoBehaviour
                 currentWave++;
 
                 //create the wave
-                GenerateWave();
+                GenerateWave(MapLibrary[GameManager.Instance.currentLevel]);
             }
         }
 
@@ -343,7 +392,7 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
-	}
+    }
 
     #endregion
 
@@ -352,47 +401,19 @@ public class Spawner : MonoBehaviour
     /// <summary>
     /// This method adds the enemies specified in a wave dictionary to the spawn list, so that they can be spawned in the level
     /// </summary>
-    private void GenerateWave()
+    private void GenerateWave(Dictionary<WaveNumber, List<int>> Map)
     {
         //loop through all the enemies specified in the wave dictionary
-        foreach (KeyValuePair<WaveNumber, Dictionary<EnemyType, int>> enemy in GrassMapWaveEnemies)
+        foreach (KeyValuePair<WaveNumber, List<int>> wave in Map)
         {
             //only check enemies from this wave
-            if (enemy.Key == currentWave)
+            if (wave.Key == currentWave)
             {
-                //loop through the elements of the enemylist enum
-                for (int j = 0; j < 24; j++)
+                foreach (int enemy in wave.Value)
                 {
-                    int numEnemiesToAdd = enemy.Value[type];
-
-                    //add the number and type of enemies specified to the waveenemies list
-                    for (int i = 0; i < numEnemiesToAdd; i++)
-                    {
-                        //if (currentWave > WaveNumber.Three)
-                        //{
-                        //    if (justAddedToList1)
-                        //    {
-                        //        spawnList2.Add(EnemyList[type]);
-                        //        justAddedToList1 = false;
-                        //    }
-                        //    else
-                        //    {
-                        //        spawnList1.Add(EnemyList[type]);
-                        //        justAddedToList1 = true;
-                        //    }
-                        //}
-                        //else
-                        //{
-                            spawnList1.Add(EnemyList[type]);
-                        //}
-                    }
-
-                    //go to next type
-                    type++;
+                    spawnList1.Add(EnemyList[(EnemyType)enemy]);
                 }
 
-                //reset type
-                type = EnemyType.Sheep;
             }
         }
     }

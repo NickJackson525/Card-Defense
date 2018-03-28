@@ -99,6 +99,11 @@ public class SettingsManager : MonoBehaviour
         if (settingsCanvas.activeSelf)
         {
             settingsCanvas.SetActive(false);
+
+            if(GameManager.Instance.Paused)
+            {
+                GameManager.Instance.Paused = false;
+            }
         }
         else
         {
@@ -113,32 +118,35 @@ public class SettingsManager : MonoBehaviour
 
     public void SelectDifficulty(string difficulty)
     {
-        switch (difficulty)
+        if (SceneManager.GetActiveScene().name != "Map 1")
         {
-            case "Easy":
-                easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                GameManager.Instance.currenfDifficulty = Difficulty.Easy;
-                break;
-            case "Medium":
-                easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                mediumButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                GameManager.Instance.currenfDifficulty = Difficulty.Medium;
-                break;
-            case "Hard":
-                easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                hardButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                GameManager.Instance.currenfDifficulty = Difficulty.Hard;
-                break;
-            default:
-                easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                GameManager.Instance.currenfDifficulty = Difficulty.Easy;
-                break;
+            switch (difficulty)
+            {
+                case "Easy":
+                    easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    GameManager.Instance.currenfDifficulty = Difficulty.Easy;
+                    break;
+                case "Medium":
+                    easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    GameManager.Instance.currenfDifficulty = Difficulty.Medium;
+                    break;
+                case "Hard":
+                    easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    hardButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    GameManager.Instance.currenfDifficulty = Difficulty.Hard;
+                    break;
+                default:
+                    easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    GameManager.Instance.currenfDifficulty = Difficulty.Easy;
+                    break;
+            }
         }
     }
 
@@ -148,55 +156,61 @@ public class SettingsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SceneManager.GetActiveScene().name != "Level Select")
+        if ((unMuted == null) || (muted == null))
         {
-            if ((unMuted == null) || (muted == null))
-            {
-                unMuted = Resources.Load<Sprite>("Sprites/UI/UnMuted");
-                muted = Resources.Load<Sprite>("Sprites/UI/Muted");
-            }
+            unMuted = Resources.Load<Sprite>("Sprites/UI/UnMuted");
+            muted = Resources.Load<Sprite>("Sprites/UI/Muted");
+        }
 
+        if (GameObject.Find("Music Toggle"))
+        {
             if (AudioManager.Instance.isMusicMuted)
             {
-                GameObject.Find("Music Toggle").GetComponent<Image>().sprite = muted;
+                GameObject.Find("Music Toggle").GetComponentsInChildren<Image>()[1].sprite = muted;
             }
             else
             {
-                GameObject.Find("Music Toggle").GetComponent<Image>().sprite = unMuted;
-            }
-
-            if (AudioManager.Instance.areEffectsMuted)
-            {
-                GameObject.Find("Effects Toggle").GetComponent<Image>().sprite = muted;
-            }
-            else
-            {
-                GameObject.Find("Effects Toggle").GetComponent<Image>().sprite = unMuted;
+                GameObject.Find("Music Toggle").GetComponentsInChildren<Image>()[1].sprite = unMuted;
             }
         }
 
-        switch (GameManager.Instance.currenfDifficulty)
+        if (GameObject.Find("Effects Toggle"))
         {
-            case Difficulty.Easy:
-                easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                break;
-            case Difficulty.Medium:
-                easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                mediumButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                break;
-            case Difficulty.Hard:
-                easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                hardButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                break;
-            default:
-                easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
-                mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
-                break;
+            if (AudioManager.Instance.areEffectsMuted)
+            {
+                GameObject.Find("Effects Toggle").GetComponentsInChildren<Image>()[1].sprite = muted;
+            }
+            else
+            {
+                GameObject.Find("Effects Toggle").GetComponentsInChildren<Image>()[1].sprite = unMuted;
+            }
+        }
+
+        if (easyButton && mediumButton && hardButton)
+        {
+            switch (GameManager.Instance.currenfDifficulty)
+            {
+                case Difficulty.Easy:
+                    easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    break;
+                case Difficulty.Medium:
+                    easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    break;
+                case Difficulty.Hard:
+                    easyButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    hardButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    break;
+                default:
+                    easyButton.GetComponentsInChildren<Image>()[1].color = Color.white;
+                    mediumButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    hardButton.GetComponentsInChildren<Image>()[1].color = new Color(0, 0, 0, .39f);
+                    break;
+            }
         }
     }
 

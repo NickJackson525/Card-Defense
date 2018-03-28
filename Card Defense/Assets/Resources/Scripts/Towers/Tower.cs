@@ -155,8 +155,8 @@ public class Tower : MonoBehaviour
                                 createdObject.GetComponent<LightningBolt>().endPosition = currentTarget.transform.position;
                             }
 
-                            currentTarget.GetComponent<Enemy>().health -= rand * damage;
-                            currentTarget.GetComponent<Enemy>().timesChained++;
+                            currentTarget.GetComponent<Enemy>().health -= currentTarget.GetComponent<Enemy>().lightningResistance > 0 ? (rand * damage) / 2f : rand * damage;
+                            currentTarget.GetComponent<Enemy>().timesChained += currentTarget.GetComponent<Enemy>().lightningResistance > 0 ? 1 + (int)currentTarget.GetComponent<Enemy>().lightningResistance : 1;
                             currentTarget.GetComponent<Enemy>().lightningLevel = currentLevel;
                             currentTarget.GetComponent<Enemy>().maxLightningBoltsToCreate = rand;
                             currentTarget.GetComponent<Enemy>().lightningBolt = lightningBolt;

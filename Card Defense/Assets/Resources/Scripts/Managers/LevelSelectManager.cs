@@ -151,14 +151,6 @@ public class LevelSelectManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-		if (Input.GetKeyDown(KeyCode.P))
-        {
-            LevelLibrary[LevelNumber.One][LevelElements.Star1Unlocked] = "True";
-            LevelLibrary[LevelNumber.One][LevelElements.DifficultyCompleted] = "Bronze";
-            SaveLevelInfo();
-            LoadLevelInfo();
-        }
-
         if ((SceneManager.GetActiveScene().name != "Level Select") && (gameObject.name == "Level Icons"))
         {
             gameObject.SetActive(false);

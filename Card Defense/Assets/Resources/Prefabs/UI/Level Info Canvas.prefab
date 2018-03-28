@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 224759816464900472}
   - component: {fileID: 222224556698788948}
   - component: {fileID: 114191255845613578}
+  - component: {fileID: 114920959963674416}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.52156866, g: 0.52156866, b: 0.52156866, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.384}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1282,7 +1283,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsCanvas: {fileID: 0}
-  EndGamePopup: {fileID: 0}
+  endGamePopup: {fileID: 0}
+  easyButton: {fileID: 0}
+  mediumButton: {fileID: 0}
+  hardButton: {fileID: 0}
 --- !u!114 &114786563671405928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1403,6 +1407,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114920959963674416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229737696280260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114923970692864166
 MonoBehaviour:
   m_ObjectHideFlags: 1

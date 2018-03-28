@@ -768,7 +768,7 @@ class GameManager
 
         #region Generate Resources
 
-        if ((SceneManager.GetActiveScene().name == "Map 1") && (generateResourceTimer > 0))
+        if (!Paused && (SceneManager.GetActiveScene().name == "Map 1") && (generateResourceTimer > 0))
         {
             generateResourceTimer--;
 
@@ -1005,11 +1005,13 @@ class GameManager
             deckType2 = data.type2;
 
             currentDeck.Clear();
-
+            
             for(int i = 0; i < data.playersDeck.Count; i++)
             {
                 currentDeck.Add(CreateCard(data.playersDeck[i]));
             }
+
+            savedDeck = currentDeck.ToArray();
 
             file.Close();
         }

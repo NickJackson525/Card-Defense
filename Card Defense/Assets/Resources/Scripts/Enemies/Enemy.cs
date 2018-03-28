@@ -19,6 +19,10 @@ public class Enemy : PauseableObject
     public float currSpeed;                                 //the speed the enemy is currently moving
     public float naturalSpeed;                              //the speed the enemy goes without anything altering it
     public float health = 20f;                              //the health of the enemy
+    public float fireResistance = 0;
+    public float iceResistance = 0;
+    public float lightningResistance = 0;
+    public float voidResistance = 0;
     public float distFromEnd = 0;                           //how far away this enemy is from the end of the track
     public bool hasBeenHitByLightning = false;
 
@@ -277,27 +281,33 @@ public class Enemy : PauseableObject
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
                 case DeckType.Fire:
-                    bulletFireTimer = 120;
-                    bulletDamageToTake = coll.GetComponent<Bullet>().damage;
+                    bulletFireTimer = fireResistance > 0 ? Bullet.fireTimer / 2 : Bullet.fireTimer;
+                    bulletDamageToTake = (int)fireResistance > coll.GetComponent<Bullet>().damage ? 0 : coll.GetComponent<Bullet>().damage - (int)fireResistance;
                     break;
                 case DeckType.Ice:
-                    bulletFrozenTimer = 120;
-                    health -= coll.GetComponent<Bullet>().damage;
+                    bulletFrozenTimer = iceResistance > 0 ? Bullet.iceTimer / 2 : Bullet.iceTimer;
+                    health -= (int)iceResistance > coll.GetComponent<Bullet>().damage ? 0 : coll.GetComponent<Bullet>().damage - (int)iceResistance;
                     break;
                 case DeckType.Lightning:
+                    //this is dealth with in the tower.cs script and when enemies chain lightning
                     break;
                 case DeckType.Void:
-                    if(Random.Range(0, 20) == 0)
+                    if (voidResistance < 3f)
                     {
-                        health = 0;
+                        if (Random.Range(0, Bullet.voidDeathChance) == 0)
+                        {
+                            health = 0;
+                        }
                     }
 
-                    if (Random.Range(0, 10) == 0)
+                    if (voidResistance < 2f)
                     {
-                        transform.position = path[0].transform.position;
-                        pathCount = 0;
+                        if (Random.Range(0, Bullet.voidTeleportChance) == 0)
+                        {
+                            transform.position = path[0].transform.position;
+                            pathCount = 0;
+                        }
                     }
-
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
                 default:

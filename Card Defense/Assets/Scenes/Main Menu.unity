@@ -210,162 +210,38 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223307170615601498, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 733231737}
     - target: {fileID: 114601741511560780, guid: e9d340d1711081b4abb552a7ee8fae0a,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1328682373}
-    - target: {fileID: 1058832577870292, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114938256368469596, guid: e9d340d1711081b4abb552a7ee8fae0a,
+    - target: {fileID: 223307170615601498, guid: e9d340d1711081b4abb552a7ee8fae0a,
         type: 2}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224214652075408056, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -148
-      objectReference: {fileID: 0}
-    - target: {fileID: 224214652075408056, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -244.59999
-      objectReference: {fileID: 0}
-    - target: {fileID: 224214652075408056, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 153.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 224214652075408056, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 84.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224375175792565850, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224375175792565850, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 230.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224375175792565850, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 634.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224375175792565850, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 144.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224198969350754624, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224198969350754624, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -22.099987
-      objectReference: {fileID: 0}
-    - target: {fileID: 224198969350754624, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 449.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224198969350754624, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 360.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224058166509369416, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224058166509369416, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224058166509369416, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 532.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224058166509369416, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 614.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224575361829844894, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 2.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 224575361829844894, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 425.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114075953635830270, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 114075953635830270, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224575361829844894, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224575361829844894, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 103.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114574961999653924, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 37
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711792919238234, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114822090678398514, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_Text
-      value: In the deck builder left click cards in your deck to remove them and
-        left click available cards to add them to your deck if it has available slots.
-        When you are satisfied with your deck, click the check mark to confirm your
-        changes. When in game, hold left click over a card and drag it onto the map
-        to play it. If you decide not to play it, drag it back to your hand. For testing,
-        press 3 to unlock all the cards. In game press p to pause and esc to return
-        to the main menu.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1634116694288800, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 733231737}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &172284388 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1634446647143696, guid: f1a1e063a143dec47bfa505e42fd42cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 2000275847}
+--- !u!114 &172284390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172284388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &355478896 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1058832577870292, guid: e9d340d1711081b4abb552a7ee8fae0a,
@@ -375,12 +251,12 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
     type: 2}
-  m_PrefabInternal: {fileID: 1164067518}
+  m_PrefabInternal: {fileID: 1787451210}
 --- !u!114 &481372848 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114993433622249780, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
     type: 2}
-  m_PrefabInternal: {fileID: 1164067518}
+  m_PrefabInternal: {fileID: 1787451210}
   m_Script: {fileID: 11500000, guid: c6d69165b5384354897911a20de9dde9, type: 3}
 --- !u!1 &733231733
 GameObject:
@@ -545,7 +421,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1164067518
+--- !u!114 &1328682373 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 2000275847}
+  m_Script: {fileID: 11500000, guid: 6b20b0c80650c3a49b4c19c9f671a0af, type: 3}
+--- !u!1001 &1787451210
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -642,29 +524,38 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114398912280315528, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1328682373}
     - target: {fileID: 223836875275491714, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733231737}
+    - target: {fileID: 114398912280315528, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1328682373}
     - target: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
       propertyPath: m_Name
       value: Settings Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 114369603236916820, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114369603236916820, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114369603236916820, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1328682373 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114526419789614796, guid: f1a1e063a143dec47bfa505e42fd42cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 2000275847}
-  m_Script: {fileID: 11500000, guid: 6b20b0c80650c3a49b4c19c9f671a0af, type: 3}
 --- !u!1 &1911431088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +959,21 @@ Prefab:
       propertyPath: settingsWindow
       value: 
       objectReference: {fileID: 481372847}
+    - target: {fileID: 114176469659170460, guid: f1a1e063a143dec47bfa505e42fd42cd,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176469659170460, guid: f1a1e063a143dec47bfa505e42fd42cd,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176469659170460, guid: f1a1e063a143dec47bfa505e42fd42cd,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1a1e063a143dec47bfa505e42fd42cd, type: 2}
   m_IsPrefabParent: 0

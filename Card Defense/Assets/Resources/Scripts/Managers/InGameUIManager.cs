@@ -32,7 +32,7 @@ public class InGameUIManager : MonoBehaviour
         iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice/Ice Symbol");
         lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
         voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
-        pauseMenu = GameObject.Find("PauseMenu");
+        pauseMenu = GameObject.Find("PauseCanvas");
     }
 
     #endregion
@@ -42,7 +42,7 @@ public class InGameUIManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (GameManager.Instance.Paused)
+        if (GameManager.Instance.Paused && !GameManager.Instance.endGamePopup.activeSelf)
         {
             pauseMenu.SetActive(true);
         }
