@@ -13,6 +13,7 @@ public enum Sound
 {
     //background
     BackgroundMusic1, BackgroundMusic2, BackgroundMusic3, BackgroundMusic4, BackgroundMusic5,
+    BackgroundMusic6, BackgroundMusic7, BackgroundMusic8, BackgroundMusic9, BackgroundMusic10,
 
     //sound effects
     ButtonClick, DeckShuffle, DrawCard, TurnPage,
@@ -35,6 +36,11 @@ public class AudioManager
         {Sound.BackgroundMusic3, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic3")},
         {Sound.BackgroundMusic4, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic4")},
         {Sound.BackgroundMusic5, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic5")},
+        {Sound.BackgroundMusic6, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic6")},
+        {Sound.BackgroundMusic7, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic7")},
+        {Sound.BackgroundMusic8, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic8")},
+        {Sound.BackgroundMusic9, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic9")},
+        {Sound.BackgroundMusic10, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic10")},
         {Sound.ButtonClick, Resources.Load<AudioClip>("Sounds/UI/ButtonClick")},
         {Sound.DeckShuffle, Resources.Load<AudioClip>("Sounds/Cards/Shuffle")},
         {Sound.DrawCard, Resources.Load<AudioClip>("Sounds/Cards/Draw")},
@@ -147,39 +153,18 @@ public class AudioManager
     /// </summary>
     public void PlayBackgroundMusic()
     {
-        int rand = Random.Range(0, 5);
+        int rand = Random.Range(0, 10);
 
         //loop until a new track number is picked
         while(rand == previousBackgroundTrack)
         {
-            rand = Random.Range(0, 5);
+            rand = Random.Range(0, 10);
         }
 
         //reset track number
         previousBackgroundTrack = rand;
 
-        //play the selected track
-        switch(rand)
-        {
-            case 0:
-                PlaySound(AudioSourceType.Background, Sound.BackgroundMusic1);
-                break;
-            case 1:
-                PlaySound(AudioSourceType.Background, Sound.BackgroundMusic2);
-                break;
-            case 2:
-                PlaySound(AudioSourceType.Background, Sound.BackgroundMusic3);
-                break;
-            case 3:
-                PlaySound(AudioSourceType.Background, Sound.BackgroundMusic4);
-                break;
-            case 4:
-                PlaySound(AudioSourceType.Background, Sound.BackgroundMusic5);
-                break;
-            default:
-                PlaySound(AudioSourceType.Background, Sound.BackgroundMusic1);
-                break;
-        }
+        PlaySound(AudioSourceType.Background, (Sound)rand);
     }
 
     public void MuteSounds(AudioSourceType source)

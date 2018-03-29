@@ -48,6 +48,22 @@ public class Enemy : PauseableObject
 
         //sort the path nodes so they are in the correct order for the path
         path.Sort((p1, p2) => p1.GetComponent<PathNode>().nodeNumber.CompareTo(p2.GetComponent<PathNode>().nodeNumber));
+
+        switch (GameManager.Instance.currenfDifficulty)
+        {
+            case Difficulty.Easy:
+                health /= 2;
+                break;
+            case Difficulty.Medium:
+                // no change
+                break;
+            case Difficulty.Hard:
+                health *= 2;
+                break;
+            default:
+                health /= 2;
+                break;
+        }
     }
 
     #endregion
