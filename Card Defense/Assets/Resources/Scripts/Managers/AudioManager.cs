@@ -13,7 +13,7 @@ public enum Sound
 {
     //background
     BackgroundMusic1, BackgroundMusic2, BackgroundMusic3, BackgroundMusic4, BackgroundMusic5,
-    BackgroundMusic6, BackgroundMusic7, BackgroundMusic8, BackgroundMusic9, BackgroundMusic10,
+    InGameBackgroundMusic1, InGameBackgroundMusic2, InGameBackgroundMusic3, InGameBackgroundMusic4,
 
     //sound effects
     ButtonClick, DeckShuffle, DrawCard, TurnPage,
@@ -36,11 +36,10 @@ public class AudioManager
         {Sound.BackgroundMusic3, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic3")},
         {Sound.BackgroundMusic4, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic4")},
         {Sound.BackgroundMusic5, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic5")},
-        {Sound.BackgroundMusic6, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic6")},
-        {Sound.BackgroundMusic7, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic7")},
-        {Sound.BackgroundMusic8, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic8")},
-        {Sound.BackgroundMusic9, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic9")},
-        {Sound.BackgroundMusic10, Resources.Load<AudioClip>("Sounds/Background Music/BackgroundMusic10")},
+        {Sound.InGameBackgroundMusic1, Resources.Load<AudioClip>("Sounds/Background Music/InGameBackgroundMusic1")},
+        {Sound.InGameBackgroundMusic2, Resources.Load<AudioClip>("Sounds/Background Music/InGameBackgroundMusic2")},
+        {Sound.InGameBackgroundMusic3, Resources.Load<AudioClip>("Sounds/Background Music/InGameBackgroundMusic3")},
+        {Sound.InGameBackgroundMusic4, Resources.Load<AudioClip>("Sounds/Background Music/InGameBackgroundMusic4")},
         {Sound.ButtonClick, Resources.Load<AudioClip>("Sounds/UI/ButtonClick")},
         {Sound.DeckShuffle, Resources.Load<AudioClip>("Sounds/Cards/Shuffle")},
         {Sound.DrawCard, Resources.Load<AudioClip>("Sounds/Cards/Draw")},
@@ -89,7 +88,15 @@ public class AudioManager
         //check if background music track has ended, if so play another
         if (backroundAudioSource && !backroundAudioSource.GetComponent<AudioSource>().isPlaying && !isMusicMuted)
         {
-            PlayBackgroundMusic();
+            if (SceneManager.GetActiveScene().name == "Map 1")
+            {
+                PlayInGameBackgroundMusic();
+            }
+            else
+            {
+
+                PlayBackgroundMusic();
+            }
         }
     }
 
@@ -153,12 +160,31 @@ public class AudioManager
     /// </summary>
     public void PlayBackgroundMusic()
     {
-        int rand = Random.Range(0, 10);
+        int rand = Random.Range(0, 5);
 
         //loop until a new track number is picked
         while(rand == previousBackgroundTrack)
         {
-            rand = Random.Range(0, 10);
+            rand = Random.Range(0, 5);
+        }
+
+        //reset track number
+        previousBackgroundTrack = rand;
+
+        PlaySound(AudioSourceType.Background, (Sound)rand);
+    }
+
+    /// <summary>
+    /// Method to randomly pick an in game background track to play. It also stops a track from being placed twice in a row.
+    /// </summary>
+    public void PlayInGameBackgroundMusic()
+    {
+        int rand = Random.Range(5, 9);
+
+        //loop until a new track number is picked
+        while (rand == previousBackgroundTrack)
+        {
+            rand = Random.Range(5, 9);
         }
 
         //reset track number

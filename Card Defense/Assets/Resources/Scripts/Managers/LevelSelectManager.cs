@@ -247,6 +247,7 @@ public class LevelSelectManager : MonoBehaviour
     public void SelectLevel()
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        AudioManager.Instance.PlayInGameBackgroundMusic();
         SceneManager.LoadScene("Map 1");
     }
 
