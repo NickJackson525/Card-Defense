@@ -443,11 +443,11 @@ MonoBehaviour:
   m_Text: In the deck builder left click cards in your deck to remove them and left
     click available cards to add them to your deck if it has available slots. When
     you are satisfied with your deck, click the check mark to confirm your changes.
-    When in game, hold left click over a card and drag it onto the map to play it.
-    If you decide not to play it, drag it back to your hand. For testing, press 3
-    to unlock all the cards. In game press esc to pause and acces settings in game,
-    including returning to the level select scene. In the level select scene clock
-    a signpost that isn't black to select it, and press battle to play that level.
+    When in game, hold left click over a card and drag it onto the map to play it,
+    if you have enough resources. If you decide not to play it, drag it back to your
+    hand. In game press esc to pause and acces settings in game, including returning
+    to the level select scene. In the level select scene click a signpost that isn't
+    black to select it, and press battle to play that level.
 --- !u!114 &114938256368469596
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1475,11 +1475,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d69165b5384354897911a20de9dde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsCanvas: {fileID: 0}
+  settingsCanvas: {fileID: 1274123995193066}
   endGamePopup: {fileID: 0}
   easyButton: {fileID: 1051322582684186}
   mediumButton: {fileID: 1764915903865024}
   hardButton: {fileID: 1388571139572244}
+  somethingNewIcon: {fileID: 0}
 --- !u!114 &114997125919755260
 MonoBehaviour:
   m_ObjectHideFlags: 1

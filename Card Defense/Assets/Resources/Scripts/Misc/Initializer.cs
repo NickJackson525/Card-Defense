@@ -11,7 +11,7 @@ public class Initializer : MonoBehaviour
         GameManager.Instance.Load();
 
         // Uncomment to reset level saves
-        LevelSelectManager.Instance.SaveLevelInfo();
+        //LevelSelectManager.Instance.SaveLevelInfo();
 
         LevelSelectManager.Instance.LoadLevelInfo();
 

@@ -13,6 +13,7 @@ public class SettingsManager : MonoBehaviour
     public GameObject easyButton;
     public GameObject mediumButton;
     public GameObject hardButton;
+    public GameObject somethingNewIcon;
 
     private Sprite unMuted;
     private Sprite muted;
@@ -26,6 +27,25 @@ public class SettingsManager : MonoBehaviour
     {
         unMuted = Resources.Load<Sprite>("Sprites/UI/UnMuted");
         muted = Resources.Load<Sprite>("Sprites/UI/Muted");
+    }
+
+    #endregion
+
+    #region Update
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Level Select")
+        {
+            if (GameManager.Instance.newCardsToLookAt)
+            {
+                somethingNewIcon.SetActive(true);
+            }
+            else
+            {
+                somethingNewIcon.SetActive(false);
+            }
+        }
     }
 
     #endregion

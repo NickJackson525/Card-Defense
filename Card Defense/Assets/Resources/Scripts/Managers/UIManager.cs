@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject instructionsWindow;
     public GameObject settingsWindow;
-    public GameObject somethingNewIcon;
+    public GameObject creditsWindow;
     public Image manaImage1;
     public Image manaImage2;
 
@@ -39,18 +39,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Main Menu")
-        {
-            if (GameManager.Instance.newCardsToLookAt)
-            {
-                somethingNewIcon.SetActive(true);
-            }
-            else
-            {
-                somethingNewIcon.SetActive(false);
-            }
-        }
-        else if(SceneManager.GetActiveScene().name == "Deck Builder")
+        if(SceneManager.GetActiveScene().name == "Deck Builder")
         {
             switch (GameManager.Instance.deckType1)
             {
@@ -167,6 +156,20 @@ public class UIManager : MonoBehaviour
         else
         {
             instructionsWindow.SetActive(true);
+        }
+    }
+
+    public void CreditssWindow()
+    {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
+        if (creditsWindow.activeSelf)
+        {
+            creditsWindow.SetActive(false);
+        }
+        else
+        {
+            creditsWindow.SetActive(true);
         }
     }
 
