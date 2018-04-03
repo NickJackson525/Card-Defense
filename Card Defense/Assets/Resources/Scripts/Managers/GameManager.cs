@@ -809,19 +809,19 @@ class GameManager
 
         #region Test Stuff
 
-        if(Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             currentXP += 10;
         }
 
-        if(Input.GetKeyUp(KeyCode.RightControl))
+        if (Input.GetKeyUp(KeyCode.RightControl))
         {
             Save();
             SceneManager.LoadScene("Main Menu");
         }
 
         //test leveling to unlock cards
-        if(Input.GetKeyUp(KeyCode.Alpha1))
+        if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             playerLevel = 1;
         }
@@ -836,7 +836,7 @@ class GameManager
             playerLevel = 3;
         }
 
-        if(Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.R))
         {
             ResetPlayerData();
         }
@@ -845,7 +845,7 @@ class GameManager
 
         #region Level Up
 
-        if(currentXP >= xpToNextLevel)
+        if (currentXP >= xpToNextLevel)
         {
             playerLevel++;
 

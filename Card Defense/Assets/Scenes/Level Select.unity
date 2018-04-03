@@ -717,33 +717,29 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223527544308680916, guid: ce76a9154cec65042abac325004b5468,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 584503879}
-    - target: {fileID: 114535701339201692, guid: ce76a9154cec65042abac325004b5468,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1013320965}
-    - target: {fileID: 114524587850484772, guid: ce76a9154cec65042abac325004b5468,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1013320965}
-    - target: {fileID: 1110574305041294, guid: ce76a9154cec65042abac325004b5468, type: 2}
-      propertyPath: m_Name
-      value: Level Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 114786294120035706, guid: ce76a9154cec65042abac325004b5468,
         type: 2}
       propertyPath: settingsCanvas
       value: 
       objectReference: {fileID: 1775302830}
-    - target: {fileID: 1820707428932482, guid: ce76a9154cec65042abac325004b5468, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114524587850484772, guid: ce76a9154cec65042abac325004b5468,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1013320965}
+    - target: {fileID: 114535701339201692, guid: ce76a9154cec65042abac325004b5468,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1013320965}
+    - target: {fileID: 223527544308680916, guid: ce76a9154cec65042abac325004b5468,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 584503879}
+    - target: {fileID: 1110574305041294, guid: ce76a9154cec65042abac325004b5468, type: 2}
+      propertyPath: m_Name
+      value: Level Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce76a9154cec65042abac325004b5468, type: 2}

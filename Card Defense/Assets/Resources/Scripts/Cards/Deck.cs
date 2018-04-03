@@ -61,7 +61,7 @@ public class Deck : MonoBehaviour
 
     void Update ()
     {
-        if(Input.GetKeyUp(KeyCode.Alpha1))
+        if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             GameManager.Instance.CreateDefaultDeck(Cards.BasicResource, Cards.Basic);
             deck = GameManager.Instance.currentDeck;

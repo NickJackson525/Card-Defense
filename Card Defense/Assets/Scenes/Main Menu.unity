@@ -619,16 +619,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114972599738850138, guid: aaf9a1090e4eb9a409e34ab994c7e01f,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1328682373}
     - target: {fileID: 223773752413825548, guid: aaf9a1090e4eb9a409e34ab994c7e01f,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733231737}
+    - target: {fileID: 114972599738850138, guid: aaf9a1090e4eb9a409e34ab994c7e01f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1328682373}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aaf9a1090e4eb9a409e34ab994c7e01f, type: 2}
   m_IsPrefabParent: 0
