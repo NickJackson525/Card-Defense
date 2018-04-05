@@ -99,7 +99,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/IceMap1" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
