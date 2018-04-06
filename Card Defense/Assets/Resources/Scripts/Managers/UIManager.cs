@@ -31,6 +31,11 @@ public class UIManager : MonoBehaviour
         iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice/Ice Symbol");
         lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
         voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
+
+        if(GameObject.Find("Main Panel"))
+        {
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
+        }
     }
 
     #endregion
@@ -111,8 +116,12 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
-        SceneManager.LoadScene(sceneName);
+
+        StartCoroutine(LoadSceneAfterAnim(4, sceneName));
+
+        //SceneManager.LoadScene(sceneName);
     }
 
     public void AcceptDeck()
@@ -177,6 +186,16 @@ public class UIManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
         Application.Quit();
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    public IEnumerator LoadSceneAfterAnim(int timeToWait, string sceneToLoad)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     #endregion

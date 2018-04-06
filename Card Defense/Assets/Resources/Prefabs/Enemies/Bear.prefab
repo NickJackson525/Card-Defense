@@ -402,6 +402,7 @@ MonoBehaviour:
   lightningResistance: 0
   voidResistance: 0
   distFromEnd: 0
+  animationSpeed: 0.7
   hasBeenHitByLightning: 0
 --- !u!212 &212161916513247450
 SpriteRenderer:

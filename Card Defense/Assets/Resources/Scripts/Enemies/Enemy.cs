@@ -24,6 +24,7 @@ public class Enemy : PauseableObject
     public float lightningResistance = 0;
     public float voidResistance = 0;
     public float distFromEnd = 0;                           //how far away this enemy is from the end of the track
+    public float animationSpeed = 1;
     public bool hasBeenHitByLightning = false;
 
     private GameObject createdObject;
