@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1313840924732606
 GameObject:
   m_ObjectHideFlags: 1
@@ -406,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224873818026060412}
   - component: {fileID: 225404250729032852}
+  - component: {fileID: 95216264576152786}
   m_Layer: 5
   m_Name: Settings Popup
   m_TagString: Untagged
@@ -413,6 +414,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95216264576152786
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1984010787940850}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15c07884664b21b4a9ad09ad516c6419, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114040306155677848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -777,8 +795,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114993433622249780}
-        m_MethodName: SettingsPopup
+      - m_Target: {fileID: 0}
+        m_MethodName: SettingsWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2056,7 +2074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -14}
+  m_AnchoredPosition: {x: 757, y: -14}
   m_SizeDelta: {x: 520, y: 599.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224893163586080258

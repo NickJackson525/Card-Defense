@@ -119,9 +119,7 @@ public class UIManager : MonoBehaviour
         GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
 
-        StartCoroutine(LoadSceneAfterAnim(4, sceneName));
-
-        //SceneManager.LoadScene(sceneName);
+        StartCoroutine(LoadSceneAfterAnim(2, sceneName));
     }
 
     public void AcceptDeck()
@@ -144,13 +142,15 @@ public class UIManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
 
-        if (settingsWindow.activeSelf)
+        if (!settingsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            settingsWindow.SetActive(false);
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
+            settingsWindow.GetComponent<Animator>().SetBool("isHidden", true);
         }
         else
         {
-            settingsWindow.SetActive(true);
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
+            settingsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
 
@@ -158,13 +158,15 @@ public class UIManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
 
-        if (instructionsWindow.activeSelf)
+        if (!instructionsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            instructionsWindow.SetActive(false);
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
+            instructionsWindow.GetComponent<Animator>().SetBool("isHidden", true);
         }
         else
         {
-            instructionsWindow.SetActive(true);
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
+            instructionsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
 
@@ -172,13 +174,15 @@ public class UIManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
 
-        if (creditsWindow.activeSelf)
+        if (!creditsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            creditsWindow.SetActive(false);
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
+            creditsWindow.GetComponent<Animator>().SetBool("isHidden", true);
         }
         else
         {
-            creditsWindow.SetActive(true);
+            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
+            creditsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
 

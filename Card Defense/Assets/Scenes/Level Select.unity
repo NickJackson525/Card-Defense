@@ -617,6 +617,11 @@ Prefab:
       propertyPath: settingsCanvas
       value: 
       objectReference: {fileID: 1775302830}
+    - target: {fileID: 114993433622249780, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: somethingNewIcon
+      value: 
+      objectReference: {fileID: 2030763097}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
   m_IsPrefabParent: 0
@@ -744,3 +749,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce76a9154cec65042abac325004b5468, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2030763097 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1423887320905706, guid: ce76a9154cec65042abac325004b5468,
+    type: 2}
+  m_PrefabInternal: {fileID: 2030763096}
