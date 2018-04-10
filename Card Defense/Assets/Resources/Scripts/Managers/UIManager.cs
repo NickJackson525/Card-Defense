@@ -119,7 +119,7 @@ public class UIManager : MonoBehaviour
         GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
 
-        StartCoroutine(LoadSceneAfterAnim(2, sceneName));
+        StartCoroutine(LoadSceneAfterAnim(.6f, sceneName));
     }
 
     public void AcceptDeck()
@@ -144,12 +144,10 @@ public class UIManager : MonoBehaviour
 
         if (!settingsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
             settingsWindow.GetComponent<Animator>().SetBool("isHidden", true);
         }
         else
         {
-            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
             settingsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
@@ -160,12 +158,10 @@ public class UIManager : MonoBehaviour
 
         if (!instructionsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
             instructionsWindow.GetComponent<Animator>().SetBool("isHidden", true);
         }
         else
         {
-            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
             instructionsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
@@ -176,12 +172,10 @@ public class UIManager : MonoBehaviour
 
         if (!creditsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", true);
             creditsWindow.GetComponent<Animator>().SetBool("isHidden", true);
         }
         else
         {
-            GameObject.Find("Main Panel").GetComponent<Animator>().SetBool("isHidden", false);
             creditsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
@@ -196,7 +190,7 @@ public class UIManager : MonoBehaviour
 
     #region Private Methods
 
-    public IEnumerator LoadSceneAfterAnim(int timeToWait, string sceneToLoad)
+    public IEnumerator LoadSceneAfterAnim(float timeToWait, string sceneToLoad)
     {
         yield return new WaitForSeconds(timeToWait);
         SceneManager.LoadScene(sceneToLoad);

@@ -108,7 +108,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MainMenuPanelLeave
-  m_Speed: 2
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101405382962756316}
@@ -140,7 +140,7 @@ AnimatorStateMachine:
     m_Position: {x: 360, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102876508495581304}
-    m_Position: {x: 360, y: 12, z: 0}
+    m_Position: {x: 360, y: 24, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
