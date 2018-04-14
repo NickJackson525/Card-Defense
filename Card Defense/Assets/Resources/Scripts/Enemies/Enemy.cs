@@ -311,7 +311,7 @@ public class Enemy : PauseableObject
                 case DeckType.Void:
                     if (voidResistance < 3f)
                     {
-                        if (Random.Range(0, Bullet.voidDeathChance) == 0)
+                        if (Random.Range(0, coll.GetComponent<Bullet>().voidDeathChance) == 0)
                         {
                             health = 0;
                         }
@@ -319,12 +319,13 @@ public class Enemy : PauseableObject
 
                     if (voidResistance < 2f)
                     {
-                        if (Random.Range(0, Bullet.voidTeleportChance) == 0)
+                        if (Random.Range(0, coll.GetComponent<Bullet>().voidTeleportChance) == 0)
                         {
                             transform.position = path[0].transform.position;
                             pathCount = 0;
                         }
                     }
+
                     health -= coll.GetComponent<Bullet>().damage;
                     break;
                 default:
@@ -333,6 +334,27 @@ public class Enemy : PauseableObject
             }
 
             Destroy(coll.gameObject);
+        }
+        else if (coll.gameObject.tag == "Portal")
+        {
+            if (voidResistance < 3f)
+            {
+                if (Random.Range(0, VoidPortal.voidDeathChance) == 0)
+                {
+                    health = 0;
+                }
+            }
+
+            if (voidResistance < 2f)
+            {
+                if (Random.Range(0, VoidPortal.voidTeleportChance) == 0)
+                {
+                    transform.position = path[0].transform.position;
+                    pathCount = 0;
+                }
+            }
+
+            health -= coll.GetComponentInParent<VoidPortal>().damage;
         }
     }
 

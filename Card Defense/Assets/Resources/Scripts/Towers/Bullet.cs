@@ -13,8 +13,8 @@ public class Bullet : PauseableObject
     public int damage;
     public const int fireTimer = 120;
     public const int iceTimer = 120;
-    public const int voidDeathChance = 20; // 1 out of 20 chance
-    public const int voidTeleportChance = 10; // 1 out of 10 chance
+    public int voidDeathChance = 20; // 1 out of 20 chance
+    public int voidTeleportChance = 10; // 1 out of 10 chance
 
 
     private Vector3 moveDirection;
@@ -28,6 +28,27 @@ public class Bullet : PauseableObject
     private void Start()
     {
         moveDirection = target.transform.position - transform.position;
+
+        if(type == DeckType.Void)
+        {
+            switch(damage)
+            {
+                case 1:
+                    //no change
+                    break;
+                case 2:
+                    voidDeathChance = 15;
+                    voidTeleportChance = 8;
+                    break;
+                case 3:
+                    voidDeathChance = 10;
+                    voidTeleportChance = 6;
+                    break;
+                default:
+                    //no change
+                    break;
+            }
+        }
     }
 
     #endregion

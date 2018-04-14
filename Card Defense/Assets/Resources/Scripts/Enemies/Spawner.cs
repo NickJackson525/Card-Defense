@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Enums
+
+public enum WaveNumber { Zero, One, Two, Three, Four, Five }
+
+#endregion
+
 public class Spawner : MonoBehaviour
 {
     #region Variables
@@ -234,8 +240,6 @@ public class Spawner : MonoBehaviour
         #endregion
     }
 
-    private enum WaveNumber { Zero, One, Two, Three, Four, Five }
-    private WaveNumber currentWave = WaveNumber.Zero;
     private EnemyType type = EnemyType.Sheep;
     private List<GameObject> spawnList1 = new List<GameObject>();
     private List<GameObject> spawnList2 = new List<GameObject>();
@@ -286,7 +290,7 @@ public class Spawner : MonoBehaviour
         //start the next wave when this one has ended and there are no more enemies on screen
         if ((spawnList1.Count == 0) && (!GameObject.FindGameObjectWithTag("Enemy")))
         {
-            if (!GameManager.Instance.endGamePopup.activeSelf && (((int)currentWave + 1) == Enum.GetNames(typeof(WaveNumber)).Length))
+            if (!GameManager.Instance.endGamePopup.activeSelf && (((int)GameManager.Instance.currentWave + 1) == Enum.GetNames(typeof(WaveNumber)).Length))
             {
                 GameManager.Instance.Paused = true;
                 GameManager.Instance.endGamePopup.SetActive(true);
@@ -349,7 +353,7 @@ public class Spawner : MonoBehaviour
             else
             {
                 //go to next wave
-                currentWave++;
+                GameManager.Instance.currentWave++;
 
                 //create the wave
                 GenerateWave(MapLibrary[GameManager.Instance.currentLevel]);
@@ -410,7 +414,7 @@ public class Spawner : MonoBehaviour
         foreach (KeyValuePair<WaveNumber, List<int>> wave in Map)
         {
             //only check enemies from this wave
-            if (wave.Key == currentWave)
+            if (wave.Key == GameManager.Instance.currentWave)
             {
                 foreach (int enemy in wave.Value)
                 {

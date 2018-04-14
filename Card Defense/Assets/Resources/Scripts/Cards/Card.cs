@@ -46,10 +46,12 @@ public class Card : PauseableObject
     private List<GameObject> enemiesInRange = new List<GameObject>(); //
     private GameObject tower;                                         //the tower object that this card will create
     private GameObject createdTower;                                  //the tower object that is created
+    private GameObject CreatedPortal;
     private GameObject UICanvas;                                      //the ui canvas in the game
     private GameObject fireExplosion;
     private GameObject iceExplosion;
     private GameObject lightningBolt;                                 // Used as a template for creating lightning bolts
+    private GameObject voidPortal;
     private bool mouseHover = false;                                  //checks when the mouse is over this card or not
     private bool hasEnoughResources = false;                          //bool if the user has enough resources
     private const float outOfHandDist = 2f;                           //the distance the card must be dragged in order to be played
@@ -74,6 +76,7 @@ public class Card : PauseableObject
         startPosition = transform.position;
 
         lightningBolt = Resources.Load<GameObject>("Prefabs/Towers/LightningBolt");
+        voidPortal = Resources.Load<GameObject>("Prefabs/Cards/Void Portal");
     }
 
     #endregion
@@ -436,21 +439,37 @@ public class Card : PauseableObject
 
     private void CastSpell(Cards spellCardType)
     {
-        for(int i = 0; i < enemiesInRange.Count; i++)
+        switch (spellCardType)
+        {
+            case Cards.FireballSpell:
+                Instantiate(fireExplosion, transform.position, transform.rotation);
+                break;
+            case Cards.IceStormSpell:
+                Instantiate(iceExplosion, transform.position, transform.rotation);
+                break;
+            case Cards.LightningStrikeSpell:
+                CreateLightningBolts();
+                break;
+            case Cards.VoidPortalSpell:
+                CreatedPortal = Instantiate(voidPortal, transform.position, transform.rotation);
+                CreatedPortal.GetComponent<VoidPortal>().damage = int.Parse(damageText.text);
+                break;
+            default:
+                break;
+        }
+
+        for (int i = 0; i < enemiesInRange.Count; i++)
         {
             switch (spellCardType)
             {
                 case Cards.FireballSpell:
                     enemiesInRange[i].GetComponent<Enemy>().spellDamageToTake = int.Parse(damageText.text);
                     enemiesInRange[i].GetComponent<Enemy>().spellFireTimer = 120;
-                    Instantiate(fireExplosion, transform.position, transform.rotation);
                     break;
                 case Cards.IceStormSpell:
                     enemiesInRange[i].GetComponent<Enemy>().spellFrozenTimer = 120;
-                    Instantiate(iceExplosion, transform.position, transform.rotation);
                     break;
                 case Cards.LightningStrikeSpell:
-                    CreateLightningBolts();
                     break;
                 case Cards.VoidPortalSpell:
                     break;

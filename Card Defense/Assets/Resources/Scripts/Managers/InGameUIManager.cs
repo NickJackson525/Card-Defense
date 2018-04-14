@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ public class InGameUIManager : MonoBehaviour
 {
     #region Variables
 
+    public GameObject waveNumberSignPost;
+    public Text waveNumber;
     public Text mana1;
     public Text mana2;
     public Image manaImage1;
@@ -20,6 +23,9 @@ public class InGameUIManager : MonoBehaviour
     private Sprite iceImage;
     private Sprite lightningImage;
     private Sprite voidImage;
+    private Sprite grassSign;
+    private Sprite snowSign;
+    private Sprite desertSign;
 
     #endregion
 
@@ -32,6 +38,10 @@ public class InGameUIManager : MonoBehaviour
         iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice/Ice Symbol");
         lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
         voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
+        grassSign = Resources.Load<Sprite>("Sprites/UI/Signs/Grass Sign");
+        snowSign = Resources.Load<Sprite>("Sprites/UI/Signs/Snow Sign");
+        desertSign = Resources.Load<Sprite>("Sprites/UI/Signs/Desert Sign");
+
         pauseMenu = GameObject.Find("PauseCanvas");
     }
 
@@ -53,6 +63,7 @@ public class InGameUIManager : MonoBehaviour
 
         mana1.text = numManaType1.ToString();
         mana2.text = numManaType2.ToString();
+        waveNumber.text = "Wave\n" + (int)GameManager.Instance.currentWave + " / " + Enum.GetNames(typeof(WaveNumber)).Length;
 
         switch (GameManager.Instance.deckType1)
         {

@@ -21,6 +21,8 @@ TagManager:
   - LightningResource
   - VoidResource
   - EndGamePopup
+  - Fire
+  - Portal
   layers:
   - Default
   - TransparentFX
