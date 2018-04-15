@@ -2,10 +2,10 @@
 # Wavefront file for 'LevelSelectMap_mesh_0087.obj'
 
 # Vertices (Count = 4)
-v -3840 -768 0
-v -3985 -768 0
-v -3985 -653 0
-v -3840 -653 0
+v -1536 -256 0
+v -1596 -256 0
+v -1596 -196 0
+v -1536 -196 0
 
 # Texture cooridinates (Count = 4)
 vt 0 0

@@ -8,7 +8,7 @@ public class SettingsManager : MonoBehaviour
 {
     #region Variables
 
-    public GameObject settingsCanvas;
+    public GameObject settingsWindow;
     public GameObject endGamePopup;
     public GameObject easyButton;
     public GameObject mediumButton;
@@ -116,18 +116,18 @@ public class SettingsManager : MonoBehaviour
 
     public void SettingsPopup()
     {
-        if (settingsCanvas.activeSelf)
+        if (!settingsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
-            settingsCanvas.SetActive(false);
+            settingsWindow.GetComponent<Animator>().SetBool("isHidden", true);
 
-            if(GameManager.Instance.Paused)
+            if (GameManager.Instance.Paused)
             {
                 GameManager.Instance.Paused = false;
             }
         }
         else
         {
-            settingsCanvas.SetActive(true);
+            settingsWindow.GetComponent<Animator>().SetBool("isHidden", false);
         }
     }
 

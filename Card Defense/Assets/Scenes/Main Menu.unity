@@ -215,16 +215,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114402221251358702, guid: e9d340d1711081b4abb552a7ee8fae0a,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1328682373}
     - target: {fileID: 223307170615601498, guid: e9d340d1711081b4abb552a7ee8fae0a,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733231737}
+    - target: {fileID: 114402221251358702, guid: e9d340d1711081b4abb552a7ee8fae0a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1328682373}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9d340d1711081b4abb552a7ee8fae0a, type: 2}
   m_IsPrefabParent: 0
@@ -325,20 +325,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114703728258201896, guid: aaf9a1090e4eb9a409e34ab994c7e01f,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1328682373}
     - target: {fileID: 223773752413825548, guid: aaf9a1090e4eb9a409e34ab994c7e01f,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733231737}
-    - target: {fileID: 1901823223101992, guid: aaf9a1090e4eb9a409e34ab994c7e01f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114703728258201896, guid: aaf9a1090e4eb9a409e34ab994c7e01f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1328682373}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aaf9a1090e4eb9a409e34ab994c7e01f, type: 2}
   m_IsPrefabParent: 0
@@ -613,49 +609,23 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114430527509359990, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1328682373}
     - target: {fileID: 223836875275491714, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 733231737}
+    - target: {fileID: 114430527509359990, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1328682373}
     - target: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
       propertyPath: m_Name
       value: Settings Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1274123995193066, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ad1f44fff3d8e54c9a69afb461d1ad2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1614417240 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1942888391554762, guid: f1a1e063a143dec47bfa505e42fd42cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1705900950}
---- !u!95 &1614417245
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1614417240}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fc08271a5fb90c949abaa74cfb5a9c78, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1705900950
 Prefab:
   m_ObjectHideFlags: 0
@@ -773,16 +743,6 @@ Prefab:
       propertyPath: creditsWindow
       value: 
       objectReference: {fileID: 132311119}
-    - target: {fileID: 224116318045723640, guid: f1a1e063a143dec47bfa505e42fd42cd,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 224070369921647074, guid: f1a1e063a143dec47bfa505e42fd42cd,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 237
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1a1e063a143dec47bfa505e42fd42cd, type: 2}
   m_IsPrefabParent: 0

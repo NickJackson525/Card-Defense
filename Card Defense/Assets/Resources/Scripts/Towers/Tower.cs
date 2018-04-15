@@ -69,6 +69,8 @@ public class Tower : MonoBehaviour
         {
             gameObject.tag = type.ToString() + "Resource";
         }
+
+        ChangeTowerArt();
     }
 
     #endregion
@@ -183,21 +185,26 @@ public class Tower : MonoBehaviour
                             {
                                 case DeckType.Basic:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.white;
+                                    GetComponentInChildren<TrailRenderer>().enabled = false;
                                     break;
                                 case DeckType.Fire:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.red;
                                     break;
                                 case DeckType.Ice:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                                    GetComponentInChildren<TrailRenderer>().enabled = false;
                                     break;
                                 case DeckType.Lightning:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                                    GetComponentInChildren<TrailRenderer>().enabled = false;
                                     break;
                                 case DeckType.Void:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                                    GetComponentInChildren<TrailRenderer>().enabled = false;
                                     break;
                                 default:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.black;
+                                    GetComponentInChildren<TrailRenderer>().enabled = false;
                                     break;
                             }
 
@@ -299,6 +306,22 @@ public class Tower : MonoBehaviour
     #endregion
 
     #region Private Methods
+
+    private void ChangeTowerArt()
+    {
+        if(LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Map].Contains("Grass"))
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardName][CardElement.GrassTowerSprite]);
+        }
+        else if (LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Map].Contains("Snow"))
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardName][CardElement.SnowTowerSprite]);
+        }
+        else if (LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel][LevelElements.Map].Contains("Desert"))
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[thisCardName][CardElement.DesertTowerSprite]);
+        }
+    }
 
     /// <summary>
     /// This method finds the closest enemy to the tower and returns a reference to it
@@ -403,7 +426,7 @@ public class Tower : MonoBehaviour
             createdTower.GetComponent<Tower>().damage = int.Parse(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.Damage]);
             createdTower.GetComponent<Tower>().range = int.Parse(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.Range]);
             createdTower.GetComponent<Tower>().currentLevel = currentLevel + 1;
-            createdTower.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.TowerSprite]);
+            createdTower.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(GameManager.Instance.CardLibrary[createdTower.GetComponent<Tower>().thisCardName][CardElement.GrassTowerSprite]);
             createdTower.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             createdTower.GetComponent<Tower>().collRadius.SetActive(false);
         }

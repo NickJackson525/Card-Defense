@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 114948601376642414}
   - component: {fileID: 114294128242891202}
   m_Layer: 5
-  m_Name: Level 2 Sign
+  m_Name: Level 3 Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,13 +472,14 @@ GameObject:
   - component: {fileID: 222715915264079754}
   - component: {fileID: 114273825506418552}
   - component: {fileID: 114931446268523438}
+  - component: {fileID: 114057237687228694}
   m_Layer: 5
-  m_Name: Level 3 Sign
+  m_Name: Level 2 Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1570286759179930
 GameObject:
   m_ObjectHideFlags: 1
@@ -1041,6 +1042,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114057237687228694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538785604611308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c303c31f5396ed49aa5544694ef7931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  star1: {fileID: 114408792685175584}
+  star2: {fileID: 114691113528593712}
+  star3: {fileID: 114235891853694120}
+  difficultyCrown: {fileID: 114120333970601130}
 --- !u!114 &114058290171332584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1501,7 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c303c31f5396ed49aa5544694ef7931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 2
   star1: {fileID: 114008131794592434}
   star2: {fileID: 114967656257186080}
   star3: {fileID: 114419767108497498}
@@ -2565,7 +2582,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114273825506418552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114607379073121974}
+        m_MethodName: LevelInfoPanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114935695933487260
@@ -2667,7 +2695,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3072,8 +3100,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 6
+  m_SortingLayerID: 1137747889
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &224046441599139306
 RectTransform:
@@ -3498,7 +3526,7 @@ RectTransform:
   - {fileID: 224726865425494780}
   - {fileID: 224840738799338774}
   m_Father: {fileID: 224934996566449004}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3618,11 +3646,11 @@ RectTransform:
   - {fileID: 224765216210482020}
   - {fileID: 224925855275115988}
   m_Father: {fileID: 224934996566449004}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.6, y: 221.7}
+  m_AnchoredPosition: {x: -174.1, y: 134.5}
   m_SizeDelta: {x: 67, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224704690687973906
@@ -3892,8 +3920,8 @@ RectTransform:
   m_LocalScale: {x: 0.076733336, y: 0.076733336, z: 0.076733336}
   m_Children:
   - {fileID: 224641826294029756}
-  - {fileID: 224597651175991168}
   - {fileID: 224681984119995860}
+  - {fileID: 224597651175991168}
   - {fileID: 224243102823465752}
   - {fileID: 224938500370220014}
   - {fileID: 224979696036481780}

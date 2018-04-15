@@ -110,10 +110,103 @@ public class Spawner : MonoBehaviour
 
         #endregion
 
-        #region Winter Map 1
+        #region Grass Map 2
 
         {
             LevelNumber.Two, new Dictionary<WaveNumber, List<int>>
+            {
+                #region Wave 1
+
+                {
+                    WaveNumber.One, new List<int>
+                    {
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 2
+
+                {
+                    WaveNumber.Two, new List<int>
+                    {
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 3
+
+                {
+                    WaveNumber.Three, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 4
+
+                {
+                    WaveNumber.Four, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 5
+
+                {
+                    WaveNumber.Five, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                    }
+                },
+
+                #endregion
+            }
+        },
+
+        #endregion
+
+        #region Snow Map 1
+
+        {
+            LevelNumber.Three, new Dictionary<WaveNumber, List<int>>
             {
                 #region Wave 1
 
@@ -295,7 +388,11 @@ public class Spawner : MonoBehaviour
                 GameManager.Instance.Paused = true;
                 GameManager.Instance.endGamePopup.SetActive(true);
                 GameManager.Instance.endGamePopup.GetComponent<EndGamePopup>().title.text = "Victory!";
-                LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel + 1][LevelElements.isLevelLocked] = "False";
+
+                if (((int)GameManager.Instance.currentLevel + 1) < Enum.GetNames(typeof(LevelNumber)).Length)
+                {
+                    LevelSelectManager.Instance.LevelLibrary[GameManager.Instance.currentLevel + 1][LevelElements.isLevelLocked] = "False";
+                }
 
                 if (GameManager.Instance.baseHealth == 100)
                 {

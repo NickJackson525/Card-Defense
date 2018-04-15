@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4447776088270836}
   - component: {fileID: 212198702511118364}
+  - component: {fileID: 114920473631403722}
   m_Layer: 0
   m_Name: Mana_stone
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816864897250746}
   - component: {fileID: 212772467631069254}
+  - component: {fileID: 114518000011626832}
   m_Layer: 0
   m_Name: Radius
   m_TagString: Untagged
@@ -56,6 +58,7 @@ GameObject:
   - component: {fileID: 58528627472084164}
   - component: {fileID: 61679089733794312}
   - component: {fileID: 50120226500854326}
+  - component: {fileID: 114211668227395136}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -83,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707545682993690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6625714, y: 1.5019482, z: 0}
+  m_LocalPosition: {x: -7.2857676, y: 1.3041553, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4447776088270836}
@@ -151,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.32257146}
+  m_Offset: {x: 0, y: -0.4321549}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 0.91530955}
+  m_Size: {x: 1.7, y: 0.6961427}
   m_EdgeRadius: 0
 --- !u!114 &114078659250906702
 MonoBehaviour:
@@ -187,6 +190,45 @@ MonoBehaviour:
   damage: 1
   range: 3
   isPlaced: 0
+--- !u!114 &114211668227395136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707545682993690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db0c61cc8728354bbfb8bcc2561ec7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1707545682993690}
+  orderOffset: 0
+--- !u!114 &114518000011626832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449347595281428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db0c61cc8728354bbfb8bcc2561ec7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1707545682993690}
+  orderOffset: -1
+--- !u!114 &114920473631403722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084770999788432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db0c61cc8728354bbfb8bcc2561ec7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1707545682993690}
+  orderOffset: 1
 --- !u!212 &212198702511118364
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -218,9 +260,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 1276054757
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: cda80a138c42af946b75f784d190f160, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -262,9 +304,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1276054757
+  m_SortingLayer: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8ffc799d71c2e8c42be31094fd9c1e5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.622}
   m_FlipX: 0
@@ -306,9 +348,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingLayerID: 1276054757
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1c3d411444b927e4c811d60c75e986df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

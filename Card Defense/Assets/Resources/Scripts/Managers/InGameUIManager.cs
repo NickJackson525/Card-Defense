@@ -23,9 +23,6 @@ public class InGameUIManager : MonoBehaviour
     private Sprite iceImage;
     private Sprite lightningImage;
     private Sprite voidImage;
-    private Sprite grassSign;
-    private Sprite snowSign;
-    private Sprite desertSign;
 
     #endregion
 
@@ -38,9 +35,6 @@ public class InGameUIManager : MonoBehaviour
         iceImage = Resources.Load<Sprite>("Sprites/Cards/Ice/Ice Symbol");
         lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
         voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
-        grassSign = Resources.Load<Sprite>("Sprites/UI/Signs/Grass Sign");
-        snowSign = Resources.Load<Sprite>("Sprites/UI/Signs/Snow Sign");
-        desertSign = Resources.Load<Sprite>("Sprites/UI/Signs/Desert Sign");
 
         pauseMenu = GameObject.Find("PauseCanvas");
     }

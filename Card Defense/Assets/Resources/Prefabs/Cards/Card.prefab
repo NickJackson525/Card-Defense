@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 61594617752139738}
   - component: {fileID: 61323370731956118}
   - component: {fileID: 58619594271256246}
+  - component: {fileID: 223683482973104514}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -730,6 +731,26 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1078083449418762}
+--- !u!223 &223683482973104514
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352829131372216}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: -872435695
+  m_SortingOrder: 3
+  m_TargetDisplay: 0
 --- !u!224 &224050307346126808
 RectTransform:
   m_ObjectHideFlags: 1
