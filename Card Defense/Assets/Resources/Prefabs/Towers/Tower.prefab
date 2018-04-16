@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4447776088270836}
   - component: {fileID: 212198702511118364}
-  - component: {fileID: 114920473631403722}
   m_Layer: 0
   m_Name: Mana_stone
   m_TagString: Untagged
@@ -37,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4816864897250746}
   - component: {fileID: 212772467631069254}
-  - component: {fileID: 114518000011626832}
   m_Layer: 0
   m_Name: Radius
   m_TagString: Untagged
@@ -59,6 +57,7 @@ GameObject:
   - component: {fileID: 61679089733794312}
   - component: {fileID: 50120226500854326}
   - component: {fileID: 114211668227395136}
+  - component: {fileID: 210555438147222704}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -86,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707545682993690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2857676, y: 1.3041553, z: 0}
+  m_LocalPosition: {x: -17.125929, y: 3.8572965, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4447776088270836}
@@ -203,32 +202,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1707545682993690}
   orderOffset: 0
---- !u!114 &114518000011626832
-MonoBehaviour:
+--- !u!210 &210555438147222704
+SortingGroup:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1449347595281428}
+  m_GameObject: {fileID: 1707545682993690}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db0c61cc8728354bbfb8bcc2561ec7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 1707545682993690}
-  orderOffset: -1
---- !u!114 &114920473631403722
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084770999788432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db0c61cc8728354bbfb8bcc2561ec7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 1707545682993690}
-  orderOffset: 1
+  m_SortingLayerID: 1276054757
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!212 &212198702511118364
 SpriteRenderer:
   m_ObjectHideFlags: 1

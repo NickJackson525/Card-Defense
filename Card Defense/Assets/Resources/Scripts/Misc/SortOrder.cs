@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SortOrder : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class SortOrder : MonoBehaviour
 
     private int position;
 
-	void Update ()
+    void Update ()
     {
         position = Mathf.RoundToInt(parent.transform.position.y);
-        GetComponent<SpriteRenderer>().sortingOrder = (position * -1) + orderOffset;
+        GetComponent<SortingGroup>().sortingOrder = (position * -1) + orderOffset;
     }
 }

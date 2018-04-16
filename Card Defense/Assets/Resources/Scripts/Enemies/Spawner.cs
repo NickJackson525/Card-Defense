@@ -134,12 +134,12 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Two, new List<int>
                     {
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
                     }
                 },
 
@@ -150,12 +150,12 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Three, new List<int>
                     {
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
                     }
                 },
 
@@ -166,12 +166,12 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Four, new List<int>
                     {
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                     }
                 },
 
@@ -182,17 +182,17 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Five, new List<int>
                     {
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
                         {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
                         {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
                         {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
                     }
                 },
@@ -350,7 +350,7 @@ public class Spawner : MonoBehaviour
             {EnemyType.Sheep, Resources.Load<GameObject>("Prefabs/Enemies/Sheep") },
             {EnemyType.SpikedSheep, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Ram, Resources.Load<GameObject>("Prefabs/Enemies/Ram") },
-            {EnemyType.Boar, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
+            {EnemyType.Boar, Resources.Load<GameObject>("Prefabs/Enemies/Boar") },
             {EnemyType.Pig, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Bull, Resources.Load<GameObject>("Prefabs/Enemies/SpikedSheep") },
             {EnemyType.Goat, Resources.Load<GameObject>("Prefabs/Enemies/Goat") },

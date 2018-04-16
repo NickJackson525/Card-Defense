@@ -63,11 +63,8 @@ TagManager:
   - name: Background
     uniqueID: 1137747889
     locked: 0
-  - name: Towers
+  - name: TowersAndEnemies
     uniqueID: 1276054757
-    locked: 0
-  - name: Enemies
-    uniqueID: 3430840531
     locked: 0
   - name: CardEffects
     uniqueID: 219794415

@@ -178,33 +178,51 @@ public class Tower : MonoBehaviour
                             createdObject.GetComponent<Bullet>().damage = damage;
                             createdObject.GetComponent<Bullet>().type = type;
 
+                            if(thisCardName.ToString().Contains("Medium"))
+                            {
+                                createdObject.transform.localScale = new Vector3(createdObject.transform.localScale.x * 2, createdObject.transform.localScale.y * 2, createdObject.transform.localScale.z * 2);
+                                createdObject.GetComponentInChildren<TrailRenderer>().widthMultiplier = 2;
+                            }
+                            else if(thisCardName.ToString().Contains("Heavy"))
+                            {
+                                createdObject.transform.localScale = new Vector3(createdObject.transform.localScale.x * 3, createdObject.transform.localScale.y * 3, createdObject.transform.localScale.z * 3);
+                                createdObject.GetComponentInChildren<TrailRenderer>().widthMultiplier = 3;
+                            }
+
                             #region Color Bullet
 
                             //color the bullet based on the type of tower
                             switch (type)
                             {
                                 case DeckType.Basic:
-                                    createdObject.GetComponent<SpriteRenderer>().color = Color.white;
-                                    GetComponentInChildren<TrailRenderer>().enabled = false;
+                                    createdObject.GetComponent<SpriteRenderer>().color = Color.grey;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.grey;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.grey;
                                     break;
                                 case DeckType.Fire:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.red;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.red;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.yellow;
                                     break;
                                 case DeckType.Ice:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.blue;
-                                    GetComponentInChildren<TrailRenderer>().enabled = false;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.blue;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.white;
                                     break;
                                 case DeckType.Lightning:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.yellow;
-                                    GetComponentInChildren<TrailRenderer>().enabled = false;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.yellow;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.white;
                                     break;
                                 case DeckType.Void:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-                                    GetComponentInChildren<TrailRenderer>().enabled = false;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.magenta;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.white;
                                     break;
                                 default:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.black;
-                                    GetComponentInChildren<TrailRenderer>().enabled = false;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.black;
+                                    createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.black;
                                     break;
                             }
 
