@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 #region Enums
 
-public enum LevelNumber { One, Two, Three }
+public enum LevelNumber { One, Two, Three, Four, Five }
 
 public enum LevelElements
 {
@@ -96,16 +96,83 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap2" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
         #endregion
 
-        #region Level Three (Ice Map 1)
+        #region Level Three (Grass Map 3)
 
         {
             LevelNumber.Three, new Dictionary<LevelElements, string>
+            {
+                {LevelElements.Map, "Prefabs/Maps/GrassMap3" },        // path for resources.load to use to create the map
+                {LevelElements.MapLocation, "-24.09,18.01,0" },        // where to place the map in the world
+                {LevelElements.NodePrefab, "Prefabs/Paths/PathNode" }, // path for resources.load to use to create nodes
+                {LevelElements.Node1, "25.09,13.22,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node2, "-17.86,13.14,0" },               // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node3, "-20.39,9.75,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node4, "-17.94,6.59,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node5, "17.57,6.46,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node6, "19.84,4.76,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node7, "17.6,3.26,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node8, "-17.99,3.33,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node9, "-20.27,-0.09,0" },               // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node10, "-17.94,-3.3,0" },               // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node11, "25.22,-3.23,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.NumberOfNodes, "11" },                  // total number of nodes for this map
+                {LevelElements.SpawnerLocation, "25.99,13.21,0" },    // position to move the spawner to for this map
+                {LevelElements.Star1Unlocked, "False" },
+                {LevelElements.Star2Unlocked, "False" },
+                {LevelElements.Star3Unlocked, "False" },
+                {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap3" },
+                {LevelElements.DifficultyCompleted, "None" },
+                {LevelElements.isLevelLocked, "False" }
+            }
+        },
+
+        #endregion
+
+        #region Level Four (Grass Map 4)
+
+        {
+            LevelNumber.Four, new Dictionary<LevelElements, string>
+            {
+                {LevelElements.Map, "Prefabs/Maps/GrassMap4" },        // path for resources.load to use to create the map
+                {LevelElements.MapLocation, "-24.09,18.01,0" },        // where to place the map in the world
+                {LevelElements.NodePrefab, "Prefabs/Paths/PathNode" }, // path for resources.load to use to create nodes
+                {LevelElements.Node1, "-24.89,-3.62,0" },              // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node2, "-8.32,13.14,0" },               // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node3, "1.56,13.22,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node4, "13.12,1.73,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node5, "12.96,-1.95,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node6, "10.24,-3.47,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node7, "7.12,-2.51,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node8, "-0.6,5.85,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node9, "-3.32,7.29,0" },               // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node10, "-5.76,6.17,0" },               // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node11, "-16.09,-4.19,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node12, "-17.13,-6.67,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node13, "-15.69,-8.98,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.Node14, "6.38,-30.69,0" },                // position to create node at, will give them the count number in the creation loop
+                {LevelElements.NumberOfNodes, "14" },                  // total number of nodes for this map
+                {LevelElements.SpawnerLocation, "-26.98,-4.65,0" },    // position to move the spawner to for this map
+                {LevelElements.Star1Unlocked, "False" },
+                {LevelElements.Star2Unlocked, "False" },
+                {LevelElements.Star3Unlocked, "False" },
+                {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap4" },
+                {LevelElements.DifficultyCompleted, "None" },
+                {LevelElements.isLevelLocked, "False" }
+            }
+        },
+
+        #endregion
+
+        #region Level Five (Ice Map 1)
+
+        {
+            LevelNumber.Five, new Dictionary<LevelElements, string>
             {
                 {LevelElements.Map, "Prefabs/Maps/SnowMap1" },        // path for resources.load to use to create the map
                 {LevelElements.MapLocation, "-24.47,18.01,0" },        // where to place the map in the world
@@ -136,7 +203,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/SnowMap1" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 

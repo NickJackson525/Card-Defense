@@ -55,9 +55,12 @@ public class InGameUIManager : MonoBehaviour
             pauseMenu.SetActive(false);
         }
 
-        mana1.text = numManaType1.ToString();
-        mana2.text = numManaType2.ToString();
-        waveNumber.text = "Wave\n" + (int)GameManager.Instance.currentWave + " / " + Enum.GetNames(typeof(WaveNumber)).Length;
+        if (!GameManager.Instance.Paused)
+        {
+            mana1.text = numManaType1.ToString();
+            mana2.text = numManaType2.ToString();
+            waveNumber.text = "Wave\n" + (int)GameManager.Instance.currentWave + " / " + Enum.GetNames(typeof(WaveNumber)).Length;
+        }
 
         switch (GameManager.Instance.deckType1)
         {
