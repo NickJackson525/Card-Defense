@@ -333,23 +333,19 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1955202118}
-    - target: {fileID: 1906029020661412, guid: 68ba36829dc00af4da79bfcd4335c8d2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 223366823181079050, guid: 68ba36829dc00af4da79bfcd4335c8d2,
+    - target: {fileID: 114050185484570964, guid: 68ba36829dc00af4da79bfcd4335c8d2,
         type: 2}
-      propertyPath: m_SortingLayerID
-      value: -872435695
-      objectReference: {fileID: 0}
-    - target: {fileID: 223366823181079050, guid: 68ba36829dc00af4da79bfcd4335c8d2,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
+      propertyPath: settingsWindow
+      value: 
+      objectReference: {fileID: 353528521}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68ba36829dc00af4da79bfcd4335c8d2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &353528521 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1725128441495176, guid: 68ba36829dc00af4da79bfcd4335c8d2,
+    type: 2}
+  m_PrefabInternal: {fileID: 353528520}
 --- !u!1001 &557903748
 Prefab:
   m_ObjectHideFlags: 0

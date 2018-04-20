@@ -36,7 +36,7 @@ public class InGameUIManager : MonoBehaviour
         lightningImage = Resources.Load<Sprite>("Sprites/Cards/Lightning/Lightning Symbol");
         voidImage = Resources.Load<Sprite>("Sprites/Cards/Void/Void Symbol");
 
-        pauseMenu = GameObject.Find("PauseCanvas");
+        pauseMenu = GameObject.Find("PausePopup");
     }
 
     #endregion
@@ -48,11 +48,11 @@ public class InGameUIManager : MonoBehaviour
     {
         if (GameManager.Instance.Paused && !GameManager.Instance.endGamePopup.activeSelf)
         {
-            pauseMenu.SetActive(true);
+            pauseMenu.GetComponent<Animator>().SetBool("isHidden", false);
         }
         else
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.GetComponent<Animator>().SetBool("isHidden", true);
         }
 
         if (!GameManager.Instance.Paused)

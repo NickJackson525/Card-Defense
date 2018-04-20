@@ -198,11 +198,13 @@ public class Tower : MonoBehaviour
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.grey;
                                     createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.grey;
                                     createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.grey;
+                                    AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.basicTowerShoot);
                                     break;
                                 case DeckType.Fire:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.red;
                                     createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.red;
                                     createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.yellow;
+                                    AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.fireTowerShoot);
                                     break;
                                 case DeckType.Ice:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.blue;

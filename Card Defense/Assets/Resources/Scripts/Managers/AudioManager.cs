@@ -19,7 +19,10 @@ public enum Sound
     ButtonClick, DeckShuffle, DrawCard, TurnPage,
 
     //Enemies
-    Enemy1, Enemy2, Enemy3
+    Enemy1, Enemy2, Enemy3,
+
+    //Towers
+    basicTowerShoot, fireTowerShoot
 }
 
 #endregion
@@ -44,6 +47,8 @@ public class AudioManager
         {Sound.DeckShuffle, Resources.Load<AudioClip>("Sounds/Cards/Shuffle")},
         {Sound.DrawCard, Resources.Load<AudioClip>("Sounds/Cards/Draw")},
         {Sound.TurnPage, Resources.Load<AudioClip>("Sounds/UI/TurnPage")},
+        {Sound.basicTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/BasicShoot")},
+        {Sound.fireTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/Fireball")},
     };
 
     //audio sources for ui, effects, and background music
@@ -127,17 +132,15 @@ public class AudioManager
                 if ((effectsAudioSource != null) && !areEffectsMuted)
                 {
                     //stop whatever is already playing and play a new sound
-                    effectsAudioSource.Stop();
                     effectsAudioSource.PlayOneShot(SoundClips[soundToPlay], effectVolume);
                     effectsAudioSource.volume = effectVolume;
                 }
                 break;
             case AudioSourceType.UI:
                 //check that the audiosource exists and isn't playing a sound already
-                if ((UIAudioSource != null) && !UIAudioSource.isPlaying)
+                if (UIAudioSource != null)
                 {
                     //stop whatever is already playing and play a new sound
-                    UIAudioSource.Stop();
                     UIAudioSource.PlayOneShot(SoundClips[soundToPlay], UIVolume);
                     UIAudioSource.volume = UIVolume;
                 }
