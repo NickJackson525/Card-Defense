@@ -15,6 +15,8 @@ public class InstructionsManager : MonoBehaviour
 
     public void OpenCloseInfoPanel(GameObject panel)
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
         if(currentPanel && (currentPanel.activeSelf))
         {
             currentPanel.SetActive(false);
