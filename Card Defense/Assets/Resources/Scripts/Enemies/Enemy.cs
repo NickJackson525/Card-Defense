@@ -65,6 +65,11 @@ public class Enemy : PauseableObject
                 health /= 2;
                 break;
         }
+
+        //if(gameObject.name.Contains("Sheep"))
+        //{
+        //    AudioManager.Instance.PlaySound(AudioSourceType.Effects, (Sound)Random.Range((int)Sound.Sheep1,(int)Sound.Sheep3));
+        //}
     }
 
     #endregion

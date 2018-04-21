@@ -16,10 +16,10 @@ public enum Sound
     InGameBackgroundMusic1, InGameBackgroundMusic2, InGameBackgroundMusic3, InGameBackgroundMusic4,
 
     //sound effects
-    ButtonClick, DeckShuffle, DrawCard, TurnPage,
+    ButtonClick, DeckShuffle, DrawCard, TurnPage, AddCard,
 
     //Enemies
-    Enemy1, Enemy2, Enemy3,
+    Sheep1, Sheep2, Sheep3,
 
     //Towers
     basicTowerShoot, fireTowerShoot
@@ -46,9 +46,13 @@ public class AudioManager
         {Sound.ButtonClick, Resources.Load<AudioClip>("Sounds/UI/ButtonClick")},
         {Sound.DeckShuffle, Resources.Load<AudioClip>("Sounds/Cards/Shuffle")},
         {Sound.DrawCard, Resources.Load<AudioClip>("Sounds/Cards/Draw")},
+        {Sound.AddCard, Resources.Load<AudioClip>("Sounds/Cards/AddCard")},
         {Sound.TurnPage, Resources.Load<AudioClip>("Sounds/UI/TurnPage")},
         {Sound.basicTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/BasicShoot")},
         {Sound.fireTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/Fireball")},
+        {Sound.Sheep1, Resources.Load<AudioClip>("Sounds/Enemies/Sheep1")},
+        {Sound.Sheep2, Resources.Load<AudioClip>("Sounds/Enemies/Sheep2")},
+        {Sound.Sheep3, Resources.Load<AudioClip>("Sounds/Enemies/Sheep3")},
     };
 
     //audio sources for ui, effects, and background music

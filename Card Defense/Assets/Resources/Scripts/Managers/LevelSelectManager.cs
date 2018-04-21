@@ -89,8 +89,8 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Node14, "-19.07,1.56,0" },              // position to create node at, will give them the count number in the creation loop
                 {LevelElements.Node15, "-14.18,-3.27,0" },             // position to create node at, will give them the count number in the creation loop
                 {LevelElements.Node16, "25.63813,-3.15,0" },           // position to create node at, will give them the count number in the creation loop
-                {LevelElements.NumberOfNodes, "17" },                  // total number of nodes for this map
-                {LevelElements.SpawnerLocation, "-12.67,20.29,0" },    // position to move the spawner to for this map
+                {LevelElements.NumberOfNodes, "16" },                  // total number of nodes for this map
+                {LevelElements.SpawnerLocation, "-12.88,20.21,0" },    // position to move the spawner to for this map
                 {LevelElements.Star1Unlocked, "False" },
                 {LevelElements.Star2Unlocked, "False" },
                 {LevelElements.Star3Unlocked, "False" },
