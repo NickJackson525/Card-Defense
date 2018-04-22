@@ -57,11 +57,7 @@ public class Bullet : PauseableObject
 
     void Update ()
     {
-        if (target == null)
-        {
-            Destroy(this.gameObject);
-        }
-        else if (move)
+        if (move)
         {
             GetComponent<Rigidbody2D>().velocity = moveDirection.normalized * speed * Time.deltaTime;
         }

@@ -44,6 +44,7 @@ public class Tower : MonoBehaviour
     private int manaGenerationTimer = 800;                       // Used to control the time between each mana generatrion of this tower
     private int rand;
     private List<GameObject> enemyList = new List<GameObject>(); // Used to store all the enemies within range
+    private ParticleSystem.MainModule main;
 
     #endregion
 
@@ -68,6 +69,38 @@ public class Tower : MonoBehaviour
         if(thisCardName.ToString().Contains("Resource"))
         {
             gameObject.tag = type.ToString() + "Resource";
+
+            switch (type)
+            {
+                case DeckType.Basic:
+                    main = GetComponentInChildren<ParticleSystem>().main;
+                    main.startColor = new Color(1, .48f, .117f);
+                    break;
+                case DeckType.Fire:
+                    main = GetComponentInChildren<ParticleSystem>().main;
+                    main.startColor = Color.red;
+                    break;
+                case DeckType.Ice:
+                    main = GetComponentInChildren<ParticleSystem>().main;
+                    main.startColor = Color.blue;
+                    break;
+                case DeckType.Lightning:
+                    main = GetComponentInChildren<ParticleSystem>().main;
+                    main.startColor = Color.yellow;
+                    break;
+                case DeckType.Void:
+                    main = GetComponentInChildren<ParticleSystem>().main;
+                    main.startColor = Color.magenta;
+                    break;
+                default:
+                    main = GetComponentInChildren<ParticleSystem>().main;
+                    main.startColor = Color.red;
+                    break;
+            }
+        }
+        else
+        {
+            GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
         }
 
         ChangeTowerArt();
@@ -102,14 +135,43 @@ public class Tower : MonoBehaviour
                             if ((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 < GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length))
                             {
                                 UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+
+                                //reset timer
+                                manaGenerationTimer = 800;
                             }
                             else if ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 < GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length))
                             {
                                 UICanvas.GetComponent<InGameUIManager>().numManaType2++;
-                            }
 
-                            //reset timer
-                            manaGenerationTimer = 800;
+                                //reset timer
+                                manaGenerationTimer = 800;
+                            }
+                            else
+                            {
+                                manaGenerationTimer = 1;
+                            }
+                        }
+
+                        switch (type)
+                        {
+                            case DeckType.Basic:
+                                manaStone.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, new Color(1, .48f, .117f), (800f - manaGenerationTimer) / 800f);
+                                break;
+                            case DeckType.Fire:
+                                manaStone.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, (800f - manaGenerationTimer) / 800f);
+                                break;
+                            case DeckType.Ice:
+                                manaStone.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.blue, (800f - manaGenerationTimer) / 800f);
+                                break;
+                            case DeckType.Lightning:
+                                manaStone.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.yellow, (800f - manaGenerationTimer) / 800f);
+                                break;
+                            case DeckType.Void:
+                                manaStone.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.magenta, (800f - manaGenerationTimer) / 800f);
+                                break;
+                            default:
+                                manaStone.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, (800f - manaGenerationTimer) / 800f);
+                                break;
                         }
                     }
 
@@ -454,7 +516,7 @@ public class Tower : MonoBehaviour
         switch (type)
         {
             case DeckType.Basic:
-                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = new Color(1, .48f, .117f);
                 break;
             case DeckType.Fire:
                 createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
@@ -469,7 +531,7 @@ public class Tower : MonoBehaviour
                 createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
                 break;
             default:
-                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = new Color(1, .48f, .117f);
                 break;
         }
     }

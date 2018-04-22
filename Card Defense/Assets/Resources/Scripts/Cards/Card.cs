@@ -413,7 +413,7 @@ public class Card : PauseableObject
         switch (type)
         {
             case DeckType.Basic:
-                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = new Color(1, .48f, .117f);
                 break;
             case DeckType.Fire:
                 createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.red;
@@ -428,7 +428,7 @@ public class Card : PauseableObject
                 createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.magenta;
                 break;
             default:
-                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = Color.white;
+                createdTower.GetComponent<Tower>().manaStone.GetComponent<SpriteRenderer>().color = new Color(1, .48f, .117f);
                 break;
         }
     }

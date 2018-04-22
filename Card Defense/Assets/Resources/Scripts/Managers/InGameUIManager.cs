@@ -59,7 +59,7 @@ public class InGameUIManager : MonoBehaviour
         {
             mana1.text = numManaType1.ToString();
             mana2.text = numManaType2.ToString();
-            waveNumber.text = "Wave\n" + (int)GameManager.Instance.currentWave + " / " + Enum.GetNames(typeof(WaveNumber)).Length;
+            waveNumber.text = "Wave\n" + (int)GameManager.Instance.currentWave + " / " + (Enum.GetNames(typeof(WaveNumber)).Length - 1);
         }
 
         switch (GameManager.Instance.deckType1)

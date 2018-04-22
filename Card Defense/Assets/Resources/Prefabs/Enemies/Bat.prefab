@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightningBolt: {fileID: 0}
+  teleport: {fileID: 0}
   spellFireTimer: 0
   spellFrozenTimer: 0
   spellDamageToTake: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   lightningTimer: 0
   lightningDamage: 0
   lightningLevel: 0
+  pathCount: 0
   currSpeed: 4
   naturalSpeed: 4
   health: 5

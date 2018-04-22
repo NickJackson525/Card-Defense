@@ -8,6 +8,7 @@ public class Enemy : PauseableObject
     #region Variables
 
     public GameObject lightningBolt;
+    public GameObject teleport;
     public int spellFireTimer = 0;                          //how long the damage over time from a spell will last
     public int spellFrozenTimer = 0;                       //how long the enemy will stay slowed
     public int spellDamageToTake = 0;                       //how much damage to take over time
@@ -16,6 +17,7 @@ public class Enemy : PauseableObject
     public int lightningTimer = 0;
     public int lightningDamage = 0;
     public int lightningLevel = 0;
+    public int pathCount = 0;                               //the current place the enemy is in the path
     public float currSpeed;                                 //the speed the enemy is currently moving
     public float naturalSpeed;                              //the speed the enemy goes without anything altering it
     public float health = 20f;                              //the health of the enemy
@@ -31,7 +33,6 @@ public class Enemy : PauseableObject
     private GameObject closestEnemy;
     private List<GameObject> path = new List<GameObject>(); //stores the path for the enemy to take
     private Vector3 moveDirection;                          //the direction the enemy is currently moving in
-    private int pathCount = 0;                              //the current place the enemy is in the path
     private int bulletFireTimer = 0;                        //how long the damage over time from a bullet will last
     private int bulletFrozenTimer = 0;                      //how long the enemy will stay slowed
     private int bulletDamageToTake = 0;                     //how much damage to take over time
@@ -42,6 +43,8 @@ public class Enemy : PauseableObject
 
     protected virtual void Start ()
     {
+        teleport = Resources.Load<GameObject>("Prefabs/Towers/TeleportEffect");
+
         currSpeed = naturalSpeed;
 
         //get all the path nodes in the level
@@ -326,8 +329,9 @@ public class Enemy : PauseableObject
                     {
                         if (Random.Range(0, coll.GetComponent<Bullet>().voidTeleportChance) == 0)
                         {
-                            transform.position = path[0].transform.position;
-                            pathCount = 0;
+                            createdObject = Instantiate(teleport, transform.position, transform.rotation);
+                            createdObject.GetComponent<Teleport>().teleportedEnemy = gameObject;
+                            createdObject.GetComponent<Teleport>().positionToTeleportTo = path[0].transform.position;
                         }
                     }
 
@@ -354,8 +358,9 @@ public class Enemy : PauseableObject
             {
                 if (Random.Range(0, VoidPortal.voidTeleportChance) == 0)
                 {
-                    transform.position = path[0].transform.position;
-                    pathCount = 0;
+                    createdObject = Instantiate(teleport, transform.position, transform.rotation);
+                    createdObject.GetComponent<Teleport>().teleportedEnemy = gameObject;
+                    createdObject.GetComponent<Teleport>().positionToTeleportTo = path[0].transform.position;
                 }
             }
 
