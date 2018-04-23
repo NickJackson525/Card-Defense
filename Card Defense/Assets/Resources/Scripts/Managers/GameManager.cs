@@ -671,6 +671,7 @@ class GameManager
     public Deck deck = Resources.Load<Deck>("Scripts/Cards/Deck"); //a reference to a deck script
     public List<CardInfo> currentDeck = new List<CardInfo>();      //the current deck
     public GameObject endGamePopup;
+    public GameObject UICanvas;                                   //the ui canvas in the game
     public DeckType deckType1 = DeckType.None;                     //the first type that the deck is
     public DeckType deckType2 = DeckType.None;                     //the second type that the deck is
     public LevelNumber currentLevel = LevelNumber.One;
@@ -687,7 +688,6 @@ class GameManager
     public string previousScene;
 
     bool isPaused;                                                 //variable to pause the game
-    private GameObject UICanvas;                                   //the ui canvas in the game
     private DeckType createdCardType;                              //used for creating cards
     private int generateResourceTimer = 1200;
     private bool justGeneratedResourceType1 = false;
@@ -858,37 +858,37 @@ class GameManager
 
         #region Test Stuff
 
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            UICanvas.GetComponent<InGameUIManager>().numManaType1++;
-        }
+        //if (Input.GetKeyUp(KeyCode.LeftControl))
+        //{
+        //    UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.RightControl))
-        {
-            Save();
-            SceneManager.LoadScene("Main Menu");
-        }
+        //if (Input.GetKeyUp(KeyCode.RightControl))
+        //{
+        //    Save();
+        //    SceneManager.LoadScene("Main Menu");
+        //}
 
-        //test leveling to unlock cards
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            playerLevel = 1;
-        }
+        ////test leveling to unlock cards
+        //if (Input.GetKeyUp(KeyCode.Alpha1))
+        //{
+        //    playerLevel = 1;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            playerLevel = 2;
-        }
+        //if (Input.GetKeyUp(KeyCode.Alpha2))
+        //{
+        //    playerLevel = 2;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
-            playerLevel = 3;
-        }
+        //if (Input.GetKeyUp(KeyCode.Alpha3))
+        //{
+        //    playerLevel = 3;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            ResetPlayerData();
-        }
+        //if (Input.GetKeyUp(KeyCode.R))
+        //{
+        //    ResetPlayerData();
+        //}
 
         #endregion
 

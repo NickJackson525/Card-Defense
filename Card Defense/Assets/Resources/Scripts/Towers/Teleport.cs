@@ -7,12 +7,9 @@ public class Teleport : MonoBehaviour
     public GameObject teleportedEnemy;
     public Vector3 positionToTeleportTo;
 
-    private Vector3 startPosition;
-
 	// Use this for initialization
 	void Start ()
     {
-        startPosition = transform.position;
         teleportedEnemy.SetActive(false);
 	}
 	

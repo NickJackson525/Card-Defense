@@ -61,61 +61,61 @@ public class Deck : MonoBehaviour
 
     void Update ()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            GameManager.Instance.CreateDefaultDeck(Cards.BasicResource, Cards.Basic);
-            deck = GameManager.Instance.currentDeck;
-            isFull = true;
+        //if (Input.GetKeyUp(KeyCode.Alpha1))
+        //{
+        //    GameManager.Instance.CreateDefaultDeck(Cards.BasicResource, Cards.Basic);
+        //    deck = GameManager.Instance.currentDeck;
+        //    isFull = true;
 
-            Draw();
-            Draw();
-            Draw();
-            Draw();
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            GameManager.Instance.CreateDefaultDeck(Cards.FireResource, Cards.BasicFire);
-            deck = GameManager.Instance.currentDeck;
-            isFull = true;
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //}
+        //if (Input.GetKeyUp(KeyCode.Alpha2))
+        //{
+        //    GameManager.Instance.CreateDefaultDeck(Cards.FireResource, Cards.BasicFire);
+        //    deck = GameManager.Instance.currentDeck;
+        //    isFull = true;
 
-            Draw();
-            Draw();
-            Draw();
-            Draw();
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
-            GameManager.Instance.CreateDefaultDeck(Cards.IceResource, Cards.BasicIce);
-            deck = GameManager.Instance.currentDeck;
-            isFull = true;
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //}
+        //if (Input.GetKeyUp(KeyCode.Alpha3))
+        //{
+        //    GameManager.Instance.CreateDefaultDeck(Cards.IceResource, Cards.BasicIce);
+        //    deck = GameManager.Instance.currentDeck;
+        //    isFull = true;
 
-            Draw();
-            Draw();
-            Draw();
-            Draw();
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha4))
-        {
-            GameManager.Instance.CreateDefaultDeck(Cards.LightningResource, Cards.BasicLightning);
-            deck = GameManager.Instance.currentDeck;
-            isFull = true;
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //}
+        //if (Input.GetKeyUp(KeyCode.Alpha4))
+        //{
+        //    GameManager.Instance.CreateDefaultDeck(Cards.LightningResource, Cards.BasicLightning);
+        //    deck = GameManager.Instance.currentDeck;
+        //    isFull = true;
 
-            Draw();
-            Draw();
-            Draw();
-            Draw();
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha5))
-        {
-            GameManager.Instance.CreateDefaultDeck(Cards.VoidResource, Cards.BasicVoid);
-            deck = GameManager.Instance.currentDeck;
-            isFull = true;
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //}
+        //if (Input.GetKeyUp(KeyCode.Alpha5))
+        //{
+        //    GameManager.Instance.CreateDefaultDeck(Cards.VoidResource, Cards.BasicVoid);
+        //    deck = GameManager.Instance.currentDeck;
+        //    isFull = true;
 
-            Draw();
-            Draw();
-            Draw();
-            Draw();
-        }
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //    Draw();
+        //}
     }
 
     #endregion

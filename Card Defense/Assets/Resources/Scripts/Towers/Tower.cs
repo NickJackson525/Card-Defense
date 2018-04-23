@@ -36,6 +36,7 @@ public class Tower : MonoBehaviour
     private GameObject cardPrefab;
     private GameObject tower;                                    //the tower object that this card will create
     private GameObject towerToUpgrade;
+    private GameObject resourceEffect;
     private Vector3 mousePosition;
     private bool canShoot = true;                                // Used to control when this tower can shoot
     private bool canBePlaced = true;                             // Used to limit where the tower cna be placed at
@@ -59,6 +60,7 @@ public class Tower : MonoBehaviour
         bullet = Resources.Load<GameObject>("Prefabs/Towers/Bullet");
         lightningBolt = Resources.Load<GameObject>("Prefabs/Towers/LightningBolt");
         tower = Resources.Load<GameObject>("Prefabs/Towers/Tower");
+        resourceEffect = Resources.Load<GameObject>("Prefabs/Towers/ResourceEffect");
         UICanvas = GameObject.FindGameObjectWithTag("InGameUI");
 
         //scale range
@@ -134,21 +136,79 @@ public class Tower : MonoBehaviour
                             //determine which type this tower is and update the appropriate mana type
                             if ((GameManager.Instance.deckType1 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType1 < GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length))
                             {
-                                UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+                                createdObject = Instantiate(resourceEffect, transform.position, transform.rotation);
+                                createdObject.GetComponent<ResourceEffect>().manaType = 1;
+
+                                switch (type)
+                                {
+                                    case DeckType.Basic:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = new Color(1, .48f, .117f);
+                                        break;
+                                    case DeckType.Fire:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.red;
+                                        break;
+                                    case DeckType.Ice:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.blue;
+                                        break;
+                                    case DeckType.Lightning:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.yellow;
+                                        break;
+                                    case DeckType.Void:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.magenta;
+                                        break;
+                                    default:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.red;
+                                        break;
+                                }
 
                                 //reset timer
                                 manaGenerationTimer = 800;
                             }
                             else if ((GameManager.Instance.deckType2 == type) && (UICanvas.GetComponent<InGameUIManager>().numManaType2 < GameObject.FindGameObjectsWithTag(type.ToString() + "Resource").Length))
                             {
-                                UICanvas.GetComponent<InGameUIManager>().numManaType2++;
+                                createdObject = Instantiate(resourceEffect, transform.position, transform.rotation);
+                                createdObject.GetComponent<ResourceEffect>().manaType = 2;
+
+                                switch (type)
+                                {
+                                    case DeckType.Basic:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = new Color(1, .48f, .117f);
+                                        break;
+                                    case DeckType.Fire:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.red;
+                                        break;
+                                    case DeckType.Ice:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.blue;
+                                        break;
+                                    case DeckType.Lightning:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.yellow;
+                                        break;
+                                    case DeckType.Void:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.magenta;
+                                        break;
+                                    default:
+                                        main = createdObject.GetComponent<ParticleSystem>().main;
+                                        main.startColor = Color.red;
+                                        break;
+                                }
 
                                 //reset timer
                                 manaGenerationTimer = 800;
                             }
                             else
                             {
-                                manaGenerationTimer = 1;
+                                manaGenerationTimer = 800;
                             }
                         }
 
