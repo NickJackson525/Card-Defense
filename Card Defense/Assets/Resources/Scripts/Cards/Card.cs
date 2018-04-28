@@ -442,15 +442,19 @@ public class Card : PauseableObject
         switch (spellCardType)
         {
             case Cards.FireballSpell:
+                AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.fireTowerShoot);
                 Instantiate(fireExplosion, transform.position, transform.rotation);
                 break;
             case Cards.IceStormSpell:
+                AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.iceSpell);
                 Instantiate(iceExplosion, transform.position, transform.rotation);
                 break;
             case Cards.LightningStrikeSpell:
+                AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.lightningTowerShoot);
                 CreateLightningBolts();
                 break;
             case Cards.VoidPortalSpell:
+                AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.voidSpell);
                 CreatedPortal = Instantiate(voidPortal, transform.position, transform.rotation);
                 CreatedPortal.GetComponent<VoidPortal>().damage = int.Parse(damageText.text);
                 break;

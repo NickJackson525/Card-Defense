@@ -82,6 +82,7 @@ public class SettingsManager : MonoBehaviour
         {
             AudioManager.Instance.areEffectsMuted = true;
             AudioManager.Instance.MuteSounds(AudioSourceType.Effects);
+            AudioManager.Instance.MuteSounds(AudioSourceType.UI);
             muteButton.sprite = muted;
         }
     }
@@ -95,6 +96,7 @@ public class SettingsManager : MonoBehaviour
     public void LevelSelect()
     {
         AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+        AudioManager.Instance.PlayBackgroundMusic();
         GameManager.Instance.Paused = false;
         GameManager.Instance.ResetVariables();
         SceneManager.LoadScene("Level Select");
@@ -116,6 +118,8 @@ public class SettingsManager : MonoBehaviour
 
     public void SettingsPopup()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
         if (!settingsWindow.GetComponent<Animator>().GetBool("isHidden"))
         {
             settingsWindow.GetComponent<Animator>().SetBool("isHidden", true);

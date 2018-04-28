@@ -10,6 +10,8 @@ public class Teleport : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.teleport);
+
         teleportedEnemy.SetActive(false);
 	}
 	

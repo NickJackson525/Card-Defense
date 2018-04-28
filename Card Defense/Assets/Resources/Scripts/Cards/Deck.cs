@@ -146,7 +146,7 @@ public class Deck : MonoBehaviour
     {
         if ((deck.Count > 0) && (cardsInHand < 4))
         {
-            AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.DrawCard);
+            //AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.DrawCard);
 
             tempCard = deck[0];
             deck.RemoveAt(0);

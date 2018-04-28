@@ -288,6 +288,7 @@ public class Tower : MonoBehaviour
                             currentTarget.GetComponent<Enemy>().lightningTimer = 1;
                             currentTarget.GetComponent<Enemy>().lightningDamage = damage;
                             currentTarget.GetComponent<Enemy>().CreateLightningBolts();
+                            AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.lightningTowerShoot);
                         }
                         else
                         {
@@ -332,6 +333,7 @@ public class Tower : MonoBehaviour
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.blue;
                                     createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.blue;
                                     createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.white;
+                                    AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.iceTowerShoot);
                                     break;
                                 case DeckType.Lightning:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.yellow;
@@ -342,11 +344,13 @@ public class Tower : MonoBehaviour
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.magenta;
                                     createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.magenta;
                                     createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.white;
+                                    AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.voidTowerShoot);
                                     break;
                                 default:
                                     createdObject.GetComponent<SpriteRenderer>().color = Color.black;
                                     createdObject.GetComponentInChildren<TrailRenderer>().startColor = Color.black;
                                     createdObject.GetComponentInChildren<TrailRenderer>().endColor = Color.black;
+                                    AudioManager.Instance.PlaySound(AudioSourceType.Effects, Sound.basicTowerShoot);
                                     break;
                             }
 

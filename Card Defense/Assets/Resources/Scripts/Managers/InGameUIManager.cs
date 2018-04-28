@@ -140,4 +140,24 @@ public class InGameUIManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Button Methods
+
+    public void SettingsPopup()
+    {
+        AudioManager.Instance.PlaySound(AudioSourceType.UI, Sound.ButtonClick);
+
+        if (!pauseMenu.GetComponent<Animator>().GetBool("isHidden"))
+        {
+            pauseMenu.GetComponent<Animator>().SetBool("isHidden", true);
+            GameManager.Instance.Paused = false;
+        }
+        else
+        {
+            pauseMenu.GetComponent<Animator>().SetBool("isHidden", false);
+            GameManager.Instance.Paused = true;
+        }
+    }
+
+    #endregion
 }

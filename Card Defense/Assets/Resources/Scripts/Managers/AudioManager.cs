@@ -22,7 +22,7 @@ public enum Sound
     Sheep1, Sheep2, Sheep3,
 
     //Towers
-    basicTowerShoot, fireTowerShoot
+    basicTowerShoot, fireTowerShoot, iceTowerShoot, iceSpell, lightningTowerShoot, voidTowerShoot, voidSpell, teleport
 }
 
 #endregion
@@ -50,6 +50,12 @@ public class AudioManager
         {Sound.TurnPage, Resources.Load<AudioClip>("Sounds/UI/TurnPage")},
         {Sound.basicTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/BasicShoot")},
         {Sound.fireTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/Fireball")},
+        {Sound.iceTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/IceShoot")},
+        {Sound.iceSpell, Resources.Load<AudioClip>("Sounds/Towers/IceSpell")},
+        {Sound.lightningTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/LightningShoot")},
+        {Sound.voidTowerShoot, Resources.Load<AudioClip>("Sounds/Towers/voidShoot")},
+        {Sound.voidSpell, Resources.Load<AudioClip>("Sounds/Towers/voidPortal")},
+        {Sound.teleport, Resources.Load<AudioClip>("Sounds/Towers/teleport")},
         {Sound.Sheep1, Resources.Load<AudioClip>("Sounds/Enemies/Sheep1")},
         {Sound.Sheep2, Resources.Load<AudioClip>("Sounds/Enemies/Sheep2")},
         {Sound.Sheep3, Resources.Load<AudioClip>("Sounds/Enemies/Sheep3")},
@@ -142,7 +148,7 @@ public class AudioManager
                 break;
             case AudioSourceType.UI:
                 //check that the audiosource exists and isn't playing a sound already
-                if (UIAudioSource != null)
+                if ((UIAudioSource != null) && !areEffectsMuted)
                 {
                     //stop whatever is already playing and play a new sound
                     UIAudioSource.PlayOneShot(SoundClips[soundToPlay], UIVolume);

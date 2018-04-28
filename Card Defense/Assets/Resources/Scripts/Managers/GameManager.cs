@@ -880,10 +880,10 @@ class GameManager
         //    playerLevel = 2;
         //}
 
-        //if (Input.GetKeyUp(KeyCode.Alpha3))
-        //{
-        //    playerLevel = 3;
-        //}
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            playerLevel = 3;
+        }
 
         //if (Input.GetKeyUp(KeyCode.R))
         //{
