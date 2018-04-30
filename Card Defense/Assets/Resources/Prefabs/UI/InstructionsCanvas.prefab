@@ -534,7 +534,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 8899f22702db2b94ca75933bbce7b98e, type: 3}
     m_FontSize: 37
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 65
     m_Alignment: 4
@@ -760,7 +760,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 8899f22702db2b94ca75933bbce7b98e, type: 3}
     m_FontSize: 37
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -1188,8 +1188,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: The Deck Builder allows you to customize your deck with all the cards that
     have been unlocked. To add cards to your deck you must click on them. There must
-    be available slots in yyour deck, and the card has to be unlocked. To remove a
-    card from your deck you must left click it.
+    be available slots in your deck, and the card has to be unlocked. It is the same
+    process for removing cards from your deck, just click ont the card you want to
+    remove.
 --- !u!114 &114693584856732716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1481,7 +1482,7 @@ MonoBehaviour:
 
     Resources:
 
-    Buildings that can be placed to generate resources to play spells.'
+    Buildings that can be placed to generate resources to play spells and towers.'
 --- !u!114 &114921198450980114
 MonoBehaviour:
   m_ObjectHideFlags: 1

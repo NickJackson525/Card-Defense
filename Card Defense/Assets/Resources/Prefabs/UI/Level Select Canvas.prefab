@@ -333,13 +333,14 @@ GameObject:
   - component: {fileID: 222182507742929374}
   - component: {fileID: 114609629388905010}
   - component: {fileID: 114143998198379658}
+  - component: {fileID: 114942902777463872}
   m_Layer: 5
-  m_Name: Level 6 Sign
+  m_Name: Level 5 Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1404771879275682
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +354,7 @@ GameObject:
   - component: {fileID: 114948601376642414}
   - component: {fileID: 114294128242891202}
   m_Layer: 5
-  m_Name: Level 3 Sign
+  m_Name: Level 6 Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,13 +663,14 @@ GameObject:
   - component: {fileID: 222514709728786458}
   - component: {fileID: 114977160903052374}
   - component: {fileID: 114778065687081574}
+  - component: {fileID: 114569531383892950}
   m_Layer: 5
-  m_Name: Level 4 Sign
+  m_Name: Level 3 Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1795223708371508
 GameObject:
   m_ObjectHideFlags: 1
@@ -886,13 +888,14 @@ GameObject:
   - component: {fileID: 222065659300885698}
   - component: {fileID: 114818803896314186}
   - component: {fileID: 114886688601678496}
+  - component: {fileID: 114861482296591028}
   m_Layer: 5
-  m_Name: Level 5 Sign
+  m_Name: Level 4 Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &114008131794592434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1231,7 +1234,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114609629388905010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114607379073121974}
+        m_MethodName: LevelInfoPanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114152828671311730
@@ -1518,7 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c303c31f5396ed49aa5544694ef7931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
+  level: 5
   star1: {fileID: 114008131794592434}
   star2: {fileID: 114967656257186080}
   star3: {fileID: 114419767108497498}
@@ -1962,7 +1976,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778978494396712}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1983,6 +1997,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114569531383892950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792357712288260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c303c31f5396ed49aa5544694ef7931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
+  star1: {fileID: 114468729747343032}
+  star2: {fileID: 114024216748521664}
+  star3: {fileID: 114539840965477798}
+  difficultyCrown: {fileID: 114318178509088630}
 --- !u!114 &114571311034103966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2120,7 +2150,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5f63338672ed1e64e88b116897f1600c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26b97962075b98e4eacf4a5f6e0db159, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2134,7 +2164,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314685665979722}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2161,7 +2191,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895645261209194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2274,7 +2304,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114977160903052374}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114607379073121974}
+        m_MethodName: LevelInfoPanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114780953463540708
@@ -2337,14 +2378,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 26b97962075b98e4eacf4a5f6e0db159, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f63338672ed1e64e88b116897f1600c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2406,6 +2447,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114861482296591028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991824539469872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c303c31f5396ed49aa5544694ef7931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
+  star1: {fileID: 114660513419647886}
+  star2: {fileID: 114618268547068228}
+  star3: {fileID: 114566748195908022}
+  difficultyCrown: {fileID: 114530391354654710}
 --- !u!114 &114875900730542912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2498,7 +2555,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114818803896314186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114607379073121974}
+        m_MethodName: LevelInfoPanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114902928417361304
@@ -2623,6 +2691,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114942902777463872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1401658440112066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c303c31f5396ed49aa5544694ef7931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 4
+  star1: {fileID: 114823384527730364}
+  star2: {fileID: 114092812645660384}
+  star3: {fileID: 114012936042375720}
+  difficultyCrown: {fileID: 114087685395402348}
 --- !u!114 &114947493804873480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2695,7 +2779,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3284,11 +3368,11 @@ RectTransform:
   - {fileID: 224379611578996668}
   - {fileID: 224632874200299852}
   m_Father: {fileID: 224934996566449004}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241, y: 245}
+  m_AnchoredPosition: {x: 12.115723, y: 221.59995}
   m_SizeDelta: {x: 67, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224319182328629440
@@ -3418,7 +3502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.099983, y: 14.300009}
+  m_AnchoredPosition: {x: 35, y: 62.4}
   m_SizeDelta: {x: 94, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224474113334306520
@@ -3472,7 +3556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.900017, y: 14.3}
+  m_AnchoredPosition: {x: -34.5, y: 62.4}
   m_SizeDelta: {x: 94, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224526165810580240
@@ -3526,7 +3610,7 @@ RectTransform:
   - {fileID: 224726865425494780}
   - {fileID: 224840738799338774}
   m_Father: {fileID: 224934996566449004}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3921,10 +4005,10 @@ RectTransform:
   m_Children:
   - {fileID: 224641826294029756}
   - {fileID: 224681984119995860}
-  - {fileID: 224597651175991168}
   - {fileID: 224243102823465752}
   - {fileID: 224938500370220014}
   - {fileID: 224979696036481780}
+  - {fileID: 224597651175991168}
   - {fileID: 224612724586884730}
   - {fileID: 224854475493274612}
   - {fileID: 224371545303964376}
@@ -3952,11 +4036,11 @@ RectTransform:
   - {fileID: 224329339910871812}
   - {fileID: 224118657933683868}
   m_Father: {fileID: 224934996566449004}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286, y: 110.335236}
+  m_AnchoredPosition: {x: 251.9, y: 233.7}
   m_SizeDelta: {x: 67, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224963551825407832
@@ -4028,11 +4112,11 @@ RectTransform:
   - {fileID: 224979850963705950}
   - {fileID: 224416132487800866}
   m_Father: {fileID: 224934996566449004}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 199.6, y: 9.8}
+  m_AnchoredPosition: {x: 263.9, y: 54.4}
   m_SizeDelta: {x: 67, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224979850963705950
@@ -4050,7 +4134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9, y: 14.300009}
+  m_AnchoredPosition: {x: -0.000016391, y: 76.845}
   m_SizeDelta: {x: 94, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224994212235553422

@@ -203,7 +203,6 @@ public class Spawner : MonoBehaviour
 
         #endregion
 
-        //TODO: customize waves
         #region Grass Map 3
 
         {
@@ -214,10 +213,12 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.One, new List<int>
                     {
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
                     }
                 },
 
@@ -228,12 +229,13 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Two, new List<int>
                     {
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
                     }
                 },
 
@@ -244,12 +246,20 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Three, new List<int>
                     {
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                     }
                 },
 
@@ -260,12 +270,18 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Four, new List<int>
                     {
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
                     }
                 },
 
@@ -276,18 +292,23 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Five, new List<int>
                     {
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
-                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
                     }
                 },
 
@@ -297,7 +318,6 @@ public class Spawner : MonoBehaviour
 
         #endregion
 
-        //TODO: customize waves
         #region Grass Map 4
 
         {
@@ -308,10 +328,13 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.One, new List<int>
                     {
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
-                        {(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},{(int)EnemyType.Sheep},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
                     }
                 },
 
@@ -322,12 +345,20 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Two, new List<int>
                     {
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                         {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                         {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                         {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                         {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
                     }
                 },
 
@@ -338,12 +369,18 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Three, new List<int>
                     {
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
-                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
+                        {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
                     }
                 },
 
@@ -354,12 +391,23 @@ public class Spawner : MonoBehaviour
                 {
                     WaveNumber.Four, new List<int>
                     {
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
-                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
                     }
                 },
 
@@ -369,6 +417,84 @@ public class Spawner : MonoBehaviour
 
                 {
                     WaveNumber.Five, new List<int>
+                    {
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bear},
+                    }
+                },
+
+                #endregion
+            }
+        },
+
+        #endregion
+
+        #region Grass Map 5
+
+        {
+            LevelNumber.Five, new Dictionary<WaveNumber, List<int>>
+            {
+                #region Wave 1
+
+                {
+                    WaveNumber.One, new List<int>
+                    {
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.Boar},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 2
+
+                {
+                    WaveNumber.Two, new List<int>
+                    {
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},{(int)EnemyType.SpikedSheep},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                        {(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Ram},{(int)EnemyType.Boar},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 3
+
+                {
+                    WaveNumber.Three, new List<int>
                     {
                         {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
                         {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
@@ -382,6 +508,63 @@ public class Spawner : MonoBehaviour
                         {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
                         {(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Boar},{(int)EnemyType.Ram},
                         {(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},{(int)EnemyType.Bat},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 4
+
+                {
+                    WaveNumber.Four, new List<int>
+                    {
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},{(int)EnemyType.Boar},{(int)EnemyType.Ram},{(int)EnemyType.Bat},
+                    }
+                },
+
+                #endregion
+
+                #region Wave 5
+
+                {
+                    WaveNumber.Five, new List<int>
+                    {
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
+                        {(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},{(int)EnemyType.Boar},{(int)EnemyType.Bear},
                     }
                 },
 
@@ -394,7 +577,7 @@ public class Spawner : MonoBehaviour
         #region Snow Map 1
 
         {
-            LevelNumber.Five, new Dictionary<WaveNumber, List<int>>
+            LevelNumber.Six, new Dictionary<WaveNumber, List<int>>
             {
                 #region Wave 1
 

@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d69165b5384354897911a20de9dde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsWindow: {fileID: 0}
+  settingsWindow: {fileID: 1725128441495176}
   endGamePopup: {fileID: 0}
   easyButton: {fileID: 1608660832028026}
   mediumButton: {fileID: 1341963483922662}
@@ -1390,7 +1390,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 8899f22702db2b94ca75933bbce7b98e, type: 3}
     m_FontSize: 33
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 52
     m_Alignment: 4
