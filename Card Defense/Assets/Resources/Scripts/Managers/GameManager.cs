@@ -858,10 +858,10 @@ class GameManager
 
         #region Test Stuff
 
-        //if (Input.GetKeyUp(KeyCode.LeftControl))
-        //{
-        //    UICanvas.GetComponent<InGameUIManager>().numManaType1++;
-        //}
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            UICanvas.GetComponent<InGameUIManager>().numManaType1++;
+        }
 
         //if (Input.GetKeyUp(KeyCode.RightControl))
         //{
@@ -880,10 +880,10 @@ class GameManager
         //    playerLevel = 2;
         //}
 
-        //if (Input.GetKeyUp(KeyCode.Alpha3))
-        //{
-        //    playerLevel = 3;
-        //}
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            playerLevel = 3;
+        }
 
         //if (Input.GetKeyUp(KeyCode.R))
         //{

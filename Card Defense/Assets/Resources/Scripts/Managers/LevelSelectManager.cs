@@ -96,7 +96,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap2" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
@@ -128,7 +128,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap3" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
@@ -163,7 +163,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap4" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
@@ -198,7 +198,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/GrassMap5" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
@@ -238,7 +238,7 @@ public class LevelSelectManager : MonoBehaviour
                 {LevelElements.Star3Unlocked, "False" },
                 {LevelElements.MapScreenshot, "Sprites/UI/MapScreenshots/SnowMap1" },
                 {LevelElements.DifficultyCompleted, "None" },
-                {LevelElements.isLevelLocked, "True" }
+                {LevelElements.isLevelLocked, "False" }
             }
         },
 
